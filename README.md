@@ -1,2 +1,3 @@
 # algorithmics
-Solutions to the most interesting algorithmic problems
+
+Решения самых интересных алгоритмических задач
