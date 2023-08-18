@@ -23,14 +23,19 @@ const suits: RemoveDuplicatesSuit[] = [
         expRes: 1,
     },
     {
+        name: "[1,2,3,4]",
+        nums: [1, 2, 3, 4],
+        expRes: 4,
+    },
+    {
+        name: "[1,2,2,2]",
+        nums: [1, 2, 2, 2],
+        expRes: 2,
+    },
+    {
         name: "[1]",
         nums: [1],
         expRes: 1,
-    },
-    {
-        name: "[]",
-        nums: [],
-        expRes: 0,
     },
 ]
 

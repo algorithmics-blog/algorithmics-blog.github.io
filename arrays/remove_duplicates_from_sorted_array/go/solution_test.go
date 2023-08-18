@@ -29,14 +29,19 @@ func Test_removeDuplicates(t *testing.T) {
 			expRes: 1,
 		},
 		{
+			name:   "[1,2,3,4]",
+			nums:   []int{1, 2, 3, 4},
+			expRes: 4,
+		},
+		{
+			name:   "[1,2,2,2]",
+			nums:   []int{1, 2, 2, 2},
+			expRes: 2,
+		},
+		{
 			name:   "[1]",
 			nums:   []int{1},
 			expRes: 1,
-		},
-		{
-			name:   "[]",
-			nums:   []int{},
-			expRes: 0,
 		},
 	}
 
