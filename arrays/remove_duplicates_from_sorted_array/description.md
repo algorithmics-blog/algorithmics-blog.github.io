@@ -1,7 +1,7 @@
 # Удаление дубликатов из отсортированного массива
 [leetcode](https://leetcode.com/problems/remove-duplicates-from-sorted-array/description/)
 
-Сложность: легко
+Сложность: легкая
 
 ## Описание
 
