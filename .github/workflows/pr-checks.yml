@@ -22,11 +22,7 @@ jobs:
         uses: actions/setup-node@v2
         with:
           node-version: ${{ matrix.node-version }}
-      - name: Setup npm
-        uses: npm/action-setup@v2.0.1
-        with:
-          version: latest
-      - run: npm install
+      - run: npm ci
       - run: npm test
 
       # Go settings
