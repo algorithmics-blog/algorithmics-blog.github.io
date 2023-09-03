@@ -1,7 +1,7 @@
 # Лучшее время для покупки и продажи акций 2
 [leetcode](https://leetcode.com/problems/best-time-to-buy-and-sell-stock-ii/)
 
-Сложность: средняя
+Сложность: Средняя
 
 ## Оглавление
 
