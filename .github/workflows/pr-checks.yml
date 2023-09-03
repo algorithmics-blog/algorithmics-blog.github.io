@@ -1,0 +1,35 @@
+name: Run checks
+
+on:
+  pull_request:
+    branches: [ main ]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    strategy:
+      matrix:
+        node-version: [ 16.x ]
+        go-version: [ '1.20' ]
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+
+      # Node.js and npm settings
+      - name: Setup Node.js ${{ matrix.node-version }}
+        uses: actions/setup-node@v2
+        with:
+          node-version: ${{ matrix.node-version }}
+      - run: npm ci
+      - run: npm test
+
+      # Go settings
+      - name: Setup Go ${{ matrix.go-version }}
+        uses: actions/setup-go@v2
+        with:
+          go-version: ${{ matrix.go-version }}
+      - run: go version
+      - run: go mod download
+      - run: go test ./...
