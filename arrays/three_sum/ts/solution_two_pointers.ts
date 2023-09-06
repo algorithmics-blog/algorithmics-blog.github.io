@@ -1,4 +1,5 @@
 export const threeSumTwoPointers = (nums: number[]): number[][] => {
+    // Создаем массив для результатов
     const result: number[][] = []
 
     // Предварительно сортируем слайс по возрастанию

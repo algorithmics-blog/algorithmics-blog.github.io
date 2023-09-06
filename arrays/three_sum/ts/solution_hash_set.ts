@@ -1,4 +1,5 @@
 export const threeSumHashSet = (nums: number[]): number[][] => {
+    // Создаем массив для результатов
     const result: number[][] = []
 
     // Предварительно сортируем массив по возрастанию
@@ -12,7 +13,7 @@ export const threeSumHashSet = (nums: number[]): number[][] => {
             continue
         }
 
-        const indexMap: Record<number, boolean> = {}
+        const used = new Set<number>()
 
         for (let j = i + 1; j < nums.length; j++) {
             const secondNum = nums[j]
@@ -20,14 +21,14 @@ export const threeSumHashSet = (nums: number[]): number[][] => {
             // Высчитываем третье искомое число
             const thirdNum = 0 - firstNum - secondNum
 
-            if (indexMap[thirdNum]) {
+            if (used.has(thirdNum)) {
                 result.push([firstNum, secondNum, thirdNum])
                 while (j + 1 < nums.length && nums[j] == nums[j + 1]) {
                     j++
                 }
             }
 
-            indexMap[secondNum] = true
+            used.add(secondNum)
         }
     }
 

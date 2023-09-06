@@ -3,6 +3,7 @@ package main
 import "sort"
 
 func threeSumHashSet(nums []int) [][]int {
+	// Создаем слайс для результатов
 	result := make([][]int, 0)
 
 	// Предварительно сортируем слайс по возрастанию

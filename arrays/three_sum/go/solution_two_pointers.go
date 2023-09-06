@@ -3,6 +3,7 @@ package main
 import "sort"
 
 func threeSumTwoPointers(nums []int) [][]int {
+	// Создаем слайс для результатов
 	result := make([][]int, 0)
 
 	// Предварительно сортируем слайс по возрастанию
