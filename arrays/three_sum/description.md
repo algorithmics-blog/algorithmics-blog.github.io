@@ -1,4 +1,4 @@
-# Сумма двух чисел в массиве
+# Сумма трех чисел в массиве
 
 [leetcode](https://leetcode.com/problems/3sum/)
 
