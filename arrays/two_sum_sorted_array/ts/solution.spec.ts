@@ -34,7 +34,7 @@ const suits: Suit[] = [
     },
 ]
 
-describe('removeDuplicates', () => {
+describe('twoSum2', () => {
     suits.forEach(suit => {
         test(suit.name, () => {
             const res = twoSum(suit.nums, suit.target)
