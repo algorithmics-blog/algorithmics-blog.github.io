@@ -20,7 +20,7 @@ func Test_romanToInt(t *testing.T) {
 		{
 			name:     "LVIII",
 			in:       "LVIII",
-			expected: 1,
+			expected: 58,
 		},
 		{
 			name:     "MCMXCIV",
