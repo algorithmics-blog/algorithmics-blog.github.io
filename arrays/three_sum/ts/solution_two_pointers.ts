@@ -21,16 +21,16 @@ export const threeSumTwoPointers = (nums: number[]): number[][] => {
 
             if (sum == 0) {
                 result.push([num, nums[left], nums[right]])
-                right -= 1
-                left += 1
+                right--
+                left++
 
                 while (left < right && nums[left] == nums[left-1]) {
-                    left += 1
+                    left++
                 }
             } else if (sum > 0) {
-                right -= 1
+                right--
             } else {
-                left = left + 1
+                left++
             }
         }
     }
