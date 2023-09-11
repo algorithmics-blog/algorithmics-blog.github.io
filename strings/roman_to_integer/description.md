@@ -87,13 +87,13 @@
 
 ```go
 var runeToIntegerMap = map[rune]int{
-'I': 1,
-'V': 5,
-'X': 10,
-'L': 50,
-'C': 100,
-'D': 500,
-'M': 1000,
+    'I': 1,
+    'V': 5,
+    'X': 10,
+    'L': 50,
+    'C': 100,
+    'D': 500,
+    'M': 1000,
 }
 ```
 
@@ -102,18 +102,18 @@ var runeToIntegerMap = map[rune]int{
 
 ```go
 var runeToIntegerDecrementsMap = map[rune]map[rune]int{
-'I': {
-'V': 4,
-'X': 9,
-},
-'X': {
-'L': 40,
-'C': 90,
-},
-'C': {
-'D': 400,
-'M': 900,
-},
+    'I': {
+        'V': 4,
+        'X': 9,
+    },
+    'X': {
+        'L': 40,
+        'C': 90,
+    },
+    'C': {
+        'D': 400,
+        'M': 900,
+    },
 }
 ```
 
