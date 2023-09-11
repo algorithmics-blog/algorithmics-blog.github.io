@@ -6,16 +6,28 @@ import (
 	"github.com/stretchr/testify/assert"
 )
 
+type romanToIntSuit struct {
+	name     string
+	in       string
+	expected int
+}
+
 func Test_romanToInt(t *testing.T) {
-	testCases := []struct {
-		name     string
-		in       string
-		expected int
-	}{
+	testCases := []romanToIntSuit{
 		{
 			name:     "III",
 			in:       "III",
 			expected: 3,
+		},
+		{
+			name:     "IX",
+			in:       "IX",
+			expected: 9,
+		},
+		{
+			name:     "XL",
+			in:       "XL",
+			expected: 40,
 		},
 		{
 			name:     "LVIII",

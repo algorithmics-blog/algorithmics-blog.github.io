@@ -1,9 +1,5 @@
 package main
 
-func main() {
-
-}
-
 var runeToIntegerMap = map[rune]int{
 	'I': 1,
 	'V': 5,
