@@ -1,4 +1,4 @@
-import {twoSum} from "./solution";
+import { twoSum } from "./solution";
 
 type Suit = {
     name: string
