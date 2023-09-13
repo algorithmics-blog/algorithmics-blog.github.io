@@ -1,6 +1,6 @@
 # Поиск самого длинного общего префикса в строках
 
-[leetcode](https://leetcode.com/problems/best-time-to-buy-and-sell-stock-ii/)
+[leetcode](https://leetcode.com/problems/longest-common-prefix/)
 
 Сложность: Легкая
 
