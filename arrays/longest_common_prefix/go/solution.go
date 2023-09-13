@@ -9,31 +9,13 @@ func longestCommonPrefix(strs []string) string {
 		return ""
 	}
 
-	if len(strs) == 1 {
-		return strs[0]
-	}
-
 	prefix := make([]rune, 0)
-	firstStr := []rune(strs[0])
-	runesStrs := make([][]rune, 0, len(strs))
+	firstStr := strs[0]
 
-	for i := 1; i < len(strs); i++ {
-		if len([]rune(strs[i])) == 0 {
-			return ""
-		}
-
-		runesStrs = append(runesStrs, []rune(strs[i]))
-	}
-
-loop:
 	for idx, char := range firstStr {
-		for _, runesStr := range runesStrs {
-			if idx >= len(runesStr) {
-				break loop
-			}
-
-			if runesStr[idx] != char {
-				break loop
+		for _, str := range strs {
+			if idx >= len(str) || str[idx] != firstStr[idx] {
+				return string(prefix)
 			}
 		}
 
