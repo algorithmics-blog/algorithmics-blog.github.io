@@ -2,7 +2,8 @@
     "name": "algorithmics",
     "private": true,
     "scripts": {
-        "test": "jest"
+        "test": "jest",
+        "test:debug": "node --inspect-brk node_modules/.bin/jest --runInBand --config jest.config.ts"
     },
     "dependencies": {
         "@jest/types": "^29.6.1",
