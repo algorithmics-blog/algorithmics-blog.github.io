@@ -33,6 +33,11 @@ func Test_longestCommonPrefix(t *testing.T) {
 			expected: "dog",
 		},
 		{
+			name:     "[dog, dogs, ]",
+			in:       []string{"dog", "dogs", ""},
+			expected: "",
+		},
+		{
 			name:     "[dog]",
 			in:       []string{"dog"},
 			expected: "dog",
