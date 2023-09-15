@@ -3,7 +3,6 @@ export const threeSumNoSort = (nums: number[]): number[][] => {
 	const dups = new Set<number>()
 	const seen = new Map<number, number>()
 
-	debugger;
 	for (let i = 0; i < nums.length; i++){
 		const firstNum = nums[i]
 
@@ -19,7 +18,7 @@ export const threeSumNoSort = (nums: number[]): number[][] => {
 			// Высчитываем третье искомое число
 			const thirdNum = 0 - firstNum - secondNum
 
-			if (seen.has(thirdNum) && seen.get(thirdNum) === i) {
+			if (seen.has(thirdNum) && seen.get(thirdNum) === firstNum) {
 				// Собираем уникальную тройку
 				const triplet = [firstNum, secondNum, thirdNum]
 
@@ -30,7 +29,7 @@ export const threeSumNoSort = (nums: number[]): number[][] => {
 				uniq.add(triplet.join('.'))
 			}
 
-			seen.set(secondNum, i)
+			seen.set(secondNum, firstNum)
 		}
 	}
 
