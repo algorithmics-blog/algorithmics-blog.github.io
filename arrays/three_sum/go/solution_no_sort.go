@@ -28,11 +28,14 @@ func threeSumNoSort(nums []int) [][]int {
 			idx, ok := seen[thirdNum]
 
 			if ok && idx == i {
+				// Собираем уникальную тройку
 				triplet := []string{strconv.Itoa(firstNum), strconv.Itoa(secondNum), strconv.Itoa(thirdNum)}
+
+				// Сортируем тройку, чтобы избежать дублей
 				sort.Strings(triplet)
 
+				// Конвертируем тройку в строку и добавляем в map
 				str := strings.Join(triplet, ".")
-
 				uniq[str] = true
 			}
 
@@ -40,6 +43,7 @@ func threeSumNoSort(nums []int) [][]int {
 		}
 	}
 
+	// Разбираем map с уникальными ключами обратно в слайс троек
 	res := make([][]int, 0, len(uniq))
 
 	for key := range uniq {
