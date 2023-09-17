@@ -1,5 +1,4 @@
 export const longestCommonPrefix = (strs: string[]): string => {
-	debugger;
 	if (strs.length == 0) {
 		return ""
 	}
