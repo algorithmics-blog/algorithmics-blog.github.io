@@ -56,5 +56,4 @@ func Test_generateParenthesis(t *testing.T) {
 			assert.Equal(t, testCase.out, res)
 		})
 	}
-
 }
