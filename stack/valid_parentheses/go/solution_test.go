@@ -13,33 +13,38 @@ func Test_generateParenthesis(t *testing.T) {
 		out  bool
 	}{
 		{
-			name: "example_1",
+			name: "()",
 			in:   "()",
 			out:  true,
 		},
 		{
-			name: "example_2",
+			name: "()[]{}",
 			in:   "()[]{}",
 			out:  true,
 		},
 		{
-			name: "example_3",
+			name: "(]",
 			in:   "(]",
 			out:  false,
 		},
 		{
-			name: "example_4",
+			name: "((((",
 			in:   "((((",
 			out:  false,
 		},
 		{
-			name: "example_5",
+			name: "))))",
 			in:   "))))",
 			out:  false,
 		},
 		{
-			name: "example_6",
+			name: "(){",
 			in:   "(){",
+			out:  false,
+		},
+		{
+			name: "}{",
+			in:   "}{",
 			out:  false,
 		},
 	}
