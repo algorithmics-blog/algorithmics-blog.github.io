@@ -14,18 +14,13 @@ func Test_generateParenthesis(t *testing.T) {
 		out  []string
 	}{
 		{
-			name: "example_1",
+			name: "3",
 			in:   3,
 			out:  []string{"((()))", "(()())", "(())()", "()(())", "()()()"},
 		},
 		{
-			name: "example_2",
+			name: "1",
 			in:   1,
-			out:  []string{"()"},
-		},
-		{
-			name: "example_8",
-			in:   8,
 			out:  []string{"()"},
 		},
 	}
