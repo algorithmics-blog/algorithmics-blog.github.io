@@ -102,7 +102,7 @@ func powAbsNBruteforce(x float64, n int) float64 {
 	return res
 }
 ```
-А в основной функции добавим проверку на отрицательность n:
+А в основной функции добавим проверку на отрицательность `n`:
 ```go
 if n < 0 {
     return 1 / powAbsNBruteforce(x, -1*n)
