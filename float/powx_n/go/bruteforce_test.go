@@ -7,7 +7,7 @@ import (
 	"github.com/stretchr/testify/assert"
 )
 
-func Test_myPow(t *testing.T) {
+func Test_myPowBruteforce(t *testing.T) {
 	testCases := []struct {
 		name string
 		x    float64
@@ -54,7 +54,7 @@ func Test_myPow(t *testing.T) {
 
 	for _, testCase := range testCases {
 		t.Run(testCase.name, func(t *testing.T) {
-			res := myPow(testCase.x, testCase.n)
+			res := myPowBruteforce(testCase.x, testCase.n)
 
 			//  Обрезаем кол-во знаков после запятой, чтобы нивелировать проблемы с точностью чисел с плавающей точкой
 			assert.Equal(t, fmt.Sprintf("%.10f", testCase.out), fmt.Sprintf("%.10f", res))
