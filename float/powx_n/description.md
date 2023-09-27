@@ -125,7 +125,7 @@ return powAbsNBruteforce(x, n)
 
 Мы можем сократить кол-во умножений, если вспомним одно из свойств степеней.
 
-x<sup>n</sup> = (x * x)<sup>n/2</sup>.
+$$ x^n = {(x * x)^{n \over 2}} $$
 
 Например:
 2<sup>8</sup>=4<sup>4</sup>=16<sup>2</sup>=256.
