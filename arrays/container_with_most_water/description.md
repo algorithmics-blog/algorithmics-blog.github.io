@@ -157,32 +157,11 @@ if length*height[i] < res {
 }
 ```
 
-В итоге мы получим следующий брутфорс вариант, который уже сможет пройти проверку на leetcode:
-```go
-func maxArea(height []int) int {
-	res := 0
-	for i := 0; i < len(height)-1; i++ {
-		for j := len(height) - 1; j > i; j-- {
-			length := j - i
-			if length*height[i] < res {
-				break
-			}
+В итоге мы получим следующие решения.
 
-			minHeight := height[i]
-			if height[j] < minHeight {
-				minHeight = height[j]
-			}
+[Решение на GO](./go/solution_bruteforce.go)
 
-			square := minHeight * length
-			if square > res {
-				res = square
-			}
-		}
-	}
-
-	return res
-}
-```
+[Решение на TypeScript](./ts/solution_bruteforce.ts)
 
 ## <a name="sliding_window"></a>Решение через скользящее окно
 
@@ -200,41 +179,9 @@ func maxArea(height []int) int {
 На каждой итерации считаем площадь нового прямоугольника и сравниваем с максимумом.
 В случае, если и левая и правая сторона «аквариума» одинаковы — «сужаем» окно с обоих направлений.
 
-```go
-func maxArea(height []int) int {
-	res := 0
-	i := 0
-	j := len(height) - 1
+[Решение на GO](./go/solution.go)
 
-	for i < j {
-		length := j - i
-		minHeight := height[i]
-		if height[j] < minHeight {
-			minHeight = height[j]
-		}
-
-		square := length * minHeight
-		if square > res {
-			res = square
-		}
-
-		if height[i] < height[j] {
-			i++
-			continue
-		}
-
-		if height[j] < height[i] {
-			j--
-			continue
-		}
-
-		i++
-		j--
-	}
-
-	return res
-}
-```
+[Решение на TypeScript](./ts/solution.ts)
 
 ### Оценка сложности
 
