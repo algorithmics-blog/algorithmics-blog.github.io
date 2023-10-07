@@ -1,9 +1,5 @@
 package main
 
-func main() {
-
-}
-
 type parenthesisWithCounter struct {
 	str              string // генерированная строка
 	generalOpenCount int    // суммарное кол-во открытых скобок в строке (не должно превышать n)
