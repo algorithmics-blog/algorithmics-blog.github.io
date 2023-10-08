@@ -1,9 +1,9 @@
 export const minPathSum = (grid: number[][]): number => {
-    let i = 0;
-    let j = 0;
+    let i;
+    let j;
 
-    for (let i = 0; i < grid.length; i++) {
-        for (let j = 0; j < grid[i].length; j++) {
+    for (i = 0; i < grid.length; i++) {
+        for (j = 0; j < grid[i].length; j++) {
             if (i == 0 && j == 0) {
                 continue
             }
