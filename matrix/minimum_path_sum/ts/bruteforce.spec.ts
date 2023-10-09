@@ -1,4 +1,4 @@
-import { minPathSum } from "./solution";
+import { minPathSumBruteforce } from "./bruteforce";
 
 type Suit = {
     name: string
@@ -51,10 +51,10 @@ const suits: Suit[] = [
     },
 ]
 
-describe('minPathSum', () => {
+describe('minPathSumBruteforce', () => {
     suits.forEach(suit => {
         test(suit.name, () => {
-            const res = minPathSum(suit.grid)
+            const res = minPathSumBruteforce(suit.grid)
             expect(res).toEqual(suit.expected);
         })
     })
