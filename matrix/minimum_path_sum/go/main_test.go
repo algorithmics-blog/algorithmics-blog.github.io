@@ -42,17 +42,17 @@ func Test_minPathSum(t *testing.T) {
 			name: "example_4",
 			grid: [][]int{
 				{1},
-				{1},
-				{1},
+				{2},
+				{3},
 			},
-			expected: 3,
+			expected: 6,
 		},
 		{
 			name: "example_5",
 			grid: [][]int{
-				{1, 1, 2},
+				{1, 2, 3},
 			},
-			expected: 4,
+			expected: 6,
 		},
 	}
 
