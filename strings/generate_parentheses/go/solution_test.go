@@ -7,7 +7,7 @@ import (
 	"github.com/stretchr/testify/assert"
 )
 
-func Test_generateParenthesisBruteforce(t *testing.T) {
+func Test_generateParenthesis(t *testing.T) {
 	testCases := []struct {
 		name string
 		in   int
@@ -27,7 +27,7 @@ func Test_generateParenthesisBruteforce(t *testing.T) {
 
 	for _, testCase := range testCases {
 		t.Run(testCase.name, func(t *testing.T) {
-			res := generateParenthesisBruteforce(testCase.in)
+			res := generateParenthesis(testCase.in)
 			sort.Strings(res)
 			sort.Strings(testCase.out)
 
