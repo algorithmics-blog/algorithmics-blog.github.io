@@ -1,4 +1,4 @@
-# Самый дешевый путь в матрице
+# Игра в жизнь
 
 [leetcode](https://leetcode.com/problems/game-of-life/description/)
 
