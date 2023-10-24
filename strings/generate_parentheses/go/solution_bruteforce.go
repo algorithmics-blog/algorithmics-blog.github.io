@@ -1,10 +1,6 @@
 package main
 
 func generateParenthesisBruteforce(n int) []string {
-	if n < 1 {
-		return nil
-	}
-
 	combinations := generateAllPossibleParenthesis(n)
 	res := make([]string, 0, len(combinations))
 	for _, parenthesis := range combinations {
