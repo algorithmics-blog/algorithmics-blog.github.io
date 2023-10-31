@@ -73,17 +73,18 @@ func genAllSequences(nums []int) [][]seq {
 	for i := 3; i < len(nums); i++ {
 		temp := make([][]seq, 0, len(res))
 		for _, sequence := range res {
-			if sequence[len(sequence)-1].index == i-2 || sequence[len(sequence)-1].index == i-3 {
+			last := sequence[len(sequence)-1]
+
+			if last.index == i-2 || last.index == i-3 {
 				tmpSeq := make([]seq, 0, len(sequence))
 				tmpSeq = append(sequence, seq{
 					index: i,
-					sum:   sequence[len(sequence)-1].sum + nums[i],
+					sum:   last.sum + nums[i],
 				})
 				temp = append(temp, tmpSeq)
 			} else {
 				temp = append(temp, sequence)
 			}
-
 		}
 
 		res = temp

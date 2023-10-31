@@ -1,8 +1,5 @@
 package main
 
-// [1 9 10 9 5 6] -> [1 9 11 18 16 24]
-// [1 9 10 9 500 6] -> [1 9 11 18 511 24]
-
 func rob(nums []int) int {
 	switch len(nums) {
 	case 0:
