@@ -156,7 +156,7 @@ describe('Trie_search', () => {
         expected: Map<string, boolean>
     }[] = [
         {
-            name: "empty_tree",
+            name: "empty tree",
             wordsToInsert: [],
             expected: new Map([
                 ["ap", false],
@@ -168,7 +168,7 @@ describe('Trie_search', () => {
             ]),
         },
         {
-            name: "one_word",
+            name: "one word",
             wordsToInsert: ["app"],
             expected: new Map([
                 ["ap", false],
@@ -180,7 +180,7 @@ describe('Trie_search', () => {
             ]),
         },
         {
-            name: "several_word",
+            name: "several words",
             wordsToInsert: ["app", "apple", "bio"],
             expected: new Map([
                 ["ap", false],
