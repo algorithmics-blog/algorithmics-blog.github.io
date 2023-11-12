@@ -3,7 +3,8 @@
     "private": true,
     "scripts": {
         "test": "jest",
-        "test:debug": "node --inspect-brk node_modules/.bin/jest --runInBand --config jest.config.ts"
+        "test:debug": "node --inspect-brk node_modules/.bin/jest --runInBand --config jest.config.ts",
+        "typecheck": "npx tsc --noEmit --project ./tsconfig.json"
     },
     "dependencies": {
         "@jest/types": "^29.6.1",
