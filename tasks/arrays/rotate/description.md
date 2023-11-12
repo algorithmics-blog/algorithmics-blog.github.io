@@ -1,4 +1,4 @@
-# Удаление дубликатов из отсортированного массива
+# Разворот массива
 [leetcode](https://leetcode.com/problems/rotate-array/description/)
 
 Сложность: Средняя
