@@ -584,9 +584,10 @@ a:hover {
 .main-content hr {
     height: 2px;
     padding: 0;
-    margin: 1rem 0;
     background-color: #eff0f1;
     border: 0;
+    width: 300px;
+    margin: 3rem auto;
 }
 
 .site-footer {
