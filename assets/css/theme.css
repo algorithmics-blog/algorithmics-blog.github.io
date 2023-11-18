@@ -1,4 +1,4 @@
-.highlight table td {
+.highlight table:not(.highlight table) td {
     padding: 5px;
 }
 
@@ -426,8 +426,8 @@ a:hover {
 
 @media screen and (min-width: 64em) {
     .main-content {
-        max-width: 64rem;
-        padding: 2rem 6rem;
+        max-width: 52rem;
+        padding: 2rem 0;
         margin: 0 auto;
         font-size: 1.1rem;
     }
@@ -551,7 +551,6 @@ a:hover {
     display: block;
     width: 100%;
     overflow: auto;
-    word-break: normal;
     word-break: keep-all;
     -webkit-overflow-scrolling: touch;
 }
@@ -632,8 +631,10 @@ a:hover {
 .back {
     position: absolute;
     display: inline-flex;
-    left: -20px;
-    top: 80px;
+    left: 0;
+    top: 32px;
     font-size: 13px;
     align-items: center;
+    gap: 5px;
+    color: #878787;
 }

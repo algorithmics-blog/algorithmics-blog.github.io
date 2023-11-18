@@ -8,7 +8,7 @@ tag: medium
 
 ## Оглавление
 
-- [Описание задачи](#описание)
+- [Описание задачи](#описание-задачи)
 - [Ограничения](#ограничения)
 - [Примеры](#примеры)
 - [Решение через локальные минимумы и максимумы](#решение-через-локальные-минимумы-и-максимумы)
@@ -38,7 +38,7 @@ tag: medium
 
 {% tabs examples %}
 
-{% tab examples Пример 1 %}
+{% tab examples Пример №1 %}
 
 **Входные данные**: `[7,1,5,3,6,4]`
 
@@ -52,7 +52,7 @@ tag: medium
 
 {% endtab %}
 
-{% tab examples Пример 2 %}
+{% tab examples Пример №2 %}
 
 **Входные данные**: `[1,2,3,4,5]`
 
@@ -64,7 +64,7 @@ tag: medium
 
 {% endtab %}
 
-{% tab examples Пример 3 %}
+{% tab examples Пример №3 %}
 
 **Входные данные**: `[7,6,4,3,1]`
 
@@ -100,19 +100,7 @@ tag: medium
 Как только мы встречаем минимум, мы запоминаем цену в этот день. Как только встречаем максимум, мы вычисляем разницу между
 последним минимумом и максимальной ценой и прибавляем ее к нашему общему заработку.
 
-{% tabs solution1 %}
-{% tab solution1 go %}
-```go
-{% include_relative go/solution_min_max.go %}
-```
-{% endtab %}
-
-{% tab solution1 type script %}
-```typescript
-{% include_relative ts/solution_min_max.ts %}
-```
-{% endtab %}
-{% endtabs %}
+{% include code-example.md go_path="go/solution_min_max.go" ts_path="ts/solution_min_max.ts" %}
 
 ### Оценка сложности
 
@@ -138,20 +126,7 @@ tag: medium
 Это значит, что мы можем сильно упростить решение и не запоминать локальные минимумы и максимумы.
 Нам достаточно найти все возрастающие отрезки на графике и проссумировать разницу между ценой акции в эти дни.
 
-
-{% tabs solution1 %}
-{% tab solution1 go %}
-```go
-{% include_relative go/solution_trends.go %}
-```
-{% endtab %}
-
-{% tab solution1 type script %}
-```typescript
-{% include_relative ts/solution_trends.ts %}
-```
-{% endtab %}
-{% endtabs %}
+{% include code-example.md go_path="go/solution_trends.go" ts_path="ts/solution_trends.ts" %}
 
 ### Оценка сложности
 
