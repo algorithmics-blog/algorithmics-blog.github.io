@@ -1,0 +1,31 @@
+---
+layout: default
+title: {{ site.name }}
+---
+
+<div id="home">
+  <h1>Задачи</h1>
+  <ul class="posts">
+    {% for post in site.posts %}
+    <li><span>{{ post.date | date_to_string }}</span> «<a href="{{ site.baseurl }}{{ post.url }}">{{ post.title }}</a>»</li>
+    {% endfor %}
+  </ul>
+</div>
+
+{% for tag in site.tags %}
+<h3>Tag {{ tag[0] }}</h3>
+<ul>
+  {% for post in tag[1] %}
+  <li><a href="{{ post.url }}">{{ post.title }}</a></li>
+  {% endfor %}
+</ul>
+{% endfor %}
+
+{% for category in site.categories %}
+<h3>Category {{ category[0] }}</h3>
+<ul>
+  {% for post in category[1] %}
+  <li><a href="{{ post.url }}">{{ post.title }}</a></li>
+  {% endfor %}
+</ul>
+{% endfor %}

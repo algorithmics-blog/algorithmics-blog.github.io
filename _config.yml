@@ -1,0 +1,4 @@
+title: Algorithmics
+tagline: Хакаем алгоритмические собесы
+plugins:
+  - jekyll-tabs
