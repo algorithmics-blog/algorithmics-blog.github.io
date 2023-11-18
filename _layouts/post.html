@@ -26,12 +26,23 @@ layout: default
     {% if page.complexity == "hard" %}
     <span class="hard-complexity">Сложная</span>
     {% endif %}
-</p>
+    ,
 
-{{ content }}
+    {% assign minutes = post.content | strip_html | number_of_words | divided_by: 180 %}
+    {% if minutes == 0 %}
+        {% assign minutes = 1 %}
+    {% endif %}
+
+    <span>
+        {{ minutes }} min
+    </span>
+</p>
 
 {% if page.original_url %}
 <p>
-    <a href="{{ page.original_url }}" target="_blank">Оригинал задачи</a>
+    <a href="{{ page.original_url }}" target="_blank">Оригинал задачи на Leetcode</a>
 </p>
 {% endif %}
+
+{{ content }}
+

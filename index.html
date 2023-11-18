@@ -3,29 +3,43 @@ layout: default
 title: {{ site.name }}
 ---
 
-<div id="home">
-  <h1>Задачи</h1>
-  <ul class="posts">
-    {% for post in site.posts %}
-    <li><span>{{ post.date | date_to_string }}</span> «<a href="{{ site.baseurl }}{{ post.url }}">{{ post.title }}</a>»</li>
-    {% endfor %}
-  </ul>
+{% for post in paginator.posts %}
+
+{% assign minutes = post.content | strip_html | number_of_words | divided_by: 100 %}
+{% if minutes == 0 %}
+{% assign minutes = 1 %}
+{% endif %}
+
+<h2><a href="{{ post.url }}">{{ post.title }}</a></h2>
+<p class="author">
+  <span class="date">{{ post.date | date_to_long_string }}</span>,
+  <span>{{ minutes }} min</span>
+</p>
+{% endfor %}
+
+{% if paginator.total_pages > 1 %}
+<div>
+  {% if paginator.previous_page %}
+  <a href="{{ paginator.previous_page_path | relative_url }}">&laquo; Prev</a>
+  {% else %}
+  <span>&laquo; Prev</span>
+  {% endif %}
+
+  {% for page in (1..paginator.total_pages) %}
+  {% if page == paginator.page %}
+  <em>{{ page }}</em>
+  {% elsif page == 1 %}
+  <a href="{{ '/' | relative_url }}">{{ page }}</a>
+  {% else %}
+  <a href="{{ site.paginate_path | relative_url | replace: ':num', page }}">{{ page }}</a>
+  {% endif %}
+  {% endfor %}
+
+  {% if paginator.next_page %}
+  <a href="{{ paginator.next_page_path | relative_url }}">Next &raquo;</a>
+  {% else %}
+  <span>Next &raquo;</span>
+  {% endif %}
 </div>
+{% endif %}
 
-{% for tag in site.tags %}
-<h3>Tag {{ tag[0] }}</h3>
-<ul>
-  {% for post in tag[1] %}
-  <li><a href="{{ post.url }}">{{ post.title }}</a></li>
-  {% endfor %}
-</ul>
-{% endfor %}
-
-{% for category in site.categories %}
-<h3>Category {{ category[0] }}</h3>
-<ul>
-  {% for post in category[1] %}
-  <li><a href="{{ post.url }}">{{ post.title }}</a></li>
-  {% endfor %}
-</ul>
-{% endfor %}

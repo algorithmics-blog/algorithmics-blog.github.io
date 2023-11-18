@@ -2,3 +2,6 @@ title: Algorithmics
 tagline: Хакаем алгоритмические собесы
 plugins:
   - jekyll-tabs
+  - jekyll-paginate
+  - jekyll-tagging
+paginate: 10
