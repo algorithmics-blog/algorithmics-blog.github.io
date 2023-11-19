@@ -36,9 +36,9 @@ tag: medium
 
 ## Примеры
 
-{% tabs examples %}
+{% tabs best_time_to_buy_and_sell_stock_2 %}
 
-{% tab examples Пример №1 %}
+{% tab best_time_to_buy_and_sell_stock_2 Пример №1 %}
 
 **Входные данные**: `[7,1,5,3,6,4]`
 
@@ -52,7 +52,7 @@ tag: medium
 
 {% endtab %}
 
-{% tab examples Пример №2 %}
+{% tab best_time_to_buy_and_sell_stock_2 Пример №2 %}
 
 **Входные данные**: `[1,2,3,4,5]`
 
@@ -64,7 +64,7 @@ tag: medium
 
 {% endtab %}
 
-{% tab examples Пример №3 %}
+{% tab best_time_to_buy_and_sell_stock_2 Пример №3 %}
 
 **Входные данные**: `[7,6,4,3,1]`
 

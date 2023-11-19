@@ -3,7 +3,6 @@ layout: default
 title: {{ site.name }}
 ---
 
-
 {% for post in paginator.posts %}
 
 {% assign minutes = post.content | strip_html | number_of_words | divided_by: 100 %}
