@@ -60,11 +60,3 @@ func (t *Trie) traverse(prefix []rune) (*Trie, bool) {
 
 	return child.traverse(prefix[1:])
 }
-
-/**
- * Your Trie object will be instantiated and called as such:
- * obj := Constructor();
- * obj.Insert(word);
- * param_2 := obj.Search(word);
- * param_3 := obj.StartsWith(prefix);
- */
