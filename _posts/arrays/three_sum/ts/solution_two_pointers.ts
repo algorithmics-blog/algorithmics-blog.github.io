@@ -9,7 +9,7 @@ export const threeSumTwoPointers = (nums: number[]): number[][] => {
         const num = nums[i]
 
         // Не проверяем текущее число, если оно такое же, как и предыдущее, потому для него мы получим такой же результат.
-        if (i != 0 && nums[i-1] == num) {
+        if (i != 0 && nums[i - 1] == num) {
             continue
         }
 
@@ -24,7 +24,7 @@ export const threeSumTwoPointers = (nums: number[]): number[][] => {
                 right--
                 left++
 
-                while (left < right && nums[left] == nums[left-1]) {
+                while (left < right && nums[left] == nums[left - 1]) {
                     left++
                 }
             } else if (sum > 0) {
