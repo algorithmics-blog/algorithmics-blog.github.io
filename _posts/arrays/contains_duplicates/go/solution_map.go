@@ -1,4 +1,4 @@
-package contains_duplicates
+package main
 
 func containsDuplicateWithMap(nums []int) bool {
 	frequency := make(map[int]bool)

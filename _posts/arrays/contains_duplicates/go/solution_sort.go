@@ -1,4 +1,4 @@
-package contains_duplicates
+package main
 
 import "sort"
 
