@@ -1,0 +1,34 @@
+{
+    "compilerOptions": {
+        "allowJs": true,
+        "allowUnreachableCode": false,
+        "allowSyntheticDefaultImports": true,
+        "alwaysStrict": true,
+        "esModuleInterop": true,
+        "forceConsistentCasingInFileNames": true,
+        "isolatedModules": true,
+        "jsx": "react",
+        "lib": ["esnext", "dom"],
+        "module": "CommonJS",
+        "moduleResolution": "node",
+        "resolveJsonModule": true,
+        "skipLibCheck": true,
+        "sourceMap": true,
+        "strict": true,
+        "target": "es6",
+        "baseUrl": "src",
+        "paths": {
+            "~/*": ["*"]
+        },
+        "types": ["node", "jest"]
+    },
+    "include": ["_posts/**/*"],
+    "exclude": [
+        "node_modules",
+        "node_modules/*",
+        "node_modules/**",
+        "./node_modules",
+        "./node_modules/*",
+        "./node_modules/**"
+    ]
+}

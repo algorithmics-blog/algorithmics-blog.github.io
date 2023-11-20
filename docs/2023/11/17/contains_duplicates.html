@@ -1,0 +1,307 @@
+<!DOCTYPE html>
+<html lang="">
+
+  <head>
+  <meta charset="UTF-8">
+  <title>Algorithmics</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#157878">
+  <link rel="stylesheet" href="/assets/css/normalize.css">
+  <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,700' rel='stylesheet' type='text/css'>
+  <link rel="stylesheet" href="/assets/css/theme.css">
+  <link rel="stylesheet" href="/assets/css/tags.css">
+  <link rel="stylesheet" href="/assets/css/tabs.css">
+  <link rel="icon" type="image/x-icon" href="/assets/favicon.ico">
+</head>
+
+
+  <body>
+    <section class="page-header">
+    <a href="/">
+        <img src="/assets/images/logo.jpg" alt="Algorithmics" class="logo">
+    </a>
+
+    <h1 class="project-name">Algorithmics</h1>
+    <h2 class="project-tagline"></h2>
+
+    <div>
+        <a href="https://github.com/avivasyuta/algorithmics" target="_blank" class="btn">
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
+                <path fill="currentColor" fill-rule="evenodd"
+                      d="M11.999 1C5.926 1 1 5.925 1 12c0 4.86 3.152 8.983 7.523 10.437c.55.102.75-.238.75-.53c0-.26-.009-.952-.014-1.87c-3.06.664-3.706-1.475-3.706-1.475c-.5-1.27-1.221-1.61-1.221-1.61c-.999-.681.075-.668.075-.668c1.105.078 1.685 1.134 1.685 1.134c.981 1.68 2.575 1.195 3.202.914c.1-.71.384-1.195.698-1.47c-2.442-.278-5.01-1.222-5.01-5.437c0-1.2.428-2.183 1.132-2.952c-.114-.278-.491-1.397.108-2.91c0 0 .923-.297 3.025 1.127A10.536 10.536 0 0 1 12 6.32a10.49 10.49 0 0 1 2.754.37c2.1-1.424 3.022-1.128 3.022-1.128c.6 1.514.223 2.633.11 2.911c.705.769 1.13 1.751 1.13 2.952c0 4.226-2.572 5.156-5.022 5.428c.395.34.747 1.01.747 2.037c0 1.47-.014 2.657-.014 3.017c0 .295.199.637.756.53C19.851 20.979 23 16.859 23 12c0-6.075-4.926-11-11.001-11"/>
+            </svg>
+            GitHub
+        </a>
+
+        <a href="https://t.me/algorithmics_cl" target="_blank" class="btn">
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
+                <path fill="none" stroke="currentColor" stroke-width="2"
+                      d="M22 3L2 11l18.5 8L22 3ZM10 20.5l3-4.5m2.5-6.5L9 14l.859 6.012c.078.546.216.537.306-.003L11 15l4.5-5.5Z"/>
+            </svg>
+            Telegram
+        </a>
+    </div>
+</section>
+
+
+    <section class="main-content">
+
+      <a class="back" href="/">
+    <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 2048 2048">
+        <path fill="currentColor"
+              d="m1699 249l-775 775l775 775l-241 242L441 1024L1458 7l241 242z"/>
+    </svg>
+    На главную
+</a>
+
+<h1>Проверка массива на дубликаты</h1>
+
+<p class="meta">
+    17 November 2023, Сложность
+
+    
+    <span class="easy-complexity">Легкая</span>
+    
+
+    
+
+    
+    ,
+
+    
+    
+
+    <span>
+        1 min
+    </span>
+</p>
+
+
+<p>
+    <a href="https://leetcode.com/problems/contains-duplicate/description/" target="_blank">Оригинал задачи на Leetcode</a>
+</p>
+
+
+<h2 id="оглавление">Оглавление</h2>
+
+<ul>
+  <li><a href="#описание-задачи">Описание задачи</a></li>
+  <li><a href="#ограничения">Ограничения</a></li>
+  <li><a href="#примеры">Примеры</a></li>
+  <li><a href="#решение-через-hash-map">Решение через Hash Map</a></li>
+  <li><a href="#решение-через-сортировку">Решение через сортировку</a></li>
+</ul>
+
+<hr />
+
+<h2 id="описание-задачи">Описание задачи</h2>
+
+<p>Дан целочисленный массив.
+Напишите функцию, которая принимает на вход массив и возвращает <code class="language-plaintext highlighter-rouge">true</code>, если какое-либо значение встречается в массиве более одного раза.
+Если каждое значение в массиве уникально, то функция должна возвращать <code class="language-plaintext highlighter-rouge">false</code>.</p>
+
+<hr />
+
+<h2 id="ограничения">Ограничения</h2>
+
+<ul>
+  <li>В массиве может быть от 1 до 10<sup>5</sup> элементов</li>
+  <li>Каждое значение может быть в диапазоне от -10<sup>9</sup> до 10<sup>9</sup></li>
+</ul>
+
+<hr />
+
+<h2 id="примеры">Примеры</h2>
+
+<ul id="contains_duplicates_examples" class="tab" data-tab="ee95f7c8-526b-425e-8462-fde1cf45a755" data-name="contains_duplicates_examples">
+  
+      <li class="active" id="--------1">
+          <a href="#">Пример №1 </a>
+      </li>
+  
+      <li id="--------2">
+          <a href="#">Пример №2 </a>
+      </li>
+  
+</ul>
+<ul class="tab-content" id="ee95f7c8-526b-425e-8462-fde1cf45a755" data-name="contains_duplicates_examples">
+  
+      <li class="active">
+<p><strong>Входные данные</strong>: <code class="language-plaintext highlighter-rouge">[1, 2, 3, 1]</code></p>
+
+<p><strong>Ответ</strong>: <code class="language-plaintext highlighter-rouge">true</code></p>
+
+</li>
+  
+      <li>
+<p><strong>Входные данные</strong>: <code class="language-plaintext highlighter-rouge">[1, 2, 3, 4]</code></p>
+
+<p><strong>Ответ</strong>: <code class="language-plaintext highlighter-rouge">false</code></p>
+
+</li>
+  
+</ul>
+
+<hr />
+
+<h2 id="решение-через-hash-map">Решение через Hash Map</h2>
+
+<p>Для решения задачи этим способом достаточно проитерироваться по всем элементам массива.
+На каждой итерации нужно подсчитывать количество значений, которые встречаются.
+Для этого можно использовать структуру <code class="language-plaintext highlighter-rouge">Hash Map</code>:</p>
+<ul>
+  <li>если в мапе не существует такого значения, то мы добавляем его туда и переходим к следующей итерации;</li>
+  <li>если в мапе уже есть такое значение, то мы прерываем функцию и возвращаем <code class="language-plaintext highlighter-rouge">true</code>.</li>
+</ul>
+
+<ul id="solution" class="tab" data-tab="4dd2c9cc-8911-42ac-8a8a-6d328ba81253" data-name="solution">
+  
+      <li class="active" id="go">
+          <a href="#">go </a>
+      </li>
+  
+      <li id="type-script">
+          <a href="#">type script </a>
+      </li>
+  
+</ul>
+<ul class="tab-content" id="4dd2c9cc-8911-42ac-8a8a-6d328ba81253" data-name="solution">
+  
+      <li class="active">
+<div class="language-go highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">package</span> <span class="n">main</span>
+
+<span class="k">func</span> <span class="n">containsDuplicateWithMap</span><span class="p">(</span><span class="n">nums</span> <span class="p">[]</span><span class="kt">int</span><span class="p">)</span> <span class="kt">bool</span> <span class="p">{</span>
+	<span class="n">frequency</span> <span class="o">:=</span> <span class="nb">make</span><span class="p">(</span><span class="k">map</span><span class="p">[</span><span class="kt">int</span><span class="p">]</span><span class="kt">bool</span><span class="p">)</span>
+
+	<span class="k">for</span> <span class="n">_</span><span class="p">,</span> <span class="n">num</span> <span class="o">:=</span> <span class="k">range</span> <span class="n">nums</span> <span class="p">{</span>
+		<span class="n">_</span><span class="p">,</span> <span class="n">exists</span> <span class="o">:=</span> <span class="n">frequency</span><span class="p">[</span><span class="n">num</span><span class="p">]</span>
+		<span class="k">if</span> <span class="n">exists</span> <span class="p">{</span>
+			<span class="k">return</span> <span class="no">true</span>
+		<span class="p">}</span>
+		<span class="n">frequency</span><span class="p">[</span><span class="n">num</span><span class="p">]</span> <span class="o">=</span> <span class="no">true</span>
+	<span class="p">}</span>
+
+	<span class="k">return</span> <span class="no">false</span>
+<span class="p">}</span>
+
+</code></pre></div></div>
+</li>
+  
+      <li>
+<div class="language-typescript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">export</span> <span class="kd">const</span> <span class="nx">containsDuplicateWithMap</span> <span class="o">=</span> <span class="p">(</span><span class="nx">nums</span><span class="p">:</span> <span class="kr">number</span><span class="p">[]):</span> <span class="nx">boolean</span> <span class="o">=&gt;</span> <span class="p">{</span>
+	<span class="kd">const</span> <span class="na">frequency</span><span class="p">:</span> <span class="nb">Map</span><span class="o">&lt;</span><span class="kr">number</span><span class="p">,</span> <span class="nx">boolean</span><span class="o">&gt;</span> <span class="o">=</span> <span class="k">new</span> <span class="nb">Map</span><span class="p">()</span>
+
+	<span class="k">for</span> <span class="p">(</span><span class="kd">let</span> <span class="nx">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="nx">i</span> <span class="o">&lt;</span> <span class="nx">nums</span><span class="p">.</span><span class="nx">length</span><span class="p">;</span> <span class="nx">i</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
+		<span class="kd">const</span> <span class="nx">num</span> <span class="o">=</span> <span class="nx">nums</span><span class="p">[</span><span class="nx">i</span><span class="p">]</span>
+		<span class="k">if</span> <span class="p">(</span><span class="nx">frequency</span><span class="p">.</span><span class="nx">has</span><span class="p">(</span><span class="nx">num</span><span class="p">))</span> <span class="p">{</span>
+			<span class="k">return</span> <span class="kc">true</span>
+		<span class="p">}</span>
+		<span class="nx">frequency</span><span class="p">.</span><span class="kd">set</span><span class="p">(</span><span class="nx">num</span><span class="p">,</span> <span class="kc">true</span><span class="p">)</span>
+	<span class="p">}</span>
+
+	<span class="k">return</span> <span class="kc">false</span>
+<span class="p">}</span>
+
+</code></pre></div></div>
+</li>
+  
+</ul>
+
+<h3 id="оценка-сложности">Оценка сложности</h3>
+
+<p><strong>По времени</strong></p>
+
+<p>Сложность <code class="language-plaintext highlighter-rouge">O(n)</code>, где <code class="language-plaintext highlighter-rouge">n</code> — количество элементов в массиве, так как в худшем случае мы пройдем в цикле по всем элементам.</p>
+
+<p><strong>По памяти</strong></p>
+
+<p>Сложность <code class="language-plaintext highlighter-rouge">O(n)</code>, так как мы выделяем мапу для хранения частот значений.</p>
+
+<h2 id="решение-через-сортировку">Решение через сортировку</h2>
+
+<p>Для решения задачи этим способом необходимо предварительно отсортировать массив в любом порядке.
+Так как в отсортированном массиве одинаковые значения всегда находятся рядом, нам будет достаточно пройти по всем элементам массива и вернуть <code class="language-plaintext highlighter-rouge">true</code>, если мы встретим два одинаковых значения рядом.</p>
+
+<ul id="solution" class="tab" data-tab="d711855b-18a6-46f6-8553-b80da1a84d4d" data-name="solution">
+  
+      <li class="active" id="go">
+          <a href="#">go </a>
+      </li>
+  
+      <li id="type-script">
+          <a href="#">type script </a>
+      </li>
+  
+</ul>
+<ul class="tab-content" id="d711855b-18a6-46f6-8553-b80da1a84d4d" data-name="solution">
+  
+      <li class="active">
+<div class="language-go highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">package</span> <span class="n">main</span>
+
+<span class="k">import</span> <span class="s">"sort"</span>
+
+<span class="k">func</span> <span class="n">containsDuplicateWithSort</span><span class="p">(</span><span class="n">nums</span> <span class="p">[]</span><span class="kt">int</span><span class="p">)</span> <span class="kt">bool</span> <span class="p">{</span>
+	<span class="n">sort</span><span class="o">.</span><span class="n">Ints</span><span class="p">(</span><span class="n">nums</span><span class="p">)</span>
+
+	<span class="k">for</span> <span class="n">i</span> <span class="o">:=</span> <span class="m">0</span><span class="p">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="nb">len</span><span class="p">(</span><span class="n">nums</span><span class="p">)</span><span class="o">-</span><span class="m">1</span><span class="p">;</span> <span class="n">i</span><span class="o">++</span> <span class="p">{</span>
+		<span class="k">if</span> <span class="n">nums</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">==</span> <span class="n">nums</span><span class="p">[</span><span class="n">i</span><span class="o">+</span><span class="m">1</span><span class="p">]</span> <span class="p">{</span>
+			<span class="k">return</span> <span class="no">true</span>
+		<span class="p">}</span>
+	<span class="p">}</span>
+
+	<span class="k">return</span> <span class="no">false</span>
+<span class="p">}</span>
+
+</code></pre></div></div>
+</li>
+  
+      <li>
+<div class="language-typescript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">export</span> <span class="kd">const</span> <span class="nx">containsDuplicateWithSort</span> <span class="o">=</span> <span class="p">(</span><span class="nx">nums</span><span class="p">:</span> <span class="kr">number</span><span class="p">[]):</span> <span class="nx">boolean</span> <span class="o">=&gt;</span> <span class="p">{</span>
+	<span class="nx">nums</span><span class="p">.</span><span class="nx">sort</span><span class="p">()</span>
+
+	<span class="k">for</span> <span class="p">(</span><span class="kd">let</span> <span class="nx">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="nx">i</span> <span class="o">&lt;</span> <span class="nx">nums</span><span class="p">.</span><span class="nx">length</span> <span class="o">-</span> <span class="mi">1</span><span class="p">;</span> <span class="nx">i</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
+		<span class="k">if</span> <span class="p">(</span><span class="nx">nums</span><span class="p">[</span><span class="nx">i</span><span class="p">]</span> <span class="o">===</span> <span class="nx">nums</span><span class="p">[</span><span class="nx">i</span> <span class="o">+</span> <span class="mi">1</span><span class="p">])</span> <span class="p">{</span>
+			<span class="k">return</span> <span class="kc">true</span>
+		<span class="p">}</span>
+	<span class="p">}</span>
+
+	<span class="k">return</span> <span class="kc">false</span>
+<span class="p">}</span>
+
+</code></pre></div></div>
+</li>
+  
+</ul>
+
+<h3 id="оценка-сложности-1">Оценка сложности</h3>
+
+<p><strong>По времени</strong></p>
+
+<p>Сложность алгоритма равна сложности сортировки, так как она больше линейной — <code class="language-plaintext highlighter-rouge">O(n * logn)</code>.</p>
+
+<p><strong>По памяти</strong></p>
+
+<p>Сложность <code class="language-plaintext highlighter-rouge">O(1)</code>, так как мы не выделяем дополнительной памяти.</p>
+
+
+
+
+      <footer class="site-footer">
+    <span class="site-footer-owner">
+        <a href="https://algorithmics-blog.github.io">Algorithmics</a> is maintained by
+        <a href="https://www.linkedin.com/in/avivasyuta/" target="_blank">Aleksei Ivasiuta</a> and
+        <a href="https://www.linkedin.com/in/tifongod/" target="_blank">Denis Kolpakov</a>.
+    </span>
+    <span class="site-footer-credits">
+        This page was generated by <a href="https://pages.github.com">GitHub Pages</a>.
+    </span>
+</footer>
+
+
+    </section>
+
+    <script src="/assets/js/tabs.js" type="application/javascript"></script>
+    <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+  </body>
+</html>

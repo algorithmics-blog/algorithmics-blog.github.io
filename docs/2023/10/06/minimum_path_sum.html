@@ -1,0 +1,446 @@
+<!DOCTYPE html>
+<html lang="">
+
+  <head>
+  <meta charset="UTF-8">
+  <title>Algorithmics</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#157878">
+  <link rel="stylesheet" href="/assets/css/normalize.css">
+  <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,700' rel='stylesheet' type='text/css'>
+  <link rel="stylesheet" href="/assets/css/theme.css">
+  <link rel="stylesheet" href="/assets/css/tags.css">
+  <link rel="stylesheet" href="/assets/css/tabs.css">
+  <link rel="icon" type="image/x-icon" href="/assets/favicon.ico">
+</head>
+
+
+  <body>
+    <section class="page-header">
+    <a href="/">
+        <img src="/assets/images/logo.jpg" alt="Algorithmics" class="logo">
+    </a>
+
+    <h1 class="project-name">Algorithmics</h1>
+    <h2 class="project-tagline"></h2>
+
+    <div>
+        <a href="https://github.com/avivasyuta/algorithmics" target="_blank" class="btn">
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
+                <path fill="currentColor" fill-rule="evenodd"
+                      d="M11.999 1C5.926 1 1 5.925 1 12c0 4.86 3.152 8.983 7.523 10.437c.55.102.75-.238.75-.53c0-.26-.009-.952-.014-1.87c-3.06.664-3.706-1.475-3.706-1.475c-.5-1.27-1.221-1.61-1.221-1.61c-.999-.681.075-.668.075-.668c1.105.078 1.685 1.134 1.685 1.134c.981 1.68 2.575 1.195 3.202.914c.1-.71.384-1.195.698-1.47c-2.442-.278-5.01-1.222-5.01-5.437c0-1.2.428-2.183 1.132-2.952c-.114-.278-.491-1.397.108-2.91c0 0 .923-.297 3.025 1.127A10.536 10.536 0 0 1 12 6.32a10.49 10.49 0 0 1 2.754.37c2.1-1.424 3.022-1.128 3.022-1.128c.6 1.514.223 2.633.11 2.911c.705.769 1.13 1.751 1.13 2.952c0 4.226-2.572 5.156-5.022 5.428c.395.34.747 1.01.747 2.037c0 1.47-.014 2.657-.014 3.017c0 .295.199.637.756.53C19.851 20.979 23 16.859 23 12c0-6.075-4.926-11-11.001-11"/>
+            </svg>
+            GitHub
+        </a>
+
+        <a href="https://t.me/algorithmics_cl" target="_blank" class="btn">
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
+                <path fill="none" stroke="currentColor" stroke-width="2"
+                      d="M22 3L2 11l18.5 8L22 3ZM10 20.5l3-4.5m2.5-6.5L9 14l.859 6.012c.078.546.216.537.306-.003L11 15l4.5-5.5Z"/>
+            </svg>
+            Telegram
+        </a>
+    </div>
+</section>
+
+
+    <section class="main-content">
+
+      <a class="back" href="/">
+    <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 2048 2048">
+        <path fill="currentColor"
+              d="m1699 249l-775 775l775 775l-241 242L441 1024L1458 7l241 242z"/>
+    </svg>
+    На главную
+</a>
+
+<h1>Самый дешевый путь в матрице</h1>
+
+<p class="meta">
+    06 October 2023, Сложность
+
+    
+
+    
+    <span class="medium-complexity">Средняя</span>
+    
+
+    
+    ,
+
+    
+    
+
+    <span>
+        1 min
+    </span>
+</p>
+
+
+<p>
+    <a href="https://leetcode.com/problems/minimum-path-sum/description/" target="_blank">Оригинал задачи на Leetcode</a>
+</p>
+
+
+<h2 id="оглавление">Оглавление</h2>
+
+<ul>
+  <li><a href="#описание-задачи">Описание задачи</a></li>
+  <li><a href="#ограничения">Ограничения</a></li>
+  <li><a href="#примеры">Примеры</a></li>
+  <li><a href="#брутфорс-решение">Брутфорс решение</a></li>
+  <li><a href="#оптимальное-решение">Оптимальное решение</a></li>
+</ul>
+
+<hr />
+
+<h2 id="описание-задачи">Описание задачи</h2>
+
+<p><img src="/assets/images/minimum_path_sum.jpg" alt="Матрица" /></p>
+
+<p>Напишите функцию, которая будет возвращать стоимость самого дешевого пути от левого верхнего элемента матрицы к нижнему правому.
+Значение ячейки матрицы — стоимость перехода в эту ячейку. Из каждой ячейки можно пойти либо вправо, либо вниз.</p>
+
+<p>Входные данные: [][]int (матрица m на n в которой нужно искать путь)</p>
+
+<p>Выходные данные: int (стоимость самого дешевого пути)</p>
+
+<hr />
+
+<h2 id="ограничения">Ограничения</h2>
+
+<ul>
+  <li><code class="language-plaintext highlighter-rouge">1 &lt;= m, n &lt;= 200</code></li>
+  <li><code class="language-plaintext highlighter-rouge">0 &lt;= grid[i][j] &lt;= 200</code></li>
+</ul>
+
+<hr />
+
+<h2 id="примеры">Примеры</h2>
+
+<ul id="minimum_path_sum" class="tab" data-tab="25fc25a9-935f-46e2-994f-7c878736c37a" data-name="minimum_path_sum">
+  
+      <li class="active" id="--------1">
+          <a href="#">Пример №1 </a>
+      </li>
+  
+      <li id="--------2">
+          <a href="#">Пример №2 </a>
+      </li>
+  
+      <li id="--------3">
+          <a href="#">Пример №3 </a>
+      </li>
+  
+      <li id="--------4">
+          <a href="#">Пример №4 </a>
+      </li>
+  
+</ul>
+<ul class="tab-content" id="25fc25a9-935f-46e2-994f-7c878736c37a" data-name="minimum_path_sum">
+  
+      <li class="active">
+<p><strong>Входные данные</strong></p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>[
+    [1, 3, 1],
+    [1, 5, 1],
+    [4, 2, 1],
+]
+</code></pre></div></div>
+
+<p><strong>Ответ</strong>: <code class="language-plaintext highlighter-rouge">7</code></p>
+</li>
+  
+      <li>
+<p><strong>Входные данные</strong></p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>[
+    [1, 2, 3],
+    [4, 5, 6],
+]
+</code></pre></div></div>
+
+<p><strong>Ответ</strong>: <code class="language-plaintext highlighter-rouge">12</code></p>
+</li>
+  
+      <li>
+<p><strong>Входные данные</strong></p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>[
+    [1, 2, 3],
+]
+</code></pre></div></div>
+
+<p><strong>Ответ</strong>: <code class="language-plaintext highlighter-rouge">6</code></p>
+</li>
+  
+      <li>
+<p><strong>Входные данные</strong></p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>[
+    [1],
+    [2],
+    [3],
+]
+</code></pre></div></div>
+
+<p><strong>Ответ</strong>: <code class="language-plaintext highlighter-rouge">6</code></p>
+</li>
+  
+</ul>
+
+<hr />
+
+<h2 id="брутфорс-решение">Брутфорс решение</h2>
+
+<p>Это задача, тот случай, когда придумать реализацию брутфорс решение оказалось сложнее, чем оптимальное.
+Но, все же распишу, так как подобное решение может прийти в голову первым на собеседовании. 
+Для брутфорс решения нам нужно сравнить все возможные пути между собой. Проще всего это сделать, превратив матрицу в граф.
+Введем вспомогательную структуру, чтобы превратить матрицу в граф.</p>
+
+<div class="language-go highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">type</span> <span class="n">node</span> <span class="k">struct</span> <span class="p">{</span>
+	<span class="n">price</span>    <span class="kt">int</span>
+	<span class="n">children</span> <span class="p">[]</span><span class="o">*</span><span class="n">node</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<p>По условию задачи перейти в элемент графа (ячейку матрицы) можно либо из элемента слева от текущего, либо из верхнего элемента относительного текущего.
+Поэтому для правильного составления графа оставим вспомогательную матрицу (но, теперь, в качестве значений не int’ы, а ноды графа).</p>
+
+<div class="language-go highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">nodeGrid</span> <span class="o">:=</span> <span class="nb">make</span><span class="p">([][]</span><span class="n">node</span><span class="p">,</span> <span class="m">0</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="n">grid</span><span class="p">))</span>
+
+<span class="k">for</span> <span class="n">i</span> <span class="o">:=</span> <span class="m">0</span><span class="p">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="nb">len</span><span class="p">(</span><span class="n">grid</span><span class="p">);</span> <span class="n">i</span><span class="o">++</span> <span class="p">{</span>
+    <span class="n">nodeGrid</span> <span class="o">=</span> <span class="nb">append</span><span class="p">(</span><span class="n">nodeGrid</span><span class="p">,</span> <span class="nb">make</span><span class="p">([]</span><span class="n">node</span><span class="p">,</span> <span class="m">0</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="n">grid</span><span class="p">[</span><span class="n">i</span><span class="p">])))</span>
+	
+    <span class="k">for</span> <span class="n">j</span> <span class="o">:=</span> <span class="m">0</span><span class="p">;</span> <span class="n">j</span> <span class="o">&lt;</span> <span class="nb">len</span><span class="p">(</span><span class="n">grid</span><span class="p">[</span><span class="n">i</span><span class="p">]);</span> <span class="n">j</span><span class="o">++</span> <span class="p">{</span>
+        <span class="n">nodeGrid</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="nb">append</span><span class="p">(</span><span class="n">nodeGrid</span><span class="p">[</span><span class="n">i</span><span class="p">],</span> <span class="n">node</span><span class="p">{</span>
+            <span class="n">price</span><span class="o">:</span>    <span class="n">grid</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="n">j</span><span class="p">],</span>
+            <span class="n">children</span><span class="o">:</span> <span class="nb">make</span><span class="p">([]</span><span class="o">*</span><span class="n">node</span><span class="p">,</span> <span class="m">0</span><span class="p">),</span>
+        <span class="p">})</span>
+
+        <span class="k">if</span> <span class="n">i</span> <span class="o">==</span> <span class="m">0</span> <span class="o">&amp;&amp;</span> <span class="n">j</span> <span class="o">==</span> <span class="m">0</span> <span class="p">{</span>
+            <span class="k">continue</span>
+        <span class="p">}</span>
+
+        <span class="k">if</span> <span class="n">i</span> <span class="o">==</span> <span class="m">0</span> <span class="p">{</span>
+            <span class="n">nodeGrid</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="n">j</span><span class="o">-</span><span class="m">1</span><span class="p">]</span><span class="o">.</span><span class="n">children</span> <span class="o">=</span> <span class="nb">append</span><span class="p">(</span><span class="n">nodeGrid</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="n">j</span><span class="o">-</span><span class="m">1</span><span class="p">]</span><span class="o">.</span><span class="n">children</span><span class="p">,</span> <span class="o">&amp;</span><span class="n">nodeGrid</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="n">j</span><span class="p">])</span>
+            <span class="k">continue</span>
+        <span class="p">}</span>
+
+        <span class="k">if</span> <span class="n">j</span> <span class="o">==</span> <span class="m">0</span> <span class="p">{</span>
+            <span class="n">nodeGrid</span><span class="p">[</span><span class="n">i</span><span class="o">-</span><span class="m">1</span><span class="p">][</span><span class="n">j</span><span class="p">]</span><span class="o">.</span><span class="n">children</span> <span class="o">=</span> <span class="nb">append</span><span class="p">(</span><span class="n">nodeGrid</span><span class="p">[</span><span class="n">i</span><span class="o">-</span><span class="m">1</span><span class="p">][</span><span class="n">j</span><span class="p">]</span><span class="o">.</span><span class="n">children</span><span class="p">,</span> <span class="o">&amp;</span><span class="n">nodeGrid</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="n">j</span><span class="p">])</span>
+            <span class="k">continue</span>
+        <span class="p">}</span>
+
+        <span class="n">nodeGrid</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="n">j</span><span class="o">-</span><span class="m">1</span><span class="p">]</span><span class="o">.</span><span class="n">children</span> <span class="o">=</span> <span class="nb">append</span><span class="p">(</span><span class="n">nodeGrid</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="n">j</span><span class="o">-</span><span class="m">1</span><span class="p">]</span><span class="o">.</span><span class="n">children</span><span class="p">,</span> <span class="o">&amp;</span><span class="n">nodeGrid</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="n">j</span><span class="p">])</span>
+        <span class="n">nodeGrid</span><span class="p">[</span><span class="n">i</span><span class="o">-</span><span class="m">1</span><span class="p">][</span><span class="n">j</span><span class="p">]</span><span class="o">.</span><span class="n">children</span> <span class="o">=</span> <span class="nb">append</span><span class="p">(</span><span class="n">nodeGrid</span><span class="p">[</span><span class="n">i</span><span class="o">-</span><span class="m">1</span><span class="p">][</span><span class="n">j</span><span class="p">]</span><span class="o">.</span><span class="n">children</span><span class="p">,</span> <span class="o">&amp;</span><span class="n">nodeGrid</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="n">j</span><span class="p">])</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<p>Теперь, имея граф с проставленными связями, мы можем с помощью обхода в глубину обойти все возможные пути от элемента <code class="language-plaintext highlighter-rouge">nodeGrid[0][0]</code> до элемента <code class="language-plaintext highlighter-rouge">nodeGrid[m - 1][n - 1]</code>, сравнив стоимость путей.</p>
+
+<div class="language-go highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">func</span> <span class="n">minPathSumTraverse</span><span class="p">(</span><span class="n">root</span> <span class="n">node</span><span class="p">)</span> <span class="kt">int</span> <span class="p">{</span>
+	<span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">root</span><span class="o">.</span><span class="n">children</span><span class="p">)</span> <span class="o">==</span> <span class="m">0</span> <span class="p">{</span>
+		<span class="k">return</span> <span class="n">root</span><span class="o">.</span><span class="n">price</span>
+	<span class="p">}</span>
+	
+	<span class="n">minPathPrice</span> <span class="o">:=</span> <span class="n">math</span><span class="o">.</span><span class="n">MaxInt</span>
+	
+	<span class="k">for</span> <span class="n">_</span><span class="p">,</span> <span class="n">child</span> <span class="o">:=</span> <span class="k">range</span> <span class="n">root</span><span class="o">.</span><span class="n">children</span> <span class="p">{</span>
+		<span class="n">childPathPrice</span> <span class="o">:=</span> <span class="n">minPathSumTraverse</span><span class="p">(</span><span class="o">*</span><span class="n">child</span><span class="p">)</span>
+		
+		<span class="k">if</span> <span class="n">childPathPrice</span> <span class="o">&lt;</span> <span class="n">minPathPrice</span> <span class="p">{</span>
+			<span class="n">minPathPrice</span> <span class="o">=</span> <span class="n">childPathPrice</span>
+		<span class="p">}</span>
+	<span class="p">}</span>
+
+	<span class="k">return</span> <span class="n">root</span><span class="o">.</span><span class="n">price</span> <span class="o">+</span> <span class="n">minPathPrice</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<h3 id="оценка-сложности">Оценка сложности</h3>
+
+<p><strong>По времени</strong></p>
+
+<p>Для того чтобы найти минимальный путь, нам нужно обойти все возможные пути в матрице. Каждый путь состоит из n+m-1 элементов.
+Длина каждого пути m+n-1, Не считая элементов первой/последней строки и первого/последнего столбца, из каждого элемента есть 2 пути.
+Суммарное количество возможных путей и сложность получившегося алгоритма можно оценить как <code>O(2<sup>(n+m)</sup>).</code></p>
+
+<p><strong>По памяти</strong></p>
+
+<p>Мы ввели дополнительный граф размером <code class="language-plaintext highlighter-rouge">m * n</code>, поэтому дополнительную память мы можем оценить в <code class="language-plaintext highlighter-rouge">O(m * n)</code>.</p>
+
+<hr />
+
+<h2 id="оптимальное-решение">Оптимальное решение</h2>
+
+<p>Оптимальное решение может получиться с использованием методов динамического программирования: мы разобьем задачу на более маленькие подзадачи.</p>
+
+<p>Давайте предположим, что мы знаем самые дешевые пути от элемента матрицы <code class="language-plaintext highlighter-rouge">grid[0][0]</code> до элементов <code class="language-plaintext highlighter-rouge">grid[n - 2][m - 1]</code> (соседнего слева от правого нижнего элемента) и <code class="language-plaintext highlighter-rouge">grid[n - 1][m - 2]</code> (соседнего сверху от правого нижнего элемента).</p>
+
+<p>Так как мы можем перемещаться либо вправо, либо вниз. Самый дешевый путь до правого нижнего элемента:</p>
+
+\[grid[n-1][m-1] = min(grid[n-2][m-1], grid[n-1][m-2]) + grid[n-1][m-1]\]
+
+<p>Точно по такому же принципу мы можем вычислить самый короткий путь до элементов <code class="language-plaintext highlighter-rouge">grid[n - 2][m - 1]</code> и <code class="language-plaintext highlighter-rouge">grid[n - 1][m - 2]</code>.
+Таким образом, мы можем вычислить стоимость пути до каждого из элементов, зная стоимость пути до соседа слева и соседа сверху.</p>
+
+<p>Давайте модифицируем исходную матрицу (так как нет требований к иммутабельности для экономии памяти будем менять значения в матрице in-place), преобразовав значение каждого из элементов в стоимости пути до этого элемента.</p>
+
+<p>Для этого нам достаточно воспользоваться стандартным обходом матрицы в цикле по <code class="language-plaintext highlighter-rouge">i</code> и <code class="language-plaintext highlighter-rouge">j</code>.
+Первый элемент матрицы оставим без изменений, так как он является нашей отправной точкой.</p>
+
+<p>Стоимость пути до любого элемента на первой строчке — стоимость пути до предыдущего элемента и значение текущего (так как к любому элементу на первой строке можно прийти только из элемента слева).</p>
+<div class="language-go highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">if</span> <span class="n">i</span> <span class="o">==</span> <span class="m">0</span> <span class="p">{</span>
+    <span class="n">grid</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="n">j</span><span class="p">]</span> <span class="o">=</span> <span class="n">grid</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="n">j</span><span class="o">-</span><span class="m">1</span><span class="p">]</span> <span class="o">+</span> <span class="n">grid</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="n">j</span><span class="p">]</span>
+
+    <span class="k">continue</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<p>Аналогичная проверка нужна для элементов первого столбца (можем прийти только с верхнего элемента).</p>
+
+<div class="language-go highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">if</span> <span class="n">j</span> <span class="o">==</span> <span class="m">0</span> <span class="p">{</span>
+    <span class="n">grid</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="n">j</span><span class="p">]</span> <span class="o">=</span> <span class="n">grid</span><span class="p">[</span><span class="n">i</span><span class="o">-</span><span class="m">1</span><span class="p">][</span><span class="n">j</span><span class="p">]</span> <span class="o">+</span> <span class="n">grid</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="n">j</span><span class="p">]</span>
+
+    <span class="k">continue</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<p>Для всех остальных элементов мы высчитываем стоимость, выбирая меньший из путей (либо сверху, либо слева).</p>
+
+<div class="language-go highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">minPrices</span> <span class="o">:=</span> <span class="n">grid</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="n">j</span><span class="o">-</span><span class="m">1</span><span class="p">]</span>
+<span class="k">if</span> <span class="n">grid</span><span class="p">[</span><span class="n">i</span><span class="o">-</span><span class="m">1</span><span class="p">][</span><span class="n">j</span><span class="p">]</span> <span class="o">&lt;</span> <span class="n">minPrices</span> <span class="p">{</span>
+    <span class="n">minPrices</span> <span class="o">=</span> <span class="n">grid</span><span class="p">[</span><span class="n">i</span><span class="o">-</span><span class="m">1</span><span class="p">][</span><span class="n">j</span><span class="p">]</span>
+<span class="p">}</span>
+
+<span class="n">grid</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="n">j</span><span class="p">]</span> <span class="o">=</span> <span class="n">minPrices</span> <span class="o">+</span> <span class="n">grid</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="n">j</span><span class="p">]</span>
+</code></pre></div></div>
+
+<p>Таким образом, когда мы пройдемся по всей матрице в правом нижнем элементе будет вычислена стоимость самого дешевого пути до этого элемента.
+Итоговая реализация.</p>
+
+<ul id="solution" class="tab" data-tab="ccf8d5f7-44c2-476b-8769-c1d4a21f5190" data-name="solution">
+  
+      <li class="active" id="go">
+          <a href="#">go </a>
+      </li>
+  
+      <li id="type-script">
+          <a href="#">type script </a>
+      </li>
+  
+</ul>
+<ul class="tab-content" id="ccf8d5f7-44c2-476b-8769-c1d4a21f5190" data-name="solution">
+  
+      <li class="active">
+<div class="language-go highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">package</span> <span class="n">main</span>
+
+<span class="k">func</span> <span class="n">minPathSum</span><span class="p">(</span><span class="n">grid</span> <span class="p">[][]</span><span class="kt">int</span><span class="p">)</span> <span class="kt">int</span> <span class="p">{</span>
+	<span class="k">var</span> <span class="n">i</span><span class="p">,</span> <span class="n">j</span> <span class="kt">int</span>
+	<span class="k">for</span> <span class="n">i</span> <span class="o">=</span> <span class="m">0</span><span class="p">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="nb">len</span><span class="p">(</span><span class="n">grid</span><span class="p">);</span> <span class="n">i</span><span class="o">++</span> <span class="p">{</span>
+		<span class="k">for</span> <span class="n">j</span> <span class="o">=</span> <span class="m">0</span><span class="p">;</span> <span class="n">j</span> <span class="o">&lt;</span> <span class="nb">len</span><span class="p">(</span><span class="n">grid</span><span class="p">[</span><span class="n">i</span><span class="p">]);</span> <span class="n">j</span><span class="o">++</span> <span class="p">{</span>
+			<span class="k">if</span> <span class="n">i</span> <span class="o">==</span> <span class="m">0</span> <span class="o">&amp;&amp;</span> <span class="n">j</span> <span class="o">==</span> <span class="m">0</span> <span class="p">{</span>
+				<span class="k">continue</span>
+			<span class="p">}</span>
+
+			<span class="k">if</span> <span class="n">i</span> <span class="o">==</span> <span class="m">0</span> <span class="p">{</span>
+				<span class="n">grid</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="n">j</span><span class="p">]</span> <span class="o">=</span> <span class="n">grid</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="n">j</span><span class="o">-</span><span class="m">1</span><span class="p">]</span> <span class="o">+</span> <span class="n">grid</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="n">j</span><span class="p">]</span>
+
+				<span class="k">continue</span>
+			<span class="p">}</span>
+
+			<span class="k">if</span> <span class="n">j</span> <span class="o">==</span> <span class="m">0</span> <span class="p">{</span>
+				<span class="n">grid</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="n">j</span><span class="p">]</span> <span class="o">=</span> <span class="n">grid</span><span class="p">[</span><span class="n">i</span><span class="o">-</span><span class="m">1</span><span class="p">][</span><span class="n">j</span><span class="p">]</span> <span class="o">+</span> <span class="n">grid</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="n">j</span><span class="p">]</span>
+
+				<span class="k">continue</span>
+			<span class="p">}</span>
+
+			<span class="n">minPrices</span> <span class="o">:=</span> <span class="n">grid</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="n">j</span><span class="o">-</span><span class="m">1</span><span class="p">]</span>
+			<span class="k">if</span> <span class="n">grid</span><span class="p">[</span><span class="n">i</span><span class="o">-</span><span class="m">1</span><span class="p">][</span><span class="n">j</span><span class="p">]</span> <span class="o">&lt;</span> <span class="n">minPrices</span> <span class="p">{</span>
+				<span class="n">minPrices</span> <span class="o">=</span> <span class="n">grid</span><span class="p">[</span><span class="n">i</span><span class="o">-</span><span class="m">1</span><span class="p">][</span><span class="n">j</span><span class="p">]</span>
+			<span class="p">}</span>
+
+			<span class="n">grid</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="n">j</span><span class="p">]</span> <span class="o">=</span> <span class="n">minPrices</span> <span class="o">+</span> <span class="n">grid</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="n">j</span><span class="p">]</span>
+		<span class="p">}</span>
+	<span class="p">}</span>
+
+	<span class="k">return</span> <span class="n">grid</span><span class="p">[</span><span class="n">i</span><span class="o">-</span><span class="m">1</span><span class="p">][</span><span class="n">j</span><span class="o">-</span><span class="m">1</span><span class="p">]</span>
+<span class="p">}</span>
+
+</code></pre></div></div>
+</li>
+  
+      <li>
+<div class="language-typescript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">export</span> <span class="kd">const</span> <span class="nx">minPathSum</span> <span class="o">=</span> <span class="p">(</span><span class="nx">grid</span><span class="p">:</span> <span class="kr">number</span><span class="p">[][]):</span> <span class="kr">number</span> <span class="o">=&gt;</span> <span class="p">{</span>
+    <span class="kd">let</span> <span class="nx">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+    <span class="kd">let</span> <span class="nx">j</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+
+    <span class="k">for</span> <span class="p">(</span><span class="nx">i</span><span class="p">;</span> <span class="nx">i</span> <span class="o">&lt;</span> <span class="nx">grid</span><span class="p">.</span><span class="nx">length</span><span class="p">;</span> <span class="nx">i</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
+        <span class="k">for</span> <span class="p">(</span><span class="nx">j</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="nx">j</span> <span class="o">&lt;</span> <span class="nx">grid</span><span class="p">[</span><span class="nx">i</span><span class="p">].</span><span class="nx">length</span><span class="p">;</span> <span class="nx">j</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
+            <span class="k">if</span> <span class="p">(</span><span class="nx">i</span> <span class="o">==</span> <span class="mi">0</span> <span class="o">&amp;&amp;</span> <span class="nx">j</span> <span class="o">==</span> <span class="mi">0</span><span class="p">)</span> <span class="p">{</span>
+                <span class="k">continue</span>
+            <span class="p">}</span>
+
+            <span class="k">if</span> <span class="p">(</span><span class="nx">i</span> <span class="o">==</span> <span class="mi">0</span><span class="p">)</span> <span class="p">{</span>
+                <span class="nx">grid</span><span class="p">[</span><span class="nx">i</span><span class="p">][</span><span class="nx">j</span><span class="p">]</span> <span class="o">=</span> <span class="nx">grid</span><span class="p">[</span><span class="nx">i</span><span class="p">][</span><span class="nx">j</span> <span class="o">-</span> <span class="mi">1</span><span class="p">]</span> <span class="o">+</span> <span class="nx">grid</span><span class="p">[</span><span class="nx">i</span><span class="p">][</span><span class="nx">j</span><span class="p">]</span>
+                <span class="k">continue</span>
+            <span class="p">}</span>
+
+            <span class="k">if</span> <span class="p">(</span><span class="nx">j</span> <span class="o">==</span> <span class="mi">0</span><span class="p">)</span> <span class="p">{</span>
+                <span class="nx">grid</span><span class="p">[</span><span class="nx">i</span><span class="p">][</span><span class="nx">j</span><span class="p">]</span> <span class="o">=</span> <span class="nx">grid</span><span class="p">[</span><span class="nx">i</span> <span class="o">-</span> <span class="mi">1</span><span class="p">][</span><span class="nx">j</span><span class="p">]</span> <span class="o">+</span> <span class="nx">grid</span><span class="p">[</span><span class="nx">i</span><span class="p">][</span><span class="nx">j</span><span class="p">]</span>
+                <span class="k">continue</span>
+            <span class="p">}</span>
+
+            <span class="kd">let</span> <span class="nx">minPrices</span> <span class="o">=</span> <span class="nx">grid</span><span class="p">[</span><span class="nx">i</span><span class="p">][</span><span class="nx">j</span> <span class="o">-</span> <span class="mi">1</span><span class="p">]</span>
+            <span class="k">if</span> <span class="p">(</span><span class="nx">grid</span><span class="p">[</span><span class="nx">i</span> <span class="o">-</span> <span class="mi">1</span><span class="p">][</span><span class="nx">j</span><span class="p">]</span> <span class="o">&lt;</span> <span class="nx">minPrices</span><span class="p">)</span> <span class="p">{</span>
+                <span class="nx">minPrices</span> <span class="o">=</span> <span class="nx">grid</span><span class="p">[</span><span class="nx">i</span> <span class="o">-</span> <span class="mi">1</span><span class="p">][</span><span class="nx">j</span><span class="p">]</span>
+            <span class="p">}</span>
+
+            <span class="nx">grid</span><span class="p">[</span><span class="nx">i</span><span class="p">][</span><span class="nx">j</span><span class="p">]</span> <span class="o">=</span> <span class="nx">minPrices</span> <span class="o">+</span> <span class="nx">grid</span><span class="p">[</span><span class="nx">i</span><span class="p">][</span><span class="nx">j</span><span class="p">]</span>
+        <span class="p">}</span>
+    <span class="p">}</span>
+
+    <span class="k">return</span> <span class="nx">grid</span><span class="p">[</span><span class="nx">i</span> <span class="o">-</span> <span class="mi">1</span><span class="p">][</span><span class="nx">j</span> <span class="o">-</span> <span class="mi">1</span><span class="p">]</span>
+<span class="p">}</span>
+
+</code></pre></div></div>
+</li>
+  
+</ul>
+
+<h3 id="оценка-сложности-1">Оценка сложности</h3>
+
+<p><strong>По времени</strong></p>
+
+<p>Для того чтобы высчитать самый дешевый путь, нам достаточно один раз пройтись по всей матрице.
+То есть итоговая сложность — <code class="language-plaintext highlighter-rouge">O(m * n)</code>.</p>
+
+<p><strong>По памяти</strong></p>
+
+<p><code class="language-plaintext highlighter-rouge">O(1)</code> — дополнительная память константна.</p>
+
+
+
+
+      <footer class="site-footer">
+    <span class="site-footer-owner">
+        <a href="https://algorithmics-blog.github.io">Algorithmics</a> is maintained by
+        <a href="https://www.linkedin.com/in/avivasyuta/" target="_blank">Aleksei Ivasiuta</a> and
+        <a href="https://www.linkedin.com/in/tifongod/" target="_blank">Denis Kolpakov</a>.
+    </span>
+    <span class="site-footer-credits">
+        This page was generated by <a href="https://pages.github.com">GitHub Pages</a>.
+    </span>
+</footer>
+
+
+    </section>
+
+    <script src="/assets/js/tabs.js" type="application/javascript"></script>
+    <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+  </body>
+</html>
