@@ -263,6 +263,7 @@ GEM
       unf_ext
     unf_ext (0.0.9.1)
     unicode-display_width (1.8.0)
+    webrick (1.8.1)
 
 PLATFORMS
   x86_64-darwin-23
@@ -271,10 +272,11 @@ PLATFORMS
 DEPENDENCIES
   github-pages (~> 228)
   http_parser.rb (~> 0.6.0)
-  jekyll (~> 3.9.3)
+  jekyll
   jekyll-feed (~> 0.12)
   jekyll-paginate
   jekyll-tabs
+  webrick
 
 BUNDLED WITH
    2.4.22
