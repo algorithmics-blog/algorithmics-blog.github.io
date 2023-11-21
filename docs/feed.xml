@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.9.3">Jekyll</generator><link href="https://algorithmics-blog.github.io/feed.xml" rel="self" type="application/atom+xml" /><link href="https://algorithmics-blog.github.io/" rel="alternate" type="text/html" /><updated>2023-11-20T09:40:55-06:00</updated><id>https://algorithmics-blog.github.io/feed.xml</id><title type="html">Algorithmics</title><subtitle>Write an awesome description for your new site here. You can edit this line in _config.yml. It will appear in your document head meta (for Google search results) and in your feed.xml site description.</subtitle><entry><title type="html">Проверка массива на дубликаты</title><link href="https://algorithmics-blog.github.io/2023/11/17/contains_duplicates.html" rel="alternate" type="text/html" title="Проверка массива на дубликаты" /><published>2023-11-17T00:00:00-06:00</published><updated>2023-11-17T00:00:00-06:00</updated><id>https://algorithmics-blog.github.io/2023/11/17/contains_duplicates</id><content type="html" xml:base="https://algorithmics-blog.github.io/2023/11/17/contains_duplicates.html">&lt;h2 id=&quot;оглавление&quot;&gt;Оглавление&lt;/h2&gt;
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.9.3">Jekyll</generator><link href="https://algorithmics-blog.github.io/feed.xml" rel="self" type="application/atom+xml" /><link href="https://algorithmics-blog.github.io/" rel="alternate" type="text/html" /><updated>2023-11-21T12:10:59-06:00</updated><id>https://algorithmics-blog.github.io/feed.xml</id><title type="html">Algorithmics</title><subtitle>Write an awesome description for your new site here. You can edit this line in _config.yml. It will appear in your document head meta (for Google search results) and in your feed.xml site description.</subtitle><entry><title type="html">Проверка массива на дубликаты</title><link href="https://algorithmics-blog.github.io/2023/11/17/contains_duplicates.html" rel="alternate" type="text/html" title="Проверка массива на дубликаты" /><published>2023-11-17T00:00:00-06:00</published><updated>2023-11-17T00:00:00-06:00</updated><id>https://algorithmics-blog.github.io/2023/11/17/contains_duplicates</id><content type="html" xml:base="https://algorithmics-blog.github.io/2023/11/17/contains_duplicates.html">&lt;h2 id=&quot;оглавление&quot;&gt;Оглавление&lt;/h2&gt;
 
 &lt;ul&gt;
   &lt;li&gt;&lt;a href=&quot;#описание-задачи&quot;&gt;Описание задачи&lt;/a&gt;&lt;/li&gt;
@@ -29,7 +29,7 @@
 
 &lt;h2 id=&quot;примеры&quot;&gt;Примеры&lt;/h2&gt;
 
-&lt;ul id=&quot;contains_duplicates_examples&quot; class=&quot;tab&quot; data-tab=&quot;ee95f7c8-526b-425e-8462-fde1cf45a755&quot; data-name=&quot;contains_duplicates_examples&quot;&gt;
+&lt;ul id=&quot;contains_duplicates_examples&quot; class=&quot;tab&quot; data-tab=&quot;670485c8-470e-4838-8295-e22ff2d52005&quot; data-name=&quot;contains_duplicates_examples&quot;&gt;
   
       &lt;li class=&quot;active&quot; id=&quot;--------1&quot;&gt;
           &lt;a href=&quot;#&quot;&gt;Пример №1 &lt;/a&gt;
@@ -40,7 +40,7 @@
       &lt;/li&gt;
   
 &lt;/ul&gt;
-&lt;ul class=&quot;tab-content&quot; id=&quot;ee95f7c8-526b-425e-8462-fde1cf45a755&quot; data-name=&quot;contains_duplicates_examples&quot;&gt;
+&lt;ul class=&quot;tab-content&quot; id=&quot;670485c8-470e-4838-8295-e22ff2d52005&quot; data-name=&quot;contains_duplicates_examples&quot;&gt;
   
       &lt;li class=&quot;active&quot;&gt;
 &lt;p&gt;&lt;strong&gt;Входные данные&lt;/strong&gt;: &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;[1, 2, 3, 1]&lt;/code&gt;&lt;/p&gt;
@@ -70,7 +70,7 @@
   &lt;li&gt;если в мапе уже есть такое значение, то мы прерываем функцию и возвращаем &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;true&lt;/code&gt;.&lt;/li&gt;
 &lt;/ul&gt;
 
-&lt;ul id=&quot;solution&quot; class=&quot;tab&quot; data-tab=&quot;4dd2c9cc-8911-42ac-8a8a-6d328ba81253&quot; data-name=&quot;solution&quot;&gt;
+&lt;ul id=&quot;solution&quot; class=&quot;tab&quot; data-tab=&quot;505ab1b7-4dd6-4435-af41-ce3c305e62eb&quot; data-name=&quot;solution&quot;&gt;
   
       &lt;li class=&quot;active&quot; id=&quot;go&quot;&gt;
           &lt;a href=&quot;#&quot;&gt;go &lt;/a&gt;
@@ -81,7 +81,7 @@
       &lt;/li&gt;
   
 &lt;/ul&gt;
-&lt;ul class=&quot;tab-content&quot; id=&quot;4dd2c9cc-8911-42ac-8a8a-6d328ba81253&quot; data-name=&quot;solution&quot;&gt;
+&lt;ul class=&quot;tab-content&quot; id=&quot;505ab1b7-4dd6-4435-af41-ce3c305e62eb&quot; data-name=&quot;solution&quot;&gt;
   
       &lt;li class=&quot;active&quot;&gt;
 &lt;div class=&quot;language-go highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;k&quot;&gt;package&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;main&lt;/span&gt;
@@ -138,7 +138,7 @@
 &lt;p&gt;Для решения задачи этим способом необходимо предварительно отсортировать массив в любом порядке.
 Так как в отсортированном массиве одинаковые значения всегда находятся рядом, нам будет достаточно пройти по всем элементам массива и вернуть &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;true&lt;/code&gt;, если мы встретим два одинаковых значения рядом.&lt;/p&gt;
 
-&lt;ul id=&quot;solution&quot; class=&quot;tab&quot; data-tab=&quot;d711855b-18a6-46f6-8553-b80da1a84d4d&quot; data-name=&quot;solution&quot;&gt;
+&lt;ul id=&quot;solution&quot; class=&quot;tab&quot; data-tab=&quot;1f0c2e43-8ad6-483f-87f8-fc2030c3ea91&quot; data-name=&quot;solution&quot;&gt;
   
       &lt;li class=&quot;active&quot; id=&quot;go&quot;&gt;
           &lt;a href=&quot;#&quot;&gt;go &lt;/a&gt;
@@ -149,7 +149,7 @@
       &lt;/li&gt;
   
 &lt;/ul&gt;
-&lt;ul class=&quot;tab-content&quot; id=&quot;d711855b-18a6-46f6-8553-b80da1a84d4d&quot; data-name=&quot;solution&quot;&gt;
+&lt;ul class=&quot;tab-content&quot; id=&quot;1f0c2e43-8ad6-483f-87f8-fc2030c3ea91&quot; data-name=&quot;solution&quot;&gt;
   
       &lt;li class=&quot;active&quot;&gt;
 &lt;div class=&quot;language-go highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;k&quot;&gt;package&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;main&lt;/span&gt;
@@ -226,7 +226,7 @@
 
 &lt;h2 id=&quot;примеры&quot;&gt;Примеры&lt;/h2&gt;
 
-&lt;ul id=&quot;rotate&quot; class=&quot;tab&quot; data-tab=&quot;21198005-6604-4e92-8fba-df4e410586d6&quot; data-name=&quot;rotate&quot;&gt;
+&lt;ul id=&quot;rotate&quot; class=&quot;tab&quot; data-tab=&quot;8fc4a245-8628-4b3c-bbe0-cde36ce9a934&quot; data-name=&quot;rotate&quot;&gt;
   
       &lt;li class=&quot;active&quot; id=&quot;--------1&quot;&gt;
           &lt;a href=&quot;#&quot;&gt;Пример №1 &lt;/a&gt;
@@ -237,7 +237,7 @@
       &lt;/li&gt;
   
 &lt;/ul&gt;
-&lt;ul class=&quot;tab-content&quot; id=&quot;21198005-6604-4e92-8fba-df4e410586d6&quot; data-name=&quot;rotate&quot;&gt;
+&lt;ul class=&quot;tab-content&quot; id=&quot;8fc4a245-8628-4b3c-bbe0-cde36ce9a934&quot; data-name=&quot;rotate&quot;&gt;
   
       &lt;li class=&quot;active&quot;&gt;
 &lt;p&gt;&lt;strong&gt;Входные данные&lt;/strong&gt;&lt;/p&gt;
@@ -310,7 +310,7 @@ k = 2
 &lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;[5,6,7,1,2,3,4]
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
 
-&lt;ul id=&quot;solution&quot; class=&quot;tab&quot; data-tab=&quot;5f8810f6-bc0f-4d88-a7a9-ca9c45cf0508&quot; data-name=&quot;solution&quot;&gt;
+&lt;ul id=&quot;solution&quot; class=&quot;tab&quot; data-tab=&quot;6544ce89-d083-4b9e-9028-d62dfe730ee1&quot; data-name=&quot;solution&quot;&gt;
   
       &lt;li class=&quot;active&quot; id=&quot;go&quot;&gt;
           &lt;a href=&quot;#&quot;&gt;go &lt;/a&gt;
@@ -321,7 +321,7 @@ k = 2
       &lt;/li&gt;
   
 &lt;/ul&gt;
-&lt;ul class=&quot;tab-content&quot; id=&quot;5f8810f6-bc0f-4d88-a7a9-ca9c45cf0508&quot; data-name=&quot;solution&quot;&gt;
+&lt;ul class=&quot;tab-content&quot; id=&quot;6544ce89-d083-4b9e-9028-d62dfe730ee1&quot; data-name=&quot;solution&quot;&gt;
   
       &lt;li class=&quot;active&quot;&gt;
 &lt;div class=&quot;language-go highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;k&quot;&gt;package&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;rotate&lt;/span&gt;
@@ -434,7 +434,7 @@ k = 2
 
 &lt;h2 id=&quot;примеры&quot;&gt;Примеры&lt;/h2&gt;
 
-&lt;ul id=&quot;house_robber_examples&quot; class=&quot;tab&quot; data-tab=&quot;a50409e5-d98f-42de-9349-9ed23bb8932a&quot; data-name=&quot;house_robber_examples&quot;&gt;
+&lt;ul id=&quot;house_robber_examples&quot; class=&quot;tab&quot; data-tab=&quot;151af3ca-5622-41ac-8121-9122ccf4bda4&quot; data-name=&quot;house_robber_examples&quot;&gt;
   
       &lt;li class=&quot;active&quot; id=&quot;--------1&quot;&gt;
           &lt;a href=&quot;#&quot;&gt;Пример №1 &lt;/a&gt;
@@ -457,7 +457,7 @@ k = 2
       &lt;/li&gt;
   
 &lt;/ul&gt;
-&lt;ul class=&quot;tab-content&quot; id=&quot;a50409e5-d98f-42de-9349-9ed23bb8932a&quot; data-name=&quot;house_robber_examples&quot;&gt;
+&lt;ul class=&quot;tab-content&quot; id=&quot;151af3ca-5622-41ac-8121-9122ccf4bda4&quot; data-name=&quot;house_robber_examples&quot;&gt;
   
       &lt;li class=&quot;active&quot;&gt;
 &lt;p&gt;&lt;strong&gt;Входные данные&lt;/strong&gt;: &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;[1, 2, 3, 1]&lt;/code&gt;&lt;/p&gt;
@@ -550,7 +550,7 @@ k = 2
   &lt;li&gt;Возвращаем максимальный элемент из последнего и предпоследнего.&lt;/li&gt;
 &lt;/ul&gt;
 
-&lt;ul id=&quot;solution&quot; class=&quot;tab&quot; data-tab=&quot;7dc4539d-3ac2-43f7-bc65-e9fc4b8d35d8&quot; data-name=&quot;solution&quot;&gt;
+&lt;ul id=&quot;solution&quot; class=&quot;tab&quot; data-tab=&quot;9e14343f-7ece-4091-a5a1-4cc4ddab01dd&quot; data-name=&quot;solution&quot;&gt;
   
       &lt;li class=&quot;active&quot; id=&quot;go&quot;&gt;
           &lt;a href=&quot;#&quot;&gt;go &lt;/a&gt;
@@ -561,7 +561,7 @@ k = 2
       &lt;/li&gt;
   
 &lt;/ul&gt;
-&lt;ul class=&quot;tab-content&quot; id=&quot;7dc4539d-3ac2-43f7-bc65-e9fc4b8d35d8&quot; data-name=&quot;solution&quot;&gt;
+&lt;ul class=&quot;tab-content&quot; id=&quot;9e14343f-7ece-4091-a5a1-4cc4ddab01dd&quot; data-name=&quot;solution&quot;&gt;
   
       &lt;li class=&quot;active&quot;&gt;
 &lt;div class=&quot;language-go highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;k&quot;&gt;package&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;main&lt;/span&gt;
@@ -678,7 +678,7 @@ k = 2
 
 &lt;h2 id=&quot;примеры&quot;&gt;Примеры&lt;/h2&gt;
 
-&lt;ul id=&quot;number_of_islands&quot; class=&quot;tab&quot; data-tab=&quot;dfadc1fc-85d3-4c36-a1c3-57c3f3778a24&quot; data-name=&quot;number_of_islands&quot;&gt;
+&lt;ul id=&quot;number_of_islands&quot; class=&quot;tab&quot; data-tab=&quot;652ca010-82b0-4624-a21a-c5d1eac08ab2&quot; data-name=&quot;number_of_islands&quot;&gt;
   
       &lt;li class=&quot;active&quot; id=&quot;--------1&quot;&gt;
           &lt;a href=&quot;#&quot;&gt;Пример №1 &lt;/a&gt;
@@ -689,7 +689,7 @@ k = 2
       &lt;/li&gt;
   
 &lt;/ul&gt;
-&lt;ul class=&quot;tab-content&quot; id=&quot;dfadc1fc-85d3-4c36-a1c3-57c3f3778a24&quot; data-name=&quot;number_of_islands&quot;&gt;
+&lt;ul class=&quot;tab-content&quot; id=&quot;652ca010-82b0-4624-a21a-c5d1eac08ab2&quot; data-name=&quot;number_of_islands&quot;&gt;
   
       &lt;li class=&quot;active&quot;&gt;
 &lt;p&gt;&lt;strong&gt;Входные данные&lt;/strong&gt;&lt;/p&gt;
@@ -737,7 +737,7 @@ k = 2
 &lt;p&gt;После попадания в остров нам необходимо удалять остров из массива, чтобы при проверке последующих элементов не учитывать его повторно.
 Таким образом каждый раз встречая единицу мы будем однозначно понимать, что нашли новый остров.&lt;/p&gt;
 
-&lt;ul id=&quot;solution&quot; class=&quot;tab&quot; data-tab=&quot;463779f6-3e44-4f93-9bb6-876999132a50&quot; data-name=&quot;solution&quot;&gt;
+&lt;ul id=&quot;solution&quot; class=&quot;tab&quot; data-tab=&quot;f000a8f4-f636-4fdc-8594-8edc8f4dce59&quot; data-name=&quot;solution&quot;&gt;
   
       &lt;li class=&quot;active&quot; id=&quot;go&quot;&gt;
           &lt;a href=&quot;#&quot;&gt;go &lt;/a&gt;
@@ -748,7 +748,7 @@ k = 2
       &lt;/li&gt;
   
 &lt;/ul&gt;
-&lt;ul class=&quot;tab-content&quot; id=&quot;463779f6-3e44-4f93-9bb6-876999132a50&quot; data-name=&quot;solution&quot;&gt;
+&lt;ul class=&quot;tab-content&quot; id=&quot;f000a8f4-f636-4fdc-8594-8edc8f4dce59&quot; data-name=&quot;solution&quot;&gt;
   
       &lt;li class=&quot;active&quot;&gt;
 &lt;div class=&quot;language-go highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;k&quot;&gt;package&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;number_of_islands&lt;/span&gt;
@@ -968,7 +968,7 @@ k = 2
 
 &lt;p&gt;Итоговое решение.&lt;/p&gt;
 
-&lt;ul id=&quot;solution&quot; class=&quot;tab&quot; data-tab=&quot;3eaff593-46e3-4953-95d2-1db94d55d3ed&quot; data-name=&quot;solution&quot;&gt;
+&lt;ul id=&quot;solution&quot; class=&quot;tab&quot; data-tab=&quot;18556422-8e96-4d17-b437-4c6aba320986&quot; data-name=&quot;solution&quot;&gt;
   
       &lt;li class=&quot;active&quot; id=&quot;go&quot;&gt;
           &lt;a href=&quot;#&quot;&gt;go &lt;/a&gt;
@@ -979,7 +979,7 @@ k = 2
       &lt;/li&gt;
   
 &lt;/ul&gt;
-&lt;ul class=&quot;tab-content&quot; id=&quot;3eaff593-46e3-4953-95d2-1db94d55d3ed&quot; data-name=&quot;solution&quot;&gt;
+&lt;ul class=&quot;tab-content&quot; id=&quot;18556422-8e96-4d17-b437-4c6aba320986&quot; data-name=&quot;solution&quot;&gt;
   
       &lt;li class=&quot;active&quot;&gt;
 &lt;div class=&quot;language-go highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;k&quot;&gt;package&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;main&lt;/span&gt;
@@ -1170,7 +1170,7 @@ k = 2
 
 &lt;h2 id=&quot;примеры&quot;&gt;Примеры&lt;/h2&gt;
 
-&lt;ul id=&quot;game_of_life&quot; class=&quot;tab&quot; data-tab=&quot;841676bd-00d4-43ea-bdd3-8d0886529091&quot; data-name=&quot;game_of_life&quot;&gt;
+&lt;ul id=&quot;game_of_life&quot; class=&quot;tab&quot; data-tab=&quot;96801694-073c-455d-9fe9-c6b61b4d2cd7&quot; data-name=&quot;game_of_life&quot;&gt;
   
       &lt;li class=&quot;active&quot; id=&quot;--------1&quot;&gt;
           &lt;a href=&quot;#&quot;&gt;Пример №1 &lt;/a&gt;
@@ -1181,7 +1181,7 @@ k = 2
       &lt;/li&gt;
   
 &lt;/ul&gt;
-&lt;ul class=&quot;tab-content&quot; id=&quot;841676bd-00d4-43ea-bdd3-8d0886529091&quot; data-name=&quot;game_of_life&quot;&gt;
+&lt;ul class=&quot;tab-content&quot; id=&quot;96801694-073c-455d-9fe9-c6b61b4d2cd7&quot; data-name=&quot;game_of_life&quot;&gt;
   
       &lt;li class=&quot;active&quot;&gt;
 &lt;p&gt;&lt;img src=&quot;/assets/images/game_of_life_1.png&quot; alt=&quot;Пример 1&quot; /&gt;&lt;/p&gt;
@@ -1247,7 +1247,7 @@ k = 2
 &lt;p&gt;При вычислении состояния для каждой клетки нужно учитывать эти нововведения.
 В конце после того, как мы поменяем состояния для всех элементов матрицы нужно еще раз обновить ее и заменить все &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;2&lt;/code&gt; на &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;0&lt;/code&gt;, а &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;3&lt;/code&gt; на &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;1&lt;/code&gt;.&lt;/p&gt;
 
-&lt;ul id=&quot;solution&quot; class=&quot;tab&quot; data-tab=&quot;c5601dfa-080d-4aae-93d1-15f2b511e32a&quot; data-name=&quot;solution&quot;&gt;
+&lt;ul id=&quot;solution&quot; class=&quot;tab&quot; data-tab=&quot;34130650-d187-4508-af24-dccf2e4ee053&quot; data-name=&quot;solution&quot;&gt;
   
       &lt;li class=&quot;active&quot; id=&quot;go&quot;&gt;
           &lt;a href=&quot;#&quot;&gt;go &lt;/a&gt;
@@ -1258,7 +1258,7 @@ k = 2
       &lt;/li&gt;
   
 &lt;/ul&gt;
-&lt;ul class=&quot;tab-content&quot; id=&quot;c5601dfa-080d-4aae-93d1-15f2b511e32a&quot; data-name=&quot;solution&quot;&gt;
+&lt;ul class=&quot;tab-content&quot; id=&quot;34130650-d187-4508-af24-dccf2e4ee053&quot; data-name=&quot;solution&quot;&gt;
   
       &lt;li class=&quot;active&quot;&gt;
 &lt;div class=&quot;language-go highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;k&quot;&gt;package&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;main&lt;/span&gt;
@@ -1490,7 +1490,7 @@ k = 2
 
 &lt;h2 id=&quot;примеры&quot;&gt;Примеры&lt;/h2&gt;
 
-&lt;ul id=&quot;minimum_path_sum&quot; class=&quot;tab&quot; data-tab=&quot;25fc25a9-935f-46e2-994f-7c878736c37a&quot; data-name=&quot;minimum_path_sum&quot;&gt;
+&lt;ul id=&quot;minimum_path_sum&quot; class=&quot;tab&quot; data-tab=&quot;e3019447-b447-4f45-9e6d-2fc45b6ed994&quot; data-name=&quot;minimum_path_sum&quot;&gt;
   
       &lt;li class=&quot;active&quot; id=&quot;--------1&quot;&gt;
           &lt;a href=&quot;#&quot;&gt;Пример №1 &lt;/a&gt;
@@ -1509,7 +1509,7 @@ k = 2
       &lt;/li&gt;
   
 &lt;/ul&gt;
-&lt;ul class=&quot;tab-content&quot; id=&quot;25fc25a9-935f-46e2-994f-7c878736c37a&quot; data-name=&quot;minimum_path_sum&quot;&gt;
+&lt;ul class=&quot;tab-content&quot; id=&quot;e3019447-b447-4f45-9e6d-2fc45b6ed994&quot; data-name=&quot;minimum_path_sum&quot;&gt;
   
       &lt;li class=&quot;active&quot;&gt;
 &lt;p&gt;&lt;strong&gt;Входные данные&lt;/strong&gt;&lt;/p&gt;
@@ -1694,7 +1694,7 @@ k = 2
 &lt;p&gt;Таким образом, когда мы пройдемся по всей матрице в правом нижнем элементе будет вычислена стоимость самого дешевого пути до этого элемента.
 Итоговая реализация.&lt;/p&gt;
 
-&lt;ul id=&quot;solution&quot; class=&quot;tab&quot; data-tab=&quot;ccf8d5f7-44c2-476b-8769-c1d4a21f5190&quot; data-name=&quot;solution&quot;&gt;
+&lt;ul id=&quot;solution&quot; class=&quot;tab&quot; data-tab=&quot;8e859e8f-9535-44ed-8ce9-7704f2b53598&quot; data-name=&quot;solution&quot;&gt;
   
       &lt;li class=&quot;active&quot; id=&quot;go&quot;&gt;
           &lt;a href=&quot;#&quot;&gt;go &lt;/a&gt;
@@ -1705,7 +1705,7 @@ k = 2
       &lt;/li&gt;
   
 &lt;/ul&gt;
-&lt;ul class=&quot;tab-content&quot; id=&quot;ccf8d5f7-44c2-476b-8769-c1d4a21f5190&quot; data-name=&quot;solution&quot;&gt;
+&lt;ul class=&quot;tab-content&quot; id=&quot;8e859e8f-9535-44ed-8ce9-7704f2b53598&quot; data-name=&quot;solution&quot;&gt;
   
       &lt;li class=&quot;active&quot;&gt;
 &lt;div class=&quot;language-go highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;k&quot;&gt;package&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;main&lt;/span&gt;
@@ -1828,7 +1828,7 @@ k = 2
 
 &lt;h2 id=&quot;примеры&quot;&gt;Примеры&lt;/h2&gt;
 
-&lt;ul id=&quot;examples&quot; class=&quot;tab&quot; data-tab=&quot;064b12c8-7fb2-49be-8fe3-cbb48ce30389&quot; data-name=&quot;examples&quot;&gt;
+&lt;ul id=&quot;examples&quot; class=&quot;tab&quot; data-tab=&quot;1cf11387-4f69-4fd0-8b79-37235e94ab73&quot; data-name=&quot;examples&quot;&gt;
   
       &lt;li class=&quot;active&quot; id=&quot;--------1&quot;&gt;
           &lt;a href=&quot;#&quot;&gt;Пример №1 &lt;/a&gt;
@@ -1839,7 +1839,7 @@ k = 2
       &lt;/li&gt;
   
 &lt;/ul&gt;
-&lt;ul class=&quot;tab-content&quot; id=&quot;064b12c8-7fb2-49be-8fe3-cbb48ce30389&quot; data-name=&quot;examples&quot;&gt;
+&lt;ul class=&quot;tab-content&quot; id=&quot;1cf11387-4f69-4fd0-8b79-37235e94ab73&quot; data-name=&quot;examples&quot;&gt;
   
       &lt;li class=&quot;active&quot;&gt;
 &lt;p&gt;&lt;strong&gt;Входные данные&lt;/strong&gt;: &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;[1,8,6,2,5,4,8,3,7]&lt;/code&gt;&lt;/p&gt;
@@ -1947,7 +1947,7 @@ k = 2
 
 &lt;p&gt;В итоге мы получим следующее решение.&lt;/p&gt;
 
-&lt;ul id=&quot;solution&quot; class=&quot;tab&quot; data-tab=&quot;ed8d479a-4beb-4498-94ac-53228c8e4346&quot; data-name=&quot;solution&quot;&gt;
+&lt;ul id=&quot;solution&quot; class=&quot;tab&quot; data-tab=&quot;c03e90c0-dbd3-4f38-bf37-3b1623ac1101&quot; data-name=&quot;solution&quot;&gt;
   
       &lt;li class=&quot;active&quot; id=&quot;go&quot;&gt;
           &lt;a href=&quot;#&quot;&gt;go &lt;/a&gt;
@@ -1958,7 +1958,7 @@ k = 2
       &lt;/li&gt;
   
 &lt;/ul&gt;
-&lt;ul class=&quot;tab-content&quot; id=&quot;ed8d479a-4beb-4498-94ac-53228c8e4346&quot; data-name=&quot;solution&quot;&gt;
+&lt;ul class=&quot;tab-content&quot; id=&quot;c03e90c0-dbd3-4f38-bf37-3b1623ac1101&quot; data-name=&quot;solution&quot;&gt;
   
       &lt;li class=&quot;active&quot;&gt;
 &lt;div class=&quot;language-go highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;k&quot;&gt;package&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;main&lt;/span&gt;
@@ -2060,7 +2060,7 @@ k = 2
 На каждой итерации считаем площадь нового прямоугольника и сравниваем с максимумом.
 В случае, если и левая и правая сторона «аквариума» одинаковы — «сужаем» окно с обоих направлений.&lt;/p&gt;
 
-&lt;ul id=&quot;solution&quot; class=&quot;tab&quot; data-tab=&quot;b85b7e7d-5207-450f-a08c-5df0f45e26c0&quot; data-name=&quot;solution&quot;&gt;
+&lt;ul id=&quot;solution&quot; class=&quot;tab&quot; data-tab=&quot;f99828fe-a8a7-47b7-9853-e7597c91773b&quot; data-name=&quot;solution&quot;&gt;
   
       &lt;li class=&quot;active&quot; id=&quot;go&quot;&gt;
           &lt;a href=&quot;#&quot;&gt;go &lt;/a&gt;
@@ -2071,7 +2071,7 @@ k = 2
       &lt;/li&gt;
   
 &lt;/ul&gt;
-&lt;ul class=&quot;tab-content&quot; id=&quot;b85b7e7d-5207-450f-a08c-5df0f45e26c0&quot; data-name=&quot;solution&quot;&gt;
+&lt;ul class=&quot;tab-content&quot; id=&quot;f99828fe-a8a7-47b7-9853-e7597c91773b&quot; data-name=&quot;solution&quot;&gt;
   
       &lt;li class=&quot;active&quot;&gt;
 &lt;div class=&quot;language-go highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;k&quot;&gt;package&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;main&lt;/span&gt;
@@ -2200,7 +2200,7 @@ k = 2
 
 &lt;h2 id=&quot;примеры&quot;&gt;Примеры&lt;/h2&gt;
 
-&lt;ul id=&quot;powx_n&quot; class=&quot;tab&quot; data-tab=&quot;49360ab6-b5da-401a-9bfd-666ab88bbcc1&quot; data-name=&quot;powx_n&quot;&gt;
+&lt;ul id=&quot;powx_n&quot; class=&quot;tab&quot; data-tab=&quot;14e8382a-c6e6-4bff-a29a-5f66eb2fad81&quot; data-name=&quot;powx_n&quot;&gt;
   
       &lt;li class=&quot;active&quot; id=&quot;--------1&quot;&gt;
           &lt;a href=&quot;#&quot;&gt;Пример №1 &lt;/a&gt;
@@ -2215,7 +2215,7 @@ k = 2
       &lt;/li&gt;
   
 &lt;/ul&gt;
-&lt;ul class=&quot;tab-content&quot; id=&quot;49360ab6-b5da-401a-9bfd-666ab88bbcc1&quot; data-name=&quot;powx_n&quot;&gt;
+&lt;ul class=&quot;tab-content&quot; id=&quot;14e8382a-c6e6-4bff-a29a-5f66eb2fad81&quot; data-name=&quot;powx_n&quot;&gt;
   
       &lt;li class=&quot;active&quot;&gt;
 &lt;p&gt;&lt;strong&gt;Входные данные&lt;/strong&gt;&lt;/p&gt;
@@ -2299,7 +2299,7 @@ n = -2
 
 &lt;p&gt;Итоговое решение.&lt;/p&gt;
 
-&lt;ul id=&quot;solution&quot; class=&quot;tab&quot; data-tab=&quot;f4a45a61-c45d-4827-b5a7-f92c7e26fcff&quot; data-name=&quot;solution&quot;&gt;
+&lt;ul id=&quot;solution&quot; class=&quot;tab&quot; data-tab=&quot;685d3e3c-cc06-4faa-a9f4-671997066bbf&quot; data-name=&quot;solution&quot;&gt;
   
       &lt;li class=&quot;active&quot; id=&quot;go&quot;&gt;
           &lt;a href=&quot;#&quot;&gt;go &lt;/a&gt;
@@ -2310,7 +2310,7 @@ n = -2
       &lt;/li&gt;
   
 &lt;/ul&gt;
-&lt;ul class=&quot;tab-content&quot; id=&quot;f4a45a61-c45d-4827-b5a7-f92c7e26fcff&quot; data-name=&quot;solution&quot;&gt;
+&lt;ul class=&quot;tab-content&quot; id=&quot;685d3e3c-cc06-4faa-a9f4-671997066bbf&quot; data-name=&quot;solution&quot;&gt;
   
       &lt;li class=&quot;active&quot;&gt;
 &lt;div class=&quot;language-go highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;k&quot;&gt;package&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;main&lt;/span&gt;
@@ -2427,7 +2427,7 @@ n = -2
 
 &lt;p&gt;Таким образом, мы можем переписать нашу функцию на рекурсивную, не забывая отдельно обработать кейс с нечетной степенью:&lt;/p&gt;
 
-&lt;ul id=&quot;solution&quot; class=&quot;tab&quot; data-tab=&quot;200dbea7-1d1e-41cd-9314-449741ee991b&quot; data-name=&quot;solution&quot;&gt;
+&lt;ul id=&quot;solution&quot; class=&quot;tab&quot; data-tab=&quot;499bfec2-3a11-47cf-8c26-08f260bbfac4&quot; data-name=&quot;solution&quot;&gt;
   
       &lt;li class=&quot;active&quot; id=&quot;go&quot;&gt;
           &lt;a href=&quot;#&quot;&gt;go &lt;/a&gt;
@@ -2438,7 +2438,7 @@ n = -2
       &lt;/li&gt;
   
 &lt;/ul&gt;
-&lt;ul class=&quot;tab-content&quot; id=&quot;200dbea7-1d1e-41cd-9314-449741ee991b&quot; data-name=&quot;solution&quot;&gt;
+&lt;ul class=&quot;tab-content&quot; id=&quot;499bfec2-3a11-47cf-8c26-08f260bbfac4&quot; data-name=&quot;solution&quot;&gt;
   
       &lt;li class=&quot;active&quot;&gt;
 &lt;div class=&quot;language-go highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;k&quot;&gt;package&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;main&lt;/span&gt;
@@ -2569,7 +2569,7 @@ n = -2
 
 &lt;h2 id=&quot;примеры&quot;&gt;Примеры&lt;/h2&gt;
 
-&lt;ul id=&quot;generate_parentheses&quot; class=&quot;tab&quot; data-tab=&quot;16955f3a-8e95-4dea-8b6b-805bbbfc791d&quot; data-name=&quot;generate_parentheses&quot;&gt;
+&lt;ul id=&quot;generate_parentheses&quot; class=&quot;tab&quot; data-tab=&quot;fd632da8-7d6b-437d-a9fe-0fe41873cc3e&quot; data-name=&quot;generate_parentheses&quot;&gt;
   
       &lt;li class=&quot;active&quot; id=&quot;--------1&quot;&gt;
           &lt;a href=&quot;#&quot;&gt;Пример №1 &lt;/a&gt;
@@ -2580,7 +2580,7 @@ n = -2
       &lt;/li&gt;
   
 &lt;/ul&gt;
-&lt;ul class=&quot;tab-content&quot; id=&quot;16955f3a-8e95-4dea-8b6b-805bbbfc791d&quot; data-name=&quot;generate_parentheses&quot;&gt;
+&lt;ul class=&quot;tab-content&quot; id=&quot;fd632da8-7d6b-437d-a9fe-0fe41873cc3e&quot; data-name=&quot;generate_parentheses&quot;&gt;
   
       &lt;li class=&quot;active&quot;&gt;
 &lt;p&gt;&lt;strong&gt;Входные данные&lt;/strong&gt;: &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;3&lt;/code&gt;&lt;/p&gt;
@@ -2640,7 +2640,7 @@ n = -2
 
 &lt;p&gt;В результате получим следующие решения.&lt;/p&gt;
 
-&lt;ul id=&quot;solution&quot; class=&quot;tab&quot; data-tab=&quot;7d37fdde-eef2-4fa9-8970-81ce272a5247&quot; data-name=&quot;solution&quot;&gt;
+&lt;ul id=&quot;solution&quot; class=&quot;tab&quot; data-tab=&quot;9a353f45-32c6-4582-a1f6-588ebf90e5cb&quot; data-name=&quot;solution&quot;&gt;
   
       &lt;li class=&quot;active&quot; id=&quot;go&quot;&gt;
           &lt;a href=&quot;#&quot;&gt;go &lt;/a&gt;
@@ -2651,7 +2651,7 @@ n = -2
       &lt;/li&gt;
   
 &lt;/ul&gt;
-&lt;ul class=&quot;tab-content&quot; id=&quot;7d37fdde-eef2-4fa9-8970-81ce272a5247&quot; data-name=&quot;solution&quot;&gt;
+&lt;ul class=&quot;tab-content&quot; id=&quot;9a353f45-32c6-4582-a1f6-588ebf90e5cb&quot; data-name=&quot;solution&quot;&gt;
   
       &lt;li class=&quot;active&quot;&gt;
 &lt;div class=&quot;language-go highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;k&quot;&gt;package&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;main&lt;/span&gt;
@@ -2831,7 +2831,7 @@ n = -2
 
 &lt;p&gt;В этом решении не нужно постфактум проверять получившиеся скобки на валидность, так что мы сможем отбросить один из множителей в нашей оценке сложности.&lt;/p&gt;
 
-&lt;ul id=&quot;solution&quot; class=&quot;tab&quot; data-tab=&quot;8d77c702-fbc4-4e5c-abe6-6ade91b4b85f&quot; data-name=&quot;solution&quot;&gt;
+&lt;ul id=&quot;solution&quot; class=&quot;tab&quot; data-tab=&quot;dbeb1203-fe6b-4233-b559-d46e2b666fee&quot; data-name=&quot;solution&quot;&gt;
   
       &lt;li class=&quot;active&quot; id=&quot;go&quot;&gt;
           &lt;a href=&quot;#&quot;&gt;go &lt;/a&gt;
@@ -2842,7 +2842,7 @@ n = -2
       &lt;/li&gt;
   
 &lt;/ul&gt;
-&lt;ul class=&quot;tab-content&quot; id=&quot;8d77c702-fbc4-4e5c-abe6-6ade91b4b85f&quot; data-name=&quot;solution&quot;&gt;
+&lt;ul class=&quot;tab-content&quot; id=&quot;dbeb1203-fe6b-4233-b559-d46e2b666fee&quot; data-name=&quot;solution&quot;&gt;
   
       &lt;li class=&quot;active&quot;&gt;
 &lt;div class=&quot;language-go highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;k&quot;&gt;package&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;main&lt;/span&gt;
