@@ -1,3 +1,24 @@
+body {
+    display: flex;
+    flex-direction: column;
+    padding: 0;
+    margin: 0;
+    font-family: "Open Sans", "Helvetica Neue", Helvetica, Arial, sans-serif;
+    font-size: 16px;
+    line-height: 1.5;
+    color: #606c71;
+    width: 100%;
+    height: 100vh;
+    overflow: hidden;
+}
+
+@media screen and (max-width: 42em) {
+    body {
+        display: block;
+        overflow-y: auto;
+    }
+}
+
 .highlight table:not(.highlight table) td {
     padding: 5px;
 }
@@ -278,15 +299,6 @@
     box-sizing: border-box;
 }
 
-body {
-    padding: 0;
-    margin: 0;
-    font-family: "Open Sans", "Helvetica Neue", Helvetica, Arial, sans-serif;
-    font-size: 16px;
-    line-height: 1.5;
-    color: #606c71;
-}
-
 a {
     color: #1e6bb8;
     text-decoration: none;
@@ -300,7 +312,6 @@ a:hover {
     display: inline-flex;
     align-items: center;
     gap: 12px;
-    margin-bottom: 1rem;
     color: rgba(255, 255, 255, 0.7);
     background-color: rgba(255, 255, 255, 0.08);
     border-color: rgba(255, 255, 255, 0.2);
@@ -317,38 +328,36 @@ a:hover {
     border-color: rgba(255, 255, 255, 0.3);
 }
 
-.btn + .btn {
-    margin-left: 1rem;
-}
-
 @media screen and (min-width: 64em) {
     .btn {
-        padding: 0.75rem 1rem;
+        padding: 0.55rem 1rem;
     }
 }
 
 @media screen and (min-width: 42em) and (max-width: 64em) {
     .btn {
-        padding: 0.6rem 0.9rem;
+        padding: 0.55rem 1rem;
         font-size: 0.9rem;
     }
 }
 
 @media screen and (max-width: 42em) {
     .btn {
-        display: block;
-        width: 100%;
-        padding: 0.75rem;
+        display: flex;
+        width: 130px;
+        justify-content: center;
+        padding: 0.55rem;
         font-size: 0.9rem;
-    }
-
-    .btn + .btn {
-        margin-top: 1rem;
-        margin-left: 0;
     }
 }
 
+.page-header-wrapper {
+    overflow-y: auto;
+}
+
 .page-header {
+    display: flex;
+    align-items: center;
     color: #fff;
     text-align: center;
     background-color: #159957;
@@ -357,36 +366,38 @@ a:hover {
 
 @media screen and (min-width: 64em) {
     .page-header {
-        padding: 3rem
+        padding: 1.5rem 3rem;
     }
 }
 
 @media screen and (min-width: 42em) and (max-width: 64em) {
     .page-header {
-        padding: 2rem
+        padding: 1.5rem 3rem;
     }
 }
 
 @media screen and (max-width: 42em) {
     .page-header {
-        padding: 1rem
+        padding: 2rem 1rem;
+        flex-direction: column;
+        gap: 20px;
     }
 }
 
 .project-name {
-    margin-top: 0;
-    margin-bottom: 0.1rem;
+    color: white;
+    margin: 0;
 }
 
 @media screen and (min-width: 64em) {
     .project-name {
-        font-size: 3.25rem;
+        font-size: 1.5rem;
     }
 }
 
 @media screen and (min-width: 42em) and (max-width: 64em) {
     .project-name {
-        font-size: 2.25rem;
+        font-size: 1.5rem;
     }
 }
 
@@ -420,6 +431,7 @@ a:hover {
 }
 
 .main-content {
+    flex: 1;
     word-wrap: break-word;
     position: relative;
 }
@@ -451,7 +463,14 @@ a:hover {
     max-width: 100%;
 }
 
-.main-content h1, .main-content h2, .main-content h3, .main-content h4, .main-content h5, .main-content h6 {
+.main-content h1 {
+    margin-top: 0;
+    margin-bottom: 1rem;
+    font-weight: normal;
+    color: #159957;
+}
+
+.main-content h2, .main-content h3, .main-content h4, .main-content h5, .main-content h6 {
     margin-top: 2rem;
     margin-bottom: 1rem;
     font-weight: normal;
@@ -590,32 +609,23 @@ a:hover {
 }
 
 .site-footer {
-    padding-top: 2rem;
-    margin-top: 2rem;
+    font-size: 1rem;
+    display: flex;
+    justify-content: space-between;
+    padding: 1.5rem 3rem;
     border-top: solid 1px #eff0f1;
-}
-
-@media screen and (min-width: 64em) {
-    .site-footer {
-        font-size: 1rem;
-    }
-}
-
-@media screen and (min-width: 42em) and (max-width: 64em) {
-    .site-footer {
-        font-size: 1rem;
-    }
 }
 
 @media screen and (max-width: 42em) {
     .site-footer {
+        flex-direction: column;
         font-size: 0.9rem;
+        padding: 2rem 1rem;
     }
 }
 
 .site-footer-owner {
     display: block;
-    font-weight: bold;
 }
 
 .site-footer-credits {
@@ -623,18 +633,41 @@ a:hover {
 }
 
 .logo {
+    display: block;
     border-radius: 50%;
-    width: 64px;
-    height: 64px;
+    width: 54px;
+    height: 54px;
 }
 
 .back {
-    position: absolute;
     display: inline-flex;
-    left: 0;
-    top: 32px;
     font-size: 13px;
     align-items: center;
-    gap: 5px;
+    gap: 4px;
     color: #878787;
+}
+
+.page-logo {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    text-decoration: none !important;
+}
+
+.page-logo:hover {
+    text-decoration: none;
+}
+
+@media screen and (max-width: 42em) {
+    .page-logo {
+        flex-direction: column;
+        gap: 10px;
+    }
+}
+
+
+.actions {
+    display: flex;
+    gap: 24px;
 }

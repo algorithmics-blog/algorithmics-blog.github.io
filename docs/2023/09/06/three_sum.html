@@ -18,15 +18,13 @@
 
   <body>
     <section class="page-header">
-    <a href="/">
+    <a href="/" class="page-logo">
         <img src="/assets/images/logo.jpg" alt="Algorithmics" class="logo">
+        <h1 class="project-name">Algorithmics</h1>
     </a>
 
-    <h1 class="project-name">Algorithmics</h1>
-    <h2 class="project-tagline"></h2>
-
-    <div>
-        <a href="https://github.com/avivasyuta/algorithmics" target="_blank" class="btn">
+    <div class="actions">
+        <a href="https://github.com/algorithmics-blog/algorithmics-blog.github.io" target="_blank" class="btn">
             <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
                 <path fill="currentColor" fill-rule="evenodd"
                       d="M11.999 1C5.926 1 1 5.925 1 12c0 4.86 3.152 8.983 7.523 10.437c.55.102.75-.238.75-.53c0-.26-.009-.952-.014-1.87c-3.06.664-3.706-1.475-3.706-1.475c-.5-1.27-1.221-1.61-1.221-1.61c-.999-.681.075-.668.075-.668c1.105.078 1.685 1.134 1.685 1.134c.981 1.68 2.575 1.195 3.202.914c.1-.71.384-1.195.698-1.47c-2.442-.278-5.01-1.222-5.01-5.437c0-1.2.428-2.183 1.132-2.952c-.114-.278-.491-1.397.108-2.91c0 0 .923-.297 3.025 1.127A10.536 10.536 0 0 1 12 6.32a10.49 10.49 0 0 1 2.754.37c2.1-1.424 3.022-1.128 3.022-1.128c.6 1.514.223 2.633.11 2.911c.705.769 1.13 1.751 1.13 2.952c0 4.226-2.572 5.156-5.022 5.428c.395.34.747 1.01.747 2.037c0 1.47-.014 2.657-.014 3.017c0 .295.199.637.756.53C19.851 20.979 23 16.859 23 12c0-6.075-4.926-11-11.001-11"/>
@@ -45,12 +43,13 @@
 </section>
 
 
-    <section class="main-content">
-
-      <a class="back" href="/">
-    <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 2048 2048">
-        <path fill="currentColor"
-              d="m1699 249l-775 775l775 775l-241 242L441 1024L1458 7l241 242z"/>
+    <div class="page-header-wrapper">
+      <section class="main-content">
+        <a class="back" href="/">
+    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 48 48">
+        <path fill="currentColor" fill-rule="evenodd"
+              d="M41.708 23.794L24.058 6.086L6.294 23.792a1 1 0 1 0 1.412 1.416L10 22.922V41a1 1 0 0 0 1 1h9a1 1 0 0 0 1-1v-8.74a1 1 0 0 1 1-1h4a1 1 0 0 1 1 1V41a1 1 0 0 0 1 1h9a1 1 0 0 0 1-1V22.907l2.292 2.3a1 1 0 1 0 1.416-1.413ZM36 20.9L24.053 8.914L12 20.928V40h7v-7.74a3 3 0 0 1 3-3h4a3 3 0 0 1 3 3V40h7V20.9Z"
+              clip-rule="evenodd"/>
     </svg>
     На главную
 </a>
@@ -117,7 +116,7 @@
 
 <h2 id="примеры">Примеры</h2>
 
-<ul id="three_sum" class="tab" data-tab="b3baba67-ab01-4c76-b1ce-d965f4a758b2" data-name="three_sum">
+<ul id="three_sum" class="tab" data-tab="865cf34e-c486-4b05-a479-89f8eb836d92" data-name="three_sum">
   
       <li class="active" id="--------1">
           <a href="#">Пример №1 </a>
@@ -132,7 +131,7 @@
       </li>
   
 </ul>
-<ul class="tab-content" id="b3baba67-ab01-4c76-b1ce-d965f4a758b2" data-name="three_sum">
+<ul class="tab-content" id="865cf34e-c486-4b05-a479-89f8eb836d92" data-name="three_sum">
   
       <li class="active">
 <p><strong>Входные данные</strong>: <code class="language-plaintext highlighter-rouge">[-1, 0, 1, 2, -1, -4]</code></p>
@@ -225,7 +224,7 @@
 
 <p>В результате мы получаем следующие решения задачи.</p>
 
-<ul id="solution" class="tab" data-tab="972b342a-a96f-44b3-bca0-0797ae666756" data-name="solution">
+<ul id="solution" class="tab" data-tab="351e9f97-3307-45d3-8108-ddc3698ba065" data-name="solution">
   
       <li class="active" id="go">
           <a href="#">go </a>
@@ -236,7 +235,7 @@
       </li>
   
 </ul>
-<ul class="tab-content" id="972b342a-a96f-44b3-bca0-0797ae666756" data-name="solution">
+<ul class="tab-content" id="351e9f97-3307-45d3-8108-ddc3698ba065" data-name="solution">
   
       <li class="active">
 <div class="language-go highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">package</span> <span class="n">main</span>
@@ -402,7 +401,7 @@
 <p>Осталось учесть один нюанс, как и в предыдущем решении. Во время второго перебора мы можем получать одинаковые значения и тем самым создавать дубликаты.
 Поэтому, после добавления найденной тройки нам надо увеличивать указатель <code class="language-plaintext highlighter-rouge">left</code> до тех пор, пока значение под индексом <code class="language-plaintext highlighter-rouge">left</code> равно значению под индексом <code class="language-plaintext highlighter-rouge">left - 1</code>.</p>
 
-<ul id="solution" class="tab" data-tab="aaa13094-4207-4d46-98cb-e9d16ff45a1a" data-name="solution">
+<ul id="solution" class="tab" data-tab="98091a21-5cc5-4894-a2f9-b36b54205d9c" data-name="solution">
   
       <li class="active" id="go">
           <a href="#">go </a>
@@ -413,7 +412,7 @@
       </li>
   
 </ul>
-<ul class="tab-content" id="aaa13094-4207-4d46-98cb-e9d16ff45a1a" data-name="solution">
+<ul class="tab-content" id="98091a21-5cc5-4894-a2f9-b36b54205d9c" data-name="solution">
   
       <li class="active">
 <div class="language-go highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">package</span> <span class="n">main</span>
@@ -551,7 +550,7 @@
 Таким образом мы создадим уникальный ключ и избежим дубликатов при добавлении.
 Однако, при возврате результата нам придется обратно разобрать каждую строку на отдельные числа с приведением типов.</p>
 
-<ul id="solution" class="tab" data-tab="29532b8b-5131-4904-9ec5-33c3cf760b88" data-name="solution">
+<ul id="solution" class="tab" data-tab="e8e66b81-e542-44e6-bfb6-997731accb2d" data-name="solution">
   
       <li class="active" id="go">
           <a href="#">go </a>
@@ -562,7 +561,7 @@
       </li>
   
 </ul>
-<ul class="tab-content" id="29532b8b-5131-4904-9ec5-33c3cf760b88" data-name="solution">
+<ul class="tab-content" id="e8e66b81-e542-44e6-bfb6-997731accb2d" data-name="solution">
   
       <li class="active">
 <div class="language-go highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">package</span> <span class="n">main</span>
@@ -696,6 +695,7 @@
 
 
 
+      </section>
 
       <footer class="site-footer">
     <span class="site-footer-owner">
@@ -704,12 +704,11 @@
         <a href="https://www.linkedin.com/in/tifongod/" target="_blank">Denis Kolpakov</a>.
     </span>
     <span class="site-footer-credits">
-        This page was generated by <a href="https://pages.github.com">GitHub Pages</a>.
+        &copy; Algorithmics
     </span>
 </footer>
 
-
-    </section>
+    </div>
 
     <script src="/assets/js/tabs.js" type="application/javascript"></script>
     <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
