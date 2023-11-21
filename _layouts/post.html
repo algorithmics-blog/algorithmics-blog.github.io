@@ -3,9 +3,10 @@ layout: default
 ---
 
 <a class="back" href="/">
-    <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 2048 2048">
-        <path fill="currentColor"
-              d="m1699 249l-775 775l775 775l-241 242L441 1024L1458 7l241 242z"/>
+    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 48 48">
+        <path fill="currentColor" fill-rule="evenodd"
+              d="M41.708 23.794L24.058 6.086L6.294 23.792a1 1 0 1 0 1.412 1.416L10 22.922V41a1 1 0 0 0 1 1h9a1 1 0 0 0 1-1v-8.74a1 1 0 0 1 1-1h4a1 1 0 0 1 1 1V41a1 1 0 0 0 1 1h9a1 1 0 0 0 1-1V22.907l2.292 2.3a1 1 0 1 0 1.416-1.413ZM36 20.9L24.053 8.914L12 20.928V40h7v-7.74a3 3 0 0 1 3-3h4a3 3 0 0 1 3 3V40h7V20.9Z"
+              clip-rule="evenodd"/>
     </svg>
     На главную
 </a>
@@ -30,7 +31,7 @@ layout: default
 
     {% assign minutes = post.content | strip_html | number_of_words | divided_by: 180 %}
     {% if minutes == 0 %}
-        {% assign minutes = 1 %}
+    {% assign minutes = 1 %}
     {% endif %}
 
     <span>
