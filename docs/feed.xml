@@ -1,259 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.9.3">Jekyll</generator><link href="https://algorithmics-blog.github.io/feed.xml" rel="self" type="application/atom+xml" /><link href="https://algorithmics-blog.github.io/" rel="alternate" type="text/html" /><updated>2023-11-21T10:03:10-06:00</updated><id>https://algorithmics-blog.github.io/feed.xml</id><title type="html">Algorithmics</title><subtitle>Write an awesome description for your new site here. You can edit this line in _config.yml. It will appear in your document head meta (for Google search results) and in your feed.xml site description.</subtitle><entry><title type="html">Валидное Судоку</title><link href="https://algorithmics-blog.github.io/2023/11/21/valid-sudoku.html" rel="alternate" type="text/html" title="Валидное Судоку" /><published>2023-11-21T00:00:00-06:00</published><updated>2023-11-21T00:00:00-06:00</updated><id>https://algorithmics-blog.github.io/2023/11/21/valid-sudoku</id><content type="html" xml:base="https://algorithmics-blog.github.io/2023/11/21/valid-sudoku.html">&lt;h2 id=&quot;оглавление&quot;&gt;Оглавление&lt;/h2&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;&lt;a href=&quot;#описание-задачи&quot;&gt;Описание задачи&lt;/a&gt;&lt;/li&gt;
-  &lt;li&gt;&lt;a href=&quot;#ограничения&quot;&gt;Ограничения&lt;/a&gt;&lt;/li&gt;
-  &lt;li&gt;&lt;a href=&quot;#примеры&quot;&gt;Примеры&lt;/a&gt;&lt;/li&gt;
-  &lt;li&gt;&lt;a href=&quot;#решение&quot;&gt;Решение&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;hr /&gt;
-
-&lt;h2 id=&quot;описание-задачи&quot;&gt;Описание задачи&lt;/h2&gt;
-
-&lt;p&gt;&lt;img src=&quot;/assets/images/sudoku.png&quot; alt=&quot;Судоку&quot; /&gt;&lt;/p&gt;
-
-&lt;p&gt;Вам дана доска Судоку размером 9 x 9.
-Определите, является ли эта доска валидной.
-На валидность проверяются только заполненные ячейки в соответствии со следующими правилами.&lt;/p&gt;
-
-&lt;ol&gt;
-  &lt;li&gt;Каждая строка должна содержать цифры от 1 до 9 без повторений.&lt;/li&gt;
-  &lt;li&gt;Каждый столбец должен содержать цифры от 1 до 9 без повторений.&lt;/li&gt;
-  &lt;li&gt;Каждый из девяти квадратов доски размером 3 x 3 должен содержать цифры от 1 до 9 без повторения.&lt;/li&gt;
-&lt;/ol&gt;
-
-&lt;blockquote&gt;
-  &lt;p&gt;Доска Судоку (частично заполненная) может быть валидной, но не обязательно решаемой.
-Только заполненные ячейки должны быть проверены в соответствии с упомянутыми правилами.&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;hr /&gt;
-
-&lt;h2 id=&quot;ограничения&quot;&gt;Ограничения&lt;/h2&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;В доску 9 строк&lt;/li&gt;
-  &lt;li&gt;В доске 9 столбцов&lt;/li&gt;
-  &lt;li&gt;В качестве значений используются числа &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;1 - 9&lt;/code&gt; или &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;&quot;.&quot;&lt;/code&gt; для обозначения пустых строк&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;hr /&gt;
-
-&lt;h2 id=&quot;примеры&quot;&gt;Примеры&lt;/h2&gt;
-
-&lt;ul id=&quot;valid_sudoku&quot; class=&quot;tab&quot; data-tab=&quot;f294def2-2387-442f-9e9b-47d568f895cf&quot; data-name=&quot;valid_sudoku&quot;&gt;
-  
-      &lt;li class=&quot;active&quot; id=&quot;--------1&quot;&gt;
-          &lt;a href=&quot;#&quot;&gt;Пример №1 &lt;/a&gt;
-      &lt;/li&gt;
-  
-      &lt;li id=&quot;--------2&quot;&gt;
-          &lt;a href=&quot;#&quot;&gt;Пример №2 &lt;/a&gt;
-      &lt;/li&gt;
-  
-&lt;/ul&gt;
-&lt;ul class=&quot;tab-content&quot; id=&quot;f294def2-2387-442f-9e9b-47d568f895cf&quot; data-name=&quot;valid_sudoku&quot;&gt;
-  
-      &lt;li class=&quot;active&quot;&gt;
-&lt;p&gt;&lt;strong&gt;Входные данные&lt;/strong&gt;&lt;/p&gt;
-
-&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;[
-    [&quot;5&quot;,&quot;3&quot;,&quot;.&quot;,&quot;.&quot;,&quot;7&quot;,&quot;.&quot;,&quot;.&quot;,&quot;.&quot;,&quot;.&quot;],
-    [&quot;6&quot;,&quot;.&quot;,&quot;.&quot;,&quot;1&quot;,&quot;9&quot;,&quot;5&quot;,&quot;.&quot;,&quot;.&quot;,&quot;.&quot;],
-    [&quot;.&quot;,&quot;9&quot;,&quot;8&quot;,&quot;.&quot;,&quot;.&quot;,&quot;.&quot;,&quot;.&quot;,&quot;6&quot;,&quot;.&quot;],
-    [&quot;8&quot;,&quot;.&quot;,&quot;.&quot;,&quot;.&quot;,&quot;6&quot;,&quot;.&quot;,&quot;.&quot;,&quot;.&quot;,&quot;3&quot;],
-    [&quot;4&quot;,&quot;.&quot;,&quot;.&quot;,&quot;8&quot;,&quot;.&quot;,&quot;3&quot;,&quot;.&quot;,&quot;.&quot;,&quot;1&quot;],
-    [&quot;7&quot;,&quot;.&quot;,&quot;.&quot;,&quot;.&quot;,&quot;2&quot;,&quot;.&quot;,&quot;.&quot;,&quot;.&quot;,&quot;6&quot;],
-    [&quot;.&quot;,&quot;6&quot;,&quot;.&quot;,&quot;.&quot;,&quot;.&quot;,&quot;.&quot;,&quot;2&quot;,&quot;8&quot;,&quot;.&quot;],
-    [&quot;.&quot;,&quot;.&quot;,&quot;.&quot;,&quot;4&quot;,&quot;1&quot;,&quot;9&quot;,&quot;.&quot;,&quot;.&quot;,&quot;5&quot;],
-    [&quot;.&quot;,&quot;.&quot;,&quot;.&quot;,&quot;.&quot;,&quot;8&quot;,&quot;.&quot;,&quot;.&quot;,&quot;7&quot;,&quot;9&quot;],
-]
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;p&gt;&lt;strong&gt;Ответ&lt;/strong&gt;: &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;true&lt;/code&gt;&lt;/p&gt;
-&lt;/li&gt;
-  
-      &lt;li&gt;
-&lt;p&gt;&lt;strong&gt;Входные данные&lt;/strong&gt;&lt;/p&gt;
-
-&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;[
-    [&quot;8&quot;,&quot;3&quot;,&quot;.&quot;,&quot;.&quot;,&quot;7&quot;,&quot;.&quot;,&quot;.&quot;,&quot;.&quot;,&quot;.&quot;],
-    [&quot;6&quot;,&quot;.&quot;,&quot;.&quot;,&quot;1&quot;,&quot;9&quot;,&quot;5&quot;,&quot;.&quot;,&quot;.&quot;,&quot;.&quot;],
-    [&quot;.&quot;,&quot;9&quot;,&quot;8&quot;,&quot;.&quot;,&quot;.&quot;,&quot;.&quot;,&quot;.&quot;,&quot;6&quot;,&quot;.&quot;],
-    [&quot;8&quot;,&quot;.&quot;,&quot;.&quot;,&quot;.&quot;,&quot;6&quot;,&quot;.&quot;,&quot;.&quot;,&quot;.&quot;,&quot;3&quot;],
-    [&quot;4&quot;,&quot;.&quot;,&quot;.&quot;,&quot;8&quot;,&quot;.&quot;,&quot;3&quot;,&quot;.&quot;,&quot;.&quot;,&quot;1&quot;],
-    [&quot;7&quot;,&quot;.&quot;,&quot;.&quot;,&quot;.&quot;,&quot;2&quot;,&quot;.&quot;,&quot;.&quot;,&quot;.&quot;,&quot;6&quot;],
-    [&quot;.&quot;,&quot;6&quot;,&quot;.&quot;,&quot;.&quot;,&quot;.&quot;,&quot;.&quot;,&quot;2&quot;,&quot;8&quot;,&quot;.&quot;],
-    [&quot;.&quot;,&quot;.&quot;,&quot;.&quot;,&quot;4&quot;,&quot;1&quot;,&quot;9&quot;,&quot;.&quot;,&quot;.&quot;,&quot;5&quot;],
-    [&quot;.&quot;,&quot;.&quot;,&quot;.&quot;,&quot;.&quot;,&quot;8&quot;,&quot;.&quot;,&quot;.&quot;,&quot;7&quot;,&quot;9&quot;],
-]
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;p&gt;&lt;strong&gt;Ответ&lt;/strong&gt;: &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;false&lt;/code&gt;&lt;/p&gt;
-&lt;/li&gt;
-  
-&lt;/ul&gt;
-
-&lt;hr /&gt;
-
-&lt;h2 id=&quot;решение&quot;&gt;Решение&lt;/h2&gt;
-
-&lt;p&gt;В первую очередь, чтобы решить эту задачу, надо придумать каким образом отслеживать уникальность значений в каждой строке, столбце и квадрате.
-Для этого мы создадим несколько вспомогательных структур фиксированной длины для отслеживания используемых значений.&lt;/p&gt;
-
-&lt;p&gt;Самая сложная часть этой задачи заключается как раз в том, чтобы понять, как должны работать эти структуры.&lt;/p&gt;
-
-&lt;p&gt;Для начала определим квадратную матрицу (массив массивов) &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;rows&lt;/code&gt; фиксированного размера.
-То есть в нашей матрице будет 9 строк по 9 колонок в каждой.&lt;/p&gt;
-
-&lt;p&gt;Как мы будем фиксировать наличие цифры в строке?
-Например, если в нулевой строке есть цифра &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;3&lt;/code&gt;, то мы установим значение &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;true&lt;/code&gt; в &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;rows[1][2]&lt;/code&gt; — в качестве индекса &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;i&lt;/code&gt; используем индекс строки, а в качестве &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;j&lt;/code&gt; значение цифры &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;- 1&lt;/code&gt;.
-То есть нулевой индекс в нулевой строке фиксирует наличие цифры &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;1&lt;/code&gt;, первый индекс — цифры &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;2&lt;/code&gt;, второй индекс — цифры &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;3&lt;/code&gt; и так далее.
-Точно такой же подход будем использовать для фиксирования наличия значений в столбцах, поэтому создадим матрицу &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;columns&lt;/code&gt; размера 9 х 9.&lt;/p&gt;
-
-&lt;p&gt;С определением наличия одинаковых цифр в каждом квадрате дела обстоят немного сложнее, но не сильно.
-Сначала в уме индексируем каждый квадрат в матрице.&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&quot;/assets/images/sudoku_2.png&quot; alt=&quot;Судоку с индексами&quot; /&gt;&lt;/p&gt;
-
-&lt;p&gt;Например, координата &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;1:1&lt;/code&gt; в таком случае будет обозначать средний квадрат, а &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;2:2&lt;/code&gt; — нижний правый.
-Теперь мы заведем &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Hash Map&lt;/code&gt; с названием &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;quads&lt;/code&gt; для хранения сведений о встречающихся в квадрате цифрах. 
-В качестве ключа мы будем использовать строку с координатой, а в качестве значения массив длиною в 9 элементов, такой же как в матрицах &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;rows&lt;/code&gt; и &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;columns&lt;/code&gt;.
-Таким образом если мы хотим указать, что в среднем квадрате, например, находится цифра &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;2&lt;/code&gt;, то нам нужно в мапу под ключом &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;1:1&lt;/code&gt; создать массив и в этот массив под индексом &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;1&lt;/code&gt; положить значение равное &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;true&lt;/code&gt;.&lt;/p&gt;
-
-&lt;p&gt;После того как мы разобрались с этой частью алгоритм становится совсем простым.&lt;/p&gt;
-
-&lt;p&gt;Мы обходим все элементы матрицы и проверяем только те, где есть цифры.
-Если в матрицах &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;rows&lt;/code&gt;, &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;columns&lt;/code&gt; и в мапе &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;quads&lt;/code&gt; для искомой цифры все значения равны &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;false&lt;/code&gt;, значит эта цифра пока что уникальна.
-В таком случае устанавливаем все значения в &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;true&lt;/code&gt; и переходим на следующую итерации.&lt;/p&gt;
-
-&lt;p&gt;Если же хоть в одной из структур будет значение равное &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;true&lt;/code&gt;, то это означает что такая цифра уже существует и не является уникальной.
-В таком случае мы можем прервать функцию и вернуть ответ &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;false&lt;/code&gt;.&lt;/p&gt;
-
-&lt;p&gt;Если же мы пройдем по всей матрице и ни разу не встретим значение &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;true&lt;/code&gt;, то все элементы уникальны и из функции можно вернуть ответ &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;true&lt;/code&gt;.&lt;/p&gt;
-
-&lt;p&gt;Кстати, для определения координаты квадрата нам достаточно индекс колонки и строки в матрице поделить на &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;3&lt;/code&gt; без остатка.&lt;/p&gt;
-
-&lt;ul id=&quot;solution&quot; class=&quot;tab&quot; data-tab=&quot;7db25a71-2545-4373-bf85-90029e5d8c56&quot; data-name=&quot;solution&quot;&gt;
-  
-      &lt;li class=&quot;active&quot; id=&quot;go&quot;&gt;
-          &lt;a href=&quot;#&quot;&gt;go &lt;/a&gt;
-      &lt;/li&gt;
-  
-      &lt;li id=&quot;type-script&quot;&gt;
-          &lt;a href=&quot;#&quot;&gt;type script &lt;/a&gt;
-      &lt;/li&gt;
-  
-&lt;/ul&gt;
-&lt;ul class=&quot;tab-content&quot; id=&quot;7db25a71-2545-4373-bf85-90029e5d8c56&quot; data-name=&quot;solution&quot;&gt;
-  
-      &lt;li class=&quot;active&quot;&gt;
-&lt;div class=&quot;language-go highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;k&quot;&gt;package&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;main&lt;/span&gt;
-
-&lt;span class=&quot;k&quot;&gt;import&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;
-	&lt;span class=&quot;s&quot;&gt;&quot;fmt&quot;&lt;/span&gt;
-	&lt;span class=&quot;s&quot;&gt;&quot;strconv&quot;&lt;/span&gt;
-&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
-
-&lt;span class=&quot;k&quot;&gt;func&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;isValidSudoku&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;board&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;[][]&lt;/span&gt;&lt;span class=&quot;kt&quot;&gt;byte&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;kt&quot;&gt;bool&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
-	&lt;span class=&quot;n&quot;&gt;rows&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;:=&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;m&quot;&gt;9&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;][&lt;/span&gt;&lt;span class=&quot;m&quot;&gt;9&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]&lt;/span&gt;&lt;span class=&quot;kt&quot;&gt;bool&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;{}&lt;/span&gt;
-	&lt;span class=&quot;n&quot;&gt;columns&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;:=&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;m&quot;&gt;9&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;][&lt;/span&gt;&lt;span class=&quot;m&quot;&gt;9&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]&lt;/span&gt;&lt;span class=&quot;kt&quot;&gt;bool&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;{}&lt;/span&gt;
-	&lt;span class=&quot;n&quot;&gt;quads&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;:=&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;make&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;map&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;kt&quot;&gt;string&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;][&lt;/span&gt;&lt;span class=&quot;m&quot;&gt;9&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]&lt;/span&gt;&lt;span class=&quot;kt&quot;&gt;bool&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;m&quot;&gt;9&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
-
-	&lt;span class=&quot;n&quot;&gt;n&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;:=&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;len&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;board&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
-
-	&lt;span class=&quot;k&quot;&gt;for&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;row&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;:=&lt;/span&gt; &lt;span class=&quot;m&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;row&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;&amp;lt;&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;n&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;row&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;++&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
-		&lt;span class=&quot;k&quot;&gt;for&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;col&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;:=&lt;/span&gt; &lt;span class=&quot;m&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;col&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;&amp;lt;&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;n&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;col&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;++&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
-			&lt;span class=&quot;k&quot;&gt;if&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;board&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;row&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;][&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;col&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;==&lt;/span&gt; &lt;span class=&quot;sc&quot;&gt;&apos;.&apos;&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
-				&lt;span class=&quot;k&quot;&gt;continue&lt;/span&gt;
-			&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
-
-			&lt;span class=&quot;n&quot;&gt;strNum&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;:=&lt;/span&gt; &lt;span class=&quot;kt&quot;&gt;string&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;board&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;row&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;][&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;col&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;])&lt;/span&gt;
-			&lt;span class=&quot;n&quot;&gt;num&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;_&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;:=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;strconv&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;Atoi&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;strNum&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
-			&lt;span class=&quot;n&quot;&gt;pos&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;:=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;num&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;-&lt;/span&gt; &lt;span class=&quot;m&quot;&gt;1&lt;/span&gt;
-
-			&lt;span class=&quot;n&quot;&gt;key&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;:=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;fmt&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;Sprintf&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;%d:%d&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;row&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;/&lt;/span&gt;&lt;span class=&quot;m&quot;&gt;3&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;col&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;/&lt;/span&gt;&lt;span class=&quot;m&quot;&gt;3&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
-
-			&lt;span class=&quot;k&quot;&gt;if&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;rows&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;row&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;][&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;pos&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;||&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;columns&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;col&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;][&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;pos&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;||&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;quads&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;key&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;][&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;pos&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
-				&lt;span class=&quot;k&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;no&quot;&gt;false&lt;/span&gt;
-			&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
-
-			&lt;span class=&quot;n&quot;&gt;rows&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;row&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;][&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;pos&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;no&quot;&gt;true&lt;/span&gt;
-			&lt;span class=&quot;n&quot;&gt;columns&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;col&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;][&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;pos&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;no&quot;&gt;true&lt;/span&gt;
-
-			&lt;span class=&quot;n&quot;&gt;temp&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;:=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;quads&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;key&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]&lt;/span&gt;
-			&lt;span class=&quot;n&quot;&gt;temp&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;pos&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;no&quot;&gt;true&lt;/span&gt;
-			&lt;span class=&quot;n&quot;&gt;quads&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;key&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;temp&lt;/span&gt;
-		&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
-	&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
-
-	&lt;span class=&quot;k&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;no&quot;&gt;true&lt;/span&gt;
-&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
-
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-&lt;/li&gt;
-  
-      &lt;li&gt;
-&lt;div class=&quot;language-typescript highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;k&quot;&gt;export&lt;/span&gt; &lt;span class=&quot;kd&quot;&gt;const&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;isValidSudoku&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;board&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;kr&quot;&gt;string&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[][]):&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;boolean&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&amp;gt;&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
-    &lt;span class=&quot;kd&quot;&gt;const&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;n&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;board&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;length&lt;/span&gt;
-
-    &lt;span class=&quot;kd&quot;&gt;const&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;rows&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;boolean&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[][]&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;[]&lt;/span&gt;
-    &lt;span class=&quot;kd&quot;&gt;const&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;columns&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;boolean&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[][]&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;[]&lt;/span&gt;
-    &lt;span class=&quot;kd&quot;&gt;const&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;quads&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;Record&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;kr&quot;&gt;string&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;boolean&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[]&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;gt;&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{}&lt;/span&gt;
-
-    &lt;span class=&quot;c1&quot;&gt;// Предварительно заполняем массивы false значениями&lt;/span&gt;
-    &lt;span class=&quot;k&quot;&gt;for&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;kd&quot;&gt;let&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;i&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;i&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;&amp;lt;&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;n&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;i&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;++&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
-        &lt;span class=&quot;nx&quot;&gt;rows&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;push&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;new&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;Array&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;n&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;).&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;fill&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;kc&quot;&gt;false&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;))&lt;/span&gt;
-        &lt;span class=&quot;nx&quot;&gt;columns&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;push&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;new&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;Array&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;n&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;).&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;fill&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;kc&quot;&gt;false&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;))&lt;/span&gt;
-    &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
-
-    &lt;span class=&quot;k&quot;&gt;for&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;kd&quot;&gt;let&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;row&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;row&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;&amp;lt;&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;n&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;row&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;++&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
-        &lt;span class=&quot;k&quot;&gt;for&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;kd&quot;&gt;let&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;col&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;col&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;&amp;lt;&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;n&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;col&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;++&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
-            &lt;span class=&quot;k&quot;&gt;if&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;board&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;row&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;][&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;col&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;===&lt;/span&gt; &lt;span class=&quot;dl&quot;&gt;&apos;&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;&apos;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
-                &lt;span class=&quot;k&quot;&gt;continue&lt;/span&gt;
-            &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
-
-            &lt;span class=&quot;kd&quot;&gt;const&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;pos&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;Number&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;board&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;row&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;][&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;col&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;])&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;-&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;
-            &lt;span class=&quot;kd&quot;&gt;const&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;key&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;`&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;${&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;Math&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;floor&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;row&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;/&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;3&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)}&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;${&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;Math&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;floor&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;col&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;/&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;3&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)}&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;`&lt;/span&gt;
-
-            &lt;span class=&quot;k&quot;&gt;if&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;!&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;quads&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;key&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;])&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
-                &lt;span class=&quot;nx&quot;&gt;quads&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;key&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;new&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;Array&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;n&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;).&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;fill&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;kc&quot;&gt;false&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
-            &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
-
-            &lt;span class=&quot;k&quot;&gt;if&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;rows&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;row&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;][&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;pos&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;||&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;columns&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;col&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;][&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;pos&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;||&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;quads&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;key&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;][&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;pos&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;])&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
-                &lt;span class=&quot;k&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;kc&quot;&gt;false&lt;/span&gt;
-            &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
-
-            &lt;span class=&quot;nx&quot;&gt;rows&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;row&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;][&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;pos&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;kc&quot;&gt;true&lt;/span&gt;
-            &lt;span class=&quot;nx&quot;&gt;columns&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;col&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;][&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;pos&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;kc&quot;&gt;true&lt;/span&gt;
-            &lt;span class=&quot;nx&quot;&gt;quads&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;key&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;][&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;pos&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;kc&quot;&gt;true&lt;/span&gt;
-        &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
-    &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
-
-    &lt;span class=&quot;k&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;kc&quot;&gt;true&lt;/span&gt;
-&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
-
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-&lt;/li&gt;
-  
-&lt;/ul&gt;
-
-&lt;h3 id=&quot;оценка-сложности&quot;&gt;Оценка сложности&lt;/h3&gt;
-
-&lt;p&gt;&lt;strong&gt;По времени&lt;/strong&gt;&lt;/p&gt;
-
-&lt;p&gt;Так как мы перебираем всю матрицу, то сложность перебора будет равна &lt;code&gt;O(n&lt;sup&gt;2&lt;/sup&gt;)&lt;/code&gt;.&lt;/p&gt;
-
-&lt;p&gt;&lt;strong&gt;По памяти&lt;/strong&gt;&lt;/p&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;&lt;code&gt;n&lt;sup&gt;2&lt;/sup&gt;&lt;/code&gt; — для хранения матрицы &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;rows&lt;/code&gt;.&lt;/li&gt;
-  &lt;li&gt;&lt;code&gt;n&lt;sup&gt;2&lt;/sup&gt;&lt;/code&gt; — для хранения матрицы &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;columns&lt;/code&gt;.&lt;/li&gt;
-  &lt;li&gt;&lt;code&gt;n&lt;sup&gt;2&lt;/sup&gt;&lt;/code&gt; — для хранения мапы &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;quads&lt;/code&gt;.&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;В сумме мы используем &lt;code&gt;3 * n&lt;sup&gt;2&lt;/sup&gt;&lt;/code&gt; дополнительной памяти, поэтому итоговая сложность равна &lt;code&gt;O(n&lt;sup&gt;2&lt;/sup&gt;)&lt;/code&gt;.&lt;/p&gt;</content><author><name></name></author><category term="medium" /><summary type="html">Оглавление</summary></entry><entry><title type="html">Проверка массива на дубликаты</title><link href="https://algorithmics-blog.github.io/2023/11/17/contains_duplicates.html" rel="alternate" type="text/html" title="Проверка массива на дубликаты" /><published>2023-11-17T00:00:00-06:00</published><updated>2023-11-17T00:00:00-06:00</updated><id>https://algorithmics-blog.github.io/2023/11/17/contains_duplicates</id><content type="html" xml:base="https://algorithmics-blog.github.io/2023/11/17/contains_duplicates.html">&lt;h2 id=&quot;оглавление&quot;&gt;Оглавление&lt;/h2&gt;
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.9.3">Jekyll</generator><link href="https://algorithmics-blog.github.io/feed.xml" rel="self" type="application/atom+xml" /><link href="https://algorithmics-blog.github.io/" rel="alternate" type="text/html" /><updated>2023-11-21T12:10:59-06:00</updated><id>https://algorithmics-blog.github.io/feed.xml</id><title type="html">Algorithmics</title><subtitle>Write an awesome description for your new site here. You can edit this line in _config.yml. It will appear in your document head meta (for Google search results) and in your feed.xml site description.</subtitle><entry><title type="html">Проверка массива на дубликаты</title><link href="https://algorithmics-blog.github.io/2023/11/17/contains_duplicates.html" rel="alternate" type="text/html" title="Проверка массива на дубликаты" /><published>2023-11-17T00:00:00-06:00</published><updated>2023-11-17T00:00:00-06:00</updated><id>https://algorithmics-blog.github.io/2023/11/17/contains_duplicates</id><content type="html" xml:base="https://algorithmics-blog.github.io/2023/11/17/contains_duplicates.html">&lt;h2 id=&quot;оглавление&quot;&gt;Оглавление&lt;/h2&gt;
 
 &lt;ul&gt;
   &lt;li&gt;&lt;a href=&quot;#описание-задачи&quot;&gt;Описание задачи&lt;/a&gt;&lt;/li&gt;
@@ -284,7 +29,7 @@
 
 &lt;h2 id=&quot;примеры&quot;&gt;Примеры&lt;/h2&gt;
 
-&lt;ul id=&quot;contains_duplicates_examples&quot; class=&quot;tab&quot; data-tab=&quot;dc3c7d78-c4ae-4dc2-8779-024fdb3346fa&quot; data-name=&quot;contains_duplicates_examples&quot;&gt;
+&lt;ul id=&quot;contains_duplicates_examples&quot; class=&quot;tab&quot; data-tab=&quot;670485c8-470e-4838-8295-e22ff2d52005&quot; data-name=&quot;contains_duplicates_examples&quot;&gt;
   
       &lt;li class=&quot;active&quot; id=&quot;--------1&quot;&gt;
           &lt;a href=&quot;#&quot;&gt;Пример №1 &lt;/a&gt;
@@ -295,7 +40,7 @@
       &lt;/li&gt;
   
 &lt;/ul&gt;
-&lt;ul class=&quot;tab-content&quot; id=&quot;dc3c7d78-c4ae-4dc2-8779-024fdb3346fa&quot; data-name=&quot;contains_duplicates_examples&quot;&gt;
+&lt;ul class=&quot;tab-content&quot; id=&quot;670485c8-470e-4838-8295-e22ff2d52005&quot; data-name=&quot;contains_duplicates_examples&quot;&gt;
   
       &lt;li class=&quot;active&quot;&gt;
 &lt;p&gt;&lt;strong&gt;Входные данные&lt;/strong&gt;: &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;[1, 2, 3, 1]&lt;/code&gt;&lt;/p&gt;
@@ -325,7 +70,7 @@
   &lt;li&gt;если в мапе уже есть такое значение, то мы прерываем функцию и возвращаем &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;true&lt;/code&gt;.&lt;/li&gt;
 &lt;/ul&gt;
 
-&lt;ul id=&quot;solution&quot; class=&quot;tab&quot; data-tab=&quot;426e6c31-e36f-44cd-a038-124b583b05b7&quot; data-name=&quot;solution&quot;&gt;
+&lt;ul id=&quot;solution&quot; class=&quot;tab&quot; data-tab=&quot;505ab1b7-4dd6-4435-af41-ce3c305e62eb&quot; data-name=&quot;solution&quot;&gt;
   
       &lt;li class=&quot;active&quot; id=&quot;go&quot;&gt;
           &lt;a href=&quot;#&quot;&gt;go &lt;/a&gt;
@@ -336,7 +81,7 @@
       &lt;/li&gt;
   
 &lt;/ul&gt;
-&lt;ul class=&quot;tab-content&quot; id=&quot;426e6c31-e36f-44cd-a038-124b583b05b7&quot; data-name=&quot;solution&quot;&gt;
+&lt;ul class=&quot;tab-content&quot; id=&quot;505ab1b7-4dd6-4435-af41-ce3c305e62eb&quot; data-name=&quot;solution&quot;&gt;
   
       &lt;li class=&quot;active&quot;&gt;
 &lt;div class=&quot;language-go highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;k&quot;&gt;package&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;main&lt;/span&gt;
@@ -393,7 +138,7 @@
 &lt;p&gt;Для решения задачи этим способом необходимо предварительно отсортировать массив в любом порядке.
 Так как в отсортированном массиве одинаковые значения всегда находятся рядом, нам будет достаточно пройти по всем элементам массива и вернуть &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;true&lt;/code&gt;, если мы встретим два одинаковых значения рядом.&lt;/p&gt;
 
-&lt;ul id=&quot;solution&quot; class=&quot;tab&quot; data-tab=&quot;f8854424-e45f-4612-99b7-13a8b2723fc2&quot; data-name=&quot;solution&quot;&gt;
+&lt;ul id=&quot;solution&quot; class=&quot;tab&quot; data-tab=&quot;1f0c2e43-8ad6-483f-87f8-fc2030c3ea91&quot; data-name=&quot;solution&quot;&gt;
   
       &lt;li class=&quot;active&quot; id=&quot;go&quot;&gt;
           &lt;a href=&quot;#&quot;&gt;go &lt;/a&gt;
@@ -404,7 +149,7 @@
       &lt;/li&gt;
   
 &lt;/ul&gt;
-&lt;ul class=&quot;tab-content&quot; id=&quot;f8854424-e45f-4612-99b7-13a8b2723fc2&quot; data-name=&quot;solution&quot;&gt;
+&lt;ul class=&quot;tab-content&quot; id=&quot;1f0c2e43-8ad6-483f-87f8-fc2030c3ea91&quot; data-name=&quot;solution&quot;&gt;
   
       &lt;li class=&quot;active&quot;&gt;
 &lt;div class=&quot;language-go highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;k&quot;&gt;package&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;main&lt;/span&gt;
@@ -481,7 +226,7 @@
 
 &lt;h2 id=&quot;примеры&quot;&gt;Примеры&lt;/h2&gt;
 
-&lt;ul id=&quot;rotate&quot; class=&quot;tab&quot; data-tab=&quot;b381a9e0-9306-40a4-9ab3-8902bf7b5191&quot; data-name=&quot;rotate&quot;&gt;
+&lt;ul id=&quot;rotate&quot; class=&quot;tab&quot; data-tab=&quot;8fc4a245-8628-4b3c-bbe0-cde36ce9a934&quot; data-name=&quot;rotate&quot;&gt;
   
       &lt;li class=&quot;active&quot; id=&quot;--------1&quot;&gt;
           &lt;a href=&quot;#&quot;&gt;Пример №1 &lt;/a&gt;
@@ -492,7 +237,7 @@
       &lt;/li&gt;
   
 &lt;/ul&gt;
-&lt;ul class=&quot;tab-content&quot; id=&quot;b381a9e0-9306-40a4-9ab3-8902bf7b5191&quot; data-name=&quot;rotate&quot;&gt;
+&lt;ul class=&quot;tab-content&quot; id=&quot;8fc4a245-8628-4b3c-bbe0-cde36ce9a934&quot; data-name=&quot;rotate&quot;&gt;
   
       &lt;li class=&quot;active&quot;&gt;
 &lt;p&gt;&lt;strong&gt;Входные данные&lt;/strong&gt;&lt;/p&gt;
@@ -565,7 +310,7 @@ k = 2
 &lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;[5,6,7,1,2,3,4]
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
 
-&lt;ul id=&quot;solution&quot; class=&quot;tab&quot; data-tab=&quot;cbdc41a2-74df-4ce8-b8ea-00add7c6a172&quot; data-name=&quot;solution&quot;&gt;
+&lt;ul id=&quot;solution&quot; class=&quot;tab&quot; data-tab=&quot;6544ce89-d083-4b9e-9028-d62dfe730ee1&quot; data-name=&quot;solution&quot;&gt;
   
       &lt;li class=&quot;active&quot; id=&quot;go&quot;&gt;
           &lt;a href=&quot;#&quot;&gt;go &lt;/a&gt;
@@ -576,7 +321,7 @@ k = 2
       &lt;/li&gt;
   
 &lt;/ul&gt;
-&lt;ul class=&quot;tab-content&quot; id=&quot;cbdc41a2-74df-4ce8-b8ea-00add7c6a172&quot; data-name=&quot;solution&quot;&gt;
+&lt;ul class=&quot;tab-content&quot; id=&quot;6544ce89-d083-4b9e-9028-d62dfe730ee1&quot; data-name=&quot;solution&quot;&gt;
   
       &lt;li class=&quot;active&quot;&gt;
 &lt;div class=&quot;language-go highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;k&quot;&gt;package&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;rotate&lt;/span&gt;
@@ -689,7 +434,7 @@ k = 2
 
 &lt;h2 id=&quot;примеры&quot;&gt;Примеры&lt;/h2&gt;
 
-&lt;ul id=&quot;house_robber_examples&quot; class=&quot;tab&quot; data-tab=&quot;1cc447d4-6c7f-4691-bf04-d0e7148cc4a1&quot; data-name=&quot;house_robber_examples&quot;&gt;
+&lt;ul id=&quot;house_robber_examples&quot; class=&quot;tab&quot; data-tab=&quot;151af3ca-5622-41ac-8121-9122ccf4bda4&quot; data-name=&quot;house_robber_examples&quot;&gt;
   
       &lt;li class=&quot;active&quot; id=&quot;--------1&quot;&gt;
           &lt;a href=&quot;#&quot;&gt;Пример №1 &lt;/a&gt;
@@ -712,7 +457,7 @@ k = 2
       &lt;/li&gt;
   
 &lt;/ul&gt;
-&lt;ul class=&quot;tab-content&quot; id=&quot;1cc447d4-6c7f-4691-bf04-d0e7148cc4a1&quot; data-name=&quot;house_robber_examples&quot;&gt;
+&lt;ul class=&quot;tab-content&quot; id=&quot;151af3ca-5622-41ac-8121-9122ccf4bda4&quot; data-name=&quot;house_robber_examples&quot;&gt;
   
       &lt;li class=&quot;active&quot;&gt;
 &lt;p&gt;&lt;strong&gt;Входные данные&lt;/strong&gt;: &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;[1, 2, 3, 1]&lt;/code&gt;&lt;/p&gt;
@@ -805,7 +550,7 @@ k = 2
   &lt;li&gt;Возвращаем максимальный элемент из последнего и предпоследнего.&lt;/li&gt;
 &lt;/ul&gt;
 
-&lt;ul id=&quot;solution&quot; class=&quot;tab&quot; data-tab=&quot;f06b5561-8f3c-45de-bba7-e680f00827bd&quot; data-name=&quot;solution&quot;&gt;
+&lt;ul id=&quot;solution&quot; class=&quot;tab&quot; data-tab=&quot;9e14343f-7ece-4091-a5a1-4cc4ddab01dd&quot; data-name=&quot;solution&quot;&gt;
   
       &lt;li class=&quot;active&quot; id=&quot;go&quot;&gt;
           &lt;a href=&quot;#&quot;&gt;go &lt;/a&gt;
@@ -816,7 +561,7 @@ k = 2
       &lt;/li&gt;
   
 &lt;/ul&gt;
-&lt;ul class=&quot;tab-content&quot; id=&quot;f06b5561-8f3c-45de-bba7-e680f00827bd&quot; data-name=&quot;solution&quot;&gt;
+&lt;ul class=&quot;tab-content&quot; id=&quot;9e14343f-7ece-4091-a5a1-4cc4ddab01dd&quot; data-name=&quot;solution&quot;&gt;
   
       &lt;li class=&quot;active&quot;&gt;
 &lt;div class=&quot;language-go highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;k&quot;&gt;package&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;main&lt;/span&gt;
@@ -933,7 +678,7 @@ k = 2
 
 &lt;h2 id=&quot;примеры&quot;&gt;Примеры&lt;/h2&gt;
 
-&lt;ul id=&quot;number_of_islands&quot; class=&quot;tab&quot; data-tab=&quot;6b881caa-daa5-46ee-a090-b50866de2681&quot; data-name=&quot;number_of_islands&quot;&gt;
+&lt;ul id=&quot;number_of_islands&quot; class=&quot;tab&quot; data-tab=&quot;652ca010-82b0-4624-a21a-c5d1eac08ab2&quot; data-name=&quot;number_of_islands&quot;&gt;
   
       &lt;li class=&quot;active&quot; id=&quot;--------1&quot;&gt;
           &lt;a href=&quot;#&quot;&gt;Пример №1 &lt;/a&gt;
@@ -944,7 +689,7 @@ k = 2
       &lt;/li&gt;
   
 &lt;/ul&gt;
-&lt;ul class=&quot;tab-content&quot; id=&quot;6b881caa-daa5-46ee-a090-b50866de2681&quot; data-name=&quot;number_of_islands&quot;&gt;
+&lt;ul class=&quot;tab-content&quot; id=&quot;652ca010-82b0-4624-a21a-c5d1eac08ab2&quot; data-name=&quot;number_of_islands&quot;&gt;
   
       &lt;li class=&quot;active&quot;&gt;
 &lt;p&gt;&lt;strong&gt;Входные данные&lt;/strong&gt;&lt;/p&gt;
@@ -992,7 +737,7 @@ k = 2
 &lt;p&gt;После попадания в остров нам необходимо удалять остров из массива, чтобы при проверке последующих элементов не учитывать его повторно.
 Таким образом каждый раз встречая единицу мы будем однозначно понимать, что нашли новый остров.&lt;/p&gt;
 
-&lt;ul id=&quot;solution&quot; class=&quot;tab&quot; data-tab=&quot;6b6bfa42-fc82-46de-b6f7-1361c8fa6211&quot; data-name=&quot;solution&quot;&gt;
+&lt;ul id=&quot;solution&quot; class=&quot;tab&quot; data-tab=&quot;f000a8f4-f636-4fdc-8594-8edc8f4dce59&quot; data-name=&quot;solution&quot;&gt;
   
       &lt;li class=&quot;active&quot; id=&quot;go&quot;&gt;
           &lt;a href=&quot;#&quot;&gt;go &lt;/a&gt;
@@ -1003,7 +748,7 @@ k = 2
       &lt;/li&gt;
   
 &lt;/ul&gt;
-&lt;ul class=&quot;tab-content&quot; id=&quot;6b6bfa42-fc82-46de-b6f7-1361c8fa6211&quot; data-name=&quot;solution&quot;&gt;
+&lt;ul class=&quot;tab-content&quot; id=&quot;f000a8f4-f636-4fdc-8594-8edc8f4dce59&quot; data-name=&quot;solution&quot;&gt;
   
       &lt;li class=&quot;active&quot;&gt;
 &lt;div class=&quot;language-go highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;k&quot;&gt;package&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;number_of_islands&lt;/span&gt;
@@ -1223,7 +968,7 @@ k = 2
 
 &lt;p&gt;Итоговое решение.&lt;/p&gt;
 
-&lt;ul id=&quot;solution&quot; class=&quot;tab&quot; data-tab=&quot;c3fa2a08-5d32-4e4c-9316-9625bb27cd5c&quot; data-name=&quot;solution&quot;&gt;
+&lt;ul id=&quot;solution&quot; class=&quot;tab&quot; data-tab=&quot;18556422-8e96-4d17-b437-4c6aba320986&quot; data-name=&quot;solution&quot;&gt;
   
       &lt;li class=&quot;active&quot; id=&quot;go&quot;&gt;
           &lt;a href=&quot;#&quot;&gt;go &lt;/a&gt;
@@ -1234,7 +979,7 @@ k = 2
       &lt;/li&gt;
   
 &lt;/ul&gt;
-&lt;ul class=&quot;tab-content&quot; id=&quot;c3fa2a08-5d32-4e4c-9316-9625bb27cd5c&quot; data-name=&quot;solution&quot;&gt;
+&lt;ul class=&quot;tab-content&quot; id=&quot;18556422-8e96-4d17-b437-4c6aba320986&quot; data-name=&quot;solution&quot;&gt;
   
       &lt;li class=&quot;active&quot;&gt;
 &lt;div class=&quot;language-go highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;k&quot;&gt;package&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;main&lt;/span&gt;
@@ -1425,7 +1170,7 @@ k = 2
 
 &lt;h2 id=&quot;примеры&quot;&gt;Примеры&lt;/h2&gt;
 
-&lt;ul id=&quot;game_of_life&quot; class=&quot;tab&quot; data-tab=&quot;3bdff505-6f9c-4006-85c8-ed909bd6153b&quot; data-name=&quot;game_of_life&quot;&gt;
+&lt;ul id=&quot;game_of_life&quot; class=&quot;tab&quot; data-tab=&quot;96801694-073c-455d-9fe9-c6b61b4d2cd7&quot; data-name=&quot;game_of_life&quot;&gt;
   
       &lt;li class=&quot;active&quot; id=&quot;--------1&quot;&gt;
           &lt;a href=&quot;#&quot;&gt;Пример №1 &lt;/a&gt;
@@ -1436,7 +1181,7 @@ k = 2
       &lt;/li&gt;
   
 &lt;/ul&gt;
-&lt;ul class=&quot;tab-content&quot; id=&quot;3bdff505-6f9c-4006-85c8-ed909bd6153b&quot; data-name=&quot;game_of_life&quot;&gt;
+&lt;ul class=&quot;tab-content&quot; id=&quot;96801694-073c-455d-9fe9-c6b61b4d2cd7&quot; data-name=&quot;game_of_life&quot;&gt;
   
       &lt;li class=&quot;active&quot;&gt;
 &lt;p&gt;&lt;img src=&quot;/assets/images/game_of_life_1.png&quot; alt=&quot;Пример 1&quot; /&gt;&lt;/p&gt;
@@ -1502,7 +1247,7 @@ k = 2
 &lt;p&gt;При вычислении состояния для каждой клетки нужно учитывать эти нововведения.
 В конце после того, как мы поменяем состояния для всех элементов матрицы нужно еще раз обновить ее и заменить все &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;2&lt;/code&gt; на &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;0&lt;/code&gt;, а &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;3&lt;/code&gt; на &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;1&lt;/code&gt;.&lt;/p&gt;
 
-&lt;ul id=&quot;solution&quot; class=&quot;tab&quot; data-tab=&quot;23ebf13a-1088-456c-9ef7-74a306be15c9&quot; data-name=&quot;solution&quot;&gt;
+&lt;ul id=&quot;solution&quot; class=&quot;tab&quot; data-tab=&quot;34130650-d187-4508-af24-dccf2e4ee053&quot; data-name=&quot;solution&quot;&gt;
   
       &lt;li class=&quot;active&quot; id=&quot;go&quot;&gt;
           &lt;a href=&quot;#&quot;&gt;go &lt;/a&gt;
@@ -1513,7 +1258,7 @@ k = 2
       &lt;/li&gt;
   
 &lt;/ul&gt;
-&lt;ul class=&quot;tab-content&quot; id=&quot;23ebf13a-1088-456c-9ef7-74a306be15c9&quot; data-name=&quot;solution&quot;&gt;
+&lt;ul class=&quot;tab-content&quot; id=&quot;34130650-d187-4508-af24-dccf2e4ee053&quot; data-name=&quot;solution&quot;&gt;
   
       &lt;li class=&quot;active&quot;&gt;
 &lt;div class=&quot;language-go highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;k&quot;&gt;package&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;main&lt;/span&gt;
@@ -1745,7 +1490,7 @@ k = 2
 
 &lt;h2 id=&quot;примеры&quot;&gt;Примеры&lt;/h2&gt;
 
-&lt;ul id=&quot;minimum_path_sum&quot; class=&quot;tab&quot; data-tab=&quot;391336c8-d7bf-47f2-8771-e7ec04a0b0b7&quot; data-name=&quot;minimum_path_sum&quot;&gt;
+&lt;ul id=&quot;minimum_path_sum&quot; class=&quot;tab&quot; data-tab=&quot;e3019447-b447-4f45-9e6d-2fc45b6ed994&quot; data-name=&quot;minimum_path_sum&quot;&gt;
   
       &lt;li class=&quot;active&quot; id=&quot;--------1&quot;&gt;
           &lt;a href=&quot;#&quot;&gt;Пример №1 &lt;/a&gt;
@@ -1764,7 +1509,7 @@ k = 2
       &lt;/li&gt;
   
 &lt;/ul&gt;
-&lt;ul class=&quot;tab-content&quot; id=&quot;391336c8-d7bf-47f2-8771-e7ec04a0b0b7&quot; data-name=&quot;minimum_path_sum&quot;&gt;
+&lt;ul class=&quot;tab-content&quot; id=&quot;e3019447-b447-4f45-9e6d-2fc45b6ed994&quot; data-name=&quot;minimum_path_sum&quot;&gt;
   
       &lt;li class=&quot;active&quot;&gt;
 &lt;p&gt;&lt;strong&gt;Входные данные&lt;/strong&gt;&lt;/p&gt;
@@ -1949,7 +1694,7 @@ k = 2
 &lt;p&gt;Таким образом, когда мы пройдемся по всей матрице в правом нижнем элементе будет вычислена стоимость самого дешевого пути до этого элемента.
 Итоговая реализация.&lt;/p&gt;
 
-&lt;ul id=&quot;solution&quot; class=&quot;tab&quot; data-tab=&quot;dcc26053-b49b-417a-8b8c-2d72fe60e330&quot; data-name=&quot;solution&quot;&gt;
+&lt;ul id=&quot;solution&quot; class=&quot;tab&quot; data-tab=&quot;8e859e8f-9535-44ed-8ce9-7704f2b53598&quot; data-name=&quot;solution&quot;&gt;
   
       &lt;li class=&quot;active&quot; id=&quot;go&quot;&gt;
           &lt;a href=&quot;#&quot;&gt;go &lt;/a&gt;
@@ -1960,7 +1705,7 @@ k = 2
       &lt;/li&gt;
   
 &lt;/ul&gt;
-&lt;ul class=&quot;tab-content&quot; id=&quot;dcc26053-b49b-417a-8b8c-2d72fe60e330&quot; data-name=&quot;solution&quot;&gt;
+&lt;ul class=&quot;tab-content&quot; id=&quot;8e859e8f-9535-44ed-8ce9-7704f2b53598&quot; data-name=&quot;solution&quot;&gt;
   
       &lt;li class=&quot;active&quot;&gt;
 &lt;div class=&quot;language-go highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;k&quot;&gt;package&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;main&lt;/span&gt;
@@ -2083,7 +1828,7 @@ k = 2
 
 &lt;h2 id=&quot;примеры&quot;&gt;Примеры&lt;/h2&gt;
 
-&lt;ul id=&quot;examples&quot; class=&quot;tab&quot; data-tab=&quot;b42d5245-60ed-42ab-bfb5-5b53f4dfee97&quot; data-name=&quot;examples&quot;&gt;
+&lt;ul id=&quot;examples&quot; class=&quot;tab&quot; data-tab=&quot;1cf11387-4f69-4fd0-8b79-37235e94ab73&quot; data-name=&quot;examples&quot;&gt;
   
       &lt;li class=&quot;active&quot; id=&quot;--------1&quot;&gt;
           &lt;a href=&quot;#&quot;&gt;Пример №1 &lt;/a&gt;
@@ -2094,7 +1839,7 @@ k = 2
       &lt;/li&gt;
   
 &lt;/ul&gt;
-&lt;ul class=&quot;tab-content&quot; id=&quot;b42d5245-60ed-42ab-bfb5-5b53f4dfee97&quot; data-name=&quot;examples&quot;&gt;
+&lt;ul class=&quot;tab-content&quot; id=&quot;1cf11387-4f69-4fd0-8b79-37235e94ab73&quot; data-name=&quot;examples&quot;&gt;
   
       &lt;li class=&quot;active&quot;&gt;
 &lt;p&gt;&lt;strong&gt;Входные данные&lt;/strong&gt;: &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;[1,8,6,2,5,4,8,3,7]&lt;/code&gt;&lt;/p&gt;
@@ -2202,7 +1947,7 @@ k = 2
 
 &lt;p&gt;В итоге мы получим следующее решение.&lt;/p&gt;
 
-&lt;ul id=&quot;solution&quot; class=&quot;tab&quot; data-tab=&quot;b8d36f34-a412-47cd-9091-942ca716da64&quot; data-name=&quot;solution&quot;&gt;
+&lt;ul id=&quot;solution&quot; class=&quot;tab&quot; data-tab=&quot;c03e90c0-dbd3-4f38-bf37-3b1623ac1101&quot; data-name=&quot;solution&quot;&gt;
   
       &lt;li class=&quot;active&quot; id=&quot;go&quot;&gt;
           &lt;a href=&quot;#&quot;&gt;go &lt;/a&gt;
@@ -2213,7 +1958,7 @@ k = 2
       &lt;/li&gt;
   
 &lt;/ul&gt;
-&lt;ul class=&quot;tab-content&quot; id=&quot;b8d36f34-a412-47cd-9091-942ca716da64&quot; data-name=&quot;solution&quot;&gt;
+&lt;ul class=&quot;tab-content&quot; id=&quot;c03e90c0-dbd3-4f38-bf37-3b1623ac1101&quot; data-name=&quot;solution&quot;&gt;
   
       &lt;li class=&quot;active&quot;&gt;
 &lt;div class=&quot;language-go highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;k&quot;&gt;package&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;main&lt;/span&gt;
@@ -2315,7 +2060,7 @@ k = 2
 На каждой итерации считаем площадь нового прямоугольника и сравниваем с максимумом.
 В случае, если и левая и правая сторона «аквариума» одинаковы — «сужаем» окно с обоих направлений.&lt;/p&gt;
 
-&lt;ul id=&quot;solution&quot; class=&quot;tab&quot; data-tab=&quot;ae1125ff-cef9-435c-b03f-1053637f0653&quot; data-name=&quot;solution&quot;&gt;
+&lt;ul id=&quot;solution&quot; class=&quot;tab&quot; data-tab=&quot;f99828fe-a8a7-47b7-9853-e7597c91773b&quot; data-name=&quot;solution&quot;&gt;
   
       &lt;li class=&quot;active&quot; id=&quot;go&quot;&gt;
           &lt;a href=&quot;#&quot;&gt;go &lt;/a&gt;
@@ -2326,7 +2071,7 @@ k = 2
       &lt;/li&gt;
   
 &lt;/ul&gt;
-&lt;ul class=&quot;tab-content&quot; id=&quot;ae1125ff-cef9-435c-b03f-1053637f0653&quot; data-name=&quot;solution&quot;&gt;
+&lt;ul class=&quot;tab-content&quot; id=&quot;f99828fe-a8a7-47b7-9853-e7597c91773b&quot; data-name=&quot;solution&quot;&gt;
   
       &lt;li class=&quot;active&quot;&gt;
 &lt;div class=&quot;language-go highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;k&quot;&gt;package&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;main&lt;/span&gt;
@@ -2455,7 +2200,7 @@ k = 2
 
 &lt;h2 id=&quot;примеры&quot;&gt;Примеры&lt;/h2&gt;
 
-&lt;ul id=&quot;powx_n&quot; class=&quot;tab&quot; data-tab=&quot;c970581e-cbd6-416a-b343-b33e8b8c9692&quot; data-name=&quot;powx_n&quot;&gt;
+&lt;ul id=&quot;powx_n&quot; class=&quot;tab&quot; data-tab=&quot;14e8382a-c6e6-4bff-a29a-5f66eb2fad81&quot; data-name=&quot;powx_n&quot;&gt;
   
       &lt;li class=&quot;active&quot; id=&quot;--------1&quot;&gt;
           &lt;a href=&quot;#&quot;&gt;Пример №1 &lt;/a&gt;
@@ -2470,7 +2215,7 @@ k = 2
       &lt;/li&gt;
   
 &lt;/ul&gt;
-&lt;ul class=&quot;tab-content&quot; id=&quot;c970581e-cbd6-416a-b343-b33e8b8c9692&quot; data-name=&quot;powx_n&quot;&gt;
+&lt;ul class=&quot;tab-content&quot; id=&quot;14e8382a-c6e6-4bff-a29a-5f66eb2fad81&quot; data-name=&quot;powx_n&quot;&gt;
   
       &lt;li class=&quot;active&quot;&gt;
 &lt;p&gt;&lt;strong&gt;Входные данные&lt;/strong&gt;&lt;/p&gt;
@@ -2554,7 +2299,7 @@ n = -2
 
 &lt;p&gt;Итоговое решение.&lt;/p&gt;
 
-&lt;ul id=&quot;solution&quot; class=&quot;tab&quot; data-tab=&quot;43601d64-9fe1-4698-85b2-a2e3b26bcd4e&quot; data-name=&quot;solution&quot;&gt;
+&lt;ul id=&quot;solution&quot; class=&quot;tab&quot; data-tab=&quot;685d3e3c-cc06-4faa-a9f4-671997066bbf&quot; data-name=&quot;solution&quot;&gt;
   
       &lt;li class=&quot;active&quot; id=&quot;go&quot;&gt;
           &lt;a href=&quot;#&quot;&gt;go &lt;/a&gt;
@@ -2565,7 +2310,7 @@ n = -2
       &lt;/li&gt;
   
 &lt;/ul&gt;
-&lt;ul class=&quot;tab-content&quot; id=&quot;43601d64-9fe1-4698-85b2-a2e3b26bcd4e&quot; data-name=&quot;solution&quot;&gt;
+&lt;ul class=&quot;tab-content&quot; id=&quot;685d3e3c-cc06-4faa-a9f4-671997066bbf&quot; data-name=&quot;solution&quot;&gt;
   
       &lt;li class=&quot;active&quot;&gt;
 &lt;div class=&quot;language-go highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;k&quot;&gt;package&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;main&lt;/span&gt;
@@ -2682,7 +2427,7 @@ n = -2
 
 &lt;p&gt;Таким образом, мы можем переписать нашу функцию на рекурсивную, не забывая отдельно обработать кейс с нечетной степенью:&lt;/p&gt;
 
-&lt;ul id=&quot;solution&quot; class=&quot;tab&quot; data-tab=&quot;d2f4a152-1794-4b06-9e6f-9911c986b577&quot; data-name=&quot;solution&quot;&gt;
+&lt;ul id=&quot;solution&quot; class=&quot;tab&quot; data-tab=&quot;499bfec2-3a11-47cf-8c26-08f260bbfac4&quot; data-name=&quot;solution&quot;&gt;
   
       &lt;li class=&quot;active&quot; id=&quot;go&quot;&gt;
           &lt;a href=&quot;#&quot;&gt;go &lt;/a&gt;
@@ -2693,7 +2438,7 @@ n = -2
       &lt;/li&gt;
   
 &lt;/ul&gt;
-&lt;ul class=&quot;tab-content&quot; id=&quot;d2f4a152-1794-4b06-9e6f-9911c986b577&quot; data-name=&quot;solution&quot;&gt;
+&lt;ul class=&quot;tab-content&quot; id=&quot;499bfec2-3a11-47cf-8c26-08f260bbfac4&quot; data-name=&quot;solution&quot;&gt;
   
       &lt;li class=&quot;active&quot;&gt;
 &lt;div class=&quot;language-go highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;k&quot;&gt;package&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;main&lt;/span&gt;
@@ -2792,4 +2537,383 @@ n = -2
 
 &lt;p&gt;&lt;strong&gt;По памяти&lt;/strong&gt;&lt;/p&gt;
 
-&lt;p&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;O(1)&lt;/code&gt; — дополнительная память константна.&lt;/p&gt;</content><author><name></name></author><category term="medium" /><summary type="html">Оглавление</summary></entry></feed>
+&lt;p&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;O(1)&lt;/code&gt; — дополнительная память константна.&lt;/p&gt;</content><author><name></name></author><category term="medium" /><summary type="html">Оглавление</summary></entry><entry><title type="html">Генерация валидной скобочной последовательности (один вид скобок)</title><link href="https://algorithmics-blog.github.io/2023/09/24/generate_parentheses.html" rel="alternate" type="text/html" title="Генерация валидной скобочной последовательности (один вид скобок)" /><published>2023-09-24T00:00:00-05:00</published><updated>2023-09-24T00:00:00-05:00</updated><id>https://algorithmics-blog.github.io/2023/09/24/generate_parentheses</id><content type="html" xml:base="https://algorithmics-blog.github.io/2023/09/24/generate_parentheses.html">&lt;h2 id=&quot;оглавление&quot;&gt;Оглавление&lt;/h2&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;&lt;a href=&quot;#описание-задачи&quot;&gt;Описание задачи&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;#ограничения&quot;&gt;Ограничения&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;#примеры&quot;&gt;Примеры&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;#брутфорс-решение&quot;&gt;Брутфорс решение&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;#оптимизированный-брутфорс&quot;&gt;Оптимизированный брутфорс&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;hr /&gt;
+
+&lt;h2 id=&quot;описание-задачи&quot;&gt;Описание задачи&lt;/h2&gt;
+
+&lt;p&gt;Напишите функцию, которая будет генерировать все возможные валидные скобочные последовательности длиной &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;2n&lt;/code&gt;.&lt;/p&gt;
+
+&lt;p&gt;Входные данные: int — количество пар скобок.&lt;/p&gt;
+
+&lt;p&gt;Выходные данные: массив строк — все возможные валидные скобочные последовательности длиной &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;2n&lt;/code&gt;.&lt;/p&gt;
+
+&lt;hr /&gt;
+
+&lt;h2 id=&quot;ограничения&quot;&gt;Ограничения&lt;/h2&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;1 &amp;lt;= n &amp;lt;= 8&lt;/code&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;hr /&gt;
+
+&lt;h2 id=&quot;примеры&quot;&gt;Примеры&lt;/h2&gt;
+
+&lt;ul id=&quot;generate_parentheses&quot; class=&quot;tab&quot; data-tab=&quot;fd632da8-7d6b-437d-a9fe-0fe41873cc3e&quot; data-name=&quot;generate_parentheses&quot;&gt;
+  
+      &lt;li class=&quot;active&quot; id=&quot;--------1&quot;&gt;
+          &lt;a href=&quot;#&quot;&gt;Пример №1 &lt;/a&gt;
+      &lt;/li&gt;
+  
+      &lt;li id=&quot;--------2&quot;&gt;
+          &lt;a href=&quot;#&quot;&gt;Пример №2 &lt;/a&gt;
+      &lt;/li&gt;
+  
+&lt;/ul&gt;
+&lt;ul class=&quot;tab-content&quot; id=&quot;fd632da8-7d6b-437d-a9fe-0fe41873cc3e&quot; data-name=&quot;generate_parentheses&quot;&gt;
+  
+      &lt;li class=&quot;active&quot;&gt;
+&lt;p&gt;&lt;strong&gt;Входные данные&lt;/strong&gt;: &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;3&lt;/code&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Ответ&lt;/strong&gt;: &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;[&quot;((()))&quot;, &quot;(()())&quot;, &quot;(())()&quot;, &quot;()(())&quot;, &quot;()()()&quot;]&lt;/code&gt;&lt;/p&gt;
+&lt;/li&gt;
+  
+      &lt;li&gt;
+&lt;p&gt;&lt;strong&gt;Входные данные&lt;/strong&gt;: &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;1&lt;/code&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Ответ&lt;/strong&gt;: &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;[&quot;()&quot;]&lt;/code&gt;&lt;/p&gt;
+&lt;/li&gt;
+  
+&lt;/ul&gt;
+
+&lt;hr /&gt;
+
+&lt;h2 id=&quot;брутфорс-решение&quot;&gt;Брутфорс решение&lt;/h2&gt;
+
+&lt;p&gt;Давайте разобьем задачу на 2 подзадачи:&lt;/p&gt;
+&lt;ul&gt;
+  &lt;li&gt;генерация всех возможных строк длиной 2n, состоящих из символов &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;(&lt;/code&gt; и &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;)&lt;/code&gt;;&lt;/li&gt;
+  &lt;li&gt;проверка строк на то, что они являются валидными скобочными последовательностями.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&quot;генерация-всех-возможных-строк-длиной-2n-состоящих-из-символов--и-&quot;&gt;Генерация всех возможных строк длиной 2n, состоящих из символов «(» и «)»&lt;/h3&gt;
+
+&lt;p&gt;Достаточно тривиальная задача:&lt;/p&gt;
+&lt;ul&gt;
+  &lt;li&gt;Создаем исходный массив. В нашем случае из одного элемента, так как валидная скобочная последовательность может начинаться только с открывающей скобки.&lt;/li&gt;
+  &lt;li&gt;Запускаем цикл до &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;2 * n&lt;/code&gt;, где &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;n&lt;/code&gt; — количество пар скобок.&lt;/li&gt;
+  &lt;li&gt;В каждой итерации цикла проходимся по всем элементам предыдущего результата и добавляем 2 новых варианта с открывающей и закрывающей скобками.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;div class=&quot;language-go highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;k&quot;&gt;func&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;generateAllPossibleParenthesis&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;n&lt;/span&gt; &lt;span class=&quot;kt&quot;&gt;int&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;[]&lt;/span&gt;&lt;span class=&quot;kt&quot;&gt;string&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+    &lt;span class=&quot;n&quot;&gt;combinations&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;:=&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;make&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;([]&lt;/span&gt;&lt;span class=&quot;kt&quot;&gt;string&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;m&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;m&quot;&gt;100&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+    &lt;span class=&quot;n&quot;&gt;combinations&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;append&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;combinations&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&quot;(&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+    
+    &lt;span class=&quot;k&quot;&gt;for&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;i&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;:=&lt;/span&gt; &lt;span class=&quot;m&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;i&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;&amp;lt;&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;n&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;*&lt;/span&gt;&lt;span class=&quot;m&quot;&gt;2&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;i&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;++&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+        &lt;span class=&quot;n&quot;&gt;newArray&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;:=&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;make&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;([]&lt;/span&gt;&lt;span class=&quot;kt&quot;&gt;string&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;m&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;len&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;combinations&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;))&lt;/span&gt;
+        &lt;span class=&quot;k&quot;&gt;for&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;_&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;item&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;:=&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;range&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;combinations&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+            &lt;span class=&quot;n&quot;&gt;newArray&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;append&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;newArray&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;item&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;+&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;(&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+            &lt;span class=&quot;n&quot;&gt;newArray&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;append&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;newArray&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;item&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;+&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;)&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+        &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+        
+        &lt;span class=&quot;n&quot;&gt;combinations&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;newArray&lt;/span&gt;
+    &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+    
+    &lt;span class=&quot;k&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;combinations&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;h3 id=&quot;проверка-строки-на-валидную-скобочную-последовательность&quot;&gt;Проверка строки на валидную скобочную последовательность&lt;/h3&gt;
+
+&lt;p&gt;Эту задачу мы уже разбирали.
+Чтобы не повторяться, возьмем готовое &lt;a href=&quot;/2023/09/20/valid_parentheses.html&quot;&gt;решение&lt;/a&gt; для проверки валидности скобочной последовательности.&lt;/p&gt;
+
+&lt;p&gt;В результате получим следующие решения.&lt;/p&gt;
+
+&lt;ul id=&quot;solution&quot; class=&quot;tab&quot; data-tab=&quot;9a353f45-32c6-4582-a1f6-588ebf90e5cb&quot; data-name=&quot;solution&quot;&gt;
+  
+      &lt;li class=&quot;active&quot; id=&quot;go&quot;&gt;
+          &lt;a href=&quot;#&quot;&gt;go &lt;/a&gt;
+      &lt;/li&gt;
+  
+      &lt;li id=&quot;type-script&quot;&gt;
+          &lt;a href=&quot;#&quot;&gt;type script &lt;/a&gt;
+      &lt;/li&gt;
+  
+&lt;/ul&gt;
+&lt;ul class=&quot;tab-content&quot; id=&quot;9a353f45-32c6-4582-a1f6-588ebf90e5cb&quot; data-name=&quot;solution&quot;&gt;
+  
+      &lt;li class=&quot;active&quot;&gt;
+&lt;div class=&quot;language-go highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;k&quot;&gt;package&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;main&lt;/span&gt;
+
+&lt;span class=&quot;k&quot;&gt;func&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;generateParenthesisBruteforce&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;n&lt;/span&gt; &lt;span class=&quot;kt&quot;&gt;int&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;[]&lt;/span&gt;&lt;span class=&quot;kt&quot;&gt;string&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+	&lt;span class=&quot;n&quot;&gt;combinations&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;:=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;generateAllPossibleParenthesis&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;n&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+	&lt;span class=&quot;n&quot;&gt;res&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;:=&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;make&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;([]&lt;/span&gt;&lt;span class=&quot;kt&quot;&gt;string&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;m&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;len&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;combinations&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;))&lt;/span&gt;
+	&lt;span class=&quot;k&quot;&gt;for&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;_&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;parenthesis&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;:=&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;range&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;combinations&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+		&lt;span class=&quot;k&quot;&gt;if&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;!&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;isValid&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;parenthesis&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+			&lt;span class=&quot;k&quot;&gt;continue&lt;/span&gt;
+		&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+
+		&lt;span class=&quot;n&quot;&gt;res&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;append&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;res&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;parenthesis&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+	&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+
+	&lt;span class=&quot;k&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;res&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+
+&lt;span class=&quot;k&quot;&gt;func&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;generateAllPossibleParenthesis&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;n&lt;/span&gt; &lt;span class=&quot;kt&quot;&gt;int&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;[]&lt;/span&gt;&lt;span class=&quot;kt&quot;&gt;string&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+	&lt;span class=&quot;n&quot;&gt;combinations&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;:=&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;make&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;([]&lt;/span&gt;&lt;span class=&quot;kt&quot;&gt;string&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;m&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;m&quot;&gt;100&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+	&lt;span class=&quot;n&quot;&gt;combinations&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;append&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;combinations&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&quot;(&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+
+	&lt;span class=&quot;k&quot;&gt;for&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;i&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;:=&lt;/span&gt; &lt;span class=&quot;m&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;i&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;&amp;lt;&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;n&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;*&lt;/span&gt;&lt;span class=&quot;m&quot;&gt;2&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;i&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;++&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+		&lt;span class=&quot;n&quot;&gt;newArray&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;:=&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;make&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;([]&lt;/span&gt;&lt;span class=&quot;kt&quot;&gt;string&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;m&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;len&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;combinations&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;))&lt;/span&gt;
+		&lt;span class=&quot;k&quot;&gt;for&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;_&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;item&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;:=&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;range&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;combinations&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+			&lt;span class=&quot;n&quot;&gt;newArray&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;append&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;newArray&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;item&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;+&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;(&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+			&lt;span class=&quot;n&quot;&gt;newArray&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;append&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;newArray&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;item&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;+&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;)&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+		&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+
+		&lt;span class=&quot;n&quot;&gt;combinations&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;newArray&lt;/span&gt;
+	&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+
+	&lt;span class=&quot;k&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;combinations&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+
+&lt;span class=&quot;k&quot;&gt;func&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;isValid&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;brackets&lt;/span&gt; &lt;span class=&quot;kt&quot;&gt;string&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;kt&quot;&gt;bool&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+	&lt;span class=&quot;n&quot;&gt;stack&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;:=&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;make&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;([]&lt;/span&gt;&lt;span class=&quot;kt&quot;&gt;rune&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;m&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;len&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;brackets&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;))&lt;/span&gt;
+
+	&lt;span class=&quot;n&quot;&gt;closeBracket&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;:=&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;map&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;kt&quot;&gt;rune&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]&lt;/span&gt;&lt;span class=&quot;kt&quot;&gt;rune&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+		&lt;span class=&quot;sc&quot;&gt;&apos;)&apos;&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;sc&quot;&gt;&apos;(&apos;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
+		&lt;span class=&quot;sc&quot;&gt;&apos;]&apos;&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;sc&quot;&gt;&apos;[&apos;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
+		&lt;span class=&quot;sc&quot;&gt;&apos;}&apos;&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;sc&quot;&gt;&apos;{&apos;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
+	&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+
+	&lt;span class=&quot;k&quot;&gt;for&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;_&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;char&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;:=&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;range&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;brackets&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+		&lt;span class=&quot;k&quot;&gt;if&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;openBracket&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;isClose&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;:=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;closeBracket&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;char&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;];&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;isClose&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+			&lt;span class=&quot;k&quot;&gt;if&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;len&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;stack&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;==&lt;/span&gt; &lt;span class=&quot;m&quot;&gt;0&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+				&lt;span class=&quot;k&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;no&quot;&gt;false&lt;/span&gt;
+			&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+
+			&lt;span class=&quot;n&quot;&gt;lastOpenBracket&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;:=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;stack&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;len&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;stack&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;-&lt;/span&gt;&lt;span class=&quot;m&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]&lt;/span&gt;
+
+			&lt;span class=&quot;k&quot;&gt;if&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;lastOpenBracket&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;!=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;openBracket&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+				&lt;span class=&quot;k&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;no&quot;&gt;false&lt;/span&gt;
+			&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+
+			&lt;span class=&quot;n&quot;&gt;stack&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;stack&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;len&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;stack&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;-&lt;/span&gt;&lt;span class=&quot;m&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]&lt;/span&gt;
+		&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;else&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+			&lt;span class=&quot;n&quot;&gt;stack&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;append&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;stack&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;char&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+		&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+	&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+
+	&lt;span class=&quot;k&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;len&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;stack&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;==&lt;/span&gt; &lt;span class=&quot;m&quot;&gt;0&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+&lt;/li&gt;
+  
+      &lt;li&gt;
+&lt;div class=&quot;language-typescript highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;k&quot;&gt;export&lt;/span&gt; &lt;span class=&quot;kd&quot;&gt;function&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;generateParenthesisBruteforce&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;n&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;kr&quot;&gt;number&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;):&lt;/span&gt; &lt;span class=&quot;kr&quot;&gt;string&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[]&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+	&lt;span class=&quot;kd&quot;&gt;const&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;combinations&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;generateAllPossibleParenthesis&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;n&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+	&lt;span class=&quot;kd&quot;&gt;let&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;res&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;kr&quot;&gt;string&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[]&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;[]&lt;/span&gt;
+
+	&lt;span class=&quot;nx&quot;&gt;combinations&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;forEach&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;((&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;parenthesis&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&amp;gt;&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+		&lt;span class=&quot;k&quot;&gt;if&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;isValid&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;parenthesis&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;))&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+			&lt;span class=&quot;nx&quot;&gt;res&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;push&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;parenthesis&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+		&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+	&lt;span class=&quot;p&quot;&gt;})&lt;/span&gt;
+
+	&lt;span class=&quot;k&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;res&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+
+&lt;span class=&quot;kd&quot;&gt;function&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;generateAllPossibleParenthesis&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;n&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;kr&quot;&gt;number&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;):&lt;/span&gt; &lt;span class=&quot;kr&quot;&gt;string&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[]&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+	&lt;span class=&quot;kd&quot;&gt;let&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;combinations&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;kr&quot;&gt;string&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[]&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]&lt;/span&gt;
+
+	&lt;span class=&quot;k&quot;&gt;for&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;kd&quot;&gt;let&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;i&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;i&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;&amp;lt;&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;n&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;*&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;2&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;i&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;++&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+		&lt;span class=&quot;kd&quot;&gt;const&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;newArray&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;kr&quot;&gt;string&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[]&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;[]&lt;/span&gt;
+
+		&lt;span class=&quot;nx&quot;&gt;combinations&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;forEach&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;((&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;item&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&amp;gt;&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+			&lt;span class=&quot;nx&quot;&gt;newArray&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;push&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;item&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;+&lt;/span&gt; &lt;span class=&quot;dl&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+			&lt;span class=&quot;nx&quot;&gt;newArray&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;push&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;item&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;+&lt;/span&gt; &lt;span class=&quot;dl&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+		&lt;span class=&quot;p&quot;&gt;})&lt;/span&gt;
+
+		&lt;span class=&quot;nx&quot;&gt;combinations&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;newArray&lt;/span&gt;
+	&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+
+	&lt;span class=&quot;k&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;combinations&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+
+&lt;span class=&quot;k&quot;&gt;export&lt;/span&gt; &lt;span class=&quot;kd&quot;&gt;const&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;isValid&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;brackets&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;kr&quot;&gt;string&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;):&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;boolean&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&amp;gt;&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+	&lt;span class=&quot;kd&quot;&gt;const&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;stack&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;kr&quot;&gt;string&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[]&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;[]&lt;/span&gt;
+
+	&lt;span class=&quot;kd&quot;&gt;const&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;closeBrackets&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;Record&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;kr&quot;&gt;string&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;kr&quot;&gt;string&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;gt;&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+		&lt;span class=&quot;dl&quot;&gt;&apos;&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;&apos;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;dl&quot;&gt;&apos;&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;&apos;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
+		&lt;span class=&quot;dl&quot;&gt;&apos;&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;]&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;&apos;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;dl&quot;&gt;&apos;&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;&apos;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
+		&lt;span class=&quot;dl&quot;&gt;&apos;&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;&apos;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;dl&quot;&gt;&apos;&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;&apos;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
+	&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+
+	&lt;span class=&quot;k&quot;&gt;for&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;kd&quot;&gt;let&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;i&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;i&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;&amp;lt;&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;brackets&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;length&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;i&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;++&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+		&lt;span class=&quot;kd&quot;&gt;const&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;char&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;brackets&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;i&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]&lt;/span&gt;
+		&lt;span class=&quot;kd&quot;&gt;const&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;openBracket&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;closeBrackets&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;char&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]&lt;/span&gt;
+
+		&lt;span class=&quot;k&quot;&gt;if&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;openBracket&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+			&lt;span class=&quot;k&quot;&gt;if&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;stack&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;length&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;===&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+				&lt;span class=&quot;k&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;kc&quot;&gt;false&lt;/span&gt;
+			&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+
+			&lt;span class=&quot;kd&quot;&gt;const&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;lastOpenBracket&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;stack&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;stack&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;length&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;-&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]&lt;/span&gt;
+
+			&lt;span class=&quot;k&quot;&gt;if&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;lastOpenBracket&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;!==&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;openBracket&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+				&lt;span class=&quot;k&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;kc&quot;&gt;false&lt;/span&gt;
+			&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+
+			&lt;span class=&quot;nx&quot;&gt;stack&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;pop&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt;
+		&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;else&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+			&lt;span class=&quot;nx&quot;&gt;stack&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;push&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;char&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+		&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+	&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+
+	&lt;span class=&quot;k&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;stack&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;length&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;===&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+
+
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+&lt;/li&gt;
+  
+&lt;/ul&gt;
+
+&lt;h3 id=&quot;оценка-сложности&quot;&gt;Оценка сложности&lt;/h3&gt;
+
+&lt;p&gt;&lt;strong&gt;По времени&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;Оптимальная сложность проверки строки на валидность — &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;O(n)&lt;/code&gt;.
+В нашем случае все строки имеют длину &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;2n&lt;/code&gt;, но итоговая сложность все равно будет равна &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;O(n)&lt;/code&gt;.&lt;/p&gt;
+
+&lt;p&gt;Давайте оценим количество сгенерированных строк.
+Каждый элемент строки кроме первого — произвольный символ из множества [”(“, “)”], а количество символов в итоговой строке &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;2 * n&lt;/code&gt;.
+Таким образом, кол-во строк равно &lt;code&gt;2&lt;sup&gt;2n&lt;/sup&gt;&lt;/code&gt;.&lt;/p&gt;
+
+&lt;p&gt;Итоговую сложность мы можем оценить как &lt;code&gt;n * (2&lt;sup&gt;2n&lt;/sup&gt;)&lt;/code&gt;.&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;По памяти&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;Самый большой расход памяти в нашем случае — хранение всех возможных строк.
+Для этого нам понадобится массив строк, размером &lt;code&gt;2&lt;sup&gt;2n&lt;/sup&gt;&lt;/code&gt;, каждый элемент которого равен &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;2 * n&lt;/code&gt;.
+То есть мы можем говорить о &lt;code&gt;n * 2&lt;sup&gt;2n&lt;/sup&gt;&lt;/code&gt; дополнительной памяти.&lt;/p&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;Чаще всего, в задачах с комбинаторикой решение с полным перебором всех возможных вариантов является сильно не оптимальным, так как скорость роста сложности решения относительно размера входных данных очень высока.
+Так в этой задаче при n = 8 кол-во всех возможных вариантов строк — &lt;strong&gt;32768&lt;/strong&gt; (&lt;code&gt;2&lt;sup&gt;15&lt;/sup&gt;&lt;/code&gt;).&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;hr /&gt;
+
+&lt;h2 id=&quot;оптимизированный-брутфорс&quot;&gt;Оптимизированный брутфорс&lt;/h2&gt;
+
+&lt;p&gt;Основная проблема брутфорс решения — генерация большого количества заведомо невалидных строк.
+Это можно исправить если мы перед добавлением очередного символа добавим проверки, откидывающие заведомо невалидные символы.&lt;/p&gt;
+
+&lt;p&gt;Задача сильно упрощается тем, что в условии сказано, что скобки могут быть только одного типа — круглые.
+В этом случае мы можем использовать для валидации последовательности обычный счетчик.
+Давайте опишем правила, когда мы можем добавлять разные скобки:&lt;/p&gt;
+&lt;ul&gt;
+  &lt;li&gt;Открывающую скобку мы можем добавить, если суммарное количество открытых скобок в строке не превышает числа &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;n&lt;/code&gt; и если открывающих скобок в строке не меньше закрывающих.&lt;/li&gt;
+  &lt;li&gt;Закрывающую скобку мы можем добавить, если суммарное количество открытых скобок в строке больше чем закрывающих.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;В этом решении не нужно постфактум проверять получившиеся скобки на валидность, так что мы сможем отбросить один из множителей в нашей оценке сложности.&lt;/p&gt;
+
+&lt;ul id=&quot;solution&quot; class=&quot;tab&quot; data-tab=&quot;dbeb1203-fe6b-4233-b559-d46e2b666fee&quot; data-name=&quot;solution&quot;&gt;
+  
+      &lt;li class=&quot;active&quot; id=&quot;go&quot;&gt;
+          &lt;a href=&quot;#&quot;&gt;go &lt;/a&gt;
+      &lt;/li&gt;
+  
+      &lt;li id=&quot;type-script&quot;&gt;
+          &lt;a href=&quot;#&quot;&gt;type script &lt;/a&gt;
+      &lt;/li&gt;
+  
+&lt;/ul&gt;
+&lt;ul class=&quot;tab-content&quot; id=&quot;dbeb1203-fe6b-4233-b559-d46e2b666fee&quot; data-name=&quot;solution&quot;&gt;
+  
+      &lt;li class=&quot;active&quot;&gt;
+&lt;div class=&quot;language-go highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;k&quot;&gt;package&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;main&lt;/span&gt;
+
+&lt;span class=&quot;k&quot;&gt;func&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;generate&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;n&lt;/span&gt; &lt;span class=&quot;kt&quot;&gt;int&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;row&lt;/span&gt; &lt;span class=&quot;kt&quot;&gt;string&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;opened&lt;/span&gt; &lt;span class=&quot;kt&quot;&gt;int&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;closed&lt;/span&gt; &lt;span class=&quot;kt&quot;&gt;int&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;answer&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;*&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[]&lt;/span&gt;&lt;span class=&quot;kt&quot;&gt;string&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+	&lt;span class=&quot;k&quot;&gt;if&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;len&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;row&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;==&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;n&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;*&lt;/span&gt;&lt;span class=&quot;m&quot;&gt;2&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+		&lt;span class=&quot;o&quot;&gt;*&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;answer&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;append&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;*&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;answer&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;row&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+		&lt;span class=&quot;k&quot;&gt;return&lt;/span&gt;
+	&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+
+	&lt;span class=&quot;k&quot;&gt;if&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;opened&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;&amp;gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;closed&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;&amp;amp;&amp;amp;&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;opened&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;&amp;lt;&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;n&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+		&lt;span class=&quot;n&quot;&gt;generate&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;n&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;row&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;+&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;(&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;opened&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;+&lt;/span&gt;&lt;span class=&quot;m&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;closed&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;answer&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+	&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+
+	&lt;span class=&quot;k&quot;&gt;if&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;opened&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;&amp;gt;&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;closed&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+		&lt;span class=&quot;n&quot;&gt;generate&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;n&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;row&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;+&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;)&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;opened&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;closed&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;+&lt;/span&gt;&lt;span class=&quot;m&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;answer&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+	&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+
+&lt;span class=&quot;k&quot;&gt;func&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;generateParenthesis&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;n&lt;/span&gt; &lt;span class=&quot;kt&quot;&gt;int&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;[]&lt;/span&gt;&lt;span class=&quot;kt&quot;&gt;string&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+	&lt;span class=&quot;n&quot;&gt;res&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;:=&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;make&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;([]&lt;/span&gt;&lt;span class=&quot;kt&quot;&gt;string&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;m&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+	&lt;span class=&quot;n&quot;&gt;generate&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;n&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&quot;(&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;m&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;m&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;&amp;amp;&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;res&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+
+	&lt;span class=&quot;k&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;res&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+&lt;/li&gt;
+  
+      &lt;li&gt;
+&lt;div class=&quot;language-typescript highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;k&quot;&gt;export&lt;/span&gt; &lt;span class=&quot;kd&quot;&gt;const&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;generate&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;n&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;kr&quot;&gt;number&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;row&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;kr&quot;&gt;string&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;opened&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;kr&quot;&gt;number&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;closed&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;kr&quot;&gt;number&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;answer&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;kr&quot;&gt;string&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[]):&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;void&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&amp;gt;&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+    &lt;span class=&quot;k&quot;&gt;if&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;row&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;length&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;===&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;n&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;*&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;2&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+        &lt;span class=&quot;nx&quot;&gt;answer&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;push&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;row&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+        &lt;span class=&quot;k&quot;&gt;return&lt;/span&gt;
+    &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+
+    &lt;span class=&quot;k&quot;&gt;if&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;opened&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;&amp;gt;=&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;closed&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;&amp;amp;&amp;amp;&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;opened&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;&amp;lt;&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;n&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+        &lt;span class=&quot;nx&quot;&gt;generate&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;n&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;row&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;+&lt;/span&gt; &lt;span class=&quot;dl&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;opened&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;+&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;closed&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;answer&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+    &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+
+    &lt;span class=&quot;k&quot;&gt;if&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;opened&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;&amp;gt;&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;closed&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+        &lt;span class=&quot;nx&quot;&gt;generate&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;n&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;row&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;+&lt;/span&gt; &lt;span class=&quot;dl&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;opened&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;closed&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;+&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;answer&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+    &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+
+&lt;span class=&quot;k&quot;&gt;export&lt;/span&gt; &lt;span class=&quot;kd&quot;&gt;const&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;generateParenthesis&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;n&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;kr&quot;&gt;number&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;):&lt;/span&gt; &lt;span class=&quot;kr&quot;&gt;string&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[]&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&amp;gt;&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+    &lt;span class=&quot;kd&quot;&gt;const&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;res&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;kr&quot;&gt;string&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[]&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;[]&lt;/span&gt;
+    &lt;span class=&quot;nx&quot;&gt;generate&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;n&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;dl&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;res&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+    &lt;span class=&quot;k&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;res&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+&lt;/li&gt;
+  
+&lt;/ul&gt;
+
+&lt;h3 id=&quot;оценка-сложности-1&quot;&gt;Оценка сложности&lt;/h3&gt;
+
+&lt;p&gt;&lt;strong&gt;По времени&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;В данном решении не нужна валидация последовательности. Ее мы заменили на проверку допустимости добавления открывающей/закрывающей скобки в момент генерации строки. 
+Более того, за счет сохранения счетчика суммарного количества открытых и счетчика незакрытых скобок мы можем проводить эту проверку за константное время.&lt;/p&gt;
+
+&lt;p&gt;Количество сгенерированных строк равно &lt;code&gt;2&lt;sup&gt;2n-1&lt;/sup&gt;&lt;/code&gt;.&lt;/p&gt;
+
+&lt;p&gt;На самом деле количество строк сильно меньше, так как мы заранее отбрасываем все невалидные скобочные последовательности.
+Но, оценить их количество сильно сложнее. Валидно будет сказать, что в худшем случае сложность &lt;code&gt;O(2&lt;sup&gt;2n-1&lt;/sup&gt;)&lt;/code&gt;.&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;По памяти&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;Нам нужно выделить память для хранения всех результирующих строк. Каждая строка имеет длину 2*n.
+Также, как и в оценке по сложности, валидно сказать, что количество строк сравнимо с &lt;code&gt;2&lt;sup&gt;2n-1&lt;/sup&gt;&lt;/code&gt;.&lt;/p&gt;
+
+&lt;p&gt;Таким образом, сложность по памяти равна &lt;code&gt;O(n * 2&lt;sup&gt;2n-1&lt;/sup&gt;)&lt;/code&gt;.&lt;/p&gt;</content><author><name></name></author><category term="medium" /><summary type="html">Оглавление</summary></entry></feed>
