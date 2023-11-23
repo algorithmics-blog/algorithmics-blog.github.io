@@ -17,17 +17,24 @@ plugins:
 paginate: 10
 
 exclude:
+  - .sass-cache/
+  - .jekyll-cache/
+  - gemfiles/
+  - Gemfile
+  - Gemfile.lock
+  - node_modules/
+  - vendor/bundle/
+  - vendor/cache/
+  - vendor/gems/
+  - vendor/ruby/
   - Makefile
   - package-lock.json
   - package.json
   - tsconfig.json
   - jest.config.ts
-  - Gemfile
-  - Gemfile.lock
   - go.mod
   - go.sum
   - .gitignore
-  - .jekyll-cache
   - node_modules
   - cmd
   - README.md
