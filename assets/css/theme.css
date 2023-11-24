@@ -615,13 +615,16 @@ a:hover {
     justify-content: space-between;
     padding: 1.5rem 3rem;
     border-top: solid 1px #eff0f1;
+    background: white;
 }
 
 @media screen and (max-width: 42em) {
     .site-footer {
-        flex-direction: column;
+        flex-direction: column-reverse;
         font-size: 0.9rem;
         padding: 2rem 1rem;
+        gap: 12px;
+        text-align: center;
     }
 }
 
@@ -673,41 +676,69 @@ a:hover {
     gap: 24px;
 }
 
-.post-card{
+.post-card {
     background: white;
     border-radius: 15px;
     padding: 40px 60px;
+}
+
+.post-card:hover {
+    text-decoration: none;
+}
+
+@media screen and (max-width: 42em) {
+    .post-card {
+        padding: 20px;
+    }
+}
+
+.post-card-content {
     display: flex;
     justify-content: space-between;
-
+    gap: 20px;
 }
 
+@media screen and (max-width: 42em) {
+    .post-card-content {
+        flex-direction: column;
+    }
+}
 
-
-
-.left-column{
+.left-column {
     display: flex;
     flex-direction: column;
     gap: 20px;
 }
 
-.post-title{
+.post-title {
     font-size: 1.5em;
     color: #1e6bb8;
-    text-decoration: none;
 }
-.post-date{
+
+.post-date {
+    display: flex;
+    align-items: center;
+    gap: 4px;
     font-size: 1.1rem;
     color: #606c71;
-    text-decoration: none;
-
 }
 
-.all-cards{
+.post-page-date {
+    justify-content: center;
+    margin-bottom: 10px;
+}
+
+.all-cards {
     display: flex;
     flex-direction: column;
     gap: 20px;
-
 }
 
+.post-header {
+    text-align: center;
+    margin-bottom: 40px;
+}
 
+.post-complexity{
+    padding-top: 12px;
+}

@@ -2,32 +2,29 @@
 layout: default
 title: {{ site.name }}
 ---
-<div class="all-cards">
-{% for post in paginator.posts %}
 
-{% assign minutes = post.content | strip_html | number_of_words | divided_by: 100 %}
-{% if minutes == 0 %}
-{% assign minutes = 1 %}
-{% endif %}
-    <a href="{{ post.url }}">
-        <div class="post-card">
+<div class="all-cards">
+    {% for post in paginator.posts %}
+
+    <a href="{{ post.url }}" class="post-card">
+        <div class="post-card-content">
             <div class="left-column">
                 <div class="post-title">{{ post.title }}</div>
                 <div class="post-date">
-                    <span>{{ post.date | date_to_long_string }}</span>,
-                    <span>{{ minutes }} min</span>
+                    {% include date.html date=post.date %},
+                    {% include time.html content=post.content %}
                 </div>
             </div>
-            <div>level</div>
 
+            <div class="post-complexity">
+                {% include complexity.html complexity=post.complexity %}
+            </div>
         </div>
     </a>
-
-
-{% endfor %}
+    {% endfor %}
 </div>
-{% if paginator.total_pages > 1 %}
 
+{% if paginator.total_pages > 1 %}
 <div class="pagination">
     {% if paginator.previous_page %}
     <a class="element" href="{{ paginator.previous_page_path | relative_url }}">&laquo;</a>
