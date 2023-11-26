@@ -22,10 +22,10 @@ layout: default
     </a>
 
     {% if page.original_url %}
-    <p>
-        <a href="{{ page.original_url }}" target="_blank">Оригинал задачи на Leetcode</a>
-    </p>
+        <p>
+            <a href="{{ page.original_url }}" target="_blank">Оригинал задачи на Leetcode</a>
+        </p>
     {% endif %}
 
-    {{ content }}
+    {% include anchor_headings.html html=content anchorBody="#" anchorClass="heading-anchor" headerAttrs="class=\"heading\"" %}
 </div>

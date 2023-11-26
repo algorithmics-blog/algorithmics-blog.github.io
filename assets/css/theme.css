@@ -439,7 +439,7 @@ a:hover {
 
 @media screen and (min-width: 64em) {
     .main-content {
-        max-width: 52rem;
+        max-width: 56rem;
         padding: 2rem 0;
         margin: 0 auto;
         font-size: 1.1rem;
@@ -741,4 +741,18 @@ a:hover {
 
 .post-complexity{
     padding-top: 12px;
+}
+
+.heading .heading-anchor {
+    opacity: 0;
+}
+
+.heading:hover .heading-anchor {
+    opacity: 1;
+    color: #00000050;
+}
+
+.heading:hover .heading-anchor:hover {
+    color: #00000085;
+    text-decoration: none;
 }
