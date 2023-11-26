@@ -15,7 +15,6 @@ body {
 
 @media screen and (max-width: 42em) {
     body {
-        display: block;
         overflow-y: auto;
     }
 }
@@ -329,6 +328,17 @@ a:hover {
     border-color: rgba(255, 255, 255, 0.3);
 }
 
+.btn_dark {
+    color: #606c71;
+    border-color: #606c71;
+}
+
+.btn_dark:hover {
+    color: #606c71;
+    border-color: #606c71;
+    background: #d5d6d67d;
+}
+
 @media screen and (min-width: 64em) {
     .btn {
         padding: 0.55rem 1rem;
@@ -353,7 +363,10 @@ a:hover {
 }
 
 .page-header-wrapper {
+    display: flex;
+    flex-direction: column;
     overflow-y: auto;
+    flex: 1;
 }
 
 .page-header {
