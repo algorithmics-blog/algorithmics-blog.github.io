@@ -461,6 +461,8 @@ a:hover {
 }
 
 .main-content img {
+    display: block;
+    margin: auto;
     max-width: 100%;
 }
 
