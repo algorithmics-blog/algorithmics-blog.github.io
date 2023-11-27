@@ -1,9 +1,9 @@
 ---
 layout: post
 title: "Произведение элементов массива исключая себя"
-complexity: easy
+complexity: medium
 original_url: https://leetcode.com/problems/product-of-array-except-self/description/
-tag: easy
+tag: medium
 ---
 
 ## Оглавление
