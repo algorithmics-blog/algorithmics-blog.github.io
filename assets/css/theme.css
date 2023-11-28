@@ -1,3 +1,8 @@
+@font-face {
+    font-family: MartinMono;
+    src: url(../fonts/MartianMono-Regular.ttf);
+}
+
 body {
     display: flex;
     flex-direction: column;
@@ -486,8 +491,8 @@ a:hover {
 
 .main-content code {
     padding: 2px 4px;
-    font-family: Consolas, "Liberation Mono", Menlo, Courier, monospace;
-    font-size: 0.9rem;
+    font-family: MartinMono, monospace, sans-serif;
+    font-size: 0.8rem;
     color: #567482;
     background-color: #f3f6fa;
     border-radius: 0.3rem;
@@ -497,7 +502,8 @@ a:hover {
     padding: 0.8rem;
     margin-top: 0;
     margin-bottom: 1rem;
-    font: 1rem Consolas, "Liberation Mono", Menlo, Courier, monospace;
+    font-family: MartinMono, monospace, sans-serif;
+    font-size: 1rem;
     color: #567482;
     word-wrap: normal;
     background-color: #f3f6fa;
@@ -508,7 +514,7 @@ a:hover {
 .main-content pre > code {
     padding: 0;
     margin: 0;
-    font-size: 0.9rem;
+    font-size: 0.8rem;
     color: #567482;
     word-break: normal;
     white-space: pre;
@@ -528,7 +534,7 @@ a:hover {
 .main-content .highlight pre, .main-content pre {
     padding: 0.8rem;
     overflow: auto;
-    font-size: 0.9rem;
+    font-size: 0.8rem;
     line-height: 1.45;
     border-radius: 0.3rem;
     -webkit-overflow-scrolling: touch;
