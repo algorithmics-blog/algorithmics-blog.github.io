@@ -15,6 +15,7 @@ plugins:
   - jekyll-paginate
 
 paginate: 10
+future: true
 
 exclude:
   - .sass-cache/

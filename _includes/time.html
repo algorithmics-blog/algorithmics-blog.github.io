@@ -1,6 +1,6 @@
 {% assign minutes = include.content | strip_html | number_of_words | divided_by: 100 %}
 {% if minutes == 0 %}
-{% assign minutes = 1 %}
+    {% assign minutes = 1 %}
 {% endif %}
 
 <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24">
