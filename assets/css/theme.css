@@ -20,7 +20,6 @@ body {
 
 @media screen and (max-width: 42em) {
     body {
-        display: block;
         overflow-y: auto;
     }
 }
@@ -334,6 +333,17 @@ a:hover {
     border-color: rgba(255, 255, 255, 0.3);
 }
 
+.btn_dark {
+    color: #606c71;
+    border-color: #606c71;
+}
+
+.btn_dark:hover {
+    color: #606c71;
+    border-color: #606c71;
+    background: #d5d6d67d;
+}
+
 @media screen and (min-width: 64em) {
     .btn {
         padding: 0.55rem 1rem;
@@ -358,7 +368,10 @@ a:hover {
 }
 
 .page-header-wrapper {
+    display: flex;
+    flex-direction: column;
     overflow-y: auto;
+    flex: 1;
 }
 
 .page-header {
@@ -384,9 +397,7 @@ a:hover {
 
 @media screen and (max-width: 42em) {
     .page-header {
-        padding: 2rem 1rem;
-        flex-direction: column;
-        gap: 20px;
+        padding: 1rem;
     }
 }
 
@@ -409,7 +420,7 @@ a:hover {
 
 @media screen and (max-width: 42em) {
     .project-name {
-        font-size: 1.75rem;
+        font-size: 1.2rem;
     }
 }
 
@@ -436,14 +447,14 @@ a:hover {
     }
 }
 
-.main-content {
+.main-content, .post-content {
     flex: 1;
     word-wrap: break-word;
     position: relative;
 }
 
 @media screen and (min-width: 64em) {
-    .main-content {
+    .main-content, .post-content {
         max-width: 56rem;
         padding: 2rem 0;
         margin: 0 auto;
@@ -452,7 +463,7 @@ a:hover {
 }
 
 @media screen and (min-width: 42em) and (max-width: 64em) {
-    .main-content {
+    .main-content, .post-content {
         padding: 2rem 4rem;
         font-size: 1.1rem;
     }
@@ -463,33 +474,38 @@ a:hover {
         padding: 2rem 1rem;
         font-size: 1rem;
     }
+
+    .post-content {
+        padding: 2rem 0 0;
+        font-size: 1rem;
+    }
 }
 
-.main-content img {
+img:not(.logo) {
     display: block;
     margin: auto;
     max-width: 100%;
 }
 
-.main-content h1 {
+h1 {
     margin-top: 0;
     margin-bottom: 1rem;
     font-weight: normal;
     color: #159957;
 }
 
-.main-content h2, .main-content h3, .main-content h4, .main-content h5, .main-content h6 {
+h2, h3, h4, h5, h6 {
     margin-top: 2rem;
     margin-bottom: 1rem;
     font-weight: normal;
     color: #159957;
 }
 
-.main-content p {
+p {
     margin-bottom: 1em;
 }
 
-.main-content code {
+code {
     padding: 2px 4px;
     font-family: MartinMono, monospace, sans-serif;
     font-size: 0.8rem;
@@ -498,7 +514,7 @@ a:hover {
     border-radius: 0.3rem;
 }
 
-.main-content pre {
+pre {
     padding: 0.8rem;
     margin-top: 0;
     margin-bottom: 1rem;
@@ -511,7 +527,7 @@ a:hover {
     border-radius: 0.3rem;
 }
 
-.main-content pre > code {
+pre > code {
     padding: 0;
     margin: 0;
     font-size: 0.8rem;
@@ -522,16 +538,16 @@ a:hover {
     border: 0;
 }
 
-.main-content .highlight {
+.highlight {
     margin-bottom: 1rem;
 }
 
-.main-content .highlight pre {
+.highlight pre {
     margin-bottom: 0;
     word-break: normal;
 }
 
-.main-content .highlight pre, .main-content pre {
+.highlight pre, pre {
     padding: 0.8rem;
     overflow: auto;
     font-size: 0.8rem;
@@ -540,7 +556,7 @@ a:hover {
     -webkit-overflow-scrolling: touch;
 }
 
-.main-content pre code, .main-content pre tt {
+pre code, pre tt {
     display: inline;
     max-width: initial;
     padding: 0;
@@ -552,30 +568,30 @@ a:hover {
     border: 0;
 }
 
-.main-content pre code:before, .main-content pre code:after, .main-content pre tt:before, .main-content pre tt:after {
+pre code:before, pre code:after, pre tt:before, pre tt:after {
     content: normal;
 }
 
-.main-content ul, .main-content ol {
+ul, ol {
     margin-top: 0;
 }
 
-.main-content blockquote {
+blockquote {
     padding: 0 1rem;
     margin-left: 0;
     color: #819198;
     border-left: 0.3rem solid #dce6f0;
 }
 
-.main-content blockquote > :first-child {
+blockquote > :first-child {
     margin-top: 0;
 }
 
-.main-content blockquote > :last-child {
+blockquote > :last-child {
     margin-bottom: 0;
 }
 
-.main-content table {
+table {
     display: block;
     width: 100%;
     overflow: auto;
@@ -583,32 +599,32 @@ a:hover {
     -webkit-overflow-scrolling: touch;
 }
 
-.main-content table th {
+table th {
     font-weight: bold;
 }
 
-.main-content table th, .main-content table td {
+table th, table td {
     padding: 0.5rem 1rem;
     border: 1px solid #e9ebec;
 }
 
-.main-content dl {
+dl {
     padding: 0;
 }
 
-.main-content dl dt {
+dl dt {
     padding: 0;
     margin-top: 1rem;
     font-size: 1rem;
     font-weight: bold;
 }
 
-.main-content dl dd {
+dl dd {
     padding: 0;
     margin-bottom: 1rem;
 }
 
-.main-content hr {
+hr {
     height: 2px;
     padding: 0;
     background-color: #eff0f1;
@@ -622,7 +638,7 @@ a:hover {
     display: flex;
     justify-content: space-between;
     padding: 1.5rem 3rem;
-    border-top: solid 1px #eff0f1;
+    border-top: solid 1px #efefef;
     background: white;
 }
 
@@ -651,6 +667,13 @@ a:hover {
     height: 54px;
 }
 
+@media screen and (max-width: 42em) {
+    .logo {
+        width: 42px;
+        height: 42px;
+    }
+}
+
 .back {
     display: inline-flex;
     font-size: 13px;
@@ -673,7 +696,6 @@ a:hover {
 
 @media screen and (max-width: 42em) {
     .page-logo {
-        flex-direction: column;
         gap: 10px;
     }
 }
@@ -681,7 +703,23 @@ a:hover {
 
 .actions {
     display: flex;
-    gap: 24px;
+    gap: 16px;
+}
+
+.mobile-actions {
+    display: none;
+}
+
+@media screen and (max-width: 42em) {
+    .actions {
+        display: none;
+    }
+
+    .mobile-actions {
+        display: flex;
+        justify-content: center;
+        margin-bottom: 20px;
+    }
 }
 
 .post-card {
@@ -697,6 +735,11 @@ a:hover {
 @media screen and (max-width: 42em) {
     .post-card {
         padding: 20px;
+    }
+
+    .task-card {
+        border-radius: 0;
+        border-top: solid 1px #efefef;
     }
 }
 

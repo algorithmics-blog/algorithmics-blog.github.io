@@ -6,8 +6,6 @@ original_url: https://leetcode.com/problems/implement-trie-prefix-tree/descripti
 tag: medium
 ---
 
-[wiki](https://ru.wikipedia.org/wiki/%D0%9F%D1%80%D0%B5%D1%84%D0%B8%D0%BA%D1%81%D0%BD%D0%BE%D0%B5_%D0%B4%D0%B5%D1%80%D0%B5%D0%B2%D0%BE)
-
 ## Оглавление
 
 - [Описание задачи](#описание-задачи)
@@ -23,6 +21,8 @@ tag: medium
 - Функция Insert(word string) - вставка слова в дерево
 - Search(word string) bool - проверка наличия слова в дереве 
 - StartsWith(prefix string) bool - проверка наличия префикса в дереве
+
+О том, что такое префиксное дерево можно прочитать в [статье на википедии](https://ru.wikipedia.org/wiki/%D0%9F%D1%80%D0%B5%D1%84%D0%B8%D0%BA%D1%81%D0%BD%D0%BE%D0%B5_%D0%B4%D0%B5%D1%80%D0%B5%D0%B2%D0%BE).
 
 ---
 
