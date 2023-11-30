@@ -1,23 +1,26 @@
-.medium-complexity {
-    background: #ffc069;
-    padding: 1px 8px;
+.complexity {
+    border: 1px solid #d9d9d9;;
     border-radius: 4px;
-    font-size: 16px;
-    color: #000;
+    text-transform: uppercase;
+    font-size: 12px;
+    padding: 3px 10px;
+    letter-spacing: 1px;
 }
 
-.easy-complexity {
-    background: #95de64;
-    padding: 1px 8px;
-    border-radius: 4px;
-    font-size: 16px;
-    color: #000;
+.complexity_medium {
+    color: #d48806;
+    background: #fffbe6;
+    border-color: #ffe58f;
 }
 
-.hard-complexity {
-    background: #ff7875;
-    padding: 1px 8px;
-    border-radius: 4px;
-    font-size: 16px;
-    color: #000;
+.complexity_easy {
+    color: #389e0d;
+    background: #f6ffed;
+    border-color: #b7eb8f;
+}
+
+.complexity_hard {
+    color: #cf1322;
+    background: #fff1f0;
+    border-color: #ffa39e;
 }

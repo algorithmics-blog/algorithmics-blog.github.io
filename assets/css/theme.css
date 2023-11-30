@@ -3,12 +3,17 @@
     src: url(../fonts/MartianMono-Regular.ttf);
 }
 
+@font-face {
+    font-family: Manrope;
+    src: url(../fonts/Manrope-Regular.ttf);
+}
+
 body {
     display: flex;
     flex-direction: column;
     padding: 0;
     margin: 0;
-    font-family: "Open Sans", "Helvetica Neue", Helvetica, Arial, sans-serif;
+    font-family: Manrope, sans-serif;
     font-size: 16px;
     line-height: 1.5;
     color: #606c71;
@@ -726,6 +731,7 @@ hr {
     background: white;
     border-radius: 15px;
     padding: 40px 60px;
+    box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.03), 0 1px 6px -1px rgba(0, 0, 0, 0.02), 0 2px 4px 0 rgba(0, 0, 0, 0.02);
 }
 
 .post-card:hover {
@@ -752,6 +758,7 @@ hr {
 @media screen and (max-width: 42em) {
     .post-card-content {
         flex-direction: column;
+        gap: 8px;
     }
 }
 
@@ -759,6 +766,12 @@ hr {
     display: flex;
     flex-direction: column;
     gap: 20px;
+}
+
+@media screen and (max-width: 42em) {
+    .left-column {
+        gap: 16px;
+    }
 }
 
 .post-title {
@@ -790,8 +803,20 @@ hr {
     margin-bottom: 40px;
 }
 
+@media screen and (max-width: 42em) {
+    .post-header {
+        padding: 0 20px;
+    }
+}
+
 .post-complexity{
-    padding-top: 12px;
+    padding-top: 6px;
+}
+
+@media screen and (max-width: 42em) {
+    .post-complexity{
+        padding-top: 0;
+    }
 }
 
 .heading .heading-anchor {
