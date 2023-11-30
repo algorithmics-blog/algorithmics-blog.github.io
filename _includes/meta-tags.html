@@ -4,7 +4,7 @@
 <meta name="description" content="{{ include.description }}">
 
 {% assign path = include.url | default: "" %}
-{% assign url = site.host | append: path %}
+{% assign url = site.host_url | append: path %}
 
 <!-- Facebook Meta Tags -->
 <meta property="og:url" content="{{ url }}">
