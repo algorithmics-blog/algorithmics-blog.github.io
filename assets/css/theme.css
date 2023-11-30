@@ -1,11 +1,13 @@
 @font-face {
     font-family: MartinMono;
     src: url(../fonts/MartianMono-Regular.ttf);
+    font-display: swap;
 }
 
 @font-face {
     font-family: Manrope;
     src: url(../fonts/Manrope-Regular.ttf);
+    font-display: swap;
 }
 
 body {
