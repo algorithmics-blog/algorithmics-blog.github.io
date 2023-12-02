@@ -5,7 +5,7 @@ export const reverse = (x: number): number => {
     let left = x
     let res = 0
 
-    while (left != 0) {
+    while (left !== 0) {
         const right = left % 10
         left = left > 0 ? Math.floor(left / 10) : Math.ceil(left / 10)
 
