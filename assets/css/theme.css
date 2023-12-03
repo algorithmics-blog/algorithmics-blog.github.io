@@ -8,6 +8,14 @@
     font-family: Manrope;
     src: url(../fonts/Manrope-Regular.ttf);
     font-display: swap;
+    font-weight: normal;
+}
+
+@font-face {
+    font-family: Manrope;
+    src: url(../fonts/Manrope-Bold.ttf);
+    font-display: swap;
+    font-weight: bold;
 }
 
 body {

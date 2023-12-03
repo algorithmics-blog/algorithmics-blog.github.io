@@ -60,5 +60,4 @@ func Test_myPow(t *testing.T) {
 			assert.Equal(t, fmt.Sprintf("%.10f", testCase.out), fmt.Sprintf("%.10f", res))
 		})
 	}
-
 }
