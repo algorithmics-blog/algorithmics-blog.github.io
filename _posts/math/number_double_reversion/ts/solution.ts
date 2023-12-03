@@ -11,8 +11,8 @@ const reverse = (num: number): number => {
 }
 
 export const isSameAfterReversals = (num: number): boolean => {
-    const first = reverse(num)
-    const second = reverse(first)
+    const reversed1 = reverse(num)
+    const reversed2 = reverse(reversed1)
 
-    return num == second
+    return num == reversed2
 }

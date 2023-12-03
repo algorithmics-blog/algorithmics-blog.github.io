@@ -14,8 +14,8 @@ func reverse(num int) int {
 }
 
 func isSameAfterReversals(num int) bool {
-	first := reverse(num)
-	second := reverse(first)
+	reversed1 := reverse(num)
+	reversed2 := reverse(reversed1)
 
-	return num == second
+	return num == reversed2
 }
