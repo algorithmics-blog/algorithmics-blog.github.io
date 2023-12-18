@@ -40,14 +40,14 @@ tag: medium
 Добавление значений в структуру.
 
 ```typescript
-    const store = new Store()
+const store = new Store()
 
-    store.insert(1)
-    store.insert(2)
-    store.insert(3)
-    store.insert(2)
+store.insert(1)
+store.insert(2)
+store.insert(3)
+store.insert(2)
 
-    // values — 1, 2, 3
+// values — 1, 2, 3
 ```
 
 {% endtab %}
@@ -57,14 +57,14 @@ tag: medium
 Удаление значений из структуры.
 
 ```typescript
-    const store = new Store()
+const store = new Store()
 
-    store.insert(1)
-    store.insert(2)
-    store.insert(3)
-    store.remove(2)
+store.insert(1)
+store.insert(2)
+store.insert(3)
+store.remove(2)
 
-    // values — 1, 3
+// values — 1, 3
 ```
 {% endtab %}
 
@@ -73,15 +73,15 @@ tag: medium
 Получение случайного значения из структуры.
 
 ```typescript
-    const store = new Store()
+const store = new Store()
 
-    store.insert(1)
-    store.insert(2)
-    store.insert(3)
-    
-    const value = store.getRandom()
+store.insert(1)
+store.insert(2)
+store.insert(3)
 
-    // value — 1 (or 2 or 3 with equal probability)
+const value = store.getRandom()
+
+// value — 1 (or 2 or 3 with equal probability)
 ```
 {% endtab %}
 {% endtabs %}
