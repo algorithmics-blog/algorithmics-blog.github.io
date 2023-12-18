@@ -569,6 +569,8 @@ pre > code {
     line-height: 1.45;
     border-radius: 0.3rem;
     -webkit-overflow-scrolling: touch;
+    -moz-tab-size: 4;
+    tab-size: 4;
 }
 
 pre code, pre tt {
