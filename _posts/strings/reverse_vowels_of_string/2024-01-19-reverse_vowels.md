@@ -100,7 +100,7 @@ const dict = new Set(['a', 'e', 'i', 'o', 'u', 'A', 'E', 'I', 'O', 'U'])
 
 ### Реализация
 
-{% include code-example.md go_path="go/solution_bruteforce.go" ts_path="ts/solution_bruteforce.ts" %}
+{% include code-example.md go_path="go/solution.go" ts_path="ts/solution.ts" %}
 
 ### Оценка сложности
 
