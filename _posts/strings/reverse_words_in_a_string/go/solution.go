@@ -2,24 +2,24 @@ package main
 
 func reverseWords(s string) string {
 	startIdx := 0
-	bStr := []byte(s)
+	endIdx := 0
+	bytes := []byte(s)
 
-	for i := 0; i < len(bStr); i++ {
-		if bStr[i] == byte(' ') {
-			reverseWord(bStr, startIdx, i-1)
+	trimmed := trimSpaces(bytes)
 
-			startIdx = i + 1
-			continue
+	for startIdx < len(trimmed) {
+		for endIdx < len(trimmed) && trimmed[endIdx] != byte(' ') {
+			endIdx++
 		}
+
+		reverseWord(trimmed, startIdx, endIdx-1)
+		startIdx = endIdx + 1
+		endIdx++
 	}
 
-	// корнер кейс - переворачиваем последнее слово в строке, так как, если строка не заканчивается на ' ',
-	// мы не обработаем этот кейс в цикле выше
-	reverseWord(bStr, startIdx, len(bStr)-1)
+	reverseWord(trimmed, 0, len(trimmed)-1)
 
-	reverseWord(bStr, 0, len(bStr)-1)
-
-	return string(trimSpaces(bStr))
+	return string(trimmed)
 }
 
 func reverseWord(s []byte, i, j int) {
