@@ -3,9 +3,8 @@ package main
 func reverseWords(s string) string {
 	startIdx := 0
 	endIdx := 0
-	bytes := []byte(s)
 
-	trimmed := trimSpaces(bytes)
+	trimmed := trimSpaces([]byte(s))
 
 	for startIdx < len(trimmed) {
 		for endIdx < len(trimmed) && trimmed[endIdx] != byte(' ') {
