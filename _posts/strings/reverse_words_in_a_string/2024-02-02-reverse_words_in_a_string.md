@@ -38,22 +38,19 @@ tag: medium
 {% tab reverse_words_in_a_string Пример №1 %}
 **Входные данные**: `"the sky is blue"`
 
-**Ответ**: `blue is sky the`
-
+**Ответ**: `"blue is sky the"`
 {% endtab %}
 
 {% tab reverse_words_in_a_string Пример №2 %}
-**Входные данные**: <code>   hello    world    </code>
+**Входные данные**: <code>"&nbsp;&nbsp;&nbsp;hello world&nbsp;&nbsp;&nbsp;"</code>
 
-**Ответ**: `world hello`
-
+**Ответ**: `"world hello"`
 {% endtab %}
 
 {% tab reverse_words_in_a_string Пример №3 %}
-**Входные данные**: `a good   example`
+**Входные данные**: <code>"a good&nbsp;&nbsp;&nbsp;example"</code>
 
-**Ответ**: `example good a`
-
+**Ответ**: `"example good a"`
 {% endtab %}
 {% endtabs %}
 
