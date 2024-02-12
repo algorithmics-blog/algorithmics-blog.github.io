@@ -56,7 +56,7 @@ tag: medium
 **Ответ**: `accaccacc`
 {% endtab %}
 
-{% tab decode_string Пример №2 %}
+{% tab decode_string Пример №3 %}
 **Входные данные**: `"2[abc]3[cd]ef"`
 
 **Ответ**: `"abcabccdcdcdef"`
