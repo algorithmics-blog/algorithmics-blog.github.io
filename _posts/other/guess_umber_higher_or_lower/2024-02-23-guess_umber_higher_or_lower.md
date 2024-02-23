@@ -2,6 +2,7 @@
 layout: post
 title:  "Угадай число"
 complexity: easy
+original_url: https://leetcode.com/problems/guess-number-higher-or-lower/
 tag: easy
 ---
 
