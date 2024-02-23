@@ -1,4 +1,4 @@
-package guess_umber_higher_or_lower
+package guess_number_higher_or_lower
 
 import (
 	"github.com/stretchr/testify/assert"

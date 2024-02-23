@@ -45,9 +45,9 @@ tag: easy
 
 ## Примеры
 
-{% tabs guess_umber_higher_or_lower %}
+{% tabs guess_number_higher_or_lower %}
 
-{% tab guess_umber_higher_or_lower Пример №1 %}
+{% tab guess_number_higher_or_lower Пример №1 %}
 
 **Исходные данные**: `n = 10, загадано число 6`
 
@@ -55,7 +55,7 @@ tag: easy
 
 {% endtab %}
 
-{% tab guess_umber_higher_or_lower Пример №2 %}
+{% tab guess_number_higher_or_lower Пример №2 %}
 
 **Исходные данные**: `n = 1, загадано число 1`
 
@@ -63,7 +63,7 @@ tag: easy
 
 {% endtab %}
 
-{% tab guess_umber_higher_or_lower Пример №3 %}
+{% tab guess_number_higher_or_lower Пример №3 %}
 
 **Исходные данные**: `n = 2, загадано число 1`
 
