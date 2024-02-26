@@ -13,22 +13,22 @@ func longestZigZag(root *TreeNode) int {
 }
 
 func dfs(root *TreeNode) (int, int, int) {
-	var leftPathLength, rightPathLength, maxLength, maxPathFromLeft, maxPathFromRight int
+	var leftPathLength, rightPathLength, maxLength, leftMaxLength, rightMaxLength int
 
 	if root.Left != nil {
 		var childRightZigZag int
-		_, childRightZigZag, maxPathFromLeft = dfs(root.Left)
+		_, childRightZigZag, leftMaxLength = dfs(root.Left)
 		leftPathLength = childRightZigZag + 1
 	}
 
 	if root.Right != nil {
 		var childLeftZigZag int
-		childLeftZigZag, _, maxPathFromRight = dfs(root.Right)
+		childLeftZigZag, _, rightMaxLength = dfs(root.Right)
 
 		rightPathLength = childLeftZigZag + 1
 	}
 
-	maxLength = max(max(maxPathFromLeft, maxPathFromRight), max(leftPathLength, rightPathLength))
+	maxLength = max(max(leftMaxLength, rightMaxLength), max(leftPathLength, rightPathLength))
 
 	return leftPathLength, rightPathLength, maxLength
 }
