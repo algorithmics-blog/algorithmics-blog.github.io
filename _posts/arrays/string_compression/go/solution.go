@@ -3,9 +3,9 @@ package main
 import "strconv"
 
 func compress(chars []byte) int {
-	newPositionIdx, firstElemIdx := 0, 0
+	newPositionIdx := 0
 
-	for ; firstElemIdx < len(chars); firstElemIdx++ {
+	for firstElemIdx := 0; firstElemIdx < len(chars); firstElemIdx++ {
 		lastChar := chars[firstElemIdx]
 
 		lastElemIdx := firstElemIdx + 1
