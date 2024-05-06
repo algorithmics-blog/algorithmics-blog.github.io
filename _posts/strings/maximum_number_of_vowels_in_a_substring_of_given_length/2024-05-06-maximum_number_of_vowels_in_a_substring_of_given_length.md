@@ -60,7 +60,7 @@ k = 2
 Исходная строк полностью состоит из гласных, поэтому любая подстрока длиной 2 будет также состоять из гласных.
 {% endtab %}
 
-{% tab string_compression Пример №3 %}
+{% tab maximum-number-of-vowels-in-a-substring-of-given-length Пример №3 %}
 **Входные данные**
 
 ```
