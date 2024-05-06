@@ -32,7 +32,7 @@ tag: medium
 
 ## Примеры
 
-{% tabs string_compression %}
+{% tabs maximum-number-of-vowels-in-a-substring-of-given-length %}
 
 {% tab maximum-number-of-vowels-in-a-substring-of-given-length Пример №1 %}
 **Входные данные**
