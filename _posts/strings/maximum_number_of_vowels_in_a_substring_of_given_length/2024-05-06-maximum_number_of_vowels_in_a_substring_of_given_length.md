@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "Максимальное количество гласных в полстроке заданного размера"
+title: "Максимальное количество гласных в подстроке заданного размера"
 complexity: medium
 original_url: https://leetcode.com/problems/maximum-number-of-vowels-in-a-substring-of-given-length/description/
 tag: medium
