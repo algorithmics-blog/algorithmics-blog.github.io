@@ -47,7 +47,7 @@ k = 3
 В исходной строке есть подстрока длиной 3 состоящая исключительно из гласных `iii`
 {% endtab %}
 
-{% tab string_compression Пример №2 %}
+{% tab maximum-number-of-vowels-in-a-substring-of-given-length Пример №2 %}
 **Входные данные**
 
 ```
