@@ -1,0 +1,21 @@
+<div class="pagination">
+    {% if pagination.previousPageLink %}
+        <a class="element" href="{{ pagination.previousPageLink }}">&laquo;</a>
+    {% else %}
+        <span class="element disabled">&laquo;</span>
+    {% endif %}
+
+    {% for page in pagination.hrefs %}
+        {% if pagination.pageNumber + 1 == loop.index %}
+            <span class="element active">{{ loop.index }}</span>
+        {% else %}
+            <a class="element" href="{{ page }}">{{ loop.index }}</a>
+        {% endif %}
+    {% endfor %}
+
+    {% if pagination.nextPageLink %}
+        <a class="element" href="{{ pagination.nextPageLink }}">&raquo;</a>
+    {% else %}
+        <span class="element disabled">&raquo;</span>
+    {% endif %}
+</div>
