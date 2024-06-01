@@ -1,7 +1,7 @@
 <!doctype html>
 <html lang="ru">
 <head>
-    <title>Произведение элементов массива исключая себя</title>
+    <title>Сколько нужно стрел, чтобы лопнуть все воздушные шары</title>
 
     
 
@@ -13,16 +13,16 @@
 <!-- Facebook Meta Tags -->
 <meta property="og:url" content="https://algorithmics-blog.github.io">
 <meta property="og:type" content="website">
-<meta property="og:title" content="Произведение элементов массива исключая себя">
+<meta property="og:title" content="Сколько нужно стрел, чтобы лопнуть все воздушные шары">
 <meta property="og:description" content="Подробный разбор решения задачи с примерами на языках TypeScript и GO">
-<meta property="og:image" content="https://algorithmics-blog.github.io/images/previews/product_of_array_except_self.webp">
+<meta property="og:image" content="https://algorithmics-blog.github.io/images/previews/minimum_number_of_arrows_to_burst_balloons.webp">
 
 <!-- Twitter Meta Tags -->
 <meta property="twitter:domain" content="algorithmics-blog.github.io">
 <meta property="twitter:url" content="https://algorithmics-blog.github.io">
-<meta name="twitter:title" content="Произведение элементов массива исключая себя">
+<meta name="twitter:title" content="Сколько нужно стрел, чтобы лопнуть все воздушные шары">
 <meta name="twitter:description" content="Подробный разбор решения задачи с примерами на языках TypeScript и GO">
-<meta name="twitter:image" content="https://algorithmics-blog.github.io/images/previews/product_of_array_except_self.webp">
+<meta name="twitter:image" content="https://algorithmics-blog.github.io/images/previews/minimum_number_of_arrows_to_burst_balloons.webp">
 
     <link rel="icon" type="image/x-icon" href="/favicon.ico">
 
@@ -1347,7 +1347,7 @@ pre[class*="language-"] {
 
 <section class="post-content">
     <div class="post-header">
-        <h1>Произведение элементов массива исключая себя</h1>
+        <h1>Сколько нужно стрел, чтобы лопнуть все воздушные шары</h1>
 
         <div class="post-complexity">
             
@@ -1380,11 +1380,11 @@ pre[class*="language-"] {
             , 
 
             
-                <a href="/tags/array/" class="post-tag">array</a>
+                <a href="/tags/string/" class="post-tag">string</a>
             , 
 
             
-                <a href="/tags/prefix-sum/" class="post-tag">prefix sum</a>
+                <a href="/tags/backtracking/" class="post-tag">backtracking</a>
             
     </div>
 </div>
@@ -1397,7 +1397,7 @@ pre[class*="language-"] {
 					d="M4 7a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v12a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2zm12-4v4M8 3v4m-4 4h16M7 14h.013m2.997 0h.005m2.995 0h.005m3 0h.005m-3.005 3h.005m-6.01 0h.005m2.995 0h.005"/>
 	</svg>
 
-	<span>28 November 2023</span>
+	<span>16 May 2024</span>
 </div>
 
     </div>
@@ -1405,86 +1405,71 @@ pre[class*="language-"] {
     <div class="post-card task-card"
     <hr>
 <h2 id="opisanie-zadachi" tabindex="-1">Описание задачи <a class="header-anchor" href="#opisanie-zadachi">#</a></h2>
-<p>Вам дан целочисленный массив <code>nums</code>.
-Напишите функцию, возвращающую в качестве ответа такой массив, в котором на <code>i</code>-ой позиции будет число, равное
-произведению всех элементов массива <code>nums</code>, кроме <code>i</code>-го.</p>
-<blockquote>
-<p>Дополнительно попробуйте решить задачу так, чтобы обеспечить линейную сложность <code>O(1)</code> по памяти.
-Выходной массив не считается за выделение дополнительной памяти.</p>
-</blockquote>
+<p>К плоской стене, представляющей плоскость XY, приклеено несколько сферических воздушных шаров.
+Шары представлены в виде двумерного целочисленного массива <code>points</code>, где <code>
+points[i] = [x<sub>start</sub>, x<sub>end</sub>]</code> обозначает шар, горизонтальный диаметр которой простирается
+между x<sub>start</sub> и x<sub>end</sub>. Вы не знаете точных координат Y воздушных шаров.</p>
+<p>Вы можете выстрелить стрелой прямо вертикально (в положительном направлении Y) из разных точек вдоль оси X.
+Воздушный шар с x<sub>start</sub>, x<sub>end</sub> разрывается стрелой, выпущенной в <code>x</code>, если <code>x<sub>
+start</sub> &lt;= x &lt;= x<sub>end</sub></code>.
+Нет ограничений на количество выпущенных стрел.</p>
+<p>Выпущенная стрела продолжает двигаться вверх бесконечно, разрывая все воздушные шары на своем пути.
+Найдите минимальное количество стрел, которое необходимо выпустить, чтобы лопнуть все воздушные шары.</p>
 <hr>
 <h2 id="ogranicheniya" tabindex="-1">Ограничения <a class="header-anchor" href="#ogranicheniya">#</a></h2>
 <ul>
-<li>В массиве может быть от 2 до 10<sup>5</sup> элементов</li>
-<li>Значение каждого элемента находится в диапазоне от -30 до 30</li>
-<li>Произведение любого префикса или суффикса чисел гарантированно вписывается в 32-битное целое число</li>
-<li>Запрещено использовать операцию деления в реализации</li>
+<li>В массиве <code>points</code> может быть от 1 до 105 элементов</li>
+<li><code>2<sup>31</sup> &lt;= x<sub>start</sub> &lt; x<sub>end</sub> &lt;= 2<sup>31</sup> - 1</code></li>
 </ul>
 <hr>
 <h2 id="primery" tabindex="-1">Примеры <a class="header-anchor" href="#primery">#</a></h2>
-<div data-role="tabs"><ul class="tab-content" id="tabs_937924" data-name="tabs_937924">
+<div data-role="tabs"><ul class="tab-content" id="tabs_242806" data-name="tabs_242806">
 <li data-role="tabs-content" data-tab-name="Пример №1">
-<p><strong>Входные данные</strong>: <code>[1,2,3,4]</code></p>
-<p><strong>Ответ</strong>: <code>[24,12,8,6]</code></p>
+<p><strong>Входные данные</strong>: <code>points = [[10,16],[2,8],[1,6],[7,12]]</code></p>
+<p><strong>Ответ</strong>: <code>2</code></p>
+<p><strong>Пояснение</strong>: Воздушные шары можно лопнуть двумя стрелами:</p>
+<ul>
+<li>Выстрелите стрелой в точку x = 6, лопнув шарики <code>[2, 8]</code> и <code>[1, 6]</code>.</li>
+<li>Выстрелите стрелой в точку x = 11, лопнув шарики <code>[10, 16]</code> и <code>[7, 12]</code>.</li>
+</ul>
 </li>
 <li data-role="tabs-content" data-tab-name="Пример №2">
-<p><strong>Входные данные</strong>: <code>[-1,1,0,-3,3]</code></p>
-<p><strong>Ответ</strong>: <code>[0,0,9,0,0]</code></p>
+<p><strong>Входные данные</strong>: <code>points = [[1,2],[3,4],[5,6],[7,8]]</code></p>
+<p><strong>Ответ</strong>: <code>4</code></p>
+<p><strong>Пояснение</strong>: Для каждого воздушного шара нужно выпустить одну стрелу, всего получится 4 стрелы.</p>
+</li>
+<li data-role="tabs-content" data-tab-name="Пример №3">
+<p><strong>Входные данные</strong>: <code>points = [[1,2],[2,3],[3,4],[4,5]]</code></p>
+<p><strong>Ответ</strong>: <code>2</code></p>
+<p><strong>Пояснение</strong>: Воздушные шары можно лопнуть двумя стрелами:</p>
+<ul>
+<li>Выстрелите стрелой в точку x = 2, лопнув шарики <code>[1, 2]</code> и <code>[2, 3]</code>.</li>
+<li>Выстрелите стрелой в точку x = 4, лопнув шарики <code>[3, 4]</code> и <code>[4, 5]</code>.</li>
+</ul>
 </li>
 </ul></div>
 <hr>
 <h2 id="reshenie" tabindex="-1">Решение <a class="header-anchor" href="#reshenie">#</a></h2>
-<p>В этой задаче мы даже не будем пытаться разбирать брутфосрс решение, так как очевидно, что оно будет очень затратным.
-Тем более, что есть очень простое и интуитивно понятное решение за линейное время.</p>
-<p>Произведение всех элементов массива кроме одного находится очень просто, путем деления произведения всех элементов на
-тот, который мы хотим исключить.
-Это самое простое решение задачи. И можно было бы тут заканчивать, однако в условиях есть требование, которое запрещает
-использовать операцию деления.
-Придется найти другое решение за линейное время.</p>
-<p>Давайте посмотри на задачу под другим углом.
-Если визуализировать массив, то можно заметить, что каждый элемент (белый) разбивает массив на две части:</p>
+<p><img src="/images/resources/balloons.png" alt="Шары"></p>
+<p>Для решения этой задачи первым делом надо отсортировать массив <code>points</code> по правой границе шаров.
+Такая сортировка поможет нам с легкостью определить, сколько стрел нужно выпустить, чтобы лопнуть все шары.</p>
+<p>Если шары отсортированы по конечной координате, то мы знаем, что у следующего шара есть всего два варианта положения.</p>
 <ul>
-<li>левая (желтая);</li>
-<li>правая (голубая).</li>
+<li>Его начальная координата больше конечной координаты текущего шара. В таком случае эти шары не пересекаются и их нельзя
+сбить одной стрелой.</li>
+<li>Его начальная координата меньше или равна конечной координате текущего шара. В таком случае эти шары пересекаются и их
+можно сбить одной стрелой, если выстрелить в конечную координату текущего шара.</li>
 </ul>
-<p><img src="/images/resources/array_products.png" alt="Левые и правые подмассивы"></p>
-<p>Исходя из этого, мы можем найти искомый результат следующим образом:</p>
+<p>Исходя из этого мы можем сформировать крайне простой алгоритм:</p>
 <ul>
-<li>найти произведение всех элементов в левом подмассиве;</li>
-<li>найти произведение всех элементов в правом подмассиве;</li>
-<li>перемножить два полученных результата.</li>
+<li>Итерируемся по всем шарам в отсортированном массиве.</li>
+<li>Запоминаем координату последнего выстрела, которую по умолчанию выставляем в минимально возможное значение.</li>
+<li>Если начальная координата текущего шара больше координаты последнего выстрела, то это означает, что нам нужен сделать выстрел по правой границе шара и увеличить счетчик выпущенных стрел на 1.</li>
+<li>Если начальная координата текущего шара меньше или равна координате последнего выстрела, то это означает, что шар пересекается с предыдущим и нам не нужно делать новый выстрел, потому что он уже был сбит предыдущей стрелой.</li>
 </ul>
-<h3 id="algoritm" tabindex="-1">Алгоритм <a class="header-anchor" href="#algoritm">#</a></h3>
-<ol>
-<li>
-<p>Инициализируем два пустых массива, <code>left</code> и <code>right</code>, где для каждого индекса <code>left[i]</code> будет содержать произведение всех
-чисел слева от <code>i</code>, а <code>right[i]</code> будет содержать произведение всех чисел справа от <code>i</code>.</p>
-</li>
-<li>
-<p>Нам понадобятся два разных цикла для заполнения значений для двух массивов.
-Для массива <code>left</code>, первый элемент всегда будет равен <code>1</code>, потому что слева от него нет других элементов.
-Для остальных элементов мы просто вычислим произведение следующим образом <code>left[i] = left[i - 1] * nums[i - 1]</code>.</p>
-</li>
-<li>
-<p>Для массива <code>right</code> мы делаем то же самое, но в обратном порядке.
-Последний элемент здесь также равен <code>1</code> так справа от него нет других элементов.
-Для остальных элементов мы просто вычислим произведение следующим образом <code>right[i] = right[i + 1] * nums[i + 1]</code>.</p>
-</li>
-<li>
-<p>И последним шагом нам осталось перемножить в цикле между собой каждый <code>left[i]</code> и <code>right[i]</code> элемент.</p>
-</li>
-</ol>
-<p>Для простоты восприятия визуализируем картинку.</p>
-<p><img src="/images/resources/array_products_2.png" alt="Левые и правые подмассивы"></p>
-<h3 id="konstantnaya-pamyat" tabindex="-1">Константная память <a class="header-anchor" href="#konstantnaya-pamyat">#</a></h3>
-<p>Реализовать решение с константной памятью тоже не составит особых проблем, так как по условиям задачи создание массива с результатом не считается за выделение дополнительной памяти.
-В таком случае мы сначала в первом цикле создадим массив <code>res</code> и заполним его теми значениями, которые раньше были в <code>left</code>.
-И во втором цикле посчитаем правое произведение, которое раньше записывали в массив <code>right</code>.
-Однако в этот раз мы его запомним в отдельную переменную, а потом умножим на <code>nums[i]</code> (что по факту является <code>left[i]</code>) и сразу же перезапишем в <code>nums[i]</code>.</p>
-<p>Таким образом мы делаем всего два прохода по массиву и не выделяем дополнительную память, а все изменения производим in-place в результирующем массиве.</p>
 <h3 id="realizacziya" tabindex="-1">Реализация <a class="header-anchor" href="#realizacziya">#</a></h3>
 <div class="code-sample">
-	<ul " class="tab" data-tab="solution-tabs_107" data-name="solution-tabs_107">
+	<ul " class="tab" data-tab="solution-tabs_998" data-name="solution-tabs_998">
 		<li class="active" id="go">
 			<a href="#">go</a>
 		</li>
@@ -1492,77 +1477,74 @@ pre[class*="language-"] {
 			<a href="#">type script</a>
 		</li>
 	</ul>
-<p><ul class="tab-content" id="solution-tabs_107" data-name="solution-tabs_107">
+<p><ul class="tab-content" id="solution-tabs_998" data-name="solution-tabs_998">
 <li class="active"></p>
-<pre class="language-go" tabindex="0"><code class="language-go"><span class="token keyword">package</span> main
+<pre class="language-go" tabindex="0"><code class="language-go"><span class="token keyword">package</span> minimum_number_of_arrows_to_burst_balloons
 
-<span class="token keyword">func</span> <span class="token function">productExceptSelf</span><span class="token punctuation">(</span>nums <span class="token punctuation">[</span><span class="token punctuation">]</span><span class="token builtin">int</span><span class="token punctuation">)</span> <span class="token punctuation">[</span><span class="token punctuation">]</span><span class="token builtin">int</span> <span class="token punctuation">{</span>
-	res <span class="token operator">:=</span> <span class="token function">make</span><span class="token punctuation">(</span><span class="token punctuation">[</span><span class="token punctuation">]</span><span class="token builtin">int</span><span class="token punctuation">,</span> <span class="token function">len</span><span class="token punctuation">(</span>nums<span class="token punctuation">)</span><span class="token punctuation">)</span>
-	res<span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token number">1</span>
+<span class="token keyword">import</span> <span class="token punctuation">(</span>
+	<span class="token string">"math"</span>
+	<span class="token string">"sort"</span>
+<span class="token punctuation">)</span>
 
-	<span class="token keyword">for</span> i <span class="token operator">:=</span> <span class="token number">1</span><span class="token punctuation">;</span> i <span class="token operator">&lt;</span> <span class="token function">len</span><span class="token punctuation">(</span>nums<span class="token punctuation">)</span><span class="token punctuation">;</span> i<span class="token operator">++</span> <span class="token punctuation">{</span>
-		res<span class="token punctuation">[</span>i<span class="token punctuation">]</span> <span class="token operator">=</span> res<span class="token punctuation">[</span>i<span class="token operator">-</span><span class="token number">1</span><span class="token punctuation">]</span> <span class="token operator">*</span> nums<span class="token punctuation">[</span>i<span class="token operator">-</span><span class="token number">1</span><span class="token punctuation">]</span>
+<span class="token keyword">func</span> <span class="token function">findMinArrowShots</span><span class="token punctuation">(</span>points <span class="token punctuation">[</span><span class="token punctuation">]</span><span class="token punctuation">[</span><span class="token punctuation">]</span><span class="token builtin">int</span><span class="token punctuation">)</span> <span class="token builtin">int</span> <span class="token punctuation">{</span>
+	<span class="token comment">// Сортировка точек по второй координате каждой пары</span>
+	sort<span class="token punctuation">.</span><span class="token function">Slice</span><span class="token punctuation">(</span>points<span class="token punctuation">,</span> <span class="token keyword">func</span><span class="token punctuation">(</span>i <span class="token builtin">int</span><span class="token punctuation">,</span> j <span class="token builtin">int</span><span class="token punctuation">)</span> <span class="token builtin">bool</span> <span class="token punctuation">{</span>
+		<span class="token keyword">return</span> points<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">]</span> <span class="token operator">&lt;</span> points<span class="token punctuation">[</span>j<span class="token punctuation">]</span><span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">]</span>
+	<span class="token punctuation">}</span><span class="token punctuation">)</span>
+
+	count <span class="token operator">:=</span> <span class="token number">0</span>
+	lastShot <span class="token operator">:=</span> math<span class="token punctuation">.</span>MinInt
+
+	<span class="token keyword">for</span> <span class="token boolean">_</span><span class="token punctuation">,</span> cords <span class="token operator">:=</span> <span class="token keyword">range</span> points <span class="token punctuation">{</span>
+		<span class="token keyword">if</span> cords<span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span> <span class="token operator">></span> lastShot <span class="token punctuation">{</span>
+			count<span class="token operator">++</span>
+			lastShot <span class="token operator">=</span> cords<span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">]</span>
+		<span class="token punctuation">}</span>
 	<span class="token punctuation">}</span>
 
-	r <span class="token operator">:=</span> <span class="token number">1</span>
-
-	<span class="token keyword">for</span> i <span class="token operator">:=</span> <span class="token function">len</span><span class="token punctuation">(</span>nums<span class="token punctuation">)</span> <span class="token operator">-</span> <span class="token number">1</span><span class="token punctuation">;</span> i <span class="token operator">>=</span> <span class="token number">0</span><span class="token punctuation">;</span> i<span class="token operator">--</span> <span class="token punctuation">{</span>
-		res<span class="token punctuation">[</span>i<span class="token punctuation">]</span> <span class="token operator">=</span> r <span class="token operator">*</span> res<span class="token punctuation">[</span>i<span class="token punctuation">]</span>
-		r <span class="token operator">*=</span> nums<span class="token punctuation">[</span>i<span class="token punctuation">]</span>
-	<span class="token punctuation">}</span>
-
-	<span class="token keyword">return</span> res
+	<span class="token keyword">return</span> count
 <span class="token punctuation">}</span></code></pre>
 <p></li></p>
 <p><li class=""></p>
-<pre class="language-typescript" tabindex="0"><code class="language-typescript"><span class="token comment">// Хак, так как произведение отрицательного числа на 0 в JS дает -0</span>
-<span class="token keyword">const</span> multiply <span class="token operator">=</span> <span class="token punctuation">(</span>a<span class="token operator">:</span> <span class="token builtin">number</span><span class="token punctuation">,</span> b<span class="token operator">:</span> <span class="token builtin">number</span><span class="token punctuation">)</span><span class="token operator">:</span> <span class="token builtin">number</span> <span class="token operator">=></span> <span class="token punctuation">{</span>
-    <span class="token keyword">const</span> res <span class="token operator">=</span> a <span class="token operator">*</span> b
-    <span class="token keyword">return</span> res <span class="token operator">===</span> <span class="token operator">-</span><span class="token number">0</span> <span class="token operator">?</span> <span class="token number">0</span> <span class="token operator">:</span> res
-<span class="token punctuation">}</span>
+<pre class="language-typescript" tabindex="0"><code class="language-typescript"><span class="token keyword">export</span> <span class="token keyword">const</span> findMinArrowShots <span class="token operator">=</span> <span class="token punctuation">(</span>points<span class="token operator">:</span> <span class="token builtin">number</span><span class="token punctuation">[</span><span class="token punctuation">]</span><span class="token punctuation">[</span><span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token operator">:</span> <span class="token builtin">number</span> <span class="token operator">=></span> <span class="token punctuation">{</span>
+    <span class="token comment">// Сортировка точек по второй координате каждой пары</span>
+    points<span class="token punctuation">.</span><span class="token function">sort</span><span class="token punctuation">(</span><span class="token punctuation">(</span>a<span class="token punctuation">,</span> b<span class="token punctuation">)</span> <span class="token operator">=></span> a<span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">]</span> <span class="token operator">-</span> b<span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 
-<span class="token keyword">export</span> <span class="token keyword">const</span> productExceptSelf <span class="token operator">=</span> <span class="token punctuation">(</span>nums<span class="token operator">:</span> <span class="token builtin">number</span><span class="token punctuation">[</span><span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token operator">:</span> <span class="token builtin">number</span><span class="token punctuation">[</span><span class="token punctuation">]</span> <span class="token operator">=></span> <span class="token punctuation">{</span>
-    <span class="token keyword">let</span> res<span class="token operator">:</span> <span class="token builtin">number</span><span class="token punctuation">[</span><span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token punctuation">]</span>
-    res<span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token number">1</span>
+    <span class="token keyword">let</span> count <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span>
+    <span class="token keyword">let</span> lastShot <span class="token operator">=</span> <span class="token operator">-</span><span class="token number">Infinity</span><span class="token punctuation">;</span>
 
-    <span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token keyword">let</span> i <span class="token operator">=</span> <span class="token number">1</span><span class="token punctuation">;</span> i <span class="token operator">&lt;</span> nums<span class="token punctuation">.</span>length<span class="token punctuation">;</span> i<span class="token operator">++</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
-        res<span class="token punctuation">[</span>i<span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token function">multiply</span><span class="token punctuation">(</span>res<span class="token punctuation">[</span>i <span class="token operator">-</span> <span class="token number">1</span><span class="token punctuation">]</span><span class="token punctuation">,</span> nums<span class="token punctuation">[</span>i <span class="token operator">-</span> <span class="token number">1</span><span class="token punctuation">]</span><span class="token punctuation">)</span>
+    <span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token keyword">let</span> cords <span class="token keyword">of</span> points<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token keyword">if</span> <span class="token punctuation">(</span>cords<span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span> <span class="token operator">></span> lastShot<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+            count<span class="token operator">++</span><span class="token punctuation">;</span>
+            lastShot <span class="token operator">=</span> cords<span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
+        <span class="token punctuation">}</span>
     <span class="token punctuation">}</span>
 
-    <span class="token keyword">let</span> r <span class="token operator">=</span> <span class="token number">1</span>
-
-    <span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token keyword">let</span> i <span class="token operator">=</span> nums<span class="token punctuation">.</span>length <span class="token operator">-</span> <span class="token number">1</span><span class="token punctuation">;</span> i <span class="token operator">>=</span> <span class="token number">0</span><span class="token punctuation">;</span> i<span class="token operator">--</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
-        res<span class="token punctuation">[</span>i<span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token function">multiply</span><span class="token punctuation">(</span>r<span class="token punctuation">,</span> res<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">)</span>
-        r <span class="token operator">*=</span> nums<span class="token punctuation">[</span>i<span class="token punctuation">]</span>
-    <span class="token punctuation">}</span>
-
-    <span class="token keyword">return</span> res
+    <span class="token keyword">return</span> count<span class="token punctuation">;</span>
 <span class="token punctuation">}</span></code></pre>
 <p></li>
 </ul></p>
 </div>
 <h3 id="oczenka-slozhnosti" tabindex="-1">Оценка сложности <a class="header-anchor" href="#oczenka-slozhnosti">#</a></h3>
 <p><strong>По времени</strong></p>
-<p><code>n</code> — количество элементов в массиве.</p>
-<p>Сложность <code>O(n)</code> так как мы дважды перебираем <code>n</code> элементов массива, однако множитель <code>2</code> в оценке можно опустить.</p>
+<p><code>O(n logn)</code> — из-за сортировки массива <code>points</code>.</p>
 <p><strong>По памяти</strong></p>
-<p>Сложность <code>O(1)</code>, так как мы не выделяем дополнительную память.</p>
+<p>Варьируется от <code>O(n)</code> до <code>O(logn)</code> в зависимости от реализации алгоритма сортировки.
+В остальном — потребление памяти константно.</p>
 
     </div>
 
     
         <div class="post-original-url">
-            <a href="https://leetcode.com/problems/product-of-array-except-self/description/" target="_blank">Оригинал задачи на Leetcode</a>
+            <a href="https://leetcode.com/problems/minimum-number-of-arrows-to-burst-balloons" target="_blank">Оригинал задачи на Leetcode</a>
         </div>
     
             <div class="post-navigation">
                 <div>
-                        <a class="btn" href="/blog/valid_sudoku/">< Предыдущая задача</a>
+                        <a class="btn" href="/blog/maximum_average_subarray_i/">< Предыдущая задача</a>
                     
                 </div>
                 <div>
-                        <a class="btn" href="/blog/fizz_buzz/">Следующая задача ></a>
-                    
                 </div>
             </div>
 </section>
