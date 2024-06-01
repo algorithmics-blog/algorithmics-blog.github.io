@@ -1,0 +1,77 @@
+<!doctype html>
+<html lang="{{ metadata.language }}">
+<head>
+    <title>{{ title }}</title>
+
+    {% include "_includes/components/post-meta-tags.njk" %}
+
+    <link rel="icon" type="image/x-icon" href="/favicon.ico">
+
+    {%- css %}{% include "public/css/normalize.css" %}{% endcss %}
+    {%- css %}{% include "public/css/theme.css" %}{% endcss %}
+    {%- css %}{% include "public/css/tags.css" %}{% endcss %}
+    {%- css %}{% include "public/css/tabs.css" %}{% endcss %}
+    {%- css %}{% include "public/css/post.css" %}{% endcss %}
+    {%- css %}{% include "public/css/material-oceanic-theme.css" %}{% endcss %}
+
+    <script src="/js/tabs.js"></script>
+
+    <style>{% getBundle "css" %}</style>
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+
+    {% include "_includes/components/tag-manager.njk" %}
+</head>
+<body>
+
+{% include "_includes/components/page-header.njk" %}
+
+<section class="post-content">
+    <div class="post-header">
+        <h1>{{ title }}</h1>
+
+        <div class="post-complexity">
+            {% include "_includes/components/complexity.njk" %}
+        </div>
+    </div>
+
+    <div class="post-meta">
+        {% renderFile "_includes/components/tags.njk", withIcon=true, postTags = tags | filterTagList %}
+
+        {% set postDate = page.date %}
+        {% include "_includes/components/date.njk" %}
+    </div>
+
+    <div class="post-card task-card"
+    {{ content | safe }}
+    </div>
+
+    {% if original_url %}
+        <div class="post-original-url">
+            <a href="{{ original_url }}" target="_blank">Оригинал задачи на Leetcode</a>
+        </div>
+    {% endif %}
+
+    {%- if collections.posts %}
+        {%- set previousPost = collections.posts | getPreviousCollectionItem %}
+        {%- set nextPost = collections.posts | getNextCollectionItem %}
+        {%- if nextPost or previousPost %}
+            <div class="post-navigation">
+                <div>
+                    {%- if previousPost %}
+                        <a class="btn" href="{{ previousPost.url }}">< Предыдущая задача</a>
+                    {% endif %}
+                </div>
+                <div>
+                    {%- if nextPost %}
+                        <a class="btn" href="{{ nextPost.url }}">Следующая задача ></a>
+                    {% endif %}
+                </div>
+            </div>
+        {%- endif %}
+    {%- endif %}
+</section>
+
+{% include "_includes/components/page-footer.njk" %}
+
+</body>
+</html>

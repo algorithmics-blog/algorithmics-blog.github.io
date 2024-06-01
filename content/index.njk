@@ -1,0 +1,21 @@
+---
+layout: layouts/main.njk
+pagination:
+  data: collections.posts
+  size: 10
+  alias: myPosts
+  reverse: true
+---
+
+<div class="main-page">
+    <div class="all-cards">
+        {% for post in myPosts %}
+            {% renderFile "_includes/components/post-card.njk", post = post %}
+        {% endfor %}
+    </div>
+</div>
+
+{% include "_includes/components/pagination.njk" %}
+
+<h2>Все теги</h2>
+{% renderFile "_includes/components/tags.njk", postTags = collections.all | getAllTags | filterTagList, centered = true, withIcon=false %}

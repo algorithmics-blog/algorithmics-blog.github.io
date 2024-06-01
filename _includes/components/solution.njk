@@ -1,0 +1,31 @@
+{% set solutionFileName = fileName or "solution" %}
+{% set goPath = "../../content/blog/" + taskName + "/go/" + solutionFileName + ".go" %}
+{% set tsPath = "../../content/blog/" + taskName + "/ts/" + solutionFileName + ".ts" %}
+
+{% set tabsId = "solution-tabs_" + range(1, 1000) | random %}
+
+<div class="code-sample">
+	<ul " class="tab" data-tab="{{ tabsId }}" data-name="{{ tabsId }}">
+		<li class="active" id="go">
+			<a href="#">go</a>
+		</li>
+		<li id="type-script" class="">
+			<a href="#">type script</a>
+		</li>
+	</ul>
+
+	<ul class="tab-content" id="{{ tabsId }}" data-name="{{ tabsId }}">
+		<li class="active">
+{% highlight "go" %}
+	{% include goPath %}
+{% endhighlight %}
+		</li>
+
+		<li class="">
+{% highlight "typescript" %}
+	{% include tsPath %}
+{% endhighlight %}
+		</li>
+	</ul>
+</div>
+
