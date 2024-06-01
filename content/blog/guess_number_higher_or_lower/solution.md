@@ -1,18 +1,14 @@
 ---
-layout: post
-title:  "Угадай число"
+layout: layouts/post.njk
+title: Угадай число
+date: 2024-02-23
 complexity: easy
 original_url: https://leetcode.com/problems/guess-number-higher-or-lower/
-tag: easy
+preview_image: /images/previews/guess_number_higher_or_lower.webp
+tags:
+  - easy
+  - binary search
 ---
-
-## Оглавление
-
-- [Описание задачи](#описание-задачи)
-- [Ограничения](#ограничения)
-- [Примеры](#примеры)
-- [Решение](#решение)
-
 ---
 
 ## Описание задачи
@@ -45,9 +41,9 @@ tag: easy
 
 ## Примеры
 
-{% tabs guess_number_higher_or_lower %}
+{% tabs %}
 
-{% tab guess_number_higher_or_lower Пример №1 %}
+{% tab "Пример №1" %}
 
 **Исходные данные**: `n = 10, загадано число 6`
 
@@ -55,7 +51,7 @@ tag: easy
 
 {% endtab %}
 
-{% tab guess_number_higher_or_lower Пример №2 %}
+{% tab "Пример №2" %}
 
 **Исходные данные**: `n = 1, загадано число 1`
 
@@ -63,7 +59,7 @@ tag: easy
 
 {% endtab %}
 
-{% tab guess_number_higher_or_lower Пример №3 %}
+{% tab "Пример №3" %}
 
 **Исходные данные**: `n = 2, загадано число 1`
 
@@ -90,7 +86,7 @@ tag: easy
 
 ### Реализация
 
-{% include code-example.md go_path="go/solution.go" ts_path="ts/solution.ts" %}
+{% renderFile "_includes/components/solution.njk", taskName = "guess_number_higher_or_lower" %}
 
 ### Оценка сложности
 

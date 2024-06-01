@@ -1,18 +1,15 @@
 ---
-layout: post
-title:  "Удаление звездочек из строки"
+layout: layouts/post.njk
+title: Удаление звездочек из строки
+date: 2024-04-05
 complexity: medium
 original_url: https://leetcode.com/problems/removing-stars-from-a-string/
-tag: medium
+preview_image: /images/previews/remove_stars.webp
+tags:
+  - medium
+  - string
+  - stack
 ---
-
-## Оглавление
-
-- [Описание задачи](#описание-задачи)
-- [Ограничения](#ограничения)
-- [Примеры](#примеры)
-- [Решение](#решение)
-
 ---
 
 ## Описание задачи
@@ -43,18 +40,22 @@ tag: medium
 
 ## Примеры
 
-{% tabs remove_stars %}
+{% tabs %}
 
-{% tab remove_stars Пример 1 %}
+{% tab "Пример 1" %}
+
 **Входные данные**: `"leet**cod*e"`
 
 **Ответ**: `"lecoe"`
+
 {% endtab %}
 
-{% tab remove_stars Пример 2 %}
+{% tab "Пример 2" %}
+
 **Входные данные**: `"erase*****"`
 
 **Ответ**: `""`
+
 {% endtab %}
 {% endtabs %}
 
@@ -75,7 +76,7 @@ tag: medium
 
 ### Реализация
 
-{% include code-example.md go_path="go/solution.go" ts_path="ts/solution.ts" %}
+{% renderFile "_includes/components/solution.njk", taskName = "remove_stars" %}
 
 ### Оценка сложности
 

@@ -1,18 +1,14 @@
 ---
-layout: post
-title:  "Количество последних вызовов"
+layout: layouts/post.njk
+title: Количество последних вызовов
+date: 2024-02-26
 complexity: easy
 original_url: https://leetcode.com/problems/number-of-recent-calls/
-tag: easy
+preview_image: /images/previews/number_of_recent_calls.webp
+tags:
+  - easy
+  - queue
 ---
-
-## Оглавление
-
-- [Описание задачи](#описание-задачи)
-- [Ограничения](#ограничения)
-- [Примеры](#примеры)
-- [Решение](#решение)
-
 ---
 
 ## Описание задачи
@@ -38,9 +34,10 @@ tag: easy
 
 ## Примеры
 
-{% tabs number_of_recent_calls %}
+{% tabs %}
 
-{% tab number_of_recent_calls Пример №1 %}
+{% tab "Пример №1" %}
+
 ```go
 counter := Constructor()
 
@@ -54,9 +51,11 @@ counter.Ping(3003)
 **Ответ**: `4`
 
 **Пояснение**: За последние 3000 мс было сделано 4 вызова в следующее время `[100, 3001, 3002, 3003]`.
+
 {% endtab %}
 
-{% tab number_of_recent_calls Пример №2 %}
+{% tab "Пример №2" %}
+
 ```go
 counter := Constructor()
 
@@ -68,6 +67,7 @@ counter.Ping(3001)
 **Ответ**: `3`
 
 **Пояснение**: За последние 3000 мс было сделано 4 вызова в следующее время `[1, 100, 3001]`.
+
 {% endtab %}
 {% endtabs %}
 
@@ -83,7 +83,7 @@ counter.Ping(3001)
 все элементы, которые вываливаются из интервала в 3000 миллисекунд, тем самым реализовав простую очередь.
 В конце нужно лишь вернуть длину оставшегося массива.
 
-{% include code-example.md go_path="go/solution.go" ts_path="ts/solution.ts" %}
+{% renderFile "_includes/components/solution.njk", taskName = "number_of_recent_calls" %}
 
 ### Оценка сложности
 

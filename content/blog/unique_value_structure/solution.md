@@ -1,18 +1,12 @@
 ---
-layout: post
-title:  "Структура для хранения уникальных значений"
+layout: layouts/post.njk
+title: Структура для хранения уникальных значений
+date: 2023-12-18
 complexity: medium
-tag: medium
+preview_image: /images/previews/unique_value_structure.webp
+tags:
+  - medium
 ---
-
-## Оглавление
-
-- [Описание задачи](#описание-задачи)
-- [Ограничения](#ограничения)
-- [Примеры](#примеры)
-- [Решение](#решение)
-- [Хак в GO](#хак-в-go)
-
 ---
 
 ## Описание задачи
@@ -33,9 +27,9 @@ tag: medium
 
 ## Примеры
 
-{% tabs unique_value_structure %}
+{% tabs %}
 
-{% tab unique_value_structure Пример №1 %}
+{% tab "Пример №1" %}
 
 Добавление значений в структуру.
 
@@ -52,7 +46,7 @@ tag: medium
 
 {% endtab %}
 
-{% tab unique_value_structure Пример №2 %}
+{% tab "Пример №2" %}
 
 Удаление значений из структуры.
 
@@ -66,9 +60,10 @@ tag: medium
 
     // values — 1, 3
 ```
+
 {% endtab %}
 
-{% tab unique_value_structure Пример №3 %}
+{% tab "Пример №3" %}
 
 Получение случайного значения из структуры.
 
@@ -83,6 +78,7 @@ tag: medium
 
     // value — 1 (or 2 or 3 with equal probability)
 ```
+
 {% endtab %}
 {% endtabs %}
 
@@ -128,7 +124,7 @@ tag: medium
 После получения случайного числа достаточно вернуть значение, которое находится в массиве под этим индексом.
 
 
-{% include code-example.md go_path="go/solution.go" ts_path="ts/solution.ts" %}
+{% renderFile "_includes/components/solution.njk", taskName = "unique_value_structure" %}
 
 ### Оценка сложности
 
