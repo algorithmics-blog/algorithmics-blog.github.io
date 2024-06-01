@@ -22,7 +22,7 @@
         },
         "types": ["node", "jest"]
     },
-    "include": ["_posts/**/*"],
+    "include": ["content/**/*"],
     "exclude": [
         "node_modules",
         "node_modules/*",
