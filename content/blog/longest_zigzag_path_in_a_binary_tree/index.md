@@ -1,18 +1,15 @@
 ---
-layout: post
-title:  "Максимальный зигзагообразный путь в бинарном дереве"
+layout: layouts/post.njk
+title: Максимальный зигзагообразный путь в бинарном дереве
+date: 2024-03-01
 complexity: medium
 original_url: https://leetcode.com/problems/longest-zigzag-path-in-a-binary-tree/description/
-tag: medium
+preview_image: /images/previews/longest_zigzag_path_in_a_binary_tree.webp
+tags:
+  - medium
+  - tree
+  - binary tree
 ---
-
-## Оглавление
-
-- [Описание задачи](#описание-задачи)
-- [Ограничения](#ограничения)
-- [Пример](#пример)
-- [Решение](#решение)
-
 ---
 
 ## Описание задачи
@@ -38,20 +35,24 @@ tag: medium
 
 ## Пример
 
-{% tabs longest_zigzag_path_in_a_binary_tree %}
+{% tabs %}
 
-{% tab longest_zigzag_path_in_a_binary_tree Пример №1 %}
+{% tab "Пример №1" %}
+
 **Входные данные**:
-![Дерево](/assets/images/binary_tree_zigzag_first_example.png)
+![Дерево](/images/resources/binary_tree_zigzag_first_example.png)
 
 **Ответ**: 3
+
 {% endtab %}
 
-{% tab longest_zigzag_path_in_a_binary_tree Пример №2 %}
+{% tab "Пример №2" %}
+
 **Входные данные**:
-![Дерево](/assets/images/binary_tree_zigzag_second_example.png)
+![Дерево](/images/resources/binary_tree_zigzag_second_example.png)
 
 **Ответ**: 4
+
 {% endtab %}
 {% endtabs %}
 
@@ -79,7 +80,7 @@ tag: medium
 
 ### Реализация
 
-{% include code-example.md go_path="go/solution.go" ts_path="ts/solution.ts" %}
+{% renderFile "_includes/components/solution.njk", taskName = "longest_zigzag_path_in_a_binary_tree" %}
 
 ### Оценка сложности
 

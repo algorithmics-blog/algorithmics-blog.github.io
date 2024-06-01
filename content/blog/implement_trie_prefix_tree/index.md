@@ -1,18 +1,15 @@
 ---
-layout: post
-title:  "Имплементировать префиксное дерево (Trie)"
+layout: layouts/post.njk
+title: Имплементировать префиксное дерево (Trie)
+date: 2024-03-01
 complexity: medium
 original_url: https://leetcode.com/problems/implement-trie-prefix-tree/description/
-tag: medium
+preview_image: /images/previews/implement_trie_prefix_tree.webp
+tags:
+  - medium
+  - tree
+  - hash table
 ---
-
-## Оглавление
-
-- [Описание задачи](#описание-задачи)
-- [Ограничения](#ограничения)
-- [Пример](#пример)
-- [Решение](#решение)
-
 ---
 
 ## Описание задачи
@@ -64,9 +61,9 @@ type Trie struct {
 
 Каждая нода префиксного дерева (кроме рутовой) представляет собой букву латинского алфавита. Само значение буквы хранить в ноде не нужно, так как значение будет ключом в хеш-мапе связей.  
 
-Свойство isFullWord - флаг, который показывает, является ли текущая нода конечной для слова.
+Свойство `isFullWord` - флаг, который показывает, является ли текущая нода конечной для слова.
 
-children — хеш-мапа со связями между текущей и дочерними нодами дерева. В качестве ключа используется буква латинского алфавита (значение дочерней ноды).
+`children` — хеш-мапа со связями между текущей и дочерними нодами дерева. В качестве ключа используется буква латинского алфавита (значение дочерней ноды).
 
 Тогда, если мы разложим слова acid, ai, aid, aide, aim и air в нашу структуру, в итоге мы получим следующее.
 
@@ -138,7 +135,7 @@ func (t *Trie) insert(word []rune) {
 
 Итоговое решение.
 
-{% include code-example.md go_path="go/solution.go" ts_path="ts/solution.ts" %}
+{% renderFile "_includes/components/solution.njk", taskName = "implement_trie_prefix_tree" %}
 
 #### Оценка сложности
 

@@ -7,7 +7,6 @@ original_url: https://leetcode.com/problems/longest-common-prefix/
 preview_image: /images/previews/longest_common_prefix.webp
 tags:
   - string
-  - trie
   - easy
 ---
 ---

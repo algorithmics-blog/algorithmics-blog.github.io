@@ -1,18 +1,15 @@
 ---
-layout: post
-title: "Максимальное количество гласных в подстроке заданного размера"
+layout: layouts/post.njk
+title: Максимальное количество гласных в подстроке заданного размера
+date: 2024-05-06
 complexity: medium
 original_url: https://leetcode.com/problems/maximum-number-of-vowels-in-a-substring-of-given-length/description/
-tag: medium
+preview_image: /images/previews/maximum_number_of_vowels_in_a_substring_of_given_length.webp
+tags:
+  - medium
+  - string
+  - sliding window
 ---
-
-## Оглавление
-
-- [Описание задачи](#описание-задачи)
-- [Ограничения](#ограничения)
-- [Примеры](#примеры)
-- [Решение](#решение)
-
 ---
 
 ## Описание задачи
@@ -32,9 +29,10 @@ tag: medium
 
 ## Примеры
 
-{% tabs maximum-number-of-vowels-in-a-substring-of-given-length %}
+{% tabs %}
 
-{% tab maximum-number-of-vowels-in-a-substring-of-given-length Пример №1 %}
+{% tab "Пример №1" %}
+
 **Входные данные**
 
 ```
@@ -45,9 +43,11 @@ k = 3
 **Ответ**: `3`
 
 В исходной строке есть подстрока длиной 3 состоящая исключительно из гласных `iii`
+
 {% endtab %}
 
-{% tab maximum-number-of-vowels-in-a-substring-of-given-length Пример №2 %}
+{% tab "Пример №2" %}
+
 **Входные данные**
 
 ```
@@ -58,9 +58,11 @@ k = 2
 **Ответ**: `2`
 
 Исходная строк полностью состоит из гласных, поэтому любая подстрока длиной 2 будет также состоять из гласных.
+
 {% endtab %}
 
-{% tab maximum-number-of-vowels-in-a-substring-of-given-length Пример №3 %}
+{% tab "Пример №3" %}
+
 **Входные данные**
 
 ```
@@ -71,6 +73,7 @@ k = 3
 **Ответ**: `2`
 
 В исходной строке есть несколько подстрок (`lee`/`eet`/`ode`), в любой из которых максимальное количество гласных равно 2.
+
 {% endtab %}
 
 {% endtabs %}
@@ -90,7 +93,7 @@ k = 3
 
 Для ускорения работы стоит не забывать о раннем выходе — если на каком-то шаге мы нашли подстроку длиной `k` из гласных, значит нам не нужно дальше анализировать всю строку до конца.
 
-{% include code-example.md go_path="go/solution.go" ts_path="ts/solution.ts" %}
+{% renderFile "_includes/components/solution.njk", taskName = "maximum_number_of_vowels_in_a_substring_of_given_length" %}
 
 ### Оценка сложности
 

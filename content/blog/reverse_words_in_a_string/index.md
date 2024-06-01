@@ -1,18 +1,15 @@
 ---
-layout: post
-title:  "Разворот слов в строке"
+layout: layouts/post.njk
+title: Разворот слов в строке
+date: 2024-02-06
 complexity: medium
 original_url: https://leetcode.com/problems/reverse-words-in-a-string/description/
-tag: medium
+preview_image: /images/previews/reverse_words_in_a_string.webp
+tags:
+  - medium
+  - string
+  - two pointers
 ---
-
-## Оглавление
-
-- [Описание задачи](#описание-задачи)
-- [Ограничения](#ограничения)
-- [Примеры](#примеры)
-- [Решение](#решение)
-
 ---
 
 ## Описание задачи
@@ -34,23 +31,29 @@ tag: medium
 
 ## Примеры
 
-{% tabs reverse_words_in_a_string %}
-{% tab reverse_words_in_a_string Пример №1 %}
+{% tabs %}
+{% tab "Пример №1" %}
+
 **Входные данные**: `"the sky is blue"`
 
 **Ответ**: `"blue is sky the"`
+
 {% endtab %}
 
-{% tab reverse_words_in_a_string Пример №2 %}
+{% tab "Пример №2" %}
+
 **Входные данные**: <code>"&nbsp;&nbsp;&nbsp;hello world&nbsp;&nbsp;&nbsp;"</code>
 
 **Ответ**: `"world hello"`
+
 {% endtab %}
 
-{% tab reverse_words_in_a_string Пример №3 %}
+{% tab "Пример №3" %}
+
 **Входные данные**: <code>"a good&nbsp;&nbsp;&nbsp;example"</code>
 
 **Ответ**: `"example good a"`
+
 {% endtab %}
 {% endtabs %}
 
@@ -82,7 +85,7 @@ tag: medium
 
 ### Реализация
 
-{% include code-example.md go_path="go/solution.go" ts_path="ts/solution.ts" %}
+{% renderFile "_includes/components/solution.njk", taskName = "reverse_words_in_a_string" %}
 
 ### Оценка сложности
 

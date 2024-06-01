@@ -1,19 +1,15 @@
 ---
-layout: post
-title:  "Преобразование римских чисел в арабские"
+layout: layouts/post.njk
+title: Преобразование римских чисел в арабские
+date: 2023-09-12
 complexity: easy
 original_url: https://leetcode.com/problems/roman-to-integer/
-tag: easy
+preview_image: /images/previews/roman_to_integer.webp
+tags:
+  - easy
+  - string
+  - two pointers
 ---
-
-## Оглавление
-
-- [Описание задачи](#описание-задачи)
-- [Ограничения](#ограничения)
-- [Примеры](#примеры)
-- [Правила формирования римских чисел](#правила-формирования-римских-чисел)
-- [Решение](#решение)
-
 ---
 
 ## Описание задачи
@@ -31,29 +27,35 @@ tag: easy
 
 ## Примеры
 
-{% tabs roman_to_integer %}
-{% tab roman_to_integer Пример №1 %}
+{% tabs %}
+{% tab "Пример №1" %}
+
 **Входные данные**: `III`
 
 **Ответ**: `3`
 
 **Объяснение**: `III = I + I + I = 1 + 1 + 1 = 3`
+
 {% endtab %}
 
-{% tab roman_to_integer Пример №2 %}
+{% tab "Пример №2" %}
+
 **Входные данные**: `LVIII`
 
 **Ответ**: `58`
 
 **Объяснение**: `LVIII = L + V + I + I + I = 50 + 5 + 1 + 1 + 1 = 58`
+
 {% endtab %}
 
-{% tab roman_to_integer Пример №3 %}
+{% tab "Пример №3" %}
+
 **Входные данные**: `MCMXCIV`
 
 **Ответ**: `1994`
 
 **Объяснение**: `MCMXCIV = M + (M - C) + (C - X) + (V - I) = 1000 + (1000 - 100) + (100 - 10) + (5-1) = 1994`
+
 {% endtab %}
 {% endtabs %}
 
@@ -136,7 +138,7 @@ var runeToIntegerDecrementsMap = map[rune]map[rune]int{
 Имея эти две вспомогательные хеш-мапы нам останется только пробежаться посимвольно по строке, преобразовать римскую цифру
 (проверяя не только текущий, но и следующий символ) в число и суммировать получившееся число с переменной-результатом:
 
-{% include code-example.md go_path="go/solution.go" ts_path="ts/solution.ts" %}
+{% renderFile "_includes/components/solution.njk", taskName = "roman_to_integer" %}
 
 ### Оценка сложности
 

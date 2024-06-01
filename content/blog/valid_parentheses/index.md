@@ -4,7 +4,7 @@ title: Валидация скобочной последовательност�
 date: 2023-09-20
 complexity: easy
 original_url: https://leetcode.com/problems/valid-parentheses/
-preview_image: /images/previews/remove_stars.webp
+preview_image: /images/previews/valid_parentheses.webp
 tags:
   - easy
   - string

@@ -1,18 +1,15 @@
 ---
-layout: post
-title:  "Декодирование строки"
+layout: layouts/post.njk
+title: Декодирование строки
+date: 2024-02-12
 complexity: medium
 original_url: https://leetcode.com/problems/decode-string/
-tag: medium
+preview_image: /images/previews/decode_string.webp
+tags:
+  - medium
+  - string
+  - recursion
 ---
-
-## Оглавление
-
-- [Описание задачи](#описание-задачи)
-- [Ограничения](#ограничения)
-- [Примеры](#примеры)
-- [Решение](#решение)
-
 ---
 
 ## Описание задачи
@@ -43,23 +40,29 @@ tag: medium
 
 ## Примеры
 
-{% tabs decode_string %}
-{% tab decode_string Пример №1 %}
+{% tabs %}
+{% tab "Пример №1" %}
+
 **Входные данные**: `"3[a]2[bc]"`
 
 **Ответ**: `"aaabcbc"`
+
 {% endtab %}
 
-{% tab decode_string Пример №2 %}
+{% tab "Пример №2" %}
+
 **Входные данные**: `"3[a2[c]]"`
 
 **Ответ**: `accaccacc`
+
 {% endtab %}
 
-{% tab decode_string Пример №3 %}
+{% tab "Пример №3" %}
+
 **Входные данные**: `"2[abc]3[cd]ef"`
 
 **Ответ**: `"abcabccdcdcdef"`
+
 {% endtab %}
 {% endtabs %}
 
@@ -83,7 +86,7 @@ tag: medium
 
 ### Реализация
 
-{% include code-example.md go_path="go/solution.go" ts_path="ts/solution.ts" %}
+{% renderFile "_includes/components/solution.njk", taskName = "decode_string" %}
 
 ### Оценка сложности
 

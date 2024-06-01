@@ -1,18 +1,15 @@
 ---
-layout: post
-title:  "Самый низкий общий предок двоичного дерева"
+layout: layouts/post.njk
+title: Самый низкий общий предок двоичного дерева
+date: 2024-02-20
 complexity: medium
 original_url: https://leetcode.com/problems/lowest-common-ancestor-of-a-binary-tree
-tag: medium
+preview_image: /images/previews/longest_common_ancestor_of_binary_tree.webp
+tags:
+  - medium
+  - tree
+  - binary tree
 ---
-
-## Оглавление
-
-- [Описание задачи](#описание-задачи)
-- [Ограничения](#ограничения)
-- [Примеры](#примеры)
-- [Решение](#решение)
-
 ---
 
 ## Описание задачи
@@ -38,25 +35,29 @@ tag: medium
 
 ## Примеры
 
-{% tabs longest_common_ancestor_of_binary_tree %}
-{% tab longest_common_ancestor_of_binary_tree Пример №1 %}
-![Бинарное дерево](/assets/images/binarytree.png)
+{% tabs %}
+{% tab "Пример №1" %}
+
+![Бинарное дерево](/images/resources/binarytree.png)
 
 **Входные параметры**: дерево выше, `p = 5`, `q = 1`.
 
 **Ответ**: `3`
 
 **Объяснение**: LCA узлов 5 и 1 равен 3.
+
 {% endtab %}
 
-{% tab longest_common_ancestor_of_binary_tree Пример №2 %}
-![Бинарное дерево](/assets/images/binarytree.png)
+{% tab "Пример №2" %}
+
+![Бинарное дерево](/images/resources/binarytree.png)
 
 **Входные параметры**: дерево выше, `p = 5`, `q = 4`.
 
 **Ответ**: `5`
 
 **Объяснение**: LCA узлов 5 и 4 равен 5, поскольку узел может быть потомком самого себя согласно определению LCA.
+
 {% endtab %}
 {% endtabs %}
 
@@ -75,7 +76,7 @@ tag: medium
 
 Для реализации будем использовать рекурсивный подход с замыканием для хранения переменной `lca`.
 
-{% include code-example.md go_path="go/solution.go" ts_path="ts/solution.ts" %}
+{% renderFile "_includes/components/solution.njk", taskName = "longest_common_ancestor_of_binary_tree" %}
 
 ### Оценка сложности
 

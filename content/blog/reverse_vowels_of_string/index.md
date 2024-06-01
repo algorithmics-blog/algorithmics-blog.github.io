@@ -1,18 +1,15 @@
 ---
-layout: post
-title:  "Разворот гласных в строке"
+layout: layouts/post.njk
+title: Разворот гласных в строке
+date: 2024-01-19
 complexity: easy
 original_url: https://leetcode.com/problems/reverse-vowels-of-a-string
-tag: easy
+preview_image: /images/previews/two_close_strings.webp
+tags:
+  - easy
+  - string
+  - two pointers
 ---
-
-## Оглавление
-
-- [Описание задачи](#описание-задачи)
-- [Ограничения](#ограничения)
-- [Примеры](#примеры)
-- [Решение](#решение)
-
 ---
 
 ## Описание задачи
@@ -33,23 +30,29 @@ tag: easy
 
 ## Примеры
 
-{% tabs reverse_vowels_of_string %}
-{% tab reverse_vowels_of_string Пример №1 %}
+{% tabs %}
+{% tab "Пример №1" %}
+
 **Входные данные**: `hello`
 
 **Ответ**: `holle`
+
 {% endtab %}
 
-{% tab reverse_vowels_of_string Пример №2 %}
+{% tab "Пример №2" %}
+
 **Входные данные**: `algorithmics`
 
 **Ответ**: `ilgirothmacs`
+
 {% endtab %}
 
-{% tab reverse_vowels_of_string Пример №3 %}
+{% tab "Пример №3" %}
+
 **Входные данные**: `ab`
 
 **Ответ**: `ab`
+
 {% endtab %}
 {% endtabs %}
 
@@ -61,8 +64,9 @@ tag: easy
 Для этого мы заведем структуру, в которой перечислим все возможные буквы в обоих регистрах.
 
 
-{% tabs reverse_vowels_of_string_struct %}
-{% tab reverse_vowels_of_string_struct GO %}
+{% tabs %}
+{% tab "GO" %}
+
 ```go
 dict := map[rune]struct{}{
     'a': {},
@@ -77,12 +81,15 @@ dict := map[rune]struct{}{
     'U': {},
 }
 ```
+
 {% endtab %}
 
-{% tab reverse_vowels_of_string_struct TypeScript %}
+{% tab "TypeScript" %}
+
 ```typescript
 const dict = new Set(['a', 'e', 'i', 'o', 'u', 'A', 'E', 'I', 'O', 'U'])
 ```
+
 {% endtab %}
 {% endtabs %}
 
@@ -100,7 +107,7 @@ const dict = new Set(['a', 'e', 'i', 'o', 'u', 'A', 'E', 'I', 'O', 'U'])
 
 ### Реализация
 
-{% include code-example.md go_path="go/solution.go" ts_path="ts/solution.ts" %}
+{% renderFile "_includes/components/solution.njk", taskName = "reverse_vowels_of_string" %}
 
 ### Оценка сложности
 

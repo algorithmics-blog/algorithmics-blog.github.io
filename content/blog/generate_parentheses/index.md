@@ -1,19 +1,15 @@
 ---
-layout: post
-title:  "Генерация валидной скобочной последовательности (один вид скобок)"
+layout: layouts/post.njk
+title: Генерация валидной скобочной последовательности (один вид скобок)
+date: 2023-09-24
 complexity: medium
 original_url: https://leetcode.com/problems/generate-parentheses/
-tag: medium
+preview_image: /images/previews/generate_parentheses.webp
+tags:
+  - medium
+  - string
+  - backtracking
 ---
-
-## Оглавление
-
-- [Описание задачи](#описание-задачи)
-- [Ограничения](#ограничения)
-- [Примеры](#примеры)
-- [Брутфорс решение](#брутфорс-решение)
-- [Оптимизированный брутфорс](#оптимизированный-брутфорс)
-
 ---
 
 ## Описание задачи
@@ -34,17 +30,21 @@ tag: medium
 
 ## Примеры
 
-{% tabs generate_parentheses %}
-{% tab generate_parentheses Пример №1 %}
+{% tabs %}
+{% tab "Пример №1" %}
+
 **Входные данные**: `3`
 
 **Ответ**: `["((()))", "(()())", "(())()", "()(())", "()()()"]`
+
 {% endtab %}
 
-{% tab generate_parentheses Пример №2 %}
+{% tab "Пример №2" %}
+
 **Входные данные**: `1`
 
 **Ответ**: `["()"]`
+
 {% endtab %}
 {% endtabs %}
 
@@ -85,11 +85,11 @@ func generateAllPossibleParenthesis(n int) []string {
 ### Проверка строки на валидную скобочную последовательность
 
 Эту задачу мы уже разбирали.
-Чтобы не повторяться, возьмем готовое [решение]({% link _posts/stack/valid_parentheses/2023-09-20-valid_parentheses.md %}) для проверки валидности скобочной последовательности.
+Чтобы не повторяться, возьмем готовое [решение](/blog/valid_parentheses) для проверки валидности скобочной последовательности.
 
 В результате получим следующие решения.
 
-{% include code-example.md go_path="go/solution_bruteforce.go" ts_path="ts/solution_bruteforce.ts" %}
+{% renderFile "_includes/components/solution.njk", taskName = "generate_parentheses", fileName="solution_bruteforce" %}
 
 ### Оценка сложности
 
@@ -128,7 +128,7 @@ func generateAllPossibleParenthesis(n int) []string {
 
 В этом решении не нужно постфактум проверять получившиеся скобки на валидность, так что мы сможем отбросить один из множителей в нашей оценке сложности.
 
-{% include code-example.md go_path="go/solution.go" ts_path="ts/solution.ts" %}
+{% renderFile "_includes/components/solution.njk", taskName = "generate_parentheses" %}
 
 ### Оценка сложности
 

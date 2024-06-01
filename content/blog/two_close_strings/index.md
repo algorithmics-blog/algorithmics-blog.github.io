@@ -1,18 +1,15 @@
 ---
-layout: post
-title: "Определите, близки ли две строки"
+layout: layouts/post.njk
+title: Определите, близки ли две строки
+date: 2024-03-22
 complexity: medium
 original_url: https://leetcode.com/problems/determine-if-two-strings-are-close/
-tag: medium
+preview_image: /images/previews/two_close_strings.webp
+tags:
+  - medium
+  - string
+  - hash table
 ---
-
-## Оглавление
-
-- [Описание задачи](#описание-задачи)
-- [Ограничения](#ограничения)
-- [Примеры](#примеры)
-- [Решение](#решение)
-
 ---
 
 ## Описание задачи
@@ -40,9 +37,9 @@ tag: medium
 
 ## Примеры
 
-{% tabs two_close_strings %}
+{% tabs %}
 
-{% tab two_close_strings Пример №1 %}
+{% tab "Пример №1" %}
 
 **Входные данные**: `word1 = "abc", word2 = "bca"`
 
@@ -57,7 +54,7 @@ tag: medium
 
 {% endtab %}
 
-{% tab two_close_strings Пример №2 %}
+{% tab "Пример №2" %}
 
 **Входные данные**: `word1 = "a", word2 = "aa"`
 
@@ -69,7 +66,7 @@ tag: medium
 
 {% endtab %}
 
-{% tab two_close_strings Пример №3 %}
+{% tab "Пример №3" %}
 
 **Входные данные**: `word1 = "cabbba", word2 = "abbccc"`
 
@@ -167,7 +164,7 @@ abbccc — 1a, 2b, 3c
 
 ### Реализация
 
-{% include code-example.md go_path="go/solution.go" ts_path="ts/solution.ts" %}
+{% renderFile "_includes/components/solution.njk", taskName = "two_close_strings" %}
 
 ### Оценка сложности
 
