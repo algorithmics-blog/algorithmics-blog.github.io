@@ -1,8 +1,4 @@
-_site
-.sass-cache
-.jekyll-cache
-.jekyll-metadata
-vendor
-
-node_modules
+_site/
+node_modules/
+.cache
 .idea

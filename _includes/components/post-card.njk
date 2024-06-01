@@ -1,0 +1,22 @@
+<a href="{{ post.url }}" class="post-card">
+    <div class="post-card_image-container">
+        <img src="{{ post.data.preview_image }}" alt="{{ post.data.title }}">
+        <div class="post-card_complexity">
+            {% renderFile "_includes/components/complexity.njk", complexity = post.data.complexity %}
+        </div>
+    </div>
+
+    <div class="post-card_content">
+        <div class="post-card_title">{{ post.data.title }}</div>
+
+        <div class="post-card_meta">
+            <div class="post-date">
+                {% renderFile "_includes/components/tags.njk", postTags = post.data.tags | filterTagList, ignoreLink = true, withIcon=true %}
+            </div>
+
+            <div class="post-card_tags">
+                {% renderFile "_includes/components/date.njk", postDate = post.data.date %}
+            </div>
+        </div>
+    </div>
+</a>
