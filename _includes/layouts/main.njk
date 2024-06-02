@@ -7,15 +7,12 @@
 
 	<link rel="icon" type="image/x-icon" href="/favicon.ico">
 
-	{% set css %}
-		{% include "public/css/normalize.cs" %}
-		{% include "public/css/theme.css" %}
-		{% include "public/css/tags.css" %}
-		{% include "public/css/paginator.css" %}
-	{% endset %}
-	<style>
-		{{ css | cssmin | safe }}
-	</style>
+	{%- css %}{% include "public/css/normalize.css" %}{% endcss %}
+	{%- css %}{% include "public/css/theme.css" %}{% endcss %}
+	{%- css %}{% include "public/css/tags.css" %}{% endcss %}
+	{%- css %}{% include "public/css/paginator.css" %}{% endcss %}
+
+	<style>{% getBundle "css" %}</style>
 
 	{% include "_includes/components/tag-manager.njk" %}
 </head>
