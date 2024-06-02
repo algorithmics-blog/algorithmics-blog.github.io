@@ -3,7 +3,6 @@
 	"private": true,
 	"scripts": {
 		"build": "npx @11ty/eleventy",
-		"build-ghpages": "npx @11ty/eleventy --pathprefix=/eleventy-base-blog/",
 		"start": "npx @11ty/eleventy --serve --quiet",
 		"test": "jest",
 		"test:debug": "node --inspect-brk node_modules/.bin/jest --runInBand --config jest.config.ts",
