@@ -1,6 +1,6 @@
 <a href="{{ post.url }}" class="post-card">
-    <div class="post-card_image-container">
-        <img src="{{ post.data.preview_image }}" alt="{{ post.data.title }}">
+    <div class="post-card_image-container" style="background-image: url('{{ post.data.preview_image }}');">
+{#        <img src="{{ post.data.preview_image }}" alt="{{ post.data.title }}">#}
         <div class="post-card_complexity">
             {% renderFile "_includes/components/complexity.njk", complexity = post.data.complexity %}
         </div>
