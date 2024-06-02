@@ -1,13 +1,14 @@
 ---
 layout: layouts/post.njk
 title: Стек наиболее часто встречающихся элементов
-date: 2024-05-29
+date: 2024-06-03
 complexity: hard
 original_url: https://leetcode.com/problems/maximum-frequency-stack/description/
-preview_image: /images/previews/generate_parentheses.webp
+preview_image: /images/previews/maximum_frequency_stack.webp
 tags:
   - hard
   - stack
+  - hash table
 ---
 ---
 
