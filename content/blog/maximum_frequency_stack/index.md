@@ -7,7 +7,7 @@ original_url: https://leetcode.com/problems/maximum-frequency-stack/description/
 preview_image: /images/previews/maximum_frequency_stack.webp
 tags:
   - hard
-  - stack
+  - heap
   - hash table
 ---
 ---
