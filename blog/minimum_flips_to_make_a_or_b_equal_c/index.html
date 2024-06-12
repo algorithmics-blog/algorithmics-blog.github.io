@@ -1,7 +1,7 @@
 <!doctype html>
 <html lang="ru">
 <head>
-    <title>Количество последних вызовов</title>
+    <title>Минимальное количество переворотов, чтобы сделать A | B == C</title>
 
     
 
@@ -13,16 +13,16 @@
 <!-- Facebook Meta Tags -->
 <meta property="og:url" content="https://algorithmics-blog.github.io">
 <meta property="og:type" content="website">
-<meta property="og:title" content="Количество последних вызовов">
+<meta property="og:title" content="Минимальное количество переворотов, чтобы сделать A | B == C">
 <meta property="og:description" content="Подробный разбор решения задачи с примерами на языках TypeScript и GO">
-<meta property="og:image" content="https://algorithmics-blog.github.io/images/previews/number_of_recent_calls.webp">
+<meta property="og:image" content="https://algorithmics-blog.github.io/images/previews/minimum_flips_to_make_a_or_b_equal_c.webp">
 
 <!-- Twitter Meta Tags -->
 <meta property="twitter:domain" content="algorithmics-blog.github.io">
 <meta property="twitter:url" content="https://algorithmics-blog.github.io">
-<meta name="twitter:title" content="Количество последних вызовов">
+<meta name="twitter:title" content="Минимальное количество переворотов, чтобы сделать A | B == C">
 <meta name="twitter:description" content="Подробный разбор решения задачи с примерами на языках TypeScript и GO">
-<meta name="twitter:image" content="https://algorithmics-blog.github.io/images/previews/number_of_recent_calls.webp">
+<meta name="twitter:image" content="https://algorithmics-blog.github.io/images/previews/minimum_flips_to_make_a_or_b_equal_c.webp">
 
     <link rel="icon" type="image/x-icon" href="/favicon.ico">
 
@@ -1349,13 +1349,13 @@ pre[class*="language-"] {
 
 <section class="post-content">
     <div class="post-header">
-        <h1>Количество последних вызовов</h1>
+        <h1>Минимальное количество переворотов, чтобы сделать A | B == C</h1>
 
         <div class="post-complexity">
             
-    <span class="complexity complexity_easy">Легкая</span>
 
 
+    <span class="complexity complexity_medium">Средняя</span>
 
 
 
@@ -1378,11 +1378,11 @@ pre[class*="language-"] {
     <div>
 
             
-                <a href="/tags/easy/" class="post-tag">easy</a>
+                <a href="/tags/medium/" class="post-tag">medium</a>
             , 
 
             
-                <a href="/tags/queue/" class="post-tag">queue</a>
+                <a href="/tags/bit-manipulation/" class="post-tag">bit manipulation</a>
             
     </div>
 </div>
@@ -1395,7 +1395,7 @@ pre[class*="language-"] {
 					d="M4 7a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v12a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2zm12-4v4M8 3v4m-4 4h16M7 14h.013m2.997 0h.005m2.995 0h.005m3 0h.005m-3.005 3h.005m-6.01 0h.005m2.995 0h.005"/>
 	</svg>
 
-	<span>26 February 2024</span>
+	<span>07 June 2024</span>
 </div>
 
     </div>
@@ -1403,54 +1403,62 @@ pre[class*="language-"] {
     <div class="post-card task-card"
     <hr>
 <h2 id="opisanie-zadachi" tabindex="-1">Описание задачи <a class="header-anchor" href="#opisanie-zadachi">#</a></h2>
-<p>Вам дан класс <code>RecentCounter</code>, который подсчитывает количество последних вызовов за определенный период времени.
-Реализуйте этот класс.</p>
-<ol>
-<li>Конструктор <code>RecentCounter</code> инициализирует счетчик с нулевым количеством последних вызовов.</li>
-<li>Класс имеет метод <code>ping</code>, который принимает в качестве аргумента параметр <code>t</code> (время в миллисекундах последнего
-вызова) и в качестве ответа возвращает количество вызовов, произошедших за последние 3000 мс.</li>
-</ol>
-<p>Гарантируется, что каждый вызов <code>ping</code> использует строго большее значение <code>t</code>, чем предыдущий вызов.</p>
+<p>Даны три целых положительных числа <code>a</code>, <code>b</code> и <code>c</code>.</p>
+<p>Необходимо найти минимальное количество переворотов битов в <code>a</code> и <code>b</code>, чтобы результат операции <code>a OR b</code> (побитовая
+операция ИЛИ) был равен <code>c</code>.
+Операция переворота состоит из изменения любого отдельного бита с <code>1</code> на <code>0</code> или c <code>0</code> на <code>1</code> в его двоичном
+представлении.</p>
 <hr>
 <h2 id="ogranicheniya" tabindex="-1">Ограничения <a class="header-anchor" href="#ogranicheniya">#</a></h2>
 <ul>
-<li>Значение <code>t</code> находится в диапазоне от 1 до 10<sup>9</sup>.</li>
-<li>Каждый пример будет вызывать <code>ping</code> со строго возрастающими значениями <code>t</code>.</li>
-<li>Для проверки будет совершено не более 10<sup>4</sup> вызовов метода <code>ping</code>.</li>
+<li>Значение каждого аргумента находится в диапазоне от 1 до 10<sup>9</sup></li>
 </ul>
 <hr>
 <h2 id="primery" tabindex="-1">Примеры <a class="header-anchor" href="#primery">#</a></h2>
-<div data-role="tabs"><ul class="tab-content" id="tabs_903592" data-name="tabs_903592">
+<div data-role="tabs"><ul class="tab-content" id="tabs_752921" data-name="tabs_752921">
 <li data-role="tabs-content" data-tab-name="Пример №1">
-<pre class="language-go" tabindex="0"><code class="language-go">counter <span class="token operator">:=</span> <span class="token function">Constructor</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
-
-counter<span class="token punctuation">.</span><span class="token function">Ping</span><span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">)</span>
-counter<span class="token punctuation">.</span><span class="token function">Ping</span><span class="token punctuation">(</span><span class="token number">100</span><span class="token punctuation">)</span>
-counter<span class="token punctuation">.</span><span class="token function">Ping</span><span class="token punctuation">(</span><span class="token number">3001</span><span class="token punctuation">)</span>
-counter<span class="token punctuation">.</span><span class="token function">Ping</span><span class="token punctuation">(</span><span class="token number">3002</span><span class="token punctuation">)</span>
-counter<span class="token punctuation">.</span><span class="token function">Ping</span><span class="token punctuation">(</span><span class="token number">3003</span><span class="token punctuation">)</span></code></pre>
-<p><strong>Ответ</strong>: <code>4</code></p>
-<p><strong>Пояснение</strong>: За последние 3000 мс было сделано 4 вызова в следующее время <code>[100, 3001, 3002, 3003]</code>.</p>
+<p><strong>Входные данные</strong>: <code>a = 2, b = 6, c = 5</code></p>
+<p><strong>Ответ</strong>: <code>3</code></p>
+<p><img src="/images/resources/bit_flips/bit_flip_1.jpg" alt="Пример 1"></p>
+<p>В исходных числах нужно поменять три бита, подсвеченных красным.</p>
 </li>
 <li data-role="tabs-content" data-tab-name="Пример №2">
-<pre class="language-go" tabindex="0"><code class="language-go">counter <span class="token operator">:=</span> <span class="token function">Constructor</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
-
-counter<span class="token punctuation">.</span><span class="token function">Ping</span><span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">)</span>
-counter<span class="token punctuation">.</span><span class="token function">Ping</span><span class="token punctuation">(</span><span class="token number">100</span><span class="token punctuation">)</span>
-counter<span class="token punctuation">.</span><span class="token function">Ping</span><span class="token punctuation">(</span><span class="token number">3001</span><span class="token punctuation">)</span></code></pre>
-<p><strong>Ответ</strong>: <code>3</code></p>
-<p><strong>Пояснение</strong>: За последние 3000 мс было сделано 4 вызова в следующее время <code>[1, 100, 3001]</code>.</p>
+<p><strong>Входные данные</strong>: <code>a = 4, b = 2, c = 7</code></p>
+<p><strong>Ответ</strong>: <code>1</code></p>
+<p><img src="/images/resources/bit_flips/bit_flip_2.jpg" alt="Пример 2"></p>
+<p>В исходных числах нужно поменять один бит, подсвеченный красным.</p>
+</li>
+<li data-role="tabs-content" data-tab-name="Пример №3">
+<p><strong>Входные данные</strong>: <code>a = 1, b = 2, c = 3</code></p>
+<p><strong>Ответ</strong>: <code>0</code></p>
+<p><img src="/images/resources/bit_flips/bit_flip_3.jpg" alt="Пример 2"></p>
+<p>В исходных числах ничего не нужно менять, так как условие уже выполняется.</p>
 </li>
 </ul></div>
-<hr>
 <h2 id="reshenie" tabindex="-1">Решение <a class="header-anchor" href="#reshenie">#</a></h2>
-<p>Эта задача решается буквально в несколько строчек.</p>
-<p>Для хранения вызовов определим массив <code>calls</code> внутри класса, который при инициализации экземпляра получает значение пустого массива.</p>
-<p>Далее в реализации метода <code>ping</code> сначала надо добавить время нового вызова в массив <code>calls</code>, а потом удалить из начала
-все элементы, которые вываливаются из интервала в 3000 миллисекунд, тем самым реализовав простую очередь.
-В конце нужно лишь вернуть длину оставшегося массива.</p>
+<p>Чтобы решить задачу, нам необходимо представить числа <code>a</code>, <code>b</code> и <code>c</code> в двоичном виде и произвести их сравнение побитно.
+Недостающие биты в числах мы заполняем ведущими нулями.</p>
+<p>Если бит числа <code>c</code> равен <code>1</code>, это означает, что в <code>a</code> и <code>b</code> как минимум один бит на этой же позиции должен быть
+равен <code>1</code>, чтобы условие <code>a | b == c</code> было истинным. Если же оба бита в <code>a</code> и <code>b</code> равны <code>0</code>, то нам необходимо изменить
+любой из битов на единицу.
+Не важно какой именно бит, потому что это не меняет результат.</p>
+<p>Если бит числа <code>c</code> равен <code>0</code>, это означает, что биты и в числе <code>a</code>, и в числе <code>b</code> должны быть равны нулю, чтобы
+условие <code>a | b == c</code> было истинным. В этом случае нам нужно изменять биты в <code>a</code> и <code>b</code> только в том случае, если они
+равны <code>1</code>.</p>
+<p><strong>Как получить двоичное представление числа?</strong></p>
+<p>На самом деле число не нужно переводить в двоичную систему счисления.
+Достаточно воспользоваться небольшим математическим хаком.</p>
+<ol>
+<li>Чтобы получить младший бит числа в двоичном представлении (крайний справа) необходимо взять остаток от деления числа
+на 2. Это работает потому что у четных чисел младший бит всегда равен <code>0</code>, а у нечетных — <code>1</code>.</li>
+<li>Чтобы откинуть младший бит у числа достаточно разделить его на 2 без остатка. В таком случае мы получим новое число,
+которое в двоичном представлении равно предыдущему числу без младшего бита.</li>
+</ol>
+<p>В итоге, нам необходимо иметь цикл, который проверяет младшие биты всех чисел на каждой итерации и увеличивает счетчик,
+а по завершению итерации модифицирует исходные числа. Этот цикл работает до тех пор, пока все числа не станут равны <code>0</code>.</p>
+<h3 id="realizacziya" tabindex="-1">Реализация <a class="header-anchor" href="#realizacziya">#</a></h3>
 <div class="code-sample">
-	<ul " class="tab" data-tab="solution-tabs_740" data-name="solution-tabs_740">
+	<ul " class="tab" data-tab="solution-tabs_606" data-name="solution-tabs_606">
 		<li class="active" id="go">
 			<a href="#">go</a>
 		</li>
@@ -1458,76 +1466,88 @@ counter<span class="token punctuation">.</span><span class="token function">Ping
 			<a href="#">type script</a>
 		</li>
 	</ul>
-<p><ul class="tab-content" id="solution-tabs_740" data-name="solution-tabs_740">
+<p><ul class="tab-content" id="solution-tabs_606" data-name="solution-tabs_606">
 <li class="active"></p>
-<pre class="language-go" tabindex="0"><code class="language-go"><span class="token keyword">package</span> number_of_recent_calls
+<pre class="language-go" tabindex="0"><code class="language-go"><span class="token keyword">package</span> main
 
-<span class="token keyword">type</span> RecentCounter <span class="token keyword">struct</span> <span class="token punctuation">{</span>
-	calls <span class="token punctuation">[</span><span class="token punctuation">]</span><span class="token builtin">int</span>
-<span class="token punctuation">}</span>
+<span class="token keyword">func</span> <span class="token function">minFlips</span><span class="token punctuation">(</span>a <span class="token builtin">int</span><span class="token punctuation">,</span> b <span class="token builtin">int</span><span class="token punctuation">,</span> c <span class="token builtin">int</span><span class="token punctuation">)</span> <span class="token builtin">int</span> <span class="token punctuation">{</span>
+	res <span class="token operator">:=</span> <span class="token number">0</span>
 
-<span class="token keyword">func</span> <span class="token function">Constructor</span><span class="token punctuation">(</span><span class="token punctuation">)</span> RecentCounter <span class="token punctuation">{</span>
-	<span class="token keyword">return</span> RecentCounter<span class="token punctuation">{</span>
-		calls<span class="token punctuation">:</span> <span class="token punctuation">[</span><span class="token punctuation">]</span><span class="token builtin">int</span><span class="token punctuation">{</span><span class="token punctuation">}</span><span class="token punctuation">,</span>
+	<span class="token keyword">for</span> a <span class="token operator">></span> <span class="token number">0</span> <span class="token operator">||</span> b <span class="token operator">></span> <span class="token number">0</span> <span class="token operator">||</span> c <span class="token operator">></span> <span class="token number">0</span> <span class="token punctuation">{</span>
+		bitA <span class="token operator">:=</span> a <span class="token operator">%</span> <span class="token number">2</span>
+		bitB <span class="token operator">:=</span> b <span class="token operator">%</span> <span class="token number">2</span>
+		bitC <span class="token operator">:=</span> c <span class="token operator">%</span> <span class="token number">2</span>
+
+		a <span class="token operator">=</span> a <span class="token operator">/</span> <span class="token number">2</span>
+		b <span class="token operator">=</span> b <span class="token operator">/</span> <span class="token number">2</span>
+		c <span class="token operator">=</span> c <span class="token operator">/</span> <span class="token number">2</span>
+
+		<span class="token keyword">if</span> bitA<span class="token operator">|</span>bitB <span class="token operator">==</span> bitC <span class="token punctuation">{</span>
+			<span class="token comment">// Условие задачи выполняется, значит биты на этой позиции менять не нужно</span>
+			<span class="token keyword">continue</span>
+		<span class="token punctuation">}</span>
+
+		<span class="token keyword">if</span> bitC <span class="token operator">==</span> <span class="token number">0</span> <span class="token punctuation">{</span>
+			res <span class="token operator">+=</span> bitA <span class="token operator">+</span> bitB
+		<span class="token punctuation">}</span> <span class="token keyword">else</span> <span class="token punctuation">{</span>
+			res <span class="token operator">+=</span> <span class="token number">1</span>
+		<span class="token punctuation">}</span>
 	<span class="token punctuation">}</span>
-<span class="token punctuation">}</span>
 
-<span class="token keyword">func</span> <span class="token punctuation">(</span>this <span class="token operator">*</span>RecentCounter<span class="token punctuation">)</span> <span class="token function">Ping</span><span class="token punctuation">(</span>t <span class="token builtin">int</span><span class="token punctuation">)</span> <span class="token builtin">int</span> <span class="token punctuation">{</span>
-	this<span class="token punctuation">.</span>calls <span class="token operator">=</span> <span class="token function">append</span><span class="token punctuation">(</span>this<span class="token punctuation">.</span>calls<span class="token punctuation">,</span> t<span class="token punctuation">)</span>
-
-	<span class="token keyword">for</span> this<span class="token punctuation">.</span>calls<span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span> <span class="token operator">&lt;</span> t<span class="token operator">-</span><span class="token number">3000</span> <span class="token punctuation">{</span>
-		this<span class="token punctuation">.</span>calls <span class="token operator">=</span> this<span class="token punctuation">.</span>calls<span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">:</span><span class="token punctuation">]</span>
-	<span class="token punctuation">}</span>
-
-	<span class="token keyword">return</span> <span class="token function">len</span><span class="token punctuation">(</span>this<span class="token punctuation">.</span>calls<span class="token punctuation">)</span>
+	<span class="token keyword">return</span> res
 <span class="token punctuation">}</span></code></pre>
 <p></li></p>
 <p><li class=""></p>
-<pre class="language-typescript" tabindex="0"><code class="language-typescript"><span class="token keyword">export</span> <span class="token keyword">class</span> <span class="token class-name">RecentCounter</span> <span class="token punctuation">{</span>
-    calls<span class="token operator">:</span> <span class="token builtin">number</span><span class="token punctuation">[</span><span class="token punctuation">]</span>
+<pre class="language-typescript" tabindex="0"><code class="language-typescript"><span class="token keyword">export</span> <span class="token keyword">const</span> minFlips <span class="token operator">=</span> <span class="token punctuation">(</span>a<span class="token operator">:</span> <span class="token builtin">number</span><span class="token punctuation">,</span> b<span class="token operator">:</span> <span class="token builtin">number</span><span class="token punctuation">,</span> c<span class="token operator">:</span> <span class="token builtin">number</span><span class="token punctuation">)</span><span class="token operator">:</span> <span class="token builtin">number</span> <span class="token operator">=></span> <span class="token punctuation">{</span>
+    <span class="token keyword">let</span> res <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span>
 
-    <span class="token function">constructor</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
-        <span class="token keyword">this</span><span class="token punctuation">.</span>calls <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token punctuation">]</span>
-    <span class="token punctuation">}</span>
+    <span class="token keyword">while</span> <span class="token punctuation">(</span>a <span class="token operator">></span> <span class="token number">0</span> <span class="token operator">||</span> b <span class="token operator">></span> <span class="token number">0</span> <span class="token operator">||</span> c <span class="token operator">></span> <span class="token number">0</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token keyword">let</span> bitA <span class="token operator">=</span> a <span class="token operator">%</span> <span class="token number">2</span><span class="token punctuation">;</span>
+        <span class="token keyword">let</span> bitB <span class="token operator">=</span> b <span class="token operator">%</span> <span class="token number">2</span><span class="token punctuation">;</span>
+        <span class="token keyword">let</span> bitC <span class="token operator">=</span> c <span class="token operator">%</span> <span class="token number">2</span><span class="token punctuation">;</span>
 
-    <span class="token function">ping</span><span class="token punctuation">(</span>t<span class="token operator">:</span> <span class="token builtin">number</span><span class="token punctuation">)</span><span class="token operator">:</span> <span class="token builtin">number</span> <span class="token punctuation">{</span>
-        <span class="token keyword">this</span><span class="token punctuation">.</span>calls<span class="token punctuation">.</span><span class="token function">push</span><span class="token punctuation">(</span>t<span class="token punctuation">)</span>
+        a <span class="token operator">=</span> Math<span class="token punctuation">.</span><span class="token function">floor</span><span class="token punctuation">(</span>a <span class="token operator">/</span> <span class="token number">2</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        b <span class="token operator">=</span> Math<span class="token punctuation">.</span><span class="token function">floor</span><span class="token punctuation">(</span>b <span class="token operator">/</span> <span class="token number">2</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        c <span class="token operator">=</span> Math<span class="token punctuation">.</span><span class="token function">floor</span><span class="token punctuation">(</span>c <span class="token operator">/</span> <span class="token number">2</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 
-        <span class="token keyword">while</span> <span class="token punctuation">(</span><span class="token keyword">this</span><span class="token punctuation">.</span>calls<span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span> <span class="token operator">&lt;</span> t <span class="token operator">-</span> <span class="token number">3000</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
-            <span class="token keyword">this</span><span class="token punctuation">.</span>calls<span class="token punctuation">.</span><span class="token function">shift</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+        <span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token punctuation">(</span>bitA <span class="token operator">|</span> bitB<span class="token punctuation">)</span> <span class="token operator">==</span> bitC<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+            <span class="token comment">// Условие задачи выполняется, значит биты на этой позиции менять не нужно</span>
+            <span class="token keyword">continue</span><span class="token punctuation">;</span>
         <span class="token punctuation">}</span>
 
-        <span class="token keyword">return</span> <span class="token keyword">this</span><span class="token punctuation">.</span>calls<span class="token punctuation">.</span>length<span class="token punctuation">;</span>
+        <span class="token keyword">if</span> <span class="token punctuation">(</span>bitC <span class="token operator">==</span> <span class="token number">0</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+            res <span class="token operator">+=</span> bitA <span class="token operator">+</span> bitB<span class="token punctuation">;</span>
+        <span class="token punctuation">}</span> <span class="token keyword">else</span> <span class="token punctuation">{</span>
+            res <span class="token operator">+=</span> <span class="token number">1</span><span class="token punctuation">;</span>
+        <span class="token punctuation">}</span>
     <span class="token punctuation">}</span>
-<span class="token punctuation">}</span></code></pre>
+
+
+    <span class="token keyword">return</span> res<span class="token punctuation">;</span>
+<span class="token punctuation">}</span><span class="token punctuation">;</span></code></pre>
 <p></li>
 </ul></p>
 </div>
 <h3 id="oczenka-slozhnosti" tabindex="-1">Оценка сложности <a class="header-anchor" href="#oczenka-slozhnosti">#</a></h3>
+<p><code>n</code> - количество элементов в строке.</p>
 <p><strong>По времени</strong></p>
-<p>Основная временная сложность нашего метода <code>ping</code> заключается в цикле, который в худшем случае будет выполнять 3000
-итераций для извлечения всех устаревших элементов, а в лучшем случае — одну итерацию.
-Исходя из этого сложность равна <code>O(3000) = O(1)</code>.</p>
+<p>Сложность по времени <code>O(n)</code>, так как мы гарантированно найдем ответ, перебрав полностью всю строку один раз.</p>
 <p><strong>По памяти</strong></p>
-<p>Сложность <code>O(1)</code>, так как максимальная длина нашего массива вызовов — 3000 элементов.
-По условию задачи, каждое новое значение в нем является целым числом и строго больше предыдущего,
-поэтому мы точно можем определить максимальный размер массива.</p>
+<p>Сложность по памяти <code>O(1)</code>.</p>
 
     </div>
 
     
         <div class="post-original-url">
-            <a href="https://leetcode.com/problems/number-of-recent-calls/" target="_blank">Оригинал задачи на Leetcode</a>
+            <a href="https://leetcode.com/problems/minimum-flips-to-make-a-or-b-equal-to-c/description/" target="_blank">Оригинал задачи на Leetcode</a>
         </div>
     
             <div class="post-navigation">
                 <div>
-                        <a class="btn" href="/blog/guess_number_higher_or_lower/">< Предыдущая задача</a>
+                        <a class="btn" href="/blog/maximum_frequency_stack/">< Предыдущая задача</a>
                     
                 </div>
                 <div>
-                        <a class="btn" href="/blog/longest_zigzag_path_in_a_binary_tree/">Следующая задача ></a>
-                    
                 </div>
             </div>
 </section>
