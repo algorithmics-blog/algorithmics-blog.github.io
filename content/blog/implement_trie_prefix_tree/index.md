@@ -1,7 +1,7 @@
 ---
 layout: layouts/post.njk
 title: Имплементировать префиксное дерево (Trie)
-date: 2024-03-01
+date: 2023-11-20
 complexity: medium
 original_url: https://leetcode.com/problems/implement-trie-prefix-tree/description/
 preview_image: /images/previews/implement_trie_prefix_tree.webp
