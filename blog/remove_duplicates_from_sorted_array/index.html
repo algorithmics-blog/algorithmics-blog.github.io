@@ -1422,7 +1422,7 @@ pre[class*="language-"] {
 </ul>
 <hr>
 <h2 id="primery" tabindex="-1">Примеры <a class="header-anchor" href="#primery">#</a></h2>
-<div data-role="tabs"><ul class="tab-content" id="tabs_237177" data-name="tabs_237177">
+<div data-role="tabs"><ul class="tab-content" id="tabs_18662" data-name="tabs_18662">
 <li data-role="tabs-content" data-tab-name="Пример №1">
 <p><strong>Входные данные</strong>: <code>[1, 1, 2]</code></p>
 <p><strong>Ответ</strong>: <code>2</code></p>
@@ -1437,22 +1437,19 @@ pre[class*="language-"] {
 <hr>
 <h2 id="reshenie" tabindex="-1">Решение <a class="header-anchor" href="#reshenie">#</a></h2>
 <p>По условиям задачи алгоритм не может выделять дополнительную память во время выполнения, поэтому мы не можем использовать дополнительные структуры даных, такие как <code>Маp</code> для подсчета уникальных значений.
-Вместо этого мы сделаем указатель <code>pivot</code>, который будет отслиживать позицию последнего уникального элемента в измененном массиве.</p>
+Вместо этого мы сделаем указатель <code>pivot</code>, который будет отслеживать позицию для вставки нового уникального элемента в измененном массиве.</p>
 <ul>
-<li>Устанавливаем значение <code>pivot = 0</code>.</li>
-<li>Запускаем цикл, который будет итерироваться по всем элементам в исходном массиве кроме последнего.</li>
+<li>Устанавливаем значение <code>pivot = 1</code>, так как нулевой элемент менять не нужно. Он уже на своем месте</li>
+<li>Запускаем цикл, который будет итерироваться по всем элементам в исходном массиве кроме первого.</li>
 </ul>
 <p>Так как массив отсортирован по возрастанию мы можем очень просто определять появление нового уникального элемента.
 Если мы встречаем два соседних элемента, которые не равны друг другу, это означает, что они уникальны.</p>
-<p>Если значение элемента под индексом <code>i</code> не равно значению элемента под индексом <code>i + 1</code>, то мы нашли новый уникальный элемент.
+<p>Если значение элемента под индексом <code>i</code> не равно значению элемента под индексом <code>i - 1</code>, то мы нашли новый уникальный элемент.
 В этом случае нужно перезаписать значение элемента под индексом <code>pivot</code> значением по индексу <code>i</code> и увеличить <code>pivot</code> на 1.
 Таки образом мы всегда переносим уникальные элементы по порядку в начало массива.</p>
-<p>В итоге значение <code>pivot</code> становится равно количенству уникальных элемнетов, которые мы нашли.
-Однако, он не учитывает последний элемент массива.
-Например, в таком массиве <code>[1, 2, 3, 3]</code> значение <code>pivot</code> в конце будет равно <code>1</code>, так как мы не смещали индекс для цифры <code>3</code>.
-Поэтому, в качестве ответа достаточно возвращать значение <code>pivot + 1</code>.</p>
+<p>В итоге значение <code>pivot</code> становится равно количеству уникальных элементов, которые мы нашли.</p>
 <div class="code-sample">
-	<ul " class="tab" data-tab="solution-tabs_511" data-name="solution-tabs_511">
+	<ul " class="tab" data-tab="solution-tabs_210" data-name="solution-tabs_210">
 		<li class="active" id="go">
 			<a href="#">go</a>
 		</li>
@@ -1460,35 +1457,35 @@ pre[class*="language-"] {
 			<a href="#">type script</a>
 		</li>
 	</ul>
-<p><ul class="tab-content" id="solution-tabs_511" data-name="solution-tabs_511">
+<p><ul class="tab-content" id="solution-tabs_210" data-name="solution-tabs_210">
 <li class="active"></p>
 <pre class="language-go" tabindex="0"><code class="language-go"><span class="token keyword">package</span> main
 
 <span class="token keyword">func</span> <span class="token function">removeDuplicates</span><span class="token punctuation">(</span>nums <span class="token punctuation">[</span><span class="token punctuation">]</span><span class="token builtin">int</span><span class="token punctuation">)</span> <span class="token builtin">int</span> <span class="token punctuation">{</span>
-	pivot <span class="token operator">:=</span> <span class="token number">0</span>
+	pivot <span class="token operator">:=</span> <span class="token number">1</span>
 
-	<span class="token keyword">for</span> i <span class="token operator">:=</span> <span class="token number">0</span><span class="token punctuation">;</span> i <span class="token operator">&lt;</span> <span class="token function">len</span><span class="token punctuation">(</span>nums<span class="token punctuation">)</span><span class="token operator">-</span><span class="token number">1</span><span class="token punctuation">;</span> i<span class="token operator">++</span> <span class="token punctuation">{</span>
-		<span class="token keyword">if</span> nums<span class="token punctuation">[</span>i<span class="token punctuation">]</span> <span class="token operator">!=</span> nums<span class="token punctuation">[</span>i<span class="token operator">+</span><span class="token number">1</span><span class="token punctuation">]</span> <span class="token punctuation">{</span>
+	<span class="token keyword">for</span> i <span class="token operator">:=</span> <span class="token number">1</span><span class="token punctuation">;</span> i <span class="token operator">&lt;</span> <span class="token function">len</span><span class="token punctuation">(</span>nums<span class="token punctuation">)</span><span class="token punctuation">;</span> i<span class="token operator">++</span> <span class="token punctuation">{</span>
+		<span class="token keyword">if</span> nums<span class="token punctuation">[</span>i<span class="token punctuation">]</span> <span class="token operator">!=</span> nums<span class="token punctuation">[</span>i<span class="token operator">-</span><span class="token number">1</span><span class="token punctuation">]</span> <span class="token punctuation">{</span>
 			nums<span class="token punctuation">[</span>pivot<span class="token punctuation">]</span> <span class="token operator">=</span> nums<span class="token punctuation">[</span>i<span class="token punctuation">]</span>
 			pivot<span class="token operator">++</span>
 		<span class="token punctuation">}</span>
 	<span class="token punctuation">}</span>
 
-	<span class="token keyword">return</span> pivot <span class="token operator">+</span> <span class="token number">1</span>
+	<span class="token keyword">return</span> pivot
 <span class="token punctuation">}</span></code></pre>
 <p></li></p>
 <p><li class=""></p>
 <pre class="language-typescript" tabindex="0"><code class="language-typescript"><span class="token keyword">export</span> <span class="token keyword">const</span> removeDuplicates <span class="token operator">=</span> <span class="token punctuation">(</span>nums<span class="token operator">:</span> <span class="token builtin">number</span><span class="token punctuation">[</span><span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token operator">:</span> <span class="token builtin">number</span> <span class="token operator">=></span> <span class="token punctuation">{</span>
-    <span class="token keyword">let</span> pivot <span class="token operator">=</span> <span class="token number">0</span>
+    <span class="token keyword">let</span> pivot <span class="token operator">=</span> <span class="token number">1</span>
 
-    <span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token keyword">let</span> i <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span> i <span class="token operator">&lt;</span> nums<span class="token punctuation">.</span>length <span class="token operator">-</span> <span class="token number">1</span><span class="token punctuation">;</span> i<span class="token operator">++</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
-        <span class="token keyword">if</span> <span class="token punctuation">(</span>nums<span class="token punctuation">[</span>i<span class="token punctuation">]</span> <span class="token operator">!=</span> nums<span class="token punctuation">[</span>i <span class="token operator">+</span> <span class="token number">1</span><span class="token punctuation">]</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token keyword">let</span> i <span class="token operator">=</span> <span class="token number">1</span><span class="token punctuation">;</span> i <span class="token operator">&lt;</span> nums<span class="token punctuation">.</span>length<span class="token punctuation">;</span> i<span class="token operator">++</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token keyword">if</span> <span class="token punctuation">(</span>nums<span class="token punctuation">[</span>i<span class="token punctuation">]</span> <span class="token operator">!=</span> nums<span class="token punctuation">[</span>i <span class="token operator">-</span> <span class="token number">1</span><span class="token punctuation">]</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
             nums<span class="token punctuation">[</span>pivot<span class="token punctuation">]</span> <span class="token operator">=</span> nums<span class="token punctuation">[</span>i<span class="token punctuation">]</span>
             pivot<span class="token operator">++</span>
         <span class="token punctuation">}</span>
     <span class="token punctuation">}</span>
 
-    <span class="token keyword">return</span> pivot <span class="token operator">+</span> <span class="token number">1</span>
+    <span class="token keyword">return</span> pivot
 <span class="token punctuation">}</span></code></pre>
 <p></li>
 </ul></p>
