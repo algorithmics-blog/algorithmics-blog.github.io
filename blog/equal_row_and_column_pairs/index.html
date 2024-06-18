@@ -1,7 +1,7 @@
 <!doctype html>
 <html lang="ru">
 <head>
-    <title>Сумма двух чисел в массиве</title>
+    <title>Пары одинаковых строк и колонок</title>
 
     
 
@@ -13,16 +13,16 @@
 <!-- Facebook Meta Tags -->
 <meta property="og:url" content="https://algorithmics-blog.github.io">
 <meta property="og:type" content="website">
-<meta property="og:title" content="Сумма двух чисел в массиве">
+<meta property="og:title" content="Пары одинаковых строк и колонок">
 <meta property="og:description" content="Подробный разбор решения задачи с примерами на языках TypeScript и GO">
-<meta property="og:image" content="https://algorithmics-blog.github.io/images/previews/two_sum.webp">
+<meta property="og:image" content="https://algorithmics-blog.github.io/images/previews/equal_row_and_column_pairs.webp">
 
 <!-- Twitter Meta Tags -->
 <meta property="twitter:domain" content="algorithmics-blog.github.io">
 <meta property="twitter:url" content="https://algorithmics-blog.github.io">
-<meta name="twitter:title" content="Сумма двух чисел в массиве">
+<meta name="twitter:title" content="Пары одинаковых строк и колонок">
 <meta name="twitter:description" content="Подробный разбор решения задачи с примерами на языках TypeScript и GO">
-<meta name="twitter:image" content="https://algorithmics-blog.github.io/images/previews/two_sum.webp">
+<meta name="twitter:image" content="https://algorithmics-blog.github.io/images/previews/equal_row_and_column_pairs.webp">
 
     <link rel="icon" type="image/x-icon" href="/favicon.ico">
 
@@ -1349,13 +1349,13 @@ pre[class*="language-"] {
 
 <section class="post-content">
     <div class="post-header">
-        <h1>Сумма двух чисел в массиве</h1>
+        <h1>Пары одинаковых строк и колонок</h1>
 
         <div class="post-complexity">
             
-    <span class="complexity complexity_easy">Легкая</span>
 
 
+    <span class="complexity complexity_medium">Средняя</span>
 
 
 
@@ -1378,11 +1378,11 @@ pre[class*="language-"] {
     <div>
 
             
-                <a href="/tags/easy/" class="post-tag">easy</a>
+                <a href="/tags/medium/" class="post-tag">medium</a>
             , 
 
             
-                <a href="/tags/array/" class="post-tag">array</a>
+                <a href="/tags/matrix/" class="post-tag">matrix</a>
             , 
 
             
@@ -1399,7 +1399,7 @@ pre[class*="language-"] {
 					d="M4 7a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v12a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2zm12-4v4M8 3v4m-4 4h16M7 14h.013m2.997 0h.005m2.995 0h.005m3 0h.005m-3.005 3h.005m-6.01 0h.005m2.995 0h.005"/>
 	</svg>
 
-	<span>30 August 2023</span>
+	<span>17 June 2024</span>
 </div>
 
     </div>
@@ -1407,56 +1407,60 @@ pre[class*="language-"] {
     <div class="post-card task-card"
     <hr>
 <h2 id="opisanie-zadachi" tabindex="-1">Описание задачи <a class="header-anchor" href="#opisanie-zadachi">#</a></h2>
-<p>Дан массив целых чисел <code>nums</code>.
-Напишите функцию <code>twoSum</code> для поиска в массиве двух чисел, сумма которых равна целевому
-числу <code>target</code>.
-В качестве результата функция должна возвращать массив с индексами элементов удовлетворяющих условию.
-Порядок индексов в ответе не важен.</p>
+<p>Дана матрица <code>grid</code> размером <code>n x n</code>, которая состоит из целых положительных чисел.</p>
+<p>Посчитайте количество пар <code>(r<sub>i</sub>, c<sub>j</sub>)</code>, где строка <code>r<sub>i</sub></code>
+равна колонке <code>c<sub>j</sub></code></p>
+<p>Строка и колонка считаются равными, если они состоят из одинаковых элементов в одинаковом порядке.</p>
 <hr>
 <h2 id="ogranicheniya" tabindex="-1">Ограничения <a class="header-anchor" href="#ogranicheniya">#</a></h2>
 <ul>
-<li>В массиве может быть от 2 до 10<sup>4</sup> уникальных значений</li>
-<li>В качестве значений могут быть числа в диапазоне от -10<sup>9</sup> до 10<sup>9</sup></li>
-<li>Значение <code>target</code> может быть в диапазоне от -10<sup>9</sup> до 10<sup>9</sup></li>
-<li>Для массива всегда есть только одно решение</li>
+<li>Размер <code>n</code> находится в диапазоне от 1 до 200</li>
+<li>Значение каждого элемента в матрице находится в диапазоне от 1 до 10<sup>5</sup></li>
 </ul>
 <hr>
 <h2 id="primery" tabindex="-1">Примеры <a class="header-anchor" href="#primery">#</a></h2>
-<div data-role="tabs"><ul class="tab-content" id="tabs_141122" data-name="tabs_141122">
+<div data-role="tabs"><ul class="tab-content" id="tabs_348987" data-name="tabs_348987">
 <li data-role="tabs-content" data-tab-name="Пример №1">
-<p><strong>Входные данные</strong></p>
-<pre><code>nums = [2, 7, 11, 15]
-target = 9
-</code></pre>
-<p><strong>Ответ</strong>: <code>[0, 1]</code> или <code>[1, 0]</code></p>
-<p>Сумма 2 и 7 равна 9. Следовательно, <code>index1</code> = 0, <code>index2</code> = 1.<br>
-Возвращаем <code>[0, 1]</code>.</p>
+<p><img src="/images/resources/equal_row_and_column_pairs/example_1.png" alt="Пример 1"></p>
+<p><strong>Входные данные</strong>: <code>grid = [[3,2,1],[1,7,6],[2,7,7]]</code></p>
+<p><strong>Ответ</strong>: <code>1</code></p>
+<p>Есть одна одинаковая пара:</p>
+<ul>
+<li>(Строка 2, Колонка 1): <code>[2,7,7]</code></li>
+</ul>
 </li>
 <li data-role="tabs-content" data-tab-name="Пример №2">
-<p><strong>Входные данные</strong></p>
-<pre><code>nums = [-1, 0]
-target = -1
-</code></pre>
-<p><strong>Ответ</strong>: <code>[0, 1]</code> или <code>[1, 0]</code></p>
-<p>Сумма -1 и 0 равна -1. Следовательно, <code>index1</code> = 0, <code>index2</code> = 1.<br>
-Возвращаем <code>[0, 1]</code>.</p>
+<p><img src="/images/resources/equal_row_and_column_pairs/example_2.png" alt="Пример 1"></p>
+<p><strong>Входные данные</strong>: <code>grid = [[3,1,2,2],[1,4,4,5],[2,4,2,2],[2,4,2,2]]</code></p>
+<p><strong>Ответ</strong>: <code>3</code></p>
+<p>Есть три одинаковые пары:</p>
+<ul>
+<li>(Строка 0, Колонка 0): <code>[3,1,2,2]</code></li>
+<li>(Строка 2, Колонка 2): <code>[2,4,2,2]</code></li>
+<li>(Строка 3, Колонка 2): <code>[2,4,2,2]</code></li>
+</ul>
 </li>
 </ul></div>
 <hr>
 <h2 id="reshenie" tabindex="-1">Решение <a class="header-anchor" href="#reshenie">#</a></h2>
-<p>Для того чтобы эффективно решить эту задачу, надо придумать, как получать индекс числа из массива не перебирая его.
-В этом нам может помочь структура <code>Hash Map</code> (или ее аналоги), которая позволяет получать значение по ключу за константное время.</p>
-<p>Изначально мы инициализируем пустую мапу, в которую будем записывать в качестве ключа число, а в качестве значения — его индекс в массиве.
-Далее запускаем цикл по всем элементам массива, в котором выполняем следующие проверки на каждой итерации.</p>
-<ol>
-<li>Высчитываем разницу между <code>target</code> и текущим числом из массива. Это второе искомое число, которое нам нужно.</li>
-<li>Чтобы проверить, есть ли число в массиве, мы обращаемся в нашу мапу с текущим числом в качестве ключа.
-Если в мапе есть такое число, значит мы его уже ранее добавляли из массива и можем получить его индекс.
-Мы нашли искомую пару чисел и можем вернуть их индексы в виде массива в качестве ответа.</li>
-<li>Если в мапе нет такого числа, значит нужно его туда добавить. В качестве ключа используем само число, а в качестве значения его индекс.</li>
-</ol>
+<p>Чтобы решить задачу, нам нужно определить количество пар строк и столбцов в матрице, которые совпадают.
+Для этого мы используем два прохода: один для строк и один для столбцов.</p>
+<p><strong>Создаем карту подсчета строк:</strong></p>
+<ul>
+<li>Инициализируем пустую хеш-таблицу (объект в случае TypeScript)  <code>countMap</code>, который будет хранить строки в виде ключей и их количество в виде значений.</li>
+<li>Проходим по каждой строке матрицы. Для каждой строки создаем строковой ключ, конкатенируя все её элементы, разделенные точкой с запятой.</li>
+<li>Если такой ключ уже существует в <code>countMap</code>, увеличиваем значение на единицу. В противном случае, устанавливаем значение равным единице.</li>
+</ul>
+<p><strong>Подсчет совпадающих столбцов:</strong></p>
+<ul>
+<li>Инициализируем счетчик <code>counter</code>, который будет хранить общее количество совпадающих пар.</li>
+<li>Проходим по каждому столбцу матрицы. Для каждого столбца создаем строковой ключ, конкатенируя элементы каждого столбца по порядку, разделенные точкой с запятой.</li>
+<li>Если такой ключ существует в <code>countMap</code>, добавляем значение из <code>countMap</code> к <code>counter</code>.</li>
+</ul>
+<p>После прохода по всем столбцам возвращаем значение <code>counter</code>, которое будет равно количеству совпадающих пар строк и столбцов.</p>
+<h3 id="realizacziya" tabindex="-1">Реализация <a class="header-anchor" href="#realizacziya">#</a></h3>
 <div class="code-sample">
-	<ul " class="tab" data-tab="solution-tabs_232" data-name="solution-tabs_232">
+	<ul " class="tab" data-tab="solution-tabs_724" data-name="solution-tabs_724">
 		<li class="active" id="go">
 			<a href="#">go</a>
 		</li>
@@ -1464,82 +1468,99 @@ target = -1
 			<a href="#">type script</a>
 		</li>
 	</ul>
-<p><ul class="tab-content" id="solution-tabs_232" data-name="solution-tabs_232">
+<p><ul class="tab-content" id="solution-tabs_724" data-name="solution-tabs_724">
 <li class="active"></p>
 <pre class="language-go" tabindex="0"><code class="language-go"><span class="token keyword">package</span> main
 
-<span class="token keyword">func</span> <span class="token function">twoSum</span><span class="token punctuation">(</span>nums <span class="token punctuation">[</span><span class="token punctuation">]</span><span class="token builtin">int</span><span class="token punctuation">,</span> target <span class="token builtin">int</span><span class="token punctuation">)</span> <span class="token punctuation">[</span><span class="token punctuation">]</span><span class="token builtin">int</span> <span class="token punctuation">{</span>
-	<span class="token comment">// Создаем мапу для отслеживания индексом чисел из слайса.</span>
-	indexMap <span class="token operator">:=</span> <span class="token function">make</span><span class="token punctuation">(</span><span class="token keyword">map</span><span class="token punctuation">[</span><span class="token builtin">int</span><span class="token punctuation">]</span><span class="token builtin">int</span><span class="token punctuation">)</span>
+<span class="token keyword">import</span> <span class="token punctuation">(</span>
+	<span class="token string">"strconv"</span>
+	<span class="token string">"strings"</span>
+<span class="token punctuation">)</span>
 
-	<span class="token keyword">for</span> i<span class="token punctuation">,</span> num <span class="token operator">:=</span> <span class="token keyword">range</span> nums <span class="token punctuation">{</span>
-		<span class="token comment">// Рассчитываем второе искомое число</span>
-		complement <span class="token operator">:=</span> target <span class="token operator">-</span> num
+<span class="token keyword">func</span> <span class="token function">equalPairs</span><span class="token punctuation">(</span>grid <span class="token punctuation">[</span><span class="token punctuation">]</span><span class="token punctuation">[</span><span class="token punctuation">]</span><span class="token builtin">int</span><span class="token punctuation">)</span> <span class="token builtin">int</span> <span class="token punctuation">{</span>
+	countMap <span class="token operator">:=</span> <span class="token function">make</span><span class="token punctuation">(</span><span class="token keyword">map</span><span class="token punctuation">[</span><span class="token builtin">string</span><span class="token punctuation">]</span><span class="token builtin">int</span><span class="token punctuation">)</span>
+	builder <span class="token operator">:=</span> strings<span class="token punctuation">.</span>Builder<span class="token punctuation">{</span><span class="token punctuation">}</span>
+	counter <span class="token operator">:=</span> <span class="token number">0</span>
 
-		<span class="token comment">// Проверяем, есть ли индекс для этого числа в мапе</span>
-		secondIndex<span class="token punctuation">,</span> ok <span class="token operator">:=</span> indexMap<span class="token punctuation">[</span>complement<span class="token punctuation">]</span>
-
-		<span class="token comment">// Если индекс для числа уже есть в мапе, значит мы нашли искомую пару</span>
-		<span class="token keyword">if</span> ok <span class="token punctuation">{</span>
-			<span class="token keyword">return</span> <span class="token punctuation">[</span><span class="token punctuation">]</span><span class="token builtin">int</span><span class="token punctuation">{</span>i<span class="token punctuation">,</span> secondIndex<span class="token punctuation">}</span>
+	<span class="token keyword">for</span> <span class="token boolean">_</span><span class="token punctuation">,</span> row <span class="token operator">:=</span> <span class="token keyword">range</span> grid <span class="token punctuation">{</span>
+		<span class="token keyword">for</span> <span class="token boolean">_</span><span class="token punctuation">,</span> col <span class="token operator">:=</span> <span class="token keyword">range</span> row <span class="token punctuation">{</span>
+			builder<span class="token punctuation">.</span><span class="token function">WriteString</span><span class="token punctuation">(</span>strconv<span class="token punctuation">.</span><span class="token function">Itoa</span><span class="token punctuation">(</span>col<span class="token punctuation">)</span><span class="token punctuation">)</span>
+			builder<span class="token punctuation">.</span><span class="token function">WriteString</span><span class="token punctuation">(</span><span class="token string">";"</span><span class="token punctuation">)</span>
 		<span class="token punctuation">}</span>
 
-		<span class="token comment">// Если индекс для числа еще не добавлен, то записываем его в мапу</span>
-		indexMap<span class="token punctuation">[</span>num<span class="token punctuation">]</span> <span class="token operator">=</span> i
+		countMap<span class="token punctuation">[</span>builder<span class="token punctuation">.</span><span class="token function">String</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">]</span><span class="token operator">++</span>
+		builder<span class="token punctuation">.</span><span class="token function">Reset</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
 	<span class="token punctuation">}</span>
 
-	<span class="token keyword">return</span> <span class="token boolean">nil</span>
+	<span class="token keyword">for</span> j <span class="token operator">:=</span> <span class="token number">0</span><span class="token punctuation">;</span> j <span class="token operator">&lt;</span> <span class="token function">len</span><span class="token punctuation">(</span>grid<span class="token punctuation">)</span><span class="token punctuation">;</span> j<span class="token operator">++</span> <span class="token punctuation">{</span>
+		<span class="token keyword">for</span> i <span class="token operator">:=</span> <span class="token number">0</span><span class="token punctuation">;</span> i <span class="token operator">&lt;</span> <span class="token function">len</span><span class="token punctuation">(</span>grid<span class="token punctuation">)</span><span class="token punctuation">;</span> i<span class="token operator">++</span> <span class="token punctuation">{</span>
+			builder<span class="token punctuation">.</span><span class="token function">WriteString</span><span class="token punctuation">(</span>strconv<span class="token punctuation">.</span><span class="token function">Itoa</span><span class="token punctuation">(</span>grid<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">[</span>j<span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+			builder<span class="token punctuation">.</span><span class="token function">WriteString</span><span class="token punctuation">(</span><span class="token string">";"</span><span class="token punctuation">)</span>
+		<span class="token punctuation">}</span>
+
+		counter <span class="token operator">+=</span> countMap<span class="token punctuation">[</span>builder<span class="token punctuation">.</span><span class="token function">String</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">]</span>
+		builder<span class="token punctuation">.</span><span class="token function">Reset</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+	<span class="token punctuation">}</span>
+
+	<span class="token keyword">return</span> counter
 <span class="token punctuation">}</span></code></pre>
 <p></li></p>
 <p><li class=""></p>
-<pre class="language-typescript" tabindex="0"><code class="language-typescript"><span class="token keyword">export</span> <span class="token keyword">const</span> twoSum <span class="token operator">=</span> <span class="token punctuation">(</span>nums<span class="token operator">:</span> <span class="token builtin">number</span><span class="token punctuation">[</span><span class="token punctuation">]</span><span class="token punctuation">,</span> target<span class="token operator">:</span> <span class="token builtin">number</span><span class="token punctuation">)</span><span class="token operator">:</span> <span class="token builtin">number</span><span class="token punctuation">[</span><span class="token punctuation">]</span> <span class="token operator">=></span> <span class="token punctuation">{</span>
-    <span class="token comment">// Создаем объект для отслеживания индексом чисел из массива</span>
-    <span class="token comment">// Также можно использовать new Map(), но объект делает в точности то же самое и с ним немного проще работаь.</span>
-    <span class="token keyword">const</span> indexMap<span class="token operator">:</span> Record<span class="token operator">&lt;</span><span class="token builtin">number</span><span class="token punctuation">,</span> <span class="token builtin">number</span><span class="token operator">></span> <span class="token operator">=</span> <span class="token punctuation">{</span><span class="token punctuation">}</span>
+<pre class="language-typescript" tabindex="0"><code class="language-typescript"><span class="token keyword">export</span> <span class="token keyword">const</span> equalPairs <span class="token operator">=</span> <span class="token punctuation">(</span>grid<span class="token operator">:</span> <span class="token builtin">number</span><span class="token punctuation">[</span><span class="token punctuation">]</span><span class="token punctuation">[</span><span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token operator">:</span> <span class="token builtin">number</span> <span class="token operator">=></span> <span class="token punctuation">{</span>
+    <span class="token keyword">const</span> countMap<span class="token operator">:</span> Record<span class="token operator">&lt;</span><span class="token builtin">string</span><span class="token punctuation">,</span> <span class="token builtin">number</span><span class="token operator">></span> <span class="token operator">=</span> <span class="token punctuation">{</span><span class="token punctuation">}</span>
+    <span class="token keyword">let</span> counter <span class="token operator">=</span> <span class="token number">0</span>
 
-    <span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token keyword">let</span> i <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span> i <span class="token operator">&lt;</span> nums<span class="token punctuation">.</span>length<span class="token punctuation">;</span> i<span class="token operator">++</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
-        <span class="token comment">// Рассчитываем второе искомое число</span>
-        <span class="token keyword">const</span> complement <span class="token operator">=</span> target <span class="token operator">-</span> nums<span class="token punctuation">[</span>i<span class="token punctuation">]</span>
+    grid<span class="token punctuation">.</span><span class="token function">forEach</span><span class="token punctuation">(</span>row <span class="token operator">=></span> <span class="token punctuation">{</span>
+        <span class="token keyword">let</span> key <span class="token operator">=</span> <span class="token string">''</span><span class="token punctuation">;</span>
 
-        <span class="token comment">// Проверяем, есть ли индекс для этого числа в объекте</span>
-        <span class="token keyword">const</span> secondIndex <span class="token operator">=</span> indexMap<span class="token punctuation">[</span>complement<span class="token punctuation">]</span>
+        row<span class="token punctuation">.</span><span class="token function">forEach</span><span class="token punctuation">(</span>col <span class="token operator">=></span> <span class="token punctuation">{</span>
+            key <span class="token operator">=</span> <span class="token template-string"><span class="token template-punctuation string">`</span><span class="token interpolation"><span class="token interpolation-punctuation punctuation">${</span>key<span class="token interpolation-punctuation punctuation">}</span></span><span class="token interpolation"><span class="token interpolation-punctuation punctuation">${</span>col<span class="token interpolation-punctuation punctuation">}</span></span><span class="token string">;</span><span class="token template-punctuation string">`</span></span>
+        <span class="token punctuation">}</span><span class="token punctuation">)</span>
 
-        <span class="token comment">// Если индекс для числа уже есть в объекте, значит мы нашли искомую пару</span>
-        <span class="token keyword">if</span> <span class="token punctuation">(</span>secondIndex <span class="token operator">></span> <span class="token operator">-</span><span class="token number">1</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
-            <span class="token keyword">return</span> <span class="token punctuation">[</span>i<span class="token punctuation">,</span> secondIndex<span class="token punctuation">]</span>
+        <span class="token keyword">if</span> <span class="token punctuation">(</span>countMap<span class="token punctuation">[</span>key<span class="token punctuation">]</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+            countMap<span class="token punctuation">[</span>key<span class="token punctuation">]</span><span class="token operator">++</span>
+        <span class="token punctuation">}</span> <span class="token keyword">else</span> <span class="token punctuation">{</span>
+            countMap<span class="token punctuation">[</span>key<span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token number">1</span>
+        <span class="token punctuation">}</span>
+    <span class="token punctuation">}</span><span class="token punctuation">)</span>
+
+    <span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token keyword">let</span> j <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span> j <span class="token operator">&lt;</span> grid<span class="token punctuation">.</span>length<span class="token punctuation">;</span> j<span class="token operator">++</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token keyword">let</span> key <span class="token operator">=</span> <span class="token string">''</span><span class="token punctuation">;</span>
+
+        <span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token keyword">let</span> i <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span> i <span class="token operator">&lt;</span> grid<span class="token punctuation">.</span>length<span class="token punctuation">;</span> i<span class="token operator">++</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+            key <span class="token operator">=</span> <span class="token template-string"><span class="token template-punctuation string">`</span><span class="token interpolation"><span class="token interpolation-punctuation punctuation">${</span>key<span class="token interpolation-punctuation punctuation">}</span></span><span class="token interpolation"><span class="token interpolation-punctuation punctuation">${</span>grid<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">[</span>j<span class="token punctuation">]</span><span class="token interpolation-punctuation punctuation">}</span></span><span class="token string">;</span><span class="token template-punctuation string">`</span></span>
         <span class="token punctuation">}</span>
 
-        <span class="token comment">// Если индекс для числа еще не добавлен, то записываем его в объект</span>
-        indexMap<span class="token punctuation">[</span>nums<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">]</span> <span class="token operator">=</span> i
+        <span class="token keyword">if</span> <span class="token punctuation">(</span>countMap<span class="token punctuation">[</span>key<span class="token punctuation">]</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+            counter <span class="token operator">+=</span> countMap<span class="token punctuation">[</span>key<span class="token punctuation">]</span>
+        <span class="token punctuation">}</span>
     <span class="token punctuation">}</span>
 
-    <span class="token keyword">return</span> <span class="token punctuation">[</span><span class="token punctuation">]</span>
+    <span class="token keyword">return</span> counter
 <span class="token punctuation">}</span></code></pre>
 <p></li>
 </ul></p>
 </div>
-<h3 id="oczenka-slozhnosti" tabindex="-1">Оценка сложности <a class="header-anchor" href="#oczenka-slozhnosti">#</a></h3>
-<p><code>n</code> - количество элементов в массиве.</p>
+<h4 id="oczenka-slozhnosti" tabindex="-1">Оценка сложности <a class="header-anchor" href="#oczenka-slozhnosti">#</a></h4>
 <p><strong>По времени</strong></p>
-<p>Сложность по времени <code>O(n)</code>, так как мы итерируемся по всем элементам массива.</p>
+<p>Решение имеет временную сложность <code>O(n<sup>2</sup>)</code>, так как мы проходим по всей матрице дважды.</p>
 <p><strong>По памяти</strong></p>
-<p>Сложность по памяти <code>O(n)</code>, так как мы добавляем в мапу <code>n</code> элементов.</p>
+<p>Сложность по памяти равна <code>O(n)</code> так как мы создаем хеш-таблицу по количеству уникальных строк.
+В худшем случае размер этой таблицы будет равен <code>n</code> если все строки в матрице уникальны.</p>
 
     </div>
 
     
         <div class="post-original-url">
-            <a href="https://leetcode.com/problems/two-sum/" target="_blank">Оригинал задачи на Leetcode</a>
+            <a href="https://leetcode.com/problems/equal-row-and-column-pairs/description/" target="_blank">Оригинал задачи на Leetcode</a>
         </div>
     
             <div class="post-navigation">
                 <div>
-                        <a class="btn" href="/blog/best_time_to_buy_and_sell_stock_2/">< Предыдущая задача</a>
+                        <a class="btn" href="/blog/minimum_flips_to_make_a_or_b_equal_c/">< Предыдущая задача</a>
                     
                 </div>
                 <div>
-                        <a class="btn" href="/blog/two_sum_sorted_array/">Следующая задача ></a>
-                    
                 </div>
             </div>
 </section>
