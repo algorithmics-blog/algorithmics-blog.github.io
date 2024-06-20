@@ -1,7 +1,7 @@
 <!doctype html>
 <html lang="ru">
 <head>
-    <title>Количество островов</title>
+    <title>Максимальная глубина бинарного дерева</title>
 
     
 
@@ -13,16 +13,16 @@
 <!-- Facebook Meta Tags -->
 <meta property="og:url" content="https://algorithmics-blog.github.io">
 <meta property="og:type" content="website">
-<meta property="og:title" content="Количество островов">
+<meta property="og:title" content="Максимальная глубина бинарного дерева">
 <meta property="og:description" content="Подробный разбор решения задачи с примерами на языках TypeScript и GO">
-<meta property="og:image" content="https://algorithmics-blog.github.io/images/previews/number_of_islands.webp">
+<meta property="og:image" content="https://algorithmics-blog.github.io/images/previews/maximum_depth_of_binary_tree.webp">
 
 <!-- Twitter Meta Tags -->
 <meta property="twitter:domain" content="algorithmics-blog.github.io">
 <meta property="twitter:url" content="https://algorithmics-blog.github.io">
-<meta name="twitter:title" content="Количество островов">
+<meta name="twitter:title" content="Максимальная глубина бинарного дерева">
 <meta name="twitter:description" content="Подробный разбор решения задачи с примерами на языках TypeScript и GO">
-<meta name="twitter:image" content="https://algorithmics-blog.github.io/images/previews/number_of_islands.webp">
+<meta name="twitter:image" content="https://algorithmics-blog.github.io/images/previews/maximum_depth_of_binary_tree.webp">
 
     <link rel="icon" type="image/x-icon" href="/favicon.ico">
 
@@ -1349,13 +1349,13 @@ pre[class*="language-"] {
 
 <section class="post-content">
     <div class="post-header">
-        <h1>Количество островов</h1>
+        <h1>Максимальная глубина бинарного дерева</h1>
 
         <div class="post-complexity">
             
+    <span class="complexity complexity_easy">Легкая</span>
 
 
-    <span class="complexity complexity_medium">Средняя</span>
 
 
 
@@ -1378,11 +1378,15 @@ pre[class*="language-"] {
     <div>
 
             
-                <a href="/tags/medium/" class="post-tag">medium</a>
+                <a href="/tags/easy/" class="post-tag">easy</a>
             , 
 
             
-                <a href="/tags/matrix/" class="post-tag">matrix</a>
+                <a href="/tags/tree/" class="post-tag">tree</a>
+            , 
+
+            
+                <a href="/tags/binary-tree/" class="post-tag">binary tree</a>
             
     </div>
 </div>
@@ -1395,7 +1399,7 @@ pre[class*="language-"] {
 					d="M4 7a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v12a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2zm12-4v4M8 3v4m-4 4h16M7 14h.013m2.997 0h.005m2.995 0h.005m3 0h.005m-3.005 3h.005m-6.01 0h.005m2.995 0h.005"/>
 	</svg>
 
-	<span>19 October 2023</span>
+	<span>20 June 2024</span>
 </div>
 
     </div>
@@ -1403,62 +1407,48 @@ pre[class*="language-"] {
     <div class="post-card task-card"
     <hr>
 <h2 id="opisanie-zadachi" tabindex="-1">Описание задачи <a class="header-anchor" href="#opisanie-zadachi">#</a></h2>
-<p>Дана матрица размером <code>m * n</code>, которая представляет собой карту.
-Каждая ячейка матрицы может принимать следующие значения:</p>
-<ul>
-<li><code>1</code> — суша</li>
-<li><code>0</code> — вода</li>
-</ul>
-<p>Остров окружен водой и образован путем соединения соседних земель по горизонтали или вертикали.
-Вы можете предположить, что все четыре края сетки окружены водой.</p>
-<p>Напишите функцию, которая принимает на вход матрицу и возвращает количество островов в ней.</p>
+<p>Найдите максимальную глубину бинарного дерева.</p>
+<p>Максимальная глубина бинарного дерева — это количество узлов на самом длинном пути от корневого узла до самого дальнего
+листового узла.</p>
 <hr>
 <h2 id="ogranicheniya" tabindex="-1">Ограничения <a class="header-anchor" href="#ogranicheniya">#</a></h2>
 <ul>
-<li><code>m == grid.length</code></li>
-<li><code>n == grid[i].length</code></li>
-<li><code>1 &lt;= m, n &lt;= 300</code></li>
-<li>Допустимые значения в матрице — <code>0</code> или <code>1</code></li>
+<li>Количество узлов в дереве может быть от 0 до 10000</li>
+<li>Значение каждого узла находится в диапазоне от -100 до 100</li>
 </ul>
 <hr>
 <h2 id="primery" tabindex="-1">Примеры <a class="header-anchor" href="#primery">#</a></h2>
-<div data-role="tabs"><ul class="tab-content" id="tabs_925616" data-name="tabs_925616">
+<div data-role="tabs"><ul class="tab-content" id="tabs_27746" data-name="tabs_27746">
 <li data-role="tabs-content" data-tab-name="Пример №1">
-<p><strong>Входные данные</strong></p>
-<pre><code>[
-  [&quot;1&quot;,&quot;1&quot;,&quot;1&quot;,&quot;1&quot;,&quot;0&quot;],
-  [&quot;1&quot;,&quot;1&quot;,&quot;0&quot;,&quot;1&quot;,&quot;0&quot;],
-  [&quot;1&quot;,&quot;1&quot;,&quot;0&quot;,&quot;0&quot;,&quot;0&quot;],
-  [&quot;0&quot;,&quot;0&quot;,&quot;0&quot;,&quot;0&quot;,&quot;0&quot;],
-]
-</code></pre>
-<p><strong>Ответ</strong>: <code>1</code></p>
+<p><strong>Входные данные</strong>:</p>
+<p><img src="/images/resources/binary_tree/binary_tree_1.png" alt="Бинарное дерево"></p>
+<p><strong>Ответ</strong>: 3</p>
 </li>
 <li data-role="tabs-content" data-tab-name="Пример №2">
-<p><strong>Входные данные</strong></p>
-<pre><code>[
-  [&quot;1&quot;,&quot;1&quot;,&quot;0&quot;,&quot;0&quot;,&quot;0&quot;],
-  [&quot;1&quot;,&quot;1&quot;,&quot;0&quot;,&quot;0&quot;,&quot;0&quot;],
-  [&quot;0&quot;,&quot;0&quot;,&quot;1&quot;,&quot;0&quot;,&quot;0&quot;],
-  [&quot;0&quot;,&quot;0&quot;,&quot;0&quot;,&quot;1&quot;,&quot;1&quot;],
-]
-</code></pre>
-<p><strong>Ответ</strong>: <code>3</code></p>
+<p><strong>Входные данные</strong>:</p>
+<p><img src="/images/resources/binary_tree/binary_tree_2.png" alt="Бинарное дерево"></p>
+<p><strong>Ответ</strong>: 2</p>
 </li>
 </ul></div>
 <hr>
 <h2 id="reshenie" tabindex="-1">Решение <a class="header-anchor" href="#reshenie">#</a></h2>
-<p>Для того чтобы посчитать количество островов в матрице достаточно определить хотя бы по одной точке из каждого острова.</p>
-<p>Первым делом создадим счетчик для подсчета количества островов, который будет иметь начальное значение равное <code>0</code>.
-Далее для подсчета необходимо перебрать все элементы матрицы и выполнить следующие проверки:</p>
+<p>Для решения задачи нам достаточно реализовать простой поиск в глубину DFS (Depth First Search).</p>
+<p>Реализуем дополнительную рекурсивную функцию <code>dfs</code>, которая принимает на вход два аргумента:</p>
 <ul>
-<li>если значение элемента равно <code>0</code>, то мы просто его пропускаем;</li>
-<li>если значение равно <code>1</code>, то мы засчитываем попадание в остров, прибавляем единицу к счетчику и рекурсивно удаляем остров из матрицы.</li>
+<li>текущий узел дерева <code>node</code></li>
+<li>текущую глубину погружения <code>level</code></li>
 </ul>
-<p>После попадания в остров нам необходимо удалять остров из массива, чтобы при проверке последующих элементов не учитывать его повторно.
-Таким образом каждый раз встречая единицу мы будем однозначно понимать, что нашли новый остров.</p>
+<p>В качестве ответа функция будет возвращать максимальную глубину ветки дерева.</p>
+<p>Если в функции <code>dfs</code> на вход пришла пустая нода, то это означает, что мы опустились ниже последнего листового узла в
+этой ветке, т. е. мы спустились до ее конца. В этом случае мы возвращаем из функции <code>level</code> в качестве ответа, так как
+он обозначает текущую глубину ветки.</p>
+<p>Если же нода присутствует, то нам нужно найти в какой из ее дочерних веток максимальная глубина.
+Для этого мы запускаем рекурсивный поиск по левой и правой дочерней ветке и передаем в функцию увеличенный на 1 уровень
+глубины. Получив два числа для левой и правой ветки, нам нужно выбрать максимальное и вернуть его в качестве ответа.</p>
+<p>В самом конце нам остается вызвать из основной функции <code>maxDepth</code> наш dfs поиск, определив начальную глубину равную <code>0</code>.</p>
+<h3 id="realizacziya" tabindex="-1">Реализация <a class="header-anchor" href="#realizacziya">#</a></h3>
 <div class="code-sample">
-	<ul " class="tab" data-tab="solution-tabs_8" data-name="solution-tabs_8">
+	<ul " class="tab" data-tab="solution-tabs_517" data-name="solution-tabs_517">
 		<li class="active" id="go">
 			<a href="#">go</a>
 		</li>
@@ -1466,98 +1456,83 @@ pre[class*="language-"] {
 			<a href="#">type script</a>
 		</li>
 	</ul>
-<p><ul class="tab-content" id="solution-tabs_8" data-name="solution-tabs_8">
+<p><ul class="tab-content" id="solution-tabs_517" data-name="solution-tabs_517">
 <li class="active"></p>
-<pre class="language-go" tabindex="0"><code class="language-go"><span class="token keyword">package</span> number_of_islands
+<pre class="language-go" tabindex="0"><code class="language-go"><span class="token keyword">package</span> maximum_depth_of_binary_tree
 
-<span class="token keyword">func</span> <span class="token function">numIslands</span><span class="token punctuation">(</span>grid <span class="token punctuation">[</span><span class="token punctuation">]</span><span class="token punctuation">[</span><span class="token punctuation">]</span><span class="token builtin">byte</span><span class="token punctuation">)</span> <span class="token builtin">int</span> <span class="token punctuation">{</span>
-	counter <span class="token operator">:=</span> <span class="token number">0</span>
-	<span class="token keyword">for</span> i <span class="token operator">:=</span> <span class="token number">0</span><span class="token punctuation">;</span> i <span class="token operator">&lt;</span> <span class="token function">len</span><span class="token punctuation">(</span>grid<span class="token punctuation">)</span><span class="token punctuation">;</span> i<span class="token operator">++</span> <span class="token punctuation">{</span>
-		<span class="token keyword">for</span> j <span class="token operator">:=</span> <span class="token number">0</span><span class="token punctuation">;</span> j <span class="token operator">&lt;</span> <span class="token function">len</span><span class="token punctuation">(</span>grid<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">;</span> j<span class="token operator">++</span> <span class="token punctuation">{</span>
-			<span class="token keyword">if</span> grid<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">[</span>j<span class="token punctuation">]</span> <span class="token operator">==</span> <span class="token char">'1'</span> <span class="token punctuation">{</span>
-				counter<span class="token operator">++</span>
-				<span class="token function">deepScan</span><span class="token punctuation">(</span>grid<span class="token punctuation">,</span> i<span class="token punctuation">,</span> j<span class="token punctuation">)</span>
-			<span class="token punctuation">}</span>
-		<span class="token punctuation">}</span>
-	<span class="token punctuation">}</span>
-
-	<span class="token keyword">return</span> counter
+<span class="token keyword">type</span> TreeNode <span class="token keyword">struct</span> <span class="token punctuation">{</span>
+	Val   <span class="token builtin">int</span>
+	Left  <span class="token operator">*</span>TreeNode
+	Right <span class="token operator">*</span>TreeNode
 <span class="token punctuation">}</span>
 
-<span class="token keyword">func</span> <span class="token function">deepScan</span><span class="token punctuation">(</span>grid <span class="token punctuation">[</span><span class="token punctuation">]</span><span class="token punctuation">[</span><span class="token punctuation">]</span><span class="token builtin">byte</span><span class="token punctuation">,</span> i<span class="token punctuation">,</span> j <span class="token builtin">int</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
-	grid<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">[</span>j<span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token char">'0'</span>
-	<span class="token keyword">if</span> j <span class="token operator">&lt;</span> <span class="token function">len</span><span class="token punctuation">(</span>grid<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token operator">-</span><span class="token number">1</span> <span class="token operator">&amp;&amp;</span> grid<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">[</span>j<span class="token operator">+</span><span class="token number">1</span><span class="token punctuation">]</span> <span class="token operator">==</span> <span class="token char">'1'</span> <span class="token punctuation">{</span>
-		<span class="token function">deepScan</span><span class="token punctuation">(</span>grid<span class="token punctuation">,</span> i<span class="token punctuation">,</span> j<span class="token operator">+</span><span class="token number">1</span><span class="token punctuation">)</span>
+<span class="token keyword">func</span> <span class="token function">maxDepth</span><span class="token punctuation">(</span>root <span class="token operator">*</span>TreeNode<span class="token punctuation">)</span> <span class="token builtin">int</span> <span class="token punctuation">{</span>
+	<span class="token keyword">return</span> <span class="token function">dfs</span><span class="token punctuation">(</span>root<span class="token punctuation">,</span> <span class="token number">0</span><span class="token punctuation">)</span>
+<span class="token punctuation">}</span>
+
+<span class="token keyword">func</span> <span class="token function">dfs</span><span class="token punctuation">(</span>root <span class="token operator">*</span>TreeNode<span class="token punctuation">,</span> level <span class="token builtin">int</span><span class="token punctuation">)</span> <span class="token builtin">int</span> <span class="token punctuation">{</span>
+	<span class="token keyword">if</span> root <span class="token operator">==</span> <span class="token boolean">nil</span> <span class="token punctuation">{</span>
+		<span class="token keyword">return</span> level
 	<span class="token punctuation">}</span>
-	<span class="token keyword">if</span> i <span class="token operator">&lt;</span> <span class="token function">len</span><span class="token punctuation">(</span>grid<span class="token punctuation">)</span><span class="token operator">-</span><span class="token number">1</span> <span class="token operator">&amp;&amp;</span> grid<span class="token punctuation">[</span>i<span class="token operator">+</span><span class="token number">1</span><span class="token punctuation">]</span><span class="token punctuation">[</span>j<span class="token punctuation">]</span> <span class="token operator">==</span> <span class="token char">'1'</span> <span class="token punctuation">{</span>
-		<span class="token function">deepScan</span><span class="token punctuation">(</span>grid<span class="token punctuation">,</span> i<span class="token operator">+</span><span class="token number">1</span><span class="token punctuation">,</span> j<span class="token punctuation">)</span>
+
+	leftDepth <span class="token operator">:=</span> <span class="token function">dfs</span><span class="token punctuation">(</span>root<span class="token punctuation">.</span>Left<span class="token punctuation">,</span> level<span class="token operator">+</span><span class="token number">1</span><span class="token punctuation">)</span>
+	rightDepth <span class="token operator">:=</span> <span class="token function">dfs</span><span class="token punctuation">(</span>root<span class="token punctuation">.</span>Right<span class="token punctuation">,</span> level<span class="token operator">+</span><span class="token number">1</span><span class="token punctuation">)</span>
+
+	<span class="token keyword">if</span> leftDepth <span class="token operator">></span> rightDepth <span class="token punctuation">{</span>
+		<span class="token keyword">return</span> leftDepth
 	<span class="token punctuation">}</span>
-	<span class="token keyword">if</span> j <span class="token operator">></span> <span class="token number">0</span> <span class="token operator">&amp;&amp;</span> grid<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">[</span>j<span class="token operator">-</span><span class="token number">1</span><span class="token punctuation">]</span> <span class="token operator">==</span> <span class="token char">'1'</span> <span class="token punctuation">{</span>
-		<span class="token function">deepScan</span><span class="token punctuation">(</span>grid<span class="token punctuation">,</span> i<span class="token punctuation">,</span> j<span class="token operator">-</span><span class="token number">1</span><span class="token punctuation">)</span>
-	<span class="token punctuation">}</span>
-	<span class="token keyword">if</span> i <span class="token operator">></span> <span class="token number">0</span> <span class="token operator">&amp;&amp;</span> grid<span class="token punctuation">[</span>i<span class="token operator">-</span><span class="token number">1</span><span class="token punctuation">]</span><span class="token punctuation">[</span>j<span class="token punctuation">]</span> <span class="token operator">==</span> <span class="token char">'1'</span> <span class="token punctuation">{</span>
-		<span class="token function">deepScan</span><span class="token punctuation">(</span>grid<span class="token punctuation">,</span> i<span class="token operator">-</span><span class="token number">1</span><span class="token punctuation">,</span> j<span class="token punctuation">)</span>
-	<span class="token punctuation">}</span>
+
+	<span class="token keyword">return</span> rightDepth
 <span class="token punctuation">}</span></code></pre>
 <p></li></p>
 <p><li class=""></p>
-<pre class="language-typescript" tabindex="0"><code class="language-typescript"><span class="token keyword">export</span> <span class="token keyword">const</span> numIslands <span class="token operator">=</span> <span class="token punctuation">(</span>grid<span class="token operator">:</span> <span class="token builtin">string</span><span class="token punctuation">[</span><span class="token punctuation">]</span><span class="token punctuation">[</span><span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token operator">:</span> <span class="token builtin">number</span> <span class="token operator">=></span> <span class="token punctuation">{</span>
-    <span class="token keyword">let</span> counter <span class="token operator">=</span> <span class="token number">0</span>
-
-    <span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token keyword">let</span> i <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span> i <span class="token operator">&lt;</span> grid<span class="token punctuation">.</span>length<span class="token punctuation">;</span> i<span class="token operator">++</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
-        <span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token keyword">let</span> j <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span> j <span class="token operator">&lt;</span> grid<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">.</span>length<span class="token punctuation">;</span> j<span class="token operator">++</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
-            <span class="token keyword">if</span> <span class="token punctuation">(</span>grid<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">[</span>j<span class="token punctuation">]</span> <span class="token operator">==</span> <span class="token string">'1'</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
-                counter<span class="token operator">++</span>
-                <span class="token function">deepScan</span><span class="token punctuation">(</span>grid<span class="token punctuation">,</span> i<span class="token punctuation">,</span> j<span class="token punctuation">)</span>
-            <span class="token punctuation">}</span>
-        <span class="token punctuation">}</span>
-    <span class="token punctuation">}</span>
-
-    <span class="token keyword">return</span> counter
+<pre class="language-typescript" tabindex="0"><code class="language-typescript"><span class="token keyword">export</span> <span class="token keyword">type</span> <span class="token class-name">TreeNode</span> <span class="token operator">=</span> <span class="token punctuation">{</span>
+    val<span class="token operator">:</span> <span class="token builtin">number</span>
+    left<span class="token operator">:</span> TreeNode <span class="token operator">|</span> <span class="token keyword">null</span>
+    right<span class="token operator">:</span> TreeNode <span class="token operator">|</span> <span class="token keyword">null</span>
 <span class="token punctuation">}</span>
 
-<span class="token keyword">export</span> <span class="token keyword">const</span> deepScan <span class="token operator">=</span> <span class="token punctuation">(</span>grid<span class="token operator">:</span> <span class="token builtin">string</span><span class="token punctuation">[</span><span class="token punctuation">]</span><span class="token punctuation">[</span><span class="token punctuation">]</span><span class="token punctuation">,</span> i<span class="token operator">:</span> <span class="token builtin">number</span><span class="token punctuation">,</span> j<span class="token operator">:</span> <span class="token builtin">number</span><span class="token punctuation">)</span><span class="token operator">:</span> <span class="token keyword">void</span> <span class="token operator">=></span> <span class="token punctuation">{</span>
-    grid<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">[</span>j<span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token string">'0'</span>
+<span class="token keyword">export</span> <span class="token keyword">function</span> <span class="token function">maxDepth</span><span class="token punctuation">(</span>root<span class="token operator">:</span> TreeNode <span class="token operator">|</span> <span class="token keyword">null</span><span class="token punctuation">)</span><span class="token operator">:</span> <span class="token builtin">number</span> <span class="token punctuation">{</span>
+    <span class="token keyword">return</span> <span class="token function">dfs</span><span class="token punctuation">(</span>root<span class="token punctuation">,</span> <span class="token number">0</span><span class="token punctuation">)</span>
+<span class="token punctuation">}</span>
 
-    <span class="token keyword">if</span> <span class="token punctuation">(</span>j <span class="token operator">&lt;</span> grid<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">.</span>length <span class="token operator">-</span> <span class="token number">1</span> <span class="token operator">&amp;&amp;</span> grid<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">[</span>j <span class="token operator">+</span> <span class="token number">1</span><span class="token punctuation">]</span> <span class="token operator">==</span> <span class="token string">'1'</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
-        <span class="token function">deepScan</span><span class="token punctuation">(</span>grid<span class="token punctuation">,</span> i<span class="token punctuation">,</span> j <span class="token operator">+</span> <span class="token number">1</span><span class="token punctuation">)</span>
+<span class="token keyword">function</span> <span class="token function">dfs</span><span class="token punctuation">(</span>node<span class="token operator">:</span> TreeNode <span class="token operator">|</span> <span class="token keyword">null</span><span class="token punctuation">,</span> level<span class="token operator">:</span> <span class="token builtin">number</span><span class="token punctuation">)</span><span class="token operator">:</span> <span class="token builtin">number</span> <span class="token punctuation">{</span>
+    <span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token operator">!</span>node<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token keyword">return</span> level
     <span class="token punctuation">}</span>
-    <span class="token keyword">if</span> <span class="token punctuation">(</span>i <span class="token operator">&lt;</span> grid<span class="token punctuation">.</span>length <span class="token operator">-</span> <span class="token number">1</span> <span class="token operator">&amp;&amp;</span> grid<span class="token punctuation">[</span>i <span class="token operator">+</span> <span class="token number">1</span><span class="token punctuation">]</span><span class="token punctuation">[</span>j<span class="token punctuation">]</span> <span class="token operator">==</span> <span class="token string">'1'</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
-        <span class="token function">deepScan</span><span class="token punctuation">(</span>grid<span class="token punctuation">,</span> i <span class="token operator">+</span> <span class="token number">1</span><span class="token punctuation">,</span> j<span class="token punctuation">)</span>
-    <span class="token punctuation">}</span>
-    <span class="token keyword">if</span> <span class="token punctuation">(</span>j <span class="token operator">></span> <span class="token number">0</span> <span class="token operator">&amp;&amp;</span> grid<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">[</span>j <span class="token operator">-</span> <span class="token number">1</span><span class="token punctuation">]</span> <span class="token operator">==</span> <span class="token string">'1'</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
-        <span class="token function">deepScan</span><span class="token punctuation">(</span>grid<span class="token punctuation">,</span> i<span class="token punctuation">,</span> j <span class="token operator">-</span> <span class="token number">1</span><span class="token punctuation">)</span>
-    <span class="token punctuation">}</span>
-    <span class="token keyword">if</span> <span class="token punctuation">(</span>i <span class="token operator">></span> <span class="token number">0</span> <span class="token operator">&amp;&amp;</span> grid<span class="token punctuation">[</span>i <span class="token operator">-</span> <span class="token number">1</span><span class="token punctuation">]</span><span class="token punctuation">[</span>j<span class="token punctuation">]</span> <span class="token operator">==</span> <span class="token string">'1'</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
-        <span class="token function">deepScan</span><span class="token punctuation">(</span>grid<span class="token punctuation">,</span> i <span class="token operator">-</span> <span class="token number">1</span><span class="token punctuation">,</span> j<span class="token punctuation">)</span>
-    <span class="token punctuation">}</span>
+
+    <span class="token keyword">const</span> leftDepth <span class="token operator">=</span> <span class="token function">dfs</span><span class="token punctuation">(</span>node<span class="token punctuation">.</span>left<span class="token punctuation">,</span> level <span class="token operator">+</span> <span class="token number">1</span><span class="token punctuation">)</span>
+    <span class="token keyword">const</span> rightDepth <span class="token operator">=</span> <span class="token function">dfs</span><span class="token punctuation">(</span>node<span class="token punctuation">.</span>right<span class="token punctuation">,</span> level <span class="token operator">+</span> <span class="token number">1</span><span class="token punctuation">)</span>
+
+    <span class="token keyword">return</span> Math<span class="token punctuation">.</span><span class="token function">max</span><span class="token punctuation">(</span>leftDepth<span class="token punctuation">,</span> rightDepth<span class="token punctuation">)</span>
 <span class="token punctuation">}</span></code></pre>
 <p></li>
 </ul></p>
 </div>
 <h3 id="oczenka-slozhnosti" tabindex="-1">Оценка сложности <a class="header-anchor" href="#oczenka-slozhnosti">#</a></h3>
 <p><strong>По времени</strong></p>
-<p>Так как мы перебираем всю матрицу, то сложность перебора будет равна <code>O(m * n)</code>.
-Также дополнительно может вызываться очистка острова, которая в худшем случае может занять <code>O(m * n)</code> операций (если вся матрица занята единицами.).
-Таким образом суммарная сложность <code>O(2(m * n))</code>, которая упрощается до <code>O(m * n)</code>.</p>
+<p><code>O(n)</code>, так как нам нужно перебрать все элементы в дереве.</p>
 <p><strong>По памяти</strong></p>
-<p><code>O(1)</code> — константная, так как мы выделяем дополнительную память только для хранения счетчиков.</p>
+<p>Хоть мы и не выделяем напрямую дополнительную память, которая напрямую зависит от размера входящих данных, однако
+задача решается через рекурсию.
+Это означает, что результат самого первого вызова не будет получен, до тех пор, пока не будут получены результаты всех
+вложенных рекурсивных вызовов.
+То есть мы будем хранить в памяти <code>n</code> вызовов кол стека.
+Поэтому сложность по памяти равна <code>O(n)</code>.</p>
 
     </div>
 
     
         <div class="post-original-url">
-            <a href="https://leetcode.com/problems/number-of-islands/description/" target="_blank">Оригинал задачи на Leetcode</a>
+            <a href="https://leetcode.com/problems/maximum-depth-of-binary-tree/description" target="_blank">Оригинал задачи на Leetcode</a>
         </div>
     
             <div class="post-navigation">
                 <div>
-                        <a class="btn" href="/blog/game_of_life/">< Предыдущая задача</a>
+                        <a class="btn" href="/blog/equal_row_and_column_pairs/">< Предыдущая задача</a>
                     
                 </div>
                 <div>
-                        <a class="btn" href="/blog/house_robber/">Следующая задача ></a>
-                    
                 </div>
             </div>
 </section>
