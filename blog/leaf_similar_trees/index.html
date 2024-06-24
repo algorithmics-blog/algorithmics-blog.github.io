@@ -1,7 +1,7 @@
 <!doctype html>
 <html lang="ru">
 <head>
-    <title>Минимальное количество переворотов, чтобы сделать A | B == C</title>
+    <title>Листоподобные деревья</title>
 
     
 
@@ -13,16 +13,16 @@
 <!-- Facebook Meta Tags -->
 <meta property="og:url" content="https://algorithmics-blog.github.io">
 <meta property="og:type" content="website">
-<meta property="og:title" content="Минимальное количество переворотов, чтобы сделать A | B == C">
+<meta property="og:title" content="Листоподобные деревья">
 <meta property="og:description" content="Подробный разбор решения задачи с примерами на языках TypeScript и GO">
-<meta property="og:image" content="https://algorithmics-blog.github.io/images/previews/minimum_flips_to_make_a_or_b_equal_c.webp">
+<meta property="og:image" content="https://algorithmics-blog.github.io/images/previews/leaf_similar_trees.webp">
 
 <!-- Twitter Meta Tags -->
 <meta property="twitter:domain" content="algorithmics-blog.github.io">
 <meta property="twitter:url" content="https://algorithmics-blog.github.io">
-<meta name="twitter:title" content="Минимальное количество переворотов, чтобы сделать A | B == C">
+<meta name="twitter:title" content="Листоподобные деревья">
 <meta name="twitter:description" content="Подробный разбор решения задачи с примерами на языках TypeScript и GO">
-<meta name="twitter:image" content="https://algorithmics-blog.github.io/images/previews/minimum_flips_to_make_a_or_b_equal_c.webp">
+<meta name="twitter:image" content="https://algorithmics-blog.github.io/images/previews/leaf_similar_trees.webp">
 
     <link rel="icon" type="image/x-icon" href="/favicon.ico">
 
@@ -1349,13 +1349,13 @@ pre[class*="language-"] {
 
 <section class="post-content">
     <div class="post-header">
-        <h1>Минимальное количество переворотов, чтобы сделать A | B == C</h1>
+        <h1>Листоподобные деревья</h1>
 
         <div class="post-complexity">
             
+    <span class="complexity complexity_easy">Легкая</span>
 
 
-    <span class="complexity complexity_medium">Средняя</span>
 
 
 
@@ -1378,11 +1378,15 @@ pre[class*="language-"] {
     <div>
 
             
-                <a href="/tags/medium/" class="post-tag">medium</a>
+                <a href="/tags/easy/" class="post-tag">easy</a>
             , 
 
             
-                <a href="/tags/bit-manipulation/" class="post-tag">bit manipulation</a>
+                <a href="/tags/tree/" class="post-tag">tree</a>
+            , 
+
+            
+                <a href="/tags/binary-tree/" class="post-tag">binary tree</a>
             
     </div>
 </div>
@@ -1395,7 +1399,7 @@ pre[class*="language-"] {
 					d="M4 7a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v12a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2zm12-4v4M8 3v4m-4 4h16M7 14h.013m2.997 0h.005m2.995 0h.005m3 0h.005m-3.005 3h.005m-6.01 0h.005m2.995 0h.005"/>
 	</svg>
 
-	<span>07 June 2024</span>
+	<span>25 June 2024</span>
 </div>
 
     </div>
@@ -1403,62 +1407,45 @@ pre[class*="language-"] {
     <div class="post-card task-card"
     <hr>
 <h2 id="opisanie-zadachi" tabindex="-1">Описание задачи <a class="header-anchor" href="#opisanie-zadachi">#</a></h2>
-<p>Даны три целых положительных числа <code>a</code>, <code>b</code> и <code>c</code>.</p>
-<p>Необходимо найти минимальное количество переворотов битов в <code>a</code> и <code>b</code>, чтобы результат операции <code>a OR b</code> (побитовая
-операция ИЛИ) был равен <code>c</code>.
-Операция переворота состоит из изменения любого отдельного бита с <code>1</code> на <code>0</code> или c <code>0</code> на <code>1</code> в его двоичном
-представлении.</p>
+<p>Дано два бинарных дерева.</p>
+<p>Все листовые узлы дерева образуют последовательность значений.</p>
+<p><img src="/images/resources/leaf_similar_tree/tree_1.png" alt="Последовательность значений листьев"></p>
+<p>Например, для дерева выше последовательность значений будет равна <code>(6, 7, 4, 9, 8)</code>.</p>
+<p>Два бинарных дерева считаются листоподобными, если последовательность значений их листьев одинакова.</p>
+<p>Напишите функцию, которая возвращает <code>true</code> тогда и только тогда, когда два заданных дерева являются листоподобными.</p>
 <hr>
 <h2 id="ogranicheniya" tabindex="-1">Ограничения <a class="header-anchor" href="#ogranicheniya">#</a></h2>
 <ul>
-<li>Значение каждого аргумента находится в диапазоне от 1 до 10<sup>9</sup></li>
+<li>Количество узлов в каждом дереве находится в диапазоне <code>[1, 200]</code></li>
+<li>Узлы обоих деревьев имеют значения в диапазоне <code>[0, 200]</code></li>
 </ul>
 <hr>
 <h2 id="primery" tabindex="-1">Примеры <a class="header-anchor" href="#primery">#</a></h2>
-<div data-role="tabs"><ul class="tab-content" id="tabs_852040" data-name="tabs_852040">
+<div data-role="tabs"><ul class="tab-content" id="tabs_985867" data-name="tabs_985867">
 <li data-role="tabs-content" data-tab-name="Пример №1">
-<p><strong>Входные данные</strong>: <code>a = 2, b = 6, c = 5</code></p>
-<p><strong>Ответ</strong>: <code>3</code></p>
-<p><img src="/images/resources/bit_flips/bit_flip_1.jpg" alt="Пример 1"></p>
-<p>В исходных числах нужно поменять три бита, подсвеченных красным.</p>
+<p><strong>Входные данные</strong>:</p>
+<p><img src="/images/resources/leaf_similar_tree/tree_2.png" alt="Листоподобные деревья"></p>
+<p><strong>Ответ</strong>: <code>true</code></p>
 </li>
 <li data-role="tabs-content" data-tab-name="Пример №2">
-<p><strong>Входные данные</strong>: <code>a = 4, b = 2, c = 7</code></p>
-<p><strong>Ответ</strong>: <code>1</code></p>
-<p><img src="/images/resources/bit_flips/bit_flip_2.jpg" alt="Пример 2"></p>
-<p>В исходных числах нужно поменять один бит, подсвеченный красным.</p>
-</li>
-<li data-role="tabs-content" data-tab-name="Пример №3">
-<p><strong>Входные данные</strong>: <code>a = 1, b = 2, c = 3</code></p>
-<p><strong>Ответ</strong>: <code>0</code></p>
-<p><img src="/images/resources/bit_flips/bit_flip_3.jpg" alt="Пример 2"></p>
-<p>В исходных числах ничего не нужно менять, так как условие уже выполняется.</p>
+<p><strong>Входные данные</strong>:</p>
+<p><img src="/images/resources/leaf_similar_tree/tree_3.png" alt="Не листоподобные деревья"></p>
+<p><strong>Ответ</strong>: <code>false</code></p>
 </li>
 </ul></div>
+<hr>
 <h2 id="reshenie" tabindex="-1">Решение <a class="header-anchor" href="#reshenie">#</a></h2>
-<p>Чтобы решить задачу, нам необходимо представить числа <code>a</code>, <code>b</code> и <code>c</code> в двоичном виде и произвести их сравнение побитно.
-Недостающие биты в числах мы заполняем ведущими нулями.</p>
-<p>Если бит числа <code>c</code> равен <code>1</code>, это означает, что в <code>a</code> и <code>b</code> как минимум один бит на этой же позиции должен быть
-равен <code>1</code>, чтобы условие <code>a | b == c</code> было истинным. Если же оба бита в <code>a</code> и <code>b</code> равны <code>0</code>, то нам необходимо изменить
-любой из битов на единицу.
-Не важно какой именно бит, потому что это не меняет результат.</p>
-<p>Если бит числа <code>c</code> равен <code>0</code>, это означает, что биты и в числе <code>a</code>, и в числе <code>b</code> должны быть равны нулю, чтобы
-условие <code>a | b == c</code> было истинным. В этом случае нам нужно изменять биты в <code>a</code> и <code>b</code> только в том случае, если они
-равны <code>1</code>.</p>
-<p><strong>Как получить двоичное представление числа?</strong></p>
-<p>На самом деле число не нужно переводить в двоичную систему счисления.
-Достаточно воспользоваться небольшим математическим хаком.</p>
-<ol>
-<li>Чтобы получить младший бит числа в двоичном представлении (крайний справа) необходимо взять остаток от деления числа
-на 2. Это работает потому что у четных чисел младший бит всегда равен <code>0</code>, а у нечетных — <code>1</code>.</li>
-<li>Чтобы откинуть младший бит у числа достаточно разделить его на 2 без остатка. В таком случае мы получим новое число,
-которое в двоичном представлении равно предыдущему числу без младшего бита.</li>
-</ol>
-<p>В итоге, нам необходимо иметь цикл, который проверяет младшие биты всех чисел на каждой итерации и увеличивает счетчик,
-а по завершению итерации модифицирует исходные числа. Этот цикл работает до тех пор, пока все числа не станут равны <code>0</code>.</p>
+<p>Для решения задачи нам необходимо собрать последовательность всех листовых узлов в обоих деревьях и сравнить их.</p>
+<p>Для этого мы реализуем отдельную функцию <code>getSequence</code>, которая будет формировать последовательность значений листовых
+узлов для переданного дерева.</p>
+<p>Функция осуществляет классический обход дерева в глубину DFS (Depth First Search) и когда встречает листовой узел (узел,
+у которого нет потомков), то добавляет его значение в строку <code>sequence</code>, разделяя значения точкой с запятой.
+Предварительно мы определяем переменную <code>sequence</code>, равную пустой строке, и управляем ее значением через замыкание.</p>
+<p>Вместо строки можно было бы использовать массивы, но после вычисления массивом их пришлось бы сравнивать итерируясь по
+всем элементам, что дало бы дополнительных <code>k</code> операций. Строки же можно просто сравнить между самой через <code>==</code>.</p>
 <h3 id="realizacziya" tabindex="-1">Реализация <a class="header-anchor" href="#realizacziya">#</a></h3>
 <div class="code-sample">
-	<ul " class="tab" data-tab="solution-tabs_393" data-name="solution-tabs_393">
+	<ul " class="tab" data-tab="solution-tabs_268" data-name="solution-tabs_268">
 		<li class="active" id="go">
 			<a href="#">go</a>
 		</li>
@@ -1466,90 +1453,122 @@ pre[class*="language-"] {
 			<a href="#">type script</a>
 		</li>
 	</ul>
-<p><ul class="tab-content" id="solution-tabs_393" data-name="solution-tabs_393">
+<p><ul class="tab-content" id="solution-tabs_268" data-name="solution-tabs_268">
 <li class="active"></p>
-<pre class="language-go" tabindex="0"><code class="language-go"><span class="token keyword">package</span> main
+<pre class="language-go" tabindex="0"><code class="language-go"><span class="token keyword">package</span> leaf_similar_trees
 
-<span class="token keyword">func</span> <span class="token function">minFlips</span><span class="token punctuation">(</span>a <span class="token builtin">int</span><span class="token punctuation">,</span> b <span class="token builtin">int</span><span class="token punctuation">,</span> c <span class="token builtin">int</span><span class="token punctuation">)</span> <span class="token builtin">int</span> <span class="token punctuation">{</span>
-	res <span class="token operator">:=</span> <span class="token number">0</span>
+<span class="token keyword">import</span> <span class="token punctuation">(</span>
+	<span class="token string">"fmt"</span>
+	<span class="token string">"strconv"</span>
+<span class="token punctuation">)</span>
 
-	<span class="token keyword">for</span> a <span class="token operator">></span> <span class="token number">0</span> <span class="token operator">||</span> b <span class="token operator">></span> <span class="token number">0</span> <span class="token operator">||</span> c <span class="token operator">></span> <span class="token number">0</span> <span class="token punctuation">{</span>
-		bitA <span class="token operator">:=</span> a <span class="token operator">%</span> <span class="token number">2</span>
-		bitB <span class="token operator">:=</span> b <span class="token operator">%</span> <span class="token number">2</span>
-		bitC <span class="token operator">:=</span> c <span class="token operator">%</span> <span class="token number">2</span>
+<span class="token keyword">type</span> TreeNode <span class="token keyword">struct</span> <span class="token punctuation">{</span>
+	Val   <span class="token builtin">int</span>
+	Left  <span class="token operator">*</span>TreeNode
+	Right <span class="token operator">*</span>TreeNode
+<span class="token punctuation">}</span>
 
-		a <span class="token operator">=</span> a <span class="token operator">/</span> <span class="token number">2</span>
-		b <span class="token operator">=</span> b <span class="token operator">/</span> <span class="token number">2</span>
-		c <span class="token operator">=</span> c <span class="token operator">/</span> <span class="token number">2</span>
+<span class="token keyword">func</span> <span class="token function">leafSimilar</span><span class="token punctuation">(</span>root1 <span class="token operator">*</span>TreeNode<span class="token punctuation">,</span> root2 <span class="token operator">*</span>TreeNode<span class="token punctuation">)</span> <span class="token builtin">bool</span> <span class="token punctuation">{</span>
+	first <span class="token operator">:=</span> <span class="token function">getSequence</span><span class="token punctuation">(</span>root1<span class="token punctuation">)</span>
+	second <span class="token operator">:=</span> <span class="token function">getSequence</span><span class="token punctuation">(</span>root2<span class="token punctuation">)</span>
 
-		<span class="token keyword">if</span> bitA<span class="token operator">|</span>bitB <span class="token operator">==</span> bitC <span class="token punctuation">{</span>
-			<span class="token comment">// Условие задачи выполняется, значит биты на этой позиции менять не нужно</span>
-			<span class="token keyword">continue</span>
+	<span class="token keyword">return</span> first <span class="token operator">==</span> second
+<span class="token punctuation">}</span>
+
+<span class="token keyword">func</span> <span class="token function">getSequence</span><span class="token punctuation">(</span>root <span class="token operator">*</span>TreeNode<span class="token punctuation">)</span> <span class="token builtin">string</span> <span class="token punctuation">{</span>
+	<span class="token keyword">var</span> dfs <span class="token keyword">func</span><span class="token punctuation">(</span>node <span class="token operator">*</span>TreeNode<span class="token punctuation">)</span>
+
+	sequence <span class="token operator">:=</span> <span class="token string">""</span>
+
+	dfs <span class="token operator">=</span> <span class="token keyword">func</span><span class="token punctuation">(</span>node <span class="token operator">*</span>TreeNode<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+		<span class="token keyword">if</span> node<span class="token punctuation">.</span>Left <span class="token operator">==</span> <span class="token boolean">nil</span> <span class="token operator">&amp;&amp;</span> node<span class="token punctuation">.</span>Right <span class="token operator">==</span> <span class="token boolean">nil</span> <span class="token punctuation">{</span>
+			fmt<span class="token punctuation">.</span><span class="token function">Println</span><span class="token punctuation">(</span>node<span class="token punctuation">.</span>Val<span class="token punctuation">)</span>
+			sequence <span class="token operator">+=</span> strconv<span class="token punctuation">.</span><span class="token function">Itoa</span><span class="token punctuation">(</span>node<span class="token punctuation">.</span>Val<span class="token punctuation">)</span> <span class="token operator">+</span> <span class="token string">";"</span>
 		<span class="token punctuation">}</span>
 
-		<span class="token keyword">if</span> bitC <span class="token operator">==</span> <span class="token number">0</span> <span class="token punctuation">{</span>
-			res <span class="token operator">+=</span> bitA <span class="token operator">+</span> bitB
-		<span class="token punctuation">}</span> <span class="token keyword">else</span> <span class="token punctuation">{</span>
-			res <span class="token operator">+=</span> <span class="token number">1</span>
+		<span class="token keyword">if</span> node<span class="token punctuation">.</span>Left <span class="token operator">!=</span> <span class="token boolean">nil</span> <span class="token punctuation">{</span>
+			<span class="token function">dfs</span><span class="token punctuation">(</span>node<span class="token punctuation">.</span>Left<span class="token punctuation">)</span>
+		<span class="token punctuation">}</span>
+
+		<span class="token keyword">if</span> node<span class="token punctuation">.</span>Right <span class="token operator">!=</span> <span class="token boolean">nil</span> <span class="token punctuation">{</span>
+			<span class="token function">dfs</span><span class="token punctuation">(</span>node<span class="token punctuation">.</span>Right<span class="token punctuation">)</span>
 		<span class="token punctuation">}</span>
 	<span class="token punctuation">}</span>
 
-	<span class="token keyword">return</span> res
+	<span class="token function">dfs</span><span class="token punctuation">(</span>root<span class="token punctuation">)</span>
+
+	<span class="token keyword">return</span> sequence
 <span class="token punctuation">}</span></code></pre>
 <p></li></p>
 <p><li class=""></p>
-<pre class="language-typescript" tabindex="0"><code class="language-typescript"><span class="token keyword">export</span> <span class="token keyword">const</span> minFlips <span class="token operator">=</span> <span class="token punctuation">(</span>a<span class="token operator">:</span> <span class="token builtin">number</span><span class="token punctuation">,</span> b<span class="token operator">:</span> <span class="token builtin">number</span><span class="token punctuation">,</span> c<span class="token operator">:</span> <span class="token builtin">number</span><span class="token punctuation">)</span><span class="token operator">:</span> <span class="token builtin">number</span> <span class="token operator">=></span> <span class="token punctuation">{</span>
-    <span class="token keyword">let</span> res <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span>
+<pre class="language-typescript" tabindex="0"><code class="language-typescript"><span class="token keyword">export</span> <span class="token keyword">type</span> <span class="token class-name">TreeNode</span> <span class="token operator">=</span> <span class="token punctuation">{</span>
+    val<span class="token operator">:</span> <span class="token builtin">number</span>
+    left<span class="token operator">:</span> TreeNode <span class="token operator">|</span> <span class="token keyword">null</span>
+    right<span class="token operator">:</span> TreeNode <span class="token operator">|</span> <span class="token keyword">null</span>
+<span class="token punctuation">}</span>
 
-    <span class="token keyword">while</span> <span class="token punctuation">(</span>a <span class="token operator">></span> <span class="token number">0</span> <span class="token operator">||</span> b <span class="token operator">></span> <span class="token number">0</span> <span class="token operator">||</span> c <span class="token operator">></span> <span class="token number">0</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
-        <span class="token keyword">let</span> bitA <span class="token operator">=</span> a <span class="token operator">%</span> <span class="token number">2</span><span class="token punctuation">;</span>
-        <span class="token keyword">let</span> bitB <span class="token operator">=</span> b <span class="token operator">%</span> <span class="token number">2</span><span class="token punctuation">;</span>
-        <span class="token keyword">let</span> bitC <span class="token operator">=</span> c <span class="token operator">%</span> <span class="token number">2</span><span class="token punctuation">;</span>
+<span class="token keyword">export</span> <span class="token keyword">function</span> <span class="token function">leafSimilar</span><span class="token punctuation">(</span>root1<span class="token operator">:</span> TreeNode <span class="token operator">|</span> <span class="token keyword">null</span><span class="token punctuation">,</span> root2<span class="token operator">:</span> TreeNode <span class="token operator">|</span> <span class="token keyword">null</span><span class="token punctuation">)</span><span class="token operator">:</span> <span class="token builtin">boolean</span> <span class="token punctuation">{</span>
+    <span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token operator">!</span>root1 <span class="token operator">||</span> <span class="token operator">!</span>root2<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token keyword">return</span> <span class="token boolean">false</span>
+    <span class="token punctuation">}</span>
 
-        a <span class="token operator">=</span> Math<span class="token punctuation">.</span><span class="token function">floor</span><span class="token punctuation">(</span>a <span class="token operator">/</span> <span class="token number">2</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-        b <span class="token operator">=</span> Math<span class="token punctuation">.</span><span class="token function">floor</span><span class="token punctuation">(</span>b <span class="token operator">/</span> <span class="token number">2</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-        c <span class="token operator">=</span> Math<span class="token punctuation">.</span><span class="token function">floor</span><span class="token punctuation">(</span>c <span class="token operator">/</span> <span class="token number">2</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token keyword">const</span> first <span class="token operator">=</span> <span class="token function">getSequence</span><span class="token punctuation">(</span>root1<span class="token punctuation">)</span>
+    <span class="token keyword">const</span> second <span class="token operator">=</span> <span class="token function">getSequence</span><span class="token punctuation">(</span>root2<span class="token punctuation">)</span>
 
-        <span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token punctuation">(</span>bitA <span class="token operator">|</span> bitB<span class="token punctuation">)</span> <span class="token operator">==</span> bitC<span class="token punctuation">)</span> <span class="token punctuation">{</span>
-            <span class="token comment">// Условие задачи выполняется, значит биты на этой позиции менять не нужно</span>
-            <span class="token keyword">continue</span><span class="token punctuation">;</span>
+    <span class="token keyword">return</span> first <span class="token operator">===</span> second
+<span class="token punctuation">}</span>
+
+<span class="token keyword">function</span> <span class="token function">getSequence</span><span class="token punctuation">(</span>root<span class="token operator">:</span> TreeNode<span class="token punctuation">)</span><span class="token operator">:</span> <span class="token builtin">string</span> <span class="token punctuation">{</span>
+    <span class="token keyword">let</span> sequence <span class="token operator">=</span> <span class="token string">""</span>
+
+    <span class="token keyword">const</span> dfs <span class="token operator">=</span> <span class="token punctuation">(</span>node<span class="token operator">:</span> TreeNode<span class="token punctuation">)</span><span class="token operator">:</span> <span class="token keyword">void</span> <span class="token operator">=></span> <span class="token punctuation">{</span>
+        <span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token operator">!</span>node<span class="token punctuation">.</span>left <span class="token operator">&amp;&amp;</span> <span class="token operator">!</span>node<span class="token punctuation">.</span>right<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+            sequence <span class="token operator">=</span> <span class="token template-string"><span class="token template-punctuation string">`</span><span class="token interpolation"><span class="token interpolation-punctuation punctuation">${</span>sequence<span class="token interpolation-punctuation punctuation">}</span></span><span class="token interpolation"><span class="token interpolation-punctuation punctuation">${</span>node<span class="token punctuation">.</span>val<span class="token interpolation-punctuation punctuation">}</span></span><span class="token string">;</span><span class="token template-punctuation string">`</span></span>
         <span class="token punctuation">}</span>
 
-        <span class="token keyword">if</span> <span class="token punctuation">(</span>bitC <span class="token operator">==</span> <span class="token number">0</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
-            res <span class="token operator">+=</span> bitA <span class="token operator">+</span> bitB<span class="token punctuation">;</span>
-        <span class="token punctuation">}</span> <span class="token keyword">else</span> <span class="token punctuation">{</span>
-            res <span class="token operator">+=</span> <span class="token number">1</span><span class="token punctuation">;</span>
+        <span class="token keyword">if</span> <span class="token punctuation">(</span>node<span class="token punctuation">.</span>left<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+            <span class="token function">dfs</span><span class="token punctuation">(</span>node<span class="token punctuation">.</span>left<span class="token punctuation">)</span>
+        <span class="token punctuation">}</span>
+
+        <span class="token keyword">if</span> <span class="token punctuation">(</span>node<span class="token punctuation">.</span>right<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+            <span class="token function">dfs</span><span class="token punctuation">(</span>node<span class="token punctuation">.</span>right<span class="token punctuation">)</span>
         <span class="token punctuation">}</span>
     <span class="token punctuation">}</span>
 
+    <span class="token function">dfs</span><span class="token punctuation">(</span>root<span class="token punctuation">)</span>
 
-    <span class="token keyword">return</span> res<span class="token punctuation">;</span>
-<span class="token punctuation">}</span><span class="token punctuation">;</span></code></pre>
+    <span class="token keyword">return</span> sequence
+<span class="token punctuation">}</span></code></pre>
 <p></li>
 </ul></p>
 </div>
 <h3 id="oczenka-slozhnosti" tabindex="-1">Оценка сложности <a class="header-anchor" href="#oczenka-slozhnosti">#</a></h3>
-<p><code>n</code> - количество элементов в строке.</p>
+<ul>
+<li><code>n1</code> — количество узлов в первом дереве</li>
+<li><code>n2</code> — количество узлов во втором дереве</li>
+<li><code>h1</code> — высота первого дерева</li>
+<li><code>h2</code> — высота второго дерева</li>
+</ul>
 <p><strong>По времени</strong></p>
-<p>Сложность по времени <code>O(n)</code>, так как мы гарантированно найдем ответ, перебрав полностью всю строку один раз.</p>
+<p><code>O(n1 + n2)</code>, так как нам нужно перебрать все элементы в дереве.</p>
 <p><strong>По памяти</strong></p>
-<p>Сложность по памяти <code>O(1)</code>.</p>
+<p>Так как мы храним последовательности листовых узлов в виде строки, то выделяемую память мы считаем константной.
+Однако, это рекурсивный алгоритм поэтому нужно учесть память используемую стеком вызовов.</p>
+<p>Таким образом сложность по памяти равна <code>O(h1 + h2)</code>.</p>
 
     </div>
 
     
         <div class="post-original-url">
-            <a href="https://leetcode.com/problems/minimum-flips-to-make-a-or-b-equal-to-c/description/" target="_blank">Оригинал задачи на Leetcode</a>
+            <a href="https://leetcode.com/problems/leaf-similar-trees/description/" target="_blank">Оригинал задачи на Leetcode</a>
         </div>
     
             <div class="post-navigation">
                 <div>
-                        <a class="btn" href="/blog/maximum_frequency_stack/">< Предыдущая задача</a>
+                        <a class="btn" href="/blog/maximum_depth_of_binary_tree/">< Предыдущая задача</a>
                     
                 </div>
                 <div>
-                        <a class="btn" href="/blog/equal_row_and_column_pairs/">Следующая задача ></a>
-                    
                 </div>
             </div>
 </section>
