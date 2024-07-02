@@ -1,4 +1,4 @@
-package main
+package longest_valid_parentheses
 
 import (
 	"testing"
@@ -6,7 +6,7 @@ import (
 	"github.com/stretchr/testify/assert"
 )
 
-func Test_longestValidParenthesesWindowing(t *testing.T) {
+func Test_longestValidParenthesesStack(t *testing.T) {
 	testCases := []struct {
 		name     string
 		in       string
@@ -36,7 +36,7 @@ func Test_longestValidParenthesesWindowing(t *testing.T) {
 
 	for _, testCase := range testCases {
 		t.Run(testCase.name, func(t *testing.T) {
-			res := longestValidParenthesesWindowing(testCase.in)
+			res := longestValidParenthesesStack(testCase.in)
 			assert.Equal(t, testCase.expected, res)
 		})
 	}
