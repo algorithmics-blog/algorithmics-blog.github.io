@@ -1,7 +1,7 @@
 ---
 layout: layouts/post.njk
 title: Самая длинная подстрока, являющаяся валидной скобочной последовательностью
-date: 2024-07-04
+date: 2024-07-03
 complexity: hard
 original_url: https://leetcode.com/problems/longest-valid-parentheses/description/
 preview_image: /images/previews/longest_valid_parentheses.webp
