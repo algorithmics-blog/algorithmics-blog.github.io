@@ -1,7 +1,7 @@
 <!doctype html>
 <html lang="ru">
 <head>
-    <title>Максимальное количество гласных в подстроке заданного размера</title>
+    <title>Самая длинная подстрока, являющаяся валидной скобочной последовательностью</title>
 
     
 
@@ -13,16 +13,16 @@
 <!-- Facebook Meta Tags -->
 <meta property="og:url" content="https://algorithmics-blog.github.io">
 <meta property="og:type" content="website">
-<meta property="og:title" content="Максимальное количество гласных в подстроке заданного размера">
+<meta property="og:title" content="Самая длинная подстрока, являющаяся валидной скобочной последовательностью">
 <meta property="og:description" content="Подробный разбор решения задачи с примерами на языках TypeScript и GO">
-<meta property="og:image" content="https://algorithmics-blog.github.io/images/previews/maximum_number_of_vowels_in_a_substring_of_given_length.webp">
+<meta property="og:image" content="https://algorithmics-blog.github.io/images/previews/longest_valid_parentheses.webp">
 
 <!-- Twitter Meta Tags -->
 <meta property="twitter:domain" content="algorithmics-blog.github.io">
 <meta property="twitter:url" content="https://algorithmics-blog.github.io">
-<meta name="twitter:title" content="Максимальное количество гласных в подстроке заданного размера">
+<meta name="twitter:title" content="Самая длинная подстрока, являющаяся валидной скобочной последовательностью">
 <meta name="twitter:description" content="Подробный разбор решения задачи с примерами на языках TypeScript и GO">
-<meta name="twitter:image" content="https://algorithmics-blog.github.io/images/previews/maximum_number_of_vowels_in_a_substring_of_given_length.webp">
+<meta name="twitter:image" content="https://algorithmics-blog.github.io/images/previews/longest_valid_parentheses.webp">
 
     <link rel="icon" type="image/x-icon" href="/favicon.ico">
 
@@ -1349,15 +1349,15 @@ pre[class*="language-"] {
 
 <section class="post-content">
     <div class="post-header">
-        <h1>Максимальное количество гласных в подстроке заданного размера</h1>
+        <h1>Самая длинная подстрока, являющаяся валидной скобочной последовательностью</h1>
 
         <div class="post-complexity">
             
 
 
-    <span class="complexity complexity_medium">Средняя</span>
 
 
+    <span class="complexity complexity_hard">Сложная</span>
 
 
         </div>
@@ -1378,15 +1378,11 @@ pre[class*="language-"] {
     <div>
 
             
-                <a href="/tags/medium/" class="post-tag">medium</a>
+                <a href="/tags/hard/" class="post-tag">hard</a>
             , 
 
             
-                <a href="/tags/string/" class="post-tag">string</a>
-            , 
-
-            
-                <a href="/tags/sliding-window/" class="post-tag">sliding window</a>
+                <a href="/tags/stack/" class="post-tag">stack</a>
             
     </div>
 </div>
@@ -1399,7 +1395,7 @@ pre[class*="language-"] {
 					d="M4 7a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v12a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2zm12-4v4M8 3v4m-4 4h16M7 14h.013m2.997 0h.005m2.995 0h.005m3 0h.005m-3.005 3h.005m-6.01 0h.005m2.995 0h.005"/>
 	</svg>
 
-	<span>06 May 2024</span>
+	<span>03 July 2024</span>
 </div>
 
     </div>
@@ -1407,59 +1403,47 @@ pre[class*="language-"] {
     <div class="post-card task-card"
     <hr>
 <h2 id="opisanie-zadachi" tabindex="-1">Описание задачи <a class="header-anchor" href="#opisanie-zadachi">#</a></h2>
-<p>Дана строка <code>s</code> и максимальный размер подстроки <code>k</code>.
-Необходимо написать функцию, которая вернет максимальное количество глассных в любой из подстрок строки <code>s</code> размером <code>k</code>.</p>
+<p>Напишите функцию для поиска самой длинной подстроки, являющейся правильной скобочной последовательностью.</p>
+<p><strong>Входные данные:</strong> строка <code>s</code>.</p>
+<p><strong>Выходные данные:</strong> длина самой большой подстроки, являющейся валидной скобочной последовательностью.</p>
 <hr>
 <h2 id="ogranicheniya" tabindex="-1">Ограничения <a class="header-anchor" href="#ogranicheniya">#</a></h2>
 <ul>
-<li>Длина строки от 1 до 100000</li>
-<li>Строка состоит только из латинских букв в нижнем регистре</li>
-<li>Размер подстроки находится в диапазоне от 1 до длины исходной строки <code>s</code>.</li>
+<li>Длина каждой строки от 0 до 30000 символов</li>
+<li>Строка состоит из символов <code>(</code> и <code>)</code></li>
 </ul>
 <hr>
 <h2 id="primery" tabindex="-1">Примеры <a class="header-anchor" href="#primery">#</a></h2>
-<div data-role="tabs"><ul class="tab-content" id="tabs_479438" data-name="tabs_479438">
+<div data-role="tabs"><ul class="tab-content" id="tabs_533027" data-name="tabs_533027">
 <li data-role="tabs-content" data-tab-name="Пример №1">
-<p><strong>Входные данные</strong></p>
-<pre><code>s = &quot;abciiidef&quot;
-k = 3
-</code></pre>
-<p><strong>Ответ</strong>: <code>3</code></p>
-<p>В исходной строке есть подстрока длиной 3 состоящая исключительно из гласных <code>iii</code></p>
+<p><strong>Входные данные</strong>: <code>s = &quot;(()&quot;</code></p>
+<p><strong>Ответ</strong>: <code>2</code></p>
+<p><strong>Пояснения</strong>: Самая длинная правильная скобочная последовательность - <code>()</code></p>
 </li>
 <li data-role="tabs-content" data-tab-name="Пример №2">
-<p><strong>Входные данные</strong></p>
-<pre><code>s = &quot;aeiou&quot;
-k = 2
-</code></pre>
-<p><strong>Ответ</strong>: <code>2</code></p>
-<p>Исходная строк полностью состоит из гласных, поэтому любая подстрока длиной 2 будет также состоять из гласных.</p>
+<p><strong>Входные данные</strong>: <code>s = &quot;)()())&quot;</code></p>
+<p><strong>Ответ</strong>: <code>4</code></p>
+<p><strong>Пояснения</strong>: Самая длинная правильная скобочная последовательность - <code>()()</code></p>
 </li>
 <li data-role="tabs-content" data-tab-name="Пример №3">
-<p><strong>Входные данные</strong></p>
-<pre><code>s = &quot;leetcode&quot;
-k = 3
-</code></pre>
-<p><strong>Ответ</strong>: <code>2</code></p>
-<p>В исходной строке есть несколько подстрок (<code>lee</code>/<code>eet</code>/<code>ode</code>), в любой из которых максимальное количество гласных равно 2.</p>
+<p><strong>Входные данные</strong>: <code>s = &quot;&quot;</code></p>
+<p><strong>Ответ</strong>: <code>0</code></p>
 </li>
 </ul></div>
-<h2 id="reshenie" tabindex="-1">Решение <a class="header-anchor" href="#reshenie">#</a></h2>
-<p>Данная задача является ярким представителем класса задач, которые решаются с помощью скользящего окна:</p>
-<ul>
-<li>Нам необходимо создать окно длиной <code>k</code> (исходно левая граница окна равна <code>0</code>, а правая - <code>k-1</code>)</li>
-<li>Двигать наше окно увеличивая левый и правый индекс на 1 на каждом шаге</li>
-<li>Считать сколько гласных попадает в наше окно на каждом шаге</li>
-</ul>
-<p>Таким образом, исходно нам нужно посчитать сколько гласных будет в подстроке от <code>0</code> до <code>k-1</code> элемента, сохранив количество как промежуточный результат.
-После этого мы начнем двигать наше окно. Для того чтобы каждый раз не пересчитывать заново количество гласных, нам достаточно смотреть только на изменение подстроки:</p>
-<ul>
-<li>Если новый правый элемент окна является гласной — значит количество гласных относительно предыдущего окна нужно увеличить на один, так как мы включили в новой подстроке дополнительную гласную букву.</li>
-<li>Если старый левый элемент окна является гласной — значит количество гласных относительно предыдущего окна нужно уменьшить на один, так как мы исключили из подстроки гласную букву.</li>
-</ul>
-<p>Для ускорения работы стоит не забывать о раннем выходе — если на каком-то шаге мы нашли подстроку длиной <code>k</code> из гласных, значит нам не нужно дальше анализировать всю строку до конца.</p>
+<hr>
+<h2 id="reshenie-cherez-skolzyashhee-okno" tabindex="-1">Решение через скользящее окно <a class="header-anchor" href="#reshenie-cherez-skolzyashhee-okno">#</a></h2>
+<p>Первая идея решения задачи, как обычно, — это брутфорс.
+Поскольку нам нужно найти самую длинную подстроку, мы можем начать с подстрок максимальной длины и постепенно переходить
+к более коротким, пока не найдем первую подходящую подстроку и не вернем её длину.</p>
+<p>Для этого нам поможет метод скользящего окна: устанавливаем левую границу на первый элемент, а правую — на длину текущей
+подстроки.
+Двигаем окно слева направо, одновременно увеличивая левую и правую границы. Если не будет найдено ни одной
+подходящей подстроки заданной длины, уменьшаем длину на единицу и снова начинаем проверять все возможные подстроки.</p>
+<p>Проверку на валидность можно реализовать с помощью простого счетчика (так как по условиям задачи у нас только один вид
+скобок) или же с использованием <a href="https://algorithmics-blog.github.io/blog/valid_parentheses/">стека</a>.</p>
+<h3 id="realizacziya" tabindex="-1">Реализация <a class="header-anchor" href="#realizacziya">#</a></h3>
 <div class="code-sample">
-	<ul " class="tab" data-tab="solution-tabs_901" data-name="solution-tabs_901">
+	<ul " class="tab" data-tab="solution-tabs_117" data-name="solution-tabs_117">
 		<li class="active" id="go">
 			<a href="#">go</a>
 		</li>
@@ -1467,139 +1451,203 @@ k = 3
 			<a href="#">type script</a>
 		</li>
 	</ul>
-<p><ul class="tab-content" id="solution-tabs_901" data-name="solution-tabs_901">
+<p><ul class="tab-content" id="solution-tabs_117" data-name="solution-tabs_117">
 <li class="active"></p>
-<pre class="language-go" tabindex="0"><code class="language-go"><span class="token keyword">package</span> main
+<pre class="language-go" tabindex="0"><code class="language-go"><span class="token keyword">package</span> longest_valid_parentheses
 
-<span class="token keyword">func</span> <span class="token function">maxVowels</span><span class="token punctuation">(</span>s <span class="token builtin">string</span><span class="token punctuation">,</span> k <span class="token builtin">int</span><span class="token punctuation">)</span> <span class="token builtin">int</span> <span class="token punctuation">{</span>
-	vowelsCount <span class="token operator">:=</span> <span class="token number">0</span>
-
-	<span class="token keyword">for</span> rightIdx <span class="token operator">:=</span> <span class="token number">0</span><span class="token punctuation">;</span> rightIdx <span class="token operator">&lt;</span> <span class="token function">len</span><span class="token punctuation">(</span>s<span class="token punctuation">)</span> <span class="token operator">&amp;&amp;</span> rightIdx <span class="token operator">&lt;</span> k<span class="token punctuation">;</span> rightIdx<span class="token operator">++</span> <span class="token punctuation">{</span>
-		<span class="token keyword">if</span> <span class="token function">isVowel</span><span class="token punctuation">(</span>s<span class="token punctuation">[</span>rightIdx<span class="token punctuation">]</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
-			vowelsCount<span class="token operator">++</span>
-		<span class="token punctuation">}</span>
-	<span class="token punctuation">}</span>
-
-	<span class="token keyword">if</span> vowelsCount <span class="token operator">==</span> k <span class="token punctuation">{</span>
-		<span class="token keyword">return</span> vowelsCount
-	<span class="token punctuation">}</span>
-
-	currentVowelsCount <span class="token operator">:=</span> vowelsCount
-	leftIdx <span class="token operator">:=</span> <span class="token number">0</span>
-
-	<span class="token keyword">for</span> rightIdx <span class="token operator">:=</span> k<span class="token punctuation">;</span> rightIdx <span class="token operator">&lt;</span> <span class="token function">len</span><span class="token punctuation">(</span>s<span class="token punctuation">)</span><span class="token punctuation">;</span> rightIdx<span class="token operator">++</span> <span class="token punctuation">{</span>
-		<span class="token keyword">if</span> <span class="token function">isVowel</span><span class="token punctuation">(</span>s<span class="token punctuation">[</span>rightIdx<span class="token punctuation">]</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
-			currentVowelsCount<span class="token operator">++</span>
-		<span class="token punctuation">}</span>
-		<span class="token keyword">if</span> <span class="token function">isVowel</span><span class="token punctuation">(</span>s<span class="token punctuation">[</span>leftIdx<span class="token punctuation">]</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
-			currentVowelsCount<span class="token operator">--</span>
-		<span class="token punctuation">}</span>
-
-		leftIdx<span class="token operator">++</span>
-		<span class="token keyword">if</span> currentVowelsCount <span class="token operator">></span> vowelsCount <span class="token punctuation">{</span>
-			vowelsCount <span class="token operator">=</span> currentVowelsCount
-			<span class="token keyword">if</span> vowelsCount <span class="token operator">==</span> k <span class="token punctuation">{</span>
-				<span class="token keyword">return</span> vowelsCount
-			<span class="token punctuation">}</span>
-		<span class="token punctuation">}</span>
-	<span class="token punctuation">}</span>
-
-	<span class="token keyword">return</span> vowelsCount
+<span class="token keyword">func</span> <span class="token function">longestValidParenthesesWindowing</span><span class="token punctuation">(</span>s <span class="token builtin">string</span><span class="token punctuation">)</span> <span class="token builtin">int</span> <span class="token punctuation">{</span>
+	<span class="token keyword">return</span> <span class="token function">recursiveLongestValidParenthesesWindowing</span><span class="token punctuation">(</span>s<span class="token punctuation">,</span> <span class="token function">len</span><span class="token punctuation">(</span>s<span class="token punctuation">)</span><span class="token punctuation">)</span>
 <span class="token punctuation">}</span>
 
-<span class="token keyword">func</span> <span class="token function">isVowel</span><span class="token punctuation">(</span>ch <span class="token builtin">byte</span><span class="token punctuation">)</span> <span class="token builtin">bool</span> <span class="token punctuation">{</span>
-	<span class="token keyword">switch</span> ch <span class="token punctuation">{</span>
-	<span class="token keyword">case</span> <span class="token char">'a'</span><span class="token punctuation">:</span>
-		<span class="token keyword">return</span> <span class="token boolean">true</span>
-	<span class="token keyword">case</span> <span class="token char">'e'</span><span class="token punctuation">:</span>
-		<span class="token keyword">return</span> <span class="token boolean">true</span>
-	<span class="token keyword">case</span> <span class="token char">'i'</span><span class="token punctuation">:</span>
-		<span class="token keyword">return</span> <span class="token boolean">true</span>
-	<span class="token keyword">case</span> <span class="token char">'o'</span><span class="token punctuation">:</span>
-		<span class="token keyword">return</span> <span class="token boolean">true</span>
-	<span class="token keyword">case</span> <span class="token char">'u'</span><span class="token punctuation">:</span>
-		<span class="token keyword">return</span> <span class="token boolean">true</span>
+<span class="token keyword">func</span> <span class="token function">recursiveLongestValidParenthesesWindowing</span><span class="token punctuation">(</span>s <span class="token builtin">string</span><span class="token punctuation">,</span> substrLen <span class="token builtin">int</span><span class="token punctuation">)</span> <span class="token builtin">int</span> <span class="token punctuation">{</span>
+	<span class="token keyword">if</span> substrLen <span class="token operator">==</span> <span class="token number">0</span> <span class="token punctuation">{</span>
+		<span class="token keyword">return</span> <span class="token number">0</span>
 	<span class="token punctuation">}</span>
-	<span class="token keyword">return</span> <span class="token boolean">false</span>
+	left <span class="token operator">:=</span> <span class="token number">0</span>
+	right <span class="token operator">:=</span> substrLen
+	<span class="token keyword">for</span> right <span class="token operator">&lt;=</span> <span class="token function">len</span><span class="token punctuation">(</span>s<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+		<span class="token keyword">if</span> <span class="token function">isValidParenthesesByCounter</span><span class="token punctuation">(</span>s<span class="token punctuation">[</span>left<span class="token punctuation">:</span>right<span class="token punctuation">]</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+			<span class="token keyword">return</span> right <span class="token operator">-</span> left
+		<span class="token punctuation">}</span>
+		left<span class="token operator">++</span>
+		right<span class="token operator">++</span>
+	<span class="token punctuation">}</span>
+
+	<span class="token keyword">return</span> <span class="token function">recursiveLongestValidParenthesesWindowing</span><span class="token punctuation">(</span>s<span class="token punctuation">,</span> substrLen<span class="token operator">-</span><span class="token number">1</span><span class="token punctuation">)</span>
+<span class="token punctuation">}</span>
+
+<span class="token keyword">func</span> <span class="token function">isValidParenthesesByCounter</span><span class="token punctuation">(</span>s <span class="token builtin">string</span><span class="token punctuation">)</span> <span class="token builtin">bool</span> <span class="token punctuation">{</span>
+	counter <span class="token operator">:=</span> <span class="token number">0</span>
+	<span class="token keyword">for</span> <span class="token boolean">_</span><span class="token punctuation">,</span> char <span class="token operator">:=</span> <span class="token keyword">range</span> s <span class="token punctuation">{</span>
+		<span class="token keyword">if</span> char <span class="token operator">==</span> <span class="token char">'('</span> <span class="token punctuation">{</span>
+			counter<span class="token operator">++</span>
+			<span class="token keyword">continue</span>
+		<span class="token punctuation">}</span>
+
+		<span class="token keyword">if</span> counter <span class="token operator">==</span> <span class="token number">0</span> <span class="token punctuation">{</span>
+			<span class="token keyword">return</span> <span class="token boolean">false</span>
+		<span class="token punctuation">}</span>
+
+		counter<span class="token operator">--</span>
+	<span class="token punctuation">}</span>
+
+	<span class="token keyword">return</span> counter <span class="token operator">==</span> <span class="token number">0</span>
 <span class="token punctuation">}</span></code></pre>
 <p></li></p>
 <p><li class=""></p>
-<pre class="language-typescript" tabindex="0"><code class="language-typescript"><span class="token keyword">const</span> isVowel <span class="token operator">=</span> <span class="token punctuation">(</span>char<span class="token operator">:</span> <span class="token builtin">string</span><span class="token punctuation">)</span><span class="token operator">:</span> <span class="token builtin">boolean</span> <span class="token operator">=></span> <span class="token punctuation">{</span>
-    <span class="token keyword">switch</span> <span class="token punctuation">(</span>char<span class="token punctuation">)</span> <span class="token punctuation">{</span>
-        <span class="token keyword">case</span> <span class="token string">'a'</span><span class="token operator">:</span>
-            <span class="token keyword">return</span> <span class="token boolean">true</span>
-        <span class="token keyword">case</span> <span class="token string">'e'</span><span class="token operator">:</span>
-            <span class="token keyword">return</span> <span class="token boolean">true</span>
-        <span class="token keyword">case</span> <span class="token string">'i'</span><span class="token operator">:</span>
-            <span class="token keyword">return</span> <span class="token boolean">true</span>
-        <span class="token keyword">case</span> <span class="token string">'o'</span><span class="token operator">:</span>
-            <span class="token keyword">return</span> <span class="token boolean">true</span>
-        <span class="token keyword">case</span> <span class="token string">'u'</span><span class="token operator">:</span>
-            <span class="token keyword">return</span> <span class="token boolean">true</span>
-    <span class="token punctuation">}</span>
-    <span class="token keyword">return</span> <span class="token boolean">false</span>
+<pre class="language-typescript" tabindex="0"><code class="language-typescript"><span class="token keyword">export</span> <span class="token keyword">function</span> <span class="token function">longestValidParenthesesWindowing</span><span class="token punctuation">(</span>s<span class="token operator">:</span> <span class="token builtin">string</span><span class="token punctuation">)</span><span class="token operator">:</span> <span class="token builtin">number</span> <span class="token punctuation">{</span>
+    <span class="token keyword">return</span> <span class="token function">recursiveLongestValidParenthesesWindowing</span><span class="token punctuation">(</span>s<span class="token punctuation">,</span> s<span class="token punctuation">.</span>length<span class="token punctuation">)</span>
 <span class="token punctuation">}</span>
 
-<span class="token keyword">export</span> <span class="token keyword">const</span> maxVowels <span class="token operator">=</span> <span class="token punctuation">(</span>s<span class="token operator">:</span> <span class="token builtin">string</span><span class="token punctuation">,</span> k<span class="token operator">:</span> <span class="token builtin">number</span><span class="token punctuation">)</span><span class="token operator">:</span> <span class="token builtin">number</span> <span class="token operator">=></span> <span class="token punctuation">{</span>
-    <span class="token keyword">let</span> vowelsCount <span class="token operator">=</span> <span class="token number">0</span>
-
-    <span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token keyword">let</span> rightIdx <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span> rightIdx <span class="token operator">&lt;</span> s<span class="token punctuation">.</span>length <span class="token operator">&amp;&amp;</span> rightIdx <span class="token operator">&lt;</span> k<span class="token punctuation">;</span> rightIdx<span class="token operator">++</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
-        <span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token function">isVowel</span><span class="token punctuation">(</span>s<span class="token punctuation">[</span>rightIdx<span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
-            vowelsCount<span class="token operator">++</span>
-        <span class="token punctuation">}</span>
+<span class="token keyword">function</span> <span class="token function">recursiveLongestValidParenthesesWindowing</span><span class="token punctuation">(</span>s<span class="token operator">:</span> <span class="token builtin">string</span><span class="token punctuation">,</span> substrLen<span class="token operator">:</span> <span class="token builtin">number</span><span class="token punctuation">)</span><span class="token operator">:</span> <span class="token builtin">number</span> <span class="token punctuation">{</span>
+    <span class="token keyword">if</span> <span class="token punctuation">(</span>substrLen <span class="token operator">===</span> <span class="token number">0</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token keyword">return</span> <span class="token number">0</span><span class="token punctuation">;</span>
     <span class="token punctuation">}</span>
 
-    <span class="token keyword">if</span> <span class="token punctuation">(</span>vowelsCount <span class="token operator">==</span> k<span class="token punctuation">)</span> <span class="token punctuation">{</span>
-        <span class="token keyword">return</span> vowelsCount
+    <span class="token keyword">let</span> left <span class="token operator">=</span> <span class="token number">0</span>
+    <span class="token keyword">let</span> right <span class="token operator">=</span> substrLen
+
+    <span class="token keyword">while</span> <span class="token punctuation">(</span>right <span class="token operator">&lt;=</span> s<span class="token punctuation">.</span>length<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token function">isValidParenthesesByCounter</span><span class="token punctuation">(</span>s<span class="token punctuation">.</span><span class="token function">substring</span><span class="token punctuation">(</span>left<span class="token punctuation">,</span> right<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+            <span class="token keyword">return</span> right <span class="token operator">-</span> left
+        <span class="token punctuation">}</span>
+        left<span class="token operator">++</span>
+        right<span class="token operator">++</span>
     <span class="token punctuation">}</span>
 
-    <span class="token keyword">let</span> currentVowelsCount <span class="token operator">=</span> vowelsCount
-    <span class="token keyword">let</span> leftIdx <span class="token operator">=</span> <span class="token number">0</span>
+    <span class="token keyword">return</span> <span class="token function">recursiveLongestValidParenthesesWindowing</span><span class="token punctuation">(</span>s<span class="token punctuation">,</span> substrLen <span class="token operator">-</span> <span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
 
-    <span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token keyword">let</span> rightIdx <span class="token operator">=</span> k<span class="token punctuation">;</span> rightIdx <span class="token operator">&lt;</span> s<span class="token punctuation">.</span>length<span class="token punctuation">;</span> rightIdx<span class="token operator">++</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
-        <span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token function">isVowel</span><span class="token punctuation">(</span>s<span class="token punctuation">[</span>rightIdx<span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
-            currentVowelsCount<span class="token operator">++</span>
-        <span class="token punctuation">}</span>
-        <span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token function">isVowel</span><span class="token punctuation">(</span>s<span class="token punctuation">[</span>leftIdx<span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
-            currentVowelsCount<span class="token operator">--</span>
+<span class="token keyword">function</span> <span class="token function">isValidParenthesesByCounter</span><span class="token punctuation">(</span>s<span class="token operator">:</span> <span class="token builtin">string</span><span class="token punctuation">)</span><span class="token operator">:</span> <span class="token builtin">boolean</span> <span class="token punctuation">{</span>
+    <span class="token keyword">let</span> counter <span class="token operator">=</span> <span class="token number">0</span>
+
+    <span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token keyword">const</span> char <span class="token keyword">of</span> s<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token keyword">if</span> <span class="token punctuation">(</span>char <span class="token operator">===</span> <span class="token string">'('</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+            counter<span class="token operator">++</span>
+            <span class="token keyword">continue</span>
         <span class="token punctuation">}</span>
 
-        leftIdx<span class="token operator">++</span>
-        <span class="token keyword">if</span> <span class="token punctuation">(</span>currentVowelsCount <span class="token operator">></span> vowelsCount<span class="token punctuation">)</span> <span class="token punctuation">{</span>
-            vowelsCount <span class="token operator">=</span> currentVowelsCount
-            <span class="token keyword">if</span> <span class="token punctuation">(</span>vowelsCount <span class="token operator">==</span> k<span class="token punctuation">)</span> <span class="token punctuation">{</span>
-                <span class="token keyword">return</span> vowelsCount
-            <span class="token punctuation">}</span>
+        <span class="token keyword">if</span> <span class="token punctuation">(</span>counter <span class="token operator">===</span> <span class="token number">0</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+            <span class="token keyword">return</span> <span class="token boolean">false</span>
         <span class="token punctuation">}</span>
+
+        counter<span class="token operator">--</span>
     <span class="token punctuation">}</span>
 
-    <span class="token keyword">return</span> vowelsCount
+    <span class="token keyword">return</span> counter <span class="token operator">===</span> <span class="token number">0</span>
 <span class="token punctuation">}</span></code></pre>
 <p></li>
 </ul></p>
 </div>
 <h3 id="oczenka-slozhnosti" tabindex="-1">Оценка сложности <a class="header-anchor" href="#oczenka-slozhnosti">#</a></h3>
-<p><code>n</code> - количество элементов в строке.</p>
 <p><strong>По времени</strong></p>
-<p>Сложность по времени <code>O(n)</code>, так как мы гарантированно найдем ответ, перебрав полностью всю строку один раз.</p>
+<p>Сложность по времени равна <code>O(n^2)</code>, поскольку на каждом уровне рекурсии выполняется линейный проход по строке, и таких
+уровней <code>n</code>.</p>
 <p><strong>По памяти</strong></p>
-<p>Сложность по памяти <code>O(1)</code>.</p>
+<p>Основным фактором сложности по памяти является рекурсивная глубина.
+Поскольку на каждом уровне рекурсии используется константное количество дополнительной памяти, общая пространственная
+сложность функции составляет <code>O(n)</code>.</p>
+<blockquote>
+<p>Важно понимать, что это крайне неоптимальный алгоритм. Например, в JS он вызовет ошибку переполнения стека.</p>
+</blockquote>
+<h2 id="reshenie-cherez-stek" tabindex="-1">Решение через стек <a class="header-anchor" href="#reshenie-cherez-stek">#</a></h2>
+<p>На самом деле задача решается достаточно легко: максимальная валидная скобочная последовательность — это максимальное
+расстояние между невалидными подстроками.</p>
+<p>То есть, если мы сможем «вырезать» из строки валидные скобочные последовательности, сохранив индексы элементов, то самая
+большая разница между двумя соседними индексами и будет искомым числом. В этом нам поможет структура данных стек.</p>
+<p>Для решения задачи мы будем идти посимвольно по исходной строке:</p>
+<ul>
+<li>Если текущий символ — открывающая скобка, помещаем индекс символа в стек.</li>
+<li>Если текущий символ — закрывающая скобка, достаем из стека последний индекс. Если при этом стек становится пустым,
+добавляем текущий индекс в стек, так как потенциально текущая позиция может служить началом для следующей подстроки.
+Если же стек остается непустым, вычисляем разницу между текущим индексом и индексом на вершине стека (чтобы не нужно
+было дополнительно проходиться по стеку).</li>
+</ul>
+<p>Исходно в стек помещаем число -1, которое служит для обработки случая, когда вся строка является корректной подстрокой
+скобок.</p>
+<h3 id="realizacziya-1" tabindex="-1">Реализация <a class="header-anchor" href="#realizacziya-1">#</a></h3>
+<div class="code-sample">
+	<ul " class="tab" data-tab="solution-tabs_172" data-name="solution-tabs_172">
+		<li class="active" id="go">
+			<a href="#">go</a>
+		</li>
+		<li id="type-script" class="">
+			<a href="#">type script</a>
+		</li>
+	</ul>
+<p><ul class="tab-content" id="solution-tabs_172" data-name="solution-tabs_172">
+<li class="active"></p>
+<pre class="language-go" tabindex="0"><code class="language-go"><span class="token keyword">package</span> longest_valid_parentheses
+
+<span class="token keyword">func</span> <span class="token function">longestValidParenthesesStack</span><span class="token punctuation">(</span>s <span class="token builtin">string</span><span class="token punctuation">)</span> <span class="token builtin">int</span> <span class="token punctuation">{</span>
+	stack <span class="token operator">:=</span> <span class="token function">make</span><span class="token punctuation">(</span><span class="token punctuation">[</span><span class="token punctuation">]</span><span class="token builtin">int</span><span class="token punctuation">,</span> <span class="token number">0</span><span class="token punctuation">,</span> <span class="token function">len</span><span class="token punctuation">(</span>s<span class="token punctuation">)</span><span class="token punctuation">)</span>
+	stack <span class="token operator">=</span> <span class="token function">append</span><span class="token punctuation">(</span>stack<span class="token punctuation">,</span> <span class="token operator">-</span><span class="token number">1</span><span class="token punctuation">)</span>
+	res <span class="token operator">:=</span> <span class="token number">0</span>
+
+	<span class="token keyword">for</span> i <span class="token operator">:=</span> <span class="token number">0</span><span class="token punctuation">;</span> i <span class="token operator">&lt;</span> <span class="token function">len</span><span class="token punctuation">(</span>s<span class="token punctuation">)</span><span class="token punctuation">;</span> i<span class="token operator">++</span> <span class="token punctuation">{</span>
+		<span class="token keyword">if</span> s<span class="token punctuation">[</span>i<span class="token punctuation">]</span> <span class="token operator">==</span> <span class="token char">'('</span> <span class="token punctuation">{</span>
+			stack <span class="token operator">=</span> <span class="token function">append</span><span class="token punctuation">(</span>stack<span class="token punctuation">,</span> i<span class="token punctuation">)</span>
+			<span class="token keyword">continue</span>
+		<span class="token punctuation">}</span>
+
+		stack <span class="token operator">=</span> stack<span class="token punctuation">[</span><span class="token punctuation">:</span><span class="token function">len</span><span class="token punctuation">(</span>stack<span class="token punctuation">)</span><span class="token operator">-</span><span class="token number">1</span><span class="token punctuation">]</span>
+		<span class="token keyword">if</span> <span class="token function">len</span><span class="token punctuation">(</span>stack<span class="token punctuation">)</span> <span class="token operator">==</span> <span class="token number">0</span> <span class="token punctuation">{</span>
+			stack <span class="token operator">=</span> <span class="token function">append</span><span class="token punctuation">(</span>stack<span class="token punctuation">,</span> i<span class="token punctuation">)</span>
+			<span class="token keyword">continue</span>
+		<span class="token punctuation">}</span>
+
+		res <span class="token operator">=</span> <span class="token function">max</span><span class="token punctuation">(</span>res<span class="token punctuation">,</span> i<span class="token operator">-</span>stack<span class="token punctuation">[</span><span class="token function">len</span><span class="token punctuation">(</span>stack<span class="token punctuation">)</span><span class="token operator">-</span><span class="token number">1</span><span class="token punctuation">]</span><span class="token punctuation">)</span>
+	<span class="token punctuation">}</span>
+
+	<span class="token keyword">return</span> res
+<span class="token punctuation">}</span></code></pre>
+<p></li></p>
+<p><li class=""></p>
+<pre class="language-typescript" tabindex="0"><code class="language-typescript"><span class="token keyword">export</span> <span class="token keyword">function</span> <span class="token function">longestValidParenthesesStack</span><span class="token punctuation">(</span>s<span class="token operator">:</span> <span class="token builtin">string</span><span class="token punctuation">)</span><span class="token operator">:</span> <span class="token builtin">number</span> <span class="token punctuation">{</span>
+    <span class="token keyword">let</span> stack<span class="token operator">:</span> <span class="token builtin">number</span><span class="token punctuation">[</span><span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token operator">-</span><span class="token number">1</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
+    <span class="token keyword">let</span> res <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span>
+
+    <span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token keyword">let</span> i <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span> i <span class="token operator">&lt;</span> s<span class="token punctuation">.</span>length<span class="token punctuation">;</span> i<span class="token operator">++</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token keyword">if</span> <span class="token punctuation">(</span>s<span class="token punctuation">[</span>i<span class="token punctuation">]</span> <span class="token operator">===</span> <span class="token string">'('</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+            stack<span class="token punctuation">.</span><span class="token function">push</span><span class="token punctuation">(</span>i<span class="token punctuation">)</span><span class="token punctuation">;</span>
+            <span class="token keyword">continue</span><span class="token punctuation">;</span>
+        <span class="token punctuation">}</span>
+
+        stack<span class="token punctuation">.</span><span class="token function">pop</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token keyword">if</span> <span class="token punctuation">(</span>stack<span class="token punctuation">.</span>length <span class="token operator">===</span> <span class="token number">0</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+            stack<span class="token punctuation">.</span><span class="token function">push</span><span class="token punctuation">(</span>i<span class="token punctuation">)</span><span class="token punctuation">;</span>
+            <span class="token keyword">continue</span><span class="token punctuation">;</span>
+        <span class="token punctuation">}</span>
+
+        res <span class="token operator">=</span> Math<span class="token punctuation">.</span><span class="token function">max</span><span class="token punctuation">(</span>res<span class="token punctuation">,</span> i <span class="token operator">-</span> stack<span class="token punctuation">[</span>stack<span class="token punctuation">.</span>length <span class="token operator">-</span> <span class="token number">1</span><span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+
+    <span class="token keyword">return</span> res<span class="token punctuation">;</span>
+<span class="token punctuation">}</span></code></pre>
+<p></li>
+</ul></p>
+</div>
+<h3 id="oczenka-slozhnosti-1" tabindex="-1">Оценка сложности <a class="header-anchor" href="#oczenka-slozhnosti-1">#</a></h3>
+<p><strong>По времени</strong></p>
+<p>Для этого решения нам необходимо один раз пройтись по переданной нам строке. То есть сложность по
+времени — <code>O(n)</code>.</p>
+<p><strong>По памяти</strong></p>
+<p>В этом решении мы выделили дополнительную память на стек.
+В худшем случае в стек попадут все символы строки, то есть сложность по памяти — <code>O(n)</code>.</p>
 
     </div>
 
     
         <div class="post-original-url">
-            <a href="https://leetcode.com/problems/maximum-number-of-vowels-in-a-substring-of-given-length/description/" target="_blank">Оригинал задачи на Leetcode</a>
+            <a href="https://leetcode.com/problems/longest-valid-parentheses/description/" target="_blank">Оригинал задачи на Leetcode</a>
         </div>
     
             <div class="post-navigation">
                 <div>
-                        <a class="btn" href="/blog/max_number_of_k_sum_pair/">< Предыдущая задача</a>
+                        <a class="btn" href="/blog/leaf_similar_trees/">< Предыдущая задача</a>
                     
                 </div>
                 <div>
-                        <a class="btn" href="/blog/maximum_average_subarray_i/">Следующая задача ></a>
-                    
                 </div>
             </div>
 </section>
