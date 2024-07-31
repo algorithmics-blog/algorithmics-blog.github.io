@@ -1,7 +1,7 @@
 <!doctype html>
 <html lang="ru">
 <head>
-    <title>Разворот целого числа</title>
+    <title>Преобразование строки в целое число (atoi)</title>
 
     
 
@@ -13,16 +13,16 @@
 <!-- Facebook Meta Tags -->
 <meta property="og:url" content="https://algorithmics-blog.github.io">
 <meta property="og:type" content="website">
-<meta property="og:title" content="Разворот целого числа">
+<meta property="og:title" content="Преобразование строки в целое число (atoi)">
 <meta property="og:description" content="Подробный разбор решения задачи с примерами на языках TypeScript и GO">
-<meta property="og:image" content="https://algorithmics-blog.github.io/images/previews/reverse_integer.webp">
+<meta property="og:image" content="https://algorithmics-blog.github.io/images/previews/string_to_integer_atoi.webp">
 
 <!-- Twitter Meta Tags -->
 <meta property="twitter:domain" content="algorithmics-blog.github.io">
 <meta property="twitter:url" content="https://algorithmics-blog.github.io">
-<meta name="twitter:title" content="Разворот целого числа">
+<meta name="twitter:title" content="Преобразование строки в целое число (atoi)">
 <meta name="twitter:description" content="Подробный разбор решения задачи с примерами на языках TypeScript и GO">
-<meta name="twitter:image" content="https://algorithmics-blog.github.io/images/previews/reverse_integer.webp">
+<meta name="twitter:image" content="https://algorithmics-blog.github.io/images/previews/string_to_integer_atoi.webp">
 
     <link rel="icon" type="image/x-icon" href="/favicon.ico">
 
@@ -1349,7 +1349,7 @@ pre[class*="language-"] {
 
 <section class="post-content">
     <div class="post-header">
-        <h1>Разворот целого числа</h1>
+        <h1>Преобразование строки в целое число (atoi)</h1>
 
         <div class="post-complexity">
             
@@ -1382,11 +1382,7 @@ pre[class*="language-"] {
             , 
 
             
-                <a href="/tags/math/" class="post-tag">math</a>
-            , 
-
-            
-                <a href="/tags/integers/" class="post-tag">integers</a>
+                <a href="/tags/string/" class="post-tag">string</a>
             
     </div>
 </div>
@@ -1399,7 +1395,7 @@ pre[class*="language-"] {
 					d="M4 7a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v12a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2zm12-4v4M8 3v4m-4 4h16M7 14h.013m2.997 0h.005m2.995 0h.005m3 0h.005m-3.005 3h.005m-6.01 0h.005m2.995 0h.005"/>
 	</svg>
 
-	<span>08 December 2023</span>
+	<span>01 August 2024</span>
 </div>
 
     </div>
@@ -1407,69 +1403,86 @@ pre[class*="language-"] {
     <div class="post-card task-card"
     <hr>
 <h2 id="opisanie-zadachi" tabindex="-1">Описание задачи <a class="header-anchor" href="#opisanie-zadachi">#</a></h2>
-<p>Дано 32-битное целое число <code>x</code> со знаком.
-Напишите функцию <code>reverse</code>, которая принимает на вход <code>x</code>, а возвращает перевернутое число.</p>
-<p>Если изменение <code>x</code> приводит к выходу значения за пределы диапазона 32-битных целых чисел со знаком <code>[-2<sup>31</sup>, 2<sup>31</sup> - 1]</code>, верните <code>0</code>.
-Учтите, что среда исполнения функции не позволяет хранить 64-битные целые числа со знаком или без знака.</p>
+<p>Реализуйте функцию <code>myAtoi(string s)</code>, которая преобразует строку в 32-битное знаковое целое число.</p>
+<p>Функция должна следовать следующим правилам при чтении строки:</p>
+<ol>
+<li>Пропустить любые ведущие пробелы.</li>
+<li>Проверить наличие знака (<code>+</code> или <code>-</code>).</li>
+<li>Читать следующие символы до тех пор, пока они составляют последовательность цифр.</li>
+<li>Преобразовать эти цифры в целое число.</li>
+<li>Если первая непустая последовательность символов не является допустимым целым числом, вернуть 0.</li>
+<li>Если полученное значение превышает диапазон 32-битного знакового целого числа, вернуть <code>INT_MAX</code> (2<sup>31</sup> - 1)
+или <code>INT_MIN</code> (-2<sup>31</sup>).</li>
+</ol>
 <hr>
 <h2 id="ogranicheniya" tabindex="-1">Ограничения <a class="header-anchor" href="#ogranicheniya">#</a></h2>
 <ul>
-<li>Значение <code>x</code> находится в диапазоне от <code>-2<sup>31</sup></code> до <code>2<sup>31</sup> - 1</code></li>
+<li>Длина строки находится в диапазоне от 0 до 200</li>
+<li>Строка <code>s</code> состоит из английских букв (как заглавных, так и строчных), цифр, знаков <code>' '</code> (
+пробел), <code>'+'</code>, <code>'-'</code> и <code>'.'</code>.</li>
 </ul>
 <hr>
 <h2 id="primery" tabindex="-1">Примеры <a class="header-anchor" href="#primery">#</a></h2>
-<div data-role="tabs"><ul class="tab-content" id="tabs_760672" data-name="tabs_760672">
+<div data-role="tabs"><ul class="tab-content" id="tabs_363443" data-name="tabs_363443">
 <li data-role="tabs-content" data-tab-name="Пример №1">
-<p><strong>Входные данные</strong>: <code>x = 123</code></p>
-<p><strong>Ответ</strong>: <code>321</code></p>
+<p><strong>Входные данные</strong>: <code>&quot;42&quot;</code></p>
+<p><strong>Ответ</strong>: <code>42</code></p>
+<p>Преобразуем строку <code>&quot;42&quot;</code> в целое число 42.</p>
 </li>
 <li data-role="tabs-content" data-tab-name="Пример №2">
-<p><strong>Входные данные</strong>: <code>x = -123</code></p>
-<p><strong>Ответ</strong>: <code>-321</code></p>
+<p><strong>Входные данные</strong>: <code>&quot;   -42&quot;</code></p>
+<p><strong>Ответ</strong>: <code>-42</code></p>
+<p>Пропускаем начальные пробелы и преобразуем строку <code>&quot;-42&quot;</code> в целое число -42.</p>
 </li>
 <li data-role="tabs-content" data-tab-name="Пример №3">
-<p><strong>Входные данные</strong>: <code>x = 120</code></p>
-<p><strong>Ответ</strong>: <code>21</code></p>
+<p><strong>Входные данные</strong>: <code>&quot;4193 with words&quot;</code></p>
+<p><strong>Ответ</strong>: <code>4193</code></p>
+<p>Прекращаем чтение после числовой последовательности, так как первый нечисловой символ - пробел.</p>
 </li>
 <li data-role="tabs-content" data-tab-name="Пример №4">
-<p><strong>Входные данные</strong>: <code>x = 2147483647</code></p>
+<p><strong>Входные данные</strong>: <code>&quot;words and 987&quot;</code></p>
 <p><strong>Ответ</strong>: <code>0</code></p>
-<p>Перевернутое число <code>7463847421</code> выходит за пределы 32-битного диапазона.</p>
+<p>Первый непустой символ - буква, которая не является допустимым числом.</p>
 </li>
 <li data-role="tabs-content" data-tab-name="Пример №5">
-<p><strong>Входные данные</strong>: <code>x = -2147483647</code></p>
-<p><strong>Ответ</strong>: <code>0</code></p>
-<p>Перевернутое число <code>-7463847421</code> выходит за пределы 32-битного диапазона.</p>
+<p><strong>Входные данные</strong>: <code>&quot;-91283472332&quot;</code></p>
+<p><strong>Ответ</strong>: <code>-2147483648</code></p>
+<p>Значение меньше нижнего предела 32-битного знакового целого числа, поэтому возвращаем <code>INT_MIN</code> (-2<sup>31</sup>).</p>
 </li>
 </ul></div>
 <hr>
 <h2 id="reshenie" tabindex="-1">Решение <a class="header-anchor" href="#reshenie">#</a></h2>
-<p>Разобьем задачу на две части:</p>
-<ol>
-<li>Разворот маленького числа. Для этого воспользуемся реализацией функции <code>reverse</code> из задачи <a href="/blog/number_double_reversion/">«Число после двойного переворота»</a></li>
-<li>Обработка возможного переполнения 32-битного пространства.</li>
-</ol>
-<h3 id="perepolnenie-32-bitnogo-prostranstvo" tabindex="-1">Переполнение 32-битного пространство <a class="header-anchor" href="#perepolnenie-32-bitnogo-prostranstvo">#</a></h3>
-<p>Как было сказано в условиях задачи, число не может превышать диапазон 32-битного пространства <code>[-2<sup>31</sup>, 2<sup>31</sup> - 1]</code>.
-Это значит, что если мы попытаемся развернуть число <code>2147483647</code>, то на последней итерации мы получим <code>7463847412</code>, а оно сильно выходит за допустимые границы.</p>
-<p>Как же нам обработать переполнение?</p>
-<p>Давайте определим, что верхняя граница 32-битного диапазона называется <code>MAX_INT</code>, а нижняя — <code>MIN_INT</code>.
-Теперь сформулируем несколько правил.</p>
-<p><strong>Для положительных чисел</strong></p>
+<p>Для того чтобы преобразовать строку в число, нам необходимо проитерироваться по всем символам в строке, проверяя все
+необходимые условия.</p>
+<p>В первую очередь нужно пропустить все ведущие пробелы в строке.
+Для этого запустим цикл типа <code>while</code> и будем увеличивать переменную <code>index</code> для определения позиции, откуда надо
+начинать преобразование числа.</p>
+<p>После этого нам нужно проверить присутствует ли в строке определение знака числа.
+Для этого заведем переменную <code>sign</code>.</p>
 <ul>
-<li>Если <code>res &gt; MAX_INT / 10</code>, то после умножения его на 10 и добавления к нему <code>right</code> мы гарантированно получим переполнение.</li>
-<li>Если <code>res == MAX_INT / 10</code> то после умножения его на 10 и добавления к нему <code>right</code> мы получим переполнение только если <code>right &gt; 7</code>.</li>
+<li>Если встречаем в строке символ <code>+</code>, то устанавливаем значение <code>sign</code> равным <code>1</code>.</li>
+<li>Если встречаем в строке символ <code>-</code>, то устанавливаем значение <code>sign</code> равным <code>-1</code>.</li>
 </ul>
-<p><strong>Для отрицательных чисел</strong></p>
+<p>Если в строке присутствовал знак числа, то еще необходимо увеличить <code>index</code> на единицу.</p>
+<p>Теперь осталось преобразовать оставшиеся символы в число.
+Чтобы проверить, является ли символ в строке числом без приведения типов можно воспользоваться маленьким хаком и
+сравнивать его со строками.</p>
 <ul>
-<li>Если <code>res &lt; MIN_INT / 10</code>, то после умножения его на 10 и добавления к нему <code>right</code> мы гарантированно получим переполнение.</li>
-<li>Если <code>res == MIN_INT / 10</code> то после умножения его на 10 и добавления к нему <code>right</code> мы получим переполнение только если <code>right &lt; -7</code>.</li>
+<li>Если <code>char &lt; &quot;0&quot;</code> или <code>char &gt; &quot;9&quot;</code>, то символ не является числом.
+Как только мы встретили не числовой символ в строке, то дальнейший разбор необходимо прекратить.</li>
+<li>Если смвол является числом, то его необходимо добавить к результирующему числу.
+Для этого надо воспользоваться следующей формулой <code>res = res * 10 + char - '0'</code>.
+Это позволяет прибавить цифру справа к существующему числу.</li>
 </ul>
+<p>После этих операций необходимо проверить, превысило ли число минимальное или максимальное значение.</p>
+<ul>
+<li>Если превышено максимальное значение, то в качестве ответа надо вернуть максимальное.</li>
+<li>Если превышено минимальное значение, то в качестве ответа надо вернуть минимальное.</li>
+</ul>
+<p>В заключение в ответе нужно вернуть ответ <code>res</code> умноженный на знак <code>sign</code>.</p>
 <h3 id="realizacziya" tabindex="-1">Реализация <a class="header-anchor" href="#realizacziya">#</a></h3>
-<p>Обратите внимание, что в Type Script приходится дополнительно округлять числа с плавающей точкой в зависимости от знака.
-Также тут нет констант для минимального и максимального 32-битных чисел, поэтому их приходится определять вручную.</p>
 <div class="code-sample">
-	<ul " class="tab" data-tab="solution-tabs_911" data-name="solution-tabs_911">
+	<ul " class="tab" data-tab="solution-tabs_442" data-name="solution-tabs_442">
 		<li class="active" id="go">
 			<a href="#">go</a>
 		</li>
@@ -1477,87 +1490,120 @@ pre[class*="language-"] {
 			<a href="#">type script</a>
 		</li>
 	</ul>
-<p><ul class="tab-content" id="solution-tabs_911" data-name="solution-tabs_911">
+<p><ul class="tab-content" id="solution-tabs_442" data-name="solution-tabs_442">
 <li class="active"></p>
-<pre class="language-go" tabindex="0"><code class="language-go"><span class="token keyword">package</span> main
+<pre class="language-go" tabindex="0"><code class="language-go"><span class="token keyword">package</span> atoi
 
-<span class="token keyword">import</span> <span class="token punctuation">(</span>
-	<span class="token string">"math"</span>
+<span class="token keyword">const</span> <span class="token punctuation">(</span>
+	maxInt32 <span class="token operator">=</span> <span class="token number">1</span><span class="token operator">&lt;&lt;</span><span class="token number">31</span> <span class="token operator">-</span> <span class="token number">1</span>
+	minInt32 <span class="token operator">=</span> <span class="token operator">-</span><span class="token number">1</span> <span class="token operator">&lt;&lt;</span> <span class="token number">31</span>
 <span class="token punctuation">)</span>
 
-<span class="token keyword">func</span> <span class="token function">reverse</span><span class="token punctuation">(</span>x <span class="token builtin">int</span><span class="token punctuation">)</span> <span class="token builtin">int</span> <span class="token punctuation">{</span>
-	left <span class="token operator">:=</span> x
-	res <span class="token operator">:=</span> <span class="token number">0</span>
+<span class="token keyword">func</span> <span class="token function">myAtoi</span><span class="token punctuation">(</span>s <span class="token builtin">string</span><span class="token punctuation">)</span> <span class="token builtin">int</span> <span class="token punctuation">{</span>
+	<span class="token keyword">var</span> <span class="token punctuation">(</span>
+		res   <span class="token operator">=</span> <span class="token number">0</span>
+		sign  <span class="token operator">=</span> <span class="token number">1</span>
+		index <span class="token operator">=</span> <span class="token number">0</span>
+	<span class="token punctuation">)</span>
 
-	<span class="token keyword">for</span> left <span class="token operator">!=</span> <span class="token number">0</span> <span class="token punctuation">{</span>
-		right <span class="token operator">:=</span> left <span class="token operator">%</span> <span class="token number">10</span>
-		left <span class="token operator">=</span> left <span class="token operator">/</span> <span class="token number">10</span>
+	runes <span class="token operator">:=</span> <span class="token punctuation">[</span><span class="token punctuation">]</span><span class="token function">rune</span><span class="token punctuation">(</span>s<span class="token punctuation">)</span>
 
-		<span class="token keyword">if</span> res <span class="token operator">></span> math<span class="token punctuation">.</span>MaxInt32<span class="token operator">/</span><span class="token number">10</span> <span class="token operator">||</span> res <span class="token operator">==</span> math<span class="token punctuation">.</span>MaxInt32<span class="token operator">/</span><span class="token number">10</span> <span class="token operator">&amp;&amp;</span> right <span class="token operator">></span> <span class="token number">7</span> <span class="token punctuation">{</span>
-			<span class="token keyword">return</span> <span class="token number">0</span>
-		<span class="token punctuation">}</span>
-		<span class="token keyword">if</span> res <span class="token operator">&lt;</span> math<span class="token punctuation">.</span>MinInt32<span class="token operator">/</span><span class="token number">10</span> <span class="token operator">||</span> res <span class="token operator">==</span> math<span class="token punctuation">.</span>MinInt32<span class="token operator">/</span><span class="token number">10</span> <span class="token operator">&amp;&amp;</span> right <span class="token operator">&lt;</span> <span class="token operator">-</span><span class="token number">7</span> <span class="token punctuation">{</span>
-			<span class="token keyword">return</span> <span class="token number">0</span>
-		<span class="token punctuation">}</span>
-
-		res <span class="token operator">=</span> res<span class="token operator">*</span><span class="token number">10</span> <span class="token operator">+</span> right
+	<span class="token keyword">for</span> index <span class="token operator">&lt;</span> <span class="token function">len</span><span class="token punctuation">(</span>s<span class="token punctuation">)</span> <span class="token operator">&amp;&amp;</span> runes<span class="token punctuation">[</span>index<span class="token punctuation">]</span> <span class="token operator">==</span> <span class="token char">' '</span> <span class="token punctuation">{</span>
+		index<span class="token operator">++</span>
 	<span class="token punctuation">}</span>
 
-	<span class="token keyword">return</span> res
+	<span class="token keyword">if</span> index <span class="token operator">&lt;</span> <span class="token function">len</span><span class="token punctuation">(</span>runes<span class="token punctuation">)</span> <span class="token operator">&amp;&amp;</span> runes<span class="token punctuation">[</span>index<span class="token punctuation">]</span> <span class="token operator">==</span> <span class="token char">'-'</span> <span class="token punctuation">{</span>
+		sign <span class="token operator">=</span> <span class="token operator">-</span><span class="token number">1</span>
+		index<span class="token operator">++</span>
+	<span class="token punctuation">}</span> <span class="token keyword">else</span> <span class="token keyword">if</span> index <span class="token operator">&lt;</span> <span class="token function">len</span><span class="token punctuation">(</span>runes<span class="token punctuation">)</span> <span class="token operator">&amp;&amp;</span> runes<span class="token punctuation">[</span>index<span class="token punctuation">]</span> <span class="token operator">==</span> <span class="token char">'+'</span> <span class="token punctuation">{</span>
+		index<span class="token operator">++</span>
+	<span class="token punctuation">}</span>
+
+	<span class="token keyword">for</span> i <span class="token operator">:=</span> index<span class="token punctuation">;</span> i <span class="token operator">&lt;</span> <span class="token function">len</span><span class="token punctuation">(</span>runes<span class="token punctuation">)</span><span class="token punctuation">;</span> i<span class="token operator">++</span> <span class="token punctuation">{</span>
+		char <span class="token operator">:=</span> runes<span class="token punctuation">[</span>i<span class="token punctuation">]</span>
+
+		<span class="token keyword">if</span> char <span class="token operator">&lt;</span> <span class="token char">'0'</span> <span class="token operator">||</span> char <span class="token operator">></span> <span class="token char">'9'</span> <span class="token punctuation">{</span>
+			<span class="token keyword">break</span>
+		<span class="token punctuation">}</span>
+
+		res <span class="token operator">=</span> res<span class="token operator">*</span><span class="token number">10</span> <span class="token operator">+</span> <span class="token function">int</span><span class="token punctuation">(</span>char<span class="token operator">-</span><span class="token char">'0'</span><span class="token punctuation">)</span>
+		<span class="token keyword">if</span> sign<span class="token operator">*</span>res <span class="token operator">></span> maxInt32 <span class="token punctuation">{</span>
+			<span class="token keyword">return</span> maxInt32
+		<span class="token punctuation">}</span>
+		<span class="token keyword">if</span> sign<span class="token operator">*</span>res <span class="token operator">&lt;</span> minInt32 <span class="token punctuation">{</span>
+			<span class="token keyword">return</span> minInt32
+		<span class="token punctuation">}</span>
+	<span class="token punctuation">}</span>
+
+	<span class="token keyword">return</span> sign <span class="token operator">*</span> res
 <span class="token punctuation">}</span></code></pre>
 <p></li></p>
 <p><li class=""></p>
-<pre class="language-typescript" tabindex="0"><code class="language-typescript"><span class="token keyword">export</span> <span class="token keyword">const</span> reverse <span class="token operator">=</span> <span class="token punctuation">(</span>x<span class="token operator">:</span> <span class="token builtin">number</span><span class="token punctuation">)</span><span class="token operator">:</span> <span class="token builtin">number</span> <span class="token operator">=></span> <span class="token punctuation">{</span>
-    <span class="token keyword">const</span> maxInt32 <span class="token operator">=</span> Math<span class="token punctuation">.</span><span class="token function">pow</span><span class="token punctuation">(</span><span class="token number">2</span><span class="token punctuation">,</span> <span class="token number">31</span><span class="token punctuation">)</span> <span class="token operator">-</span> <span class="token number">1</span><span class="token punctuation">;</span>
-    <span class="token keyword">const</span> minInt32 <span class="token operator">=</span> Math<span class="token punctuation">.</span><span class="token function">pow</span><span class="token punctuation">(</span><span class="token number">2</span><span class="token punctuation">,</span> <span class="token number">31</span><span class="token punctuation">)</span> <span class="token operator">*</span> <span class="token operator">-</span><span class="token number">1</span><span class="token punctuation">;</span>
+<pre class="language-typescript" tabindex="0"><code class="language-typescript"><span class="token keyword">export</span> <span class="token keyword">function</span> <span class="token function">myAtoi</span><span class="token punctuation">(</span>s<span class="token operator">:</span> <span class="token builtin">string</span><span class="token punctuation">)</span><span class="token operator">:</span> <span class="token builtin">number</span> <span class="token punctuation">{</span>
+    <span class="token keyword">const</span> maxInt32 <span class="token operator">=</span> <span class="token number">2</span><span class="token operator">**</span><span class="token number">31</span> <span class="token operator">-</span> <span class="token number">1</span><span class="token punctuation">;</span>
+    <span class="token keyword">const</span> minInt32 <span class="token operator">=</span> <span class="token number">2</span><span class="token operator">**</span><span class="token number">31</span> <span class="token operator">*</span> <span class="token operator">-</span><span class="token number">1</span><span class="token punctuation">;</span>
 
-    <span class="token keyword">let</span> left <span class="token operator">=</span> x
-    <span class="token keyword">let</span> res <span class="token operator">=</span> <span class="token number">0</span>
+    <span class="token keyword">let</span> res <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span>
+    <span class="token keyword">let</span> sign <span class="token operator">=</span> <span class="token number">1</span><span class="token punctuation">;</span>
+    <span class="token keyword">let</span> index <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span>
 
-    <span class="token keyword">while</span> <span class="token punctuation">(</span>left <span class="token operator">!==</span> <span class="token number">0</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
-        <span class="token keyword">const</span> right <span class="token operator">=</span> left <span class="token operator">%</span> <span class="token number">10</span>
-        left <span class="token operator">=</span> left <span class="token operator">></span> <span class="token number">0</span> <span class="token operator">?</span> Math<span class="token punctuation">.</span><span class="token function">floor</span><span class="token punctuation">(</span>left <span class="token operator">/</span> <span class="token number">10</span><span class="token punctuation">)</span> <span class="token operator">:</span> Math<span class="token punctuation">.</span><span class="token function">ceil</span><span class="token punctuation">(</span>left <span class="token operator">/</span> <span class="token number">10</span><span class="token punctuation">)</span>
-
-        <span class="token keyword">const</span> max <span class="token operator">=</span> Math<span class="token punctuation">.</span><span class="token function">floor</span><span class="token punctuation">(</span>maxInt32 <span class="token operator">/</span> <span class="token number">10</span><span class="token punctuation">)</span>
-        <span class="token keyword">const</span> min <span class="token operator">=</span> Math<span class="token punctuation">.</span><span class="token function">ceil</span><span class="token punctuation">(</span>minInt32 <span class="token operator">/</span> <span class="token number">10</span><span class="token punctuation">)</span>
-
-        <span class="token keyword">if</span> <span class="token punctuation">(</span>res <span class="token operator">></span> max <span class="token operator">||</span> res <span class="token operator">==</span> max <span class="token operator">&amp;&amp;</span> right <span class="token operator">></span> <span class="token number">7</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
-            <span class="token keyword">return</span> <span class="token number">0</span>
-        <span class="token punctuation">}</span>
-        <span class="token keyword">if</span> <span class="token punctuation">(</span>res <span class="token operator">&lt;</span> min <span class="token operator">||</span> res <span class="token operator">==</span> min <span class="token operator">&amp;&amp;</span> right <span class="token operator">&lt;</span> <span class="token operator">-</span><span class="token number">7</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
-            <span class="token keyword">return</span> <span class="token number">0</span>
-        <span class="token punctuation">}</span>
-
-        res <span class="token operator">=</span> res <span class="token operator">*</span> <span class="token number">10</span> <span class="token operator">+</span> right
+    <span class="token keyword">while</span> <span class="token punctuation">(</span>index <span class="token operator">&lt;</span> s<span class="token punctuation">.</span>length <span class="token operator">&amp;&amp;</span> s<span class="token punctuation">[</span>index<span class="token punctuation">]</span> <span class="token operator">===</span> <span class="token string">' '</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        index<span class="token operator">++</span><span class="token punctuation">;</span>
     <span class="token punctuation">}</span>
 
-    <span class="token keyword">return</span> res
+    <span class="token keyword">if</span> <span class="token punctuation">(</span>index <span class="token operator">&lt;</span> s<span class="token punctuation">.</span>length <span class="token operator">&amp;&amp;</span> s<span class="token punctuation">[</span>index<span class="token punctuation">]</span> <span class="token operator">===</span> <span class="token string">'-'</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        sign <span class="token operator">=</span> <span class="token operator">-</span><span class="token number">1</span><span class="token punctuation">;</span>
+        index<span class="token operator">++</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span> <span class="token keyword">else</span> <span class="token keyword">if</span> <span class="token punctuation">(</span>index <span class="token operator">&lt;</span> s<span class="token punctuation">.</span>length <span class="token operator">&amp;&amp;</span> s<span class="token punctuation">[</span>index<span class="token punctuation">]</span> <span class="token operator">===</span> <span class="token string">'+'</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        index<span class="token operator">++</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+
+    <span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token keyword">let</span> i <span class="token operator">=</span> index<span class="token punctuation">;</span> i <span class="token operator">&lt;</span> s<span class="token punctuation">.</span>length<span class="token punctuation">;</span> i<span class="token operator">++</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token keyword">const</span> char <span class="token operator">=</span> s<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">;</span>
+
+        <span class="token keyword">if</span> <span class="token punctuation">(</span>char <span class="token operator">&lt;</span> <span class="token string">'0'</span> <span class="token operator">||</span> char <span class="token operator">></span> <span class="token string">'9'</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+            <span class="token keyword">break</span><span class="token punctuation">;</span>
+        <span class="token punctuation">}</span>
+
+        res <span class="token operator">=</span> res <span class="token operator">*</span> <span class="token number">10</span> <span class="token operator">+</span> <span class="token punctuation">(</span>char<span class="token punctuation">.</span><span class="token function">charCodeAt</span><span class="token punctuation">(</span><span class="token number">0</span><span class="token punctuation">)</span> <span class="token operator">-</span> <span class="token string">'0'</span><span class="token punctuation">.</span><span class="token function">charCodeAt</span><span class="token punctuation">(</span><span class="token number">0</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token keyword">if</span> <span class="token punctuation">(</span>sign <span class="token operator">*</span> res <span class="token operator">></span> maxInt32<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+            <span class="token keyword">return</span> maxInt32<span class="token punctuation">;</span>
+        <span class="token punctuation">}</span>
+        <span class="token keyword">if</span> <span class="token punctuation">(</span>sign <span class="token operator">*</span> res <span class="token operator">&lt;</span> minInt32<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+            <span class="token keyword">return</span> minInt32<span class="token punctuation">;</span>
+        <span class="token punctuation">}</span>
+    <span class="token punctuation">}</span>
+
+    <span class="token keyword">if</span> <span class="token punctuation">(</span>res <span class="token operator">===</span> <span class="token number">0</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token comment">// Обрабатываем случай, когда res = 0 и sign = -1. В таком случае JS вернет в качестве ответа «-0»</span>
+        <span class="token keyword">return</span> res
+    <span class="token punctuation">}</span>
+
+    <span class="token keyword">return</span> sign <span class="token operator">*</span> res<span class="token punctuation">;</span>
 <span class="token punctuation">}</span></code></pre>
 <p></li>
 </ul></p>
 </div>
 <h3 id="oczenka-slozhnosti" tabindex="-1">Оценка сложности <a class="header-anchor" href="#oczenka-slozhnosti">#</a></h3>
+<p><code>n</code> - длина строки</p>
 <p><strong>По времени</strong></p>
-<p>Для разворота числа нам нужно произвести <code>k</code> итераций, где <code>k</code> — количество цифр в числе, что примерно равно<code>log(x)</code>.
-Поэтому сложность равна <code>O(log(x))</code>.</p>
+<p>Сложность по времени линейная — <code>O(n)</code>, так как мы итерируемся по всем элементам массива в худшем случае.</p>
 <p><strong>По памяти</strong></p>
-<p><code>O(1)</code> — дополнительная память константна.</p>
+<p>Сложность по памяти константная — <code>O(1)</code>, так как мы не создаем дополнительных переменных.</p>
 
     </div>
 
     
         <div class="post-original-url">
-            <a href="https://leetcode.com/problems/reverse-integer/description/" target="_blank">Оригинал задачи на Leetcode</a>
+            <a href="https://leetcode.com/problems/string-to-integer-atoi/" target="_blank">Оригинал задачи на Leetcode</a>
         </div>
     
             <div class="post-navigation">
                 <div>
-                        <a class="btn" href="/blog/reverse_linked_list/">< Предыдущая задача</a>
+                        <a class="btn" href="/blog/longest_valid_parentheses/">< Предыдущая задача</a>
                     
                 </div>
                 <div>
-                        <a class="btn" href="/blog/asteroid_collision/">Следующая задача ></a>
-                    
                 </div>
             </div>
 </section>
