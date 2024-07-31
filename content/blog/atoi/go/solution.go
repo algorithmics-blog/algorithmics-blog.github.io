@@ -1,11 +1,11 @@
 package atoi
 
-func myAtoi(s string) int {
-	const (
-		maxInt32 = 1<<31 - 1
-		minInt32 = -1 << 31
-	)
+const (
+	maxInt32 = 1<<31 - 1
+	minInt32 = -1 << 31
+)
 
+func myAtoi(s string) int {
 	var (
 		res   = 0
 		sign  = 1
