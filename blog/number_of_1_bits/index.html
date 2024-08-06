@@ -1,7 +1,7 @@
 <!doctype html>
 <html lang="ru">
 <head>
-    <title>Лучшее время для покупки и продажи акций II</title>
+    <title>Количество установленных битов</title>
 
     
 
@@ -13,16 +13,16 @@
 <!-- Facebook Meta Tags -->
 <meta property="og:url" content="https://algorithmics-blog.github.io">
 <meta property="og:type" content="website">
-<meta property="og:title" content="Лучшее время для покупки и продажи акций II">
+<meta property="og:title" content="Количество установленных битов">
 <meta property="og:description" content="Подробный разбор решения задачи с примерами на языках TypeScript и GO">
-<meta property="og:image" content="https://algorithmics-blog.github.io/images/previews/best_time_to_buy_and_sell_stock_2.webp">
+<meta property="og:image" content="https://algorithmics-blog.github.io/images/previews/number_of_1_bits.webp">
 
 <!-- Twitter Meta Tags -->
 <meta property="twitter:domain" content="algorithmics-blog.github.io">
 <meta property="twitter:url" content="https://algorithmics-blog.github.io">
-<meta name="twitter:title" content="Лучшее время для покупки и продажи акций II">
+<meta name="twitter:title" content="Количество установленных битов">
 <meta name="twitter:description" content="Подробный разбор решения задачи с примерами на языках TypeScript и GO">
-<meta name="twitter:image" content="https://algorithmics-blog.github.io/images/previews/best_time_to_buy_and_sell_stock_2.webp">
+<meta name="twitter:image" content="https://algorithmics-blog.github.io/images/previews/number_of_1_bits.webp">
 
     <link rel="icon" type="image/x-icon" href="/favicon.ico">
 
@@ -1349,13 +1349,13 @@ pre[class*="language-"] {
 
 <section class="post-content">
     <div class="post-header">
-        <h1>Лучшее время для покупки и продажи акций II</h1>
+        <h1>Количество установленных битов</h1>
 
         <div class="post-complexity">
             
+    <span class="complexity complexity_easy">Легкая</span>
 
 
-    <span class="complexity complexity_medium">Средняя</span>
 
 
 
@@ -1378,15 +1378,11 @@ pre[class*="language-"] {
     <div>
 
             
-                <a href="/tags/medium/" class="post-tag">medium</a>
+                <a href="/tags/easy/" class="post-tag">easy</a>
             , 
 
             
-                <a href="/tags/array/" class="post-tag">array</a>
-            , 
-
-            
-                <a href="/tags/dynamic-programming/" class="post-tag">dynamic programming</a>
+                <a href="/tags/bit-manipulation/" class="post-tag">bit manipulation</a>
             
     </div>
 </div>
@@ -1399,7 +1395,7 @@ pre[class*="language-"] {
 					d="M4 7a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v12a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2zm12-4v4M8 3v4m-4 4h16M7 14h.013m2.997 0h.005m2.995 0h.005m3 0h.005m-3.005 3h.005m-6.01 0h.005m2.995 0h.005"/>
 	</svg>
 
-	<span>27 August 2023</span>
+	<span>06 August 2024</span>
 </div>
 
     </div>
@@ -1407,56 +1403,81 @@ pre[class*="language-"] {
     <div class="post-card task-card"
     <hr>
 <h2 id="opisanie-zadachi" tabindex="-1">Описание задачи <a class="header-anchor" href="#opisanie-zadachi">#</a></h2>
-<p>Дан целочисленный массив цен <code>prices</code>, где <code>prices[i]</code> — цена акции на <code>i-й</code> день.</p>
-<p>Каждый день вы можете принять решение о покупке и/или продаже акции.
-Вы можете одновременно владеть не более одной акцией.</p>
-<p>Найдите и верните максимальную прибыль, которую вы можете получить.</p>
+<p>Напишите функцию, которая принимает положительное целое число и возвращает количество
+установленных битов (равных <code>1</code>) в его двоичном представлении.</p>
+<p>Количество установленных битов также называется <a href="https://en.wikipedia.org/wiki/Hamming_weight">весом Хэмминга</a>.</p>
 <hr>
 <h2 id="ogranicheniya" tabindex="-1">Ограничения <a class="header-anchor" href="#ogranicheniya">#</a></h2>
 <ul>
-<li>В массиве может быть от 1 до 3 * 10<sup>4</sup> элементов</li>
-<li>В качестве значений могут быть числа в диапазоне от 0 до 10<sup>4</sup></li>
+<li>Значение <code>n</code> находится в диапазоне от <code>1</code> до <code>2<sup>31</sup> - 1</code></li>
 </ul>
 <hr>
 <h2 id="primery" tabindex="-1">Примеры <a class="header-anchor" href="#primery">#</a></h2>
-<div data-role="tabs"><ul class="tab-content" id="tabs_954499" data-name="tabs_954499">
+<div data-role="tabs"><ul class="tab-content" id="tabs_45531" data-name="tabs_45531">
 <li data-role="tabs-content" data-tab-name="Пример №1">
-<p><strong>Входные данные</strong>: <code>[7,1,5,3,6,4]</code></p>
-<p><strong>Ответ</strong>: <code>7</code></p>
-<p>Покупайте в день 2 (цена = 1) и продавайте в день 3 (цена = 5), прибыль равна <code>5 - 1 = 4</code>.</p>
-<p>Затем купите в день 4 (цена = 3) и продайте в день 5 (цена = 6), прибыль равна <code>6 - 3 = 3</code>.</p>
-<p>Общая прибыль равна <code>4 + 3 = 7</code>.</p>
+<p><strong>Входные данные</strong>: <code>n = 11</code></p>
+<p><strong>Ответ</strong>: <code>3</code></p>
+<p><strong>Объяснение:</strong> В двоичном представлении число имеет в общей сложности три установленных бита — <code>1011</code>.</p>
 </li>
 <li data-role="tabs-content" data-tab-name="Пример №2">
-<p><strong>Входные данные</strong>: <code>[1,2,3,4,5]</code></p>
-<p><strong>Ответ</strong>: <code>4</code></p>
-<p>Покупайте в день 1 (цена = 1) и продавайте в день 5 (цена = 5)</p>
-<p>Прибыль равна <code>5 - 1 = 4</code>.</p>
+<p><strong>Входные данные</strong>: <code>n = 128</code></p>
+<p><strong>Ответ</strong>: <code>1</code></p>
+<p><strong>Объяснение:</strong> В двоичном представлении число имеет в общей сложности один установленный бит — <code>10000000</code>.</p>
 </li>
 <li data-role="tabs-content" data-tab-name="Пример №3">
-<p><strong>Входные данные</strong>: <code>[7,6,4,3,1]</code></p>
-<p><strong>Ответ</strong>: <code>0</code></p>
-<p>Невозможно получить положительную прибыль, поэтому мы никогда не покупаем акции.</p>
-<p>Прибыль равна <code>0</code>.</p>
+<p><strong>Входные данные</strong>: <code>n = 2147483645</code></p>
+<p><strong>Ответ</strong>: <code>30</code></p>
+<p><strong>Объяснение:</strong> В двоичном представлении число имеет в общей сложности тридцать установленных
+битов — <code>1111111111111111111111111111101</code>.</p>
 </li>
 </ul></div>
 <hr>
-<h2 id="reshenie-cherez-lokalnye-minimumy-i-maksimumy" tabindex="-1">Решение через локальные минимумы и максимумы <a class="header-anchor" href="#reshenie-cherez-lokalnye-minimumy-i-maksimumy">#</a></h2>
-<p>Для получения максимальной прибыли при торговле акциями нам необходимо покупать их по самой низкой цене и продавать по самой высокой.
-Это означает, что покупки нужно делать в локальных минимумах, а продажу в локальных максимумах.</p>
-<p>Возьмем для примера следующий массив цен в долларах <code>[20, 10, 15, 5, 10, 20, 10]</code> и представим его в виде графика.</p>
-<p><img src="/images/resources/chart.jpg" alt="График цен"></p>
-<p>Теперь на графике хорошо видно, что нам нужно сделать две покупки и две продажи:</p>
+<h2 id="reshenie-cherez-podschet-populyaczii-pop-count" tabindex="-1">Решение через подсчет популяции (Pop Count) <a class="header-anchor" href="#reshenie-cherez-podschet-populyaczii-pop-count">#</a></h2>
+<p>В качестве первого решения рассмотрим наиболее интуитивно понятный способ — буквально посчитать, сколько есть единиц в
+двоичном представлении числа. Такой способ называется подсчетом популяции, он же — pop count.</p>
+<p>Однако, чтобы не приводить каким-то специальным способом число в двоичное представление, а потом итерироваться по
+каждому биту, мы, как всегда, воспользуемся хитростью.</p>
+<p>Из условия задачи мы знаем, что <code>n</code> может иметь значения в диапазоне от <code>1</code> до <code>2<sup>31</sup> - 1</code>.
+Это означает, что мы рассматриваем 32-битные числа. То есть число <code>n</code> содержит максимум 32 бита.</p>
+<p>Теперь возьмем для примера число <code>13</code> и представим его в двоичном виде.</p>
+<p><code>13 -&gt; 1101</code></p>
+<p>Чтобы понять, равен ли определенный бит в числе единице, этот бит нужно умножить на <code>1</code> и посмотреть на результат.
+Если результат равен <code>1</code>, то и бит тоже равен <code>1</code>. В противном случае бит равен нулю.</p>
+<p>Это определяется правилами побитового умножения. Если в одном операнде всегда стоит единица, то результат
+операции может быть равен единице только в том случае, если второй операнд тоже равен <code>1</code>.</p>
 <ul>
-<li>купить акцию на второй день за 10 и продать на третий день за 15</li>
-<li>купить акцию на четвертый день за 5 и продать на шестой день за 20</li>
+<li><code>0 &amp; 1 = 0</code></li>
+<li><code>1 &amp; 1 = 1</code></li>
 </ul>
-<p>В итоге мы сможем получить максимальную прибыль и заработать $20.</p>
-<p>Таким образом решение задачи сводится к тому, что нужно проходить весь массив и искать в нем локальные минимумы и локальные максимумы.
-Как только мы встречаем минимум, мы запоминаем цену в этот день. Как только встречаем максимум, мы вычисляем разницу между
-последним минимумом и максимальной ценой и прибавляем ее к нашему общему заработку.</p>
+<p>Это означает, что мы можем пройтись по каждому из 32 битов числа <code>n</code> и умножить его побитово на <code>1</code>.
+Если результат равен единице, то мы можем увеличить счетчик установленных битов на <code>1</code>.
+После подсчета всех 32 битов мы получим количество установленных битов в счетчике.</p>
+<p>Однако встает вопрос, как это сделать.
+В каждом языке программирования есть операция побитового умножения двух чисел — <code>&amp;</code>.
+Она берет два числа, побитово их умножает и получает третье число, которое в двоичном представлении является результатом
+этого побитового умножения.</p>
+<p>Мы заведем маску <code>mask</code>, которая на самом деле является целым числом, и счетчик <code>count</code>.
+Начальное значение <code>mask</code> будет равно <code>1</code>. Теперь посмотрим на наглядный пример решения.</p>
+<p>Представим наше число 13 и маску в двоичном виде и проведем между ними побитовое умножение.</p>
+<p><code>1101 &amp; 0001 = 0001 = 1</code></p>
+<p>В качестве результата получилось положительное число, то есть в первом бите числа <code>n</code> находится единица.
+Увеличиваем счетчик установленных битов <code>count</code> на <code>1</code>.
+Теперь сдвинем единицу в маске на одну позицию влево и сделаем то же самое.</p>
+<p><code>1101 &amp; 0010 = 0000 = 0</code></p>
+<p>В качестве результата получился ноль, то есть во втором бите числа <code>n</code> находится ноль.
+В этом случае мы не увеличиваем счетчик.
+Далее используем этот же алгоритм для оставшихся битов.</p>
+<p><code>1101 &amp; 0100 = 0100 = 4</code></p>
+<p>Так в ответе мы получили <code>4</code>, а не <code>0</code>, это означает, что на месте единицы в маске в числе <code>n</code> бит также равен единице.
+Увеличиваем счетчик установленных битов <code>count</code> на <code>1</code>.</p>
+<p><code>1101 &amp; 1000 = 1000 = 8</code></p>
+<p>По такой же логике мы понимаем, что в старшем бите числа <code>n</code> также находится единица.
+Таким образом мы получили <code>count = 3</code>, то есть в числе <code>n = 13</code> три установленных бита.</p>
+<p>Остался последний вопрос. Как сдвигать единицу в маске?
+Для этого мы воспользуемся операцией побитового сдвига влево <code>&lt;&lt;</code>.</p>
+<h3 id="realizacziya" tabindex="-1">Реализация <a class="header-anchor" href="#realizacziya">#</a></h3>
 <div class="code-sample">
-	<ul " class="tab" data-tab="solution-tabs_720" data-name="solution-tabs_720">
+	<ul " class="tab" data-tab="solution-tabs_335" data-name="solution-tabs_335">
 		<li class="active" id="go">
 			<a href="#">go</a>
 		</li>
@@ -1464,68 +1485,62 @@ pre[class*="language-"] {
 			<a href="#">type script</a>
 		</li>
 	</ul>
-<p><ul class="tab-content" id="solution-tabs_720" data-name="solution-tabs_720">
+<p><ul class="tab-content" id="solution-tabs_335" data-name="solution-tabs_335">
 <li class="active"></p>
-<pre class="language-go" tabindex="0"><code class="language-go"><span class="token keyword">package</span> main
+<pre class="language-go" tabindex="0"><code class="language-go"><span class="token keyword">package</span> number_of_1_bits
 
-<span class="token keyword">func</span> <span class="token function">maxProfitMinMax</span><span class="token punctuation">(</span>prices <span class="token punctuation">[</span><span class="token punctuation">]</span><span class="token builtin">int</span><span class="token punctuation">)</span> <span class="token builtin">int</span> <span class="token punctuation">{</span>
-	res <span class="token operator">:=</span> <span class="token number">0</span>
-	min <span class="token operator">:=</span> prices<span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span>
-	max <span class="token operator">:=</span> prices<span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span>
+<span class="token keyword">func</span> <span class="token function">hammingWeightPopCount</span><span class="token punctuation">(</span>n <span class="token builtin">int</span><span class="token punctuation">)</span> <span class="token builtin">int</span> <span class="token punctuation">{</span>
+	mask <span class="token operator">:=</span> <span class="token number">1</span>
+	count <span class="token operator">:=</span> <span class="token number">0</span>
 
-	<span class="token keyword">for</span> i <span class="token operator">:=</span> <span class="token number">1</span><span class="token punctuation">;</span> i <span class="token operator">&lt;</span> <span class="token function">len</span><span class="token punctuation">(</span>prices<span class="token punctuation">)</span><span class="token punctuation">;</span> i<span class="token operator">++</span> <span class="token punctuation">{</span>
-		<span class="token keyword">if</span> prices<span class="token punctuation">[</span>i<span class="token punctuation">]</span> <span class="token operator">></span> max <span class="token punctuation">{</span>
-			max <span class="token operator">=</span> prices<span class="token punctuation">[</span>i<span class="token punctuation">]</span>
-		<span class="token punctuation">}</span> <span class="token keyword">else</span> <span class="token punctuation">{</span>
-			res <span class="token operator">+=</span> max <span class="token operator">-</span> min
-			min <span class="token operator">=</span> prices<span class="token punctuation">[</span>i<span class="token punctuation">]</span>
-			max <span class="token operator">=</span> prices<span class="token punctuation">[</span>i<span class="token punctuation">]</span>
+	<span class="token keyword">for</span> i <span class="token operator">:=</span> <span class="token number">0</span><span class="token punctuation">;</span> i <span class="token operator">&lt;</span> <span class="token number">32</span><span class="token punctuation">;</span> i<span class="token operator">++</span> <span class="token punctuation">{</span>
+		<span class="token keyword">if</span> n<span class="token operator">&amp;</span>mask <span class="token operator">!=</span> <span class="token number">0</span> <span class="token punctuation">{</span>
+			count<span class="token operator">++</span>
 		<span class="token punctuation">}</span>
+		mask <span class="token operator">&lt;&lt;=</span> <span class="token number">1</span>
 	<span class="token punctuation">}</span>
 
-	res <span class="token operator">+=</span> max <span class="token operator">-</span> min
-
-	<span class="token keyword">return</span> res
+	<span class="token keyword">return</span> count
 <span class="token punctuation">}</span></code></pre>
 <p></li></p>
 <p><li class=""></p>
-<pre class="language-typescript" tabindex="0"><code class="language-typescript"><span class="token keyword">export</span> <span class="token keyword">const</span> maxProfitMinMax <span class="token operator">=</span> <span class="token punctuation">(</span>prices<span class="token operator">:</span> <span class="token builtin">number</span><span class="token punctuation">[</span><span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token operator">:</span> <span class="token builtin">number</span> <span class="token operator">=></span> <span class="token punctuation">{</span>
-    <span class="token keyword">let</span> res <span class="token operator">=</span> <span class="token number">0</span>
-    <span class="token keyword">let</span> min <span class="token operator">=</span> prices<span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span>
-    <span class="token keyword">let</span> max <span class="token operator">=</span> prices<span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span>
+<pre class="language-typescript" tabindex="0"><code class="language-typescript"><span class="token keyword">export</span> <span class="token keyword">const</span> hammingWeightPopCount <span class="token operator">=</span> <span class="token punctuation">(</span>n<span class="token operator">:</span> <span class="token builtin">number</span><span class="token punctuation">)</span><span class="token operator">:</span> <span class="token builtin">number</span> <span class="token operator">=></span> <span class="token punctuation">{</span>
+    <span class="token keyword">let</span> mask <span class="token operator">=</span> <span class="token number">1</span>
+    <span class="token keyword">let</span> count <span class="token operator">=</span> <span class="token number">0</span>
 
-    <span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token keyword">let</span> i <span class="token operator">=</span> <span class="token number">1</span><span class="token punctuation">;</span> i <span class="token operator">&lt;</span> prices<span class="token punctuation">.</span>length<span class="token punctuation">;</span> i<span class="token operator">++</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
-        <span class="token keyword">if</span> <span class="token punctuation">(</span>prices<span class="token punctuation">[</span>i<span class="token punctuation">]</span> <span class="token operator">></span> max<span class="token punctuation">)</span> <span class="token punctuation">{</span>
-            max <span class="token operator">=</span> prices<span class="token punctuation">[</span>i<span class="token punctuation">]</span>
-        <span class="token punctuation">}</span> <span class="token keyword">else</span> <span class="token punctuation">{</span>
-            res <span class="token operator">+=</span> max <span class="token operator">-</span> min
-            min <span class="token operator">=</span> prices<span class="token punctuation">[</span>i<span class="token punctuation">]</span>
-            max <span class="token operator">=</span> prices<span class="token punctuation">[</span>i<span class="token punctuation">]</span>
+    <span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token keyword">let</span> i <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span> i <span class="token operator">&lt;</span> <span class="token number">32</span><span class="token punctuation">;</span> i<span class="token operator">++</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token keyword">if</span> <span class="token punctuation">(</span>n <span class="token operator">&amp;</span> mask<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+            count<span class="token operator">++</span>
         <span class="token punctuation">}</span>
+        mask <span class="token operator">&lt;&lt;=</span> <span class="token number">1</span>
     <span class="token punctuation">}</span>
 
-    res <span class="token operator">+=</span> max <span class="token operator">-</span> min
-
-    <span class="token keyword">return</span> res
-<span class="token punctuation">}</span></code></pre>
+    <span class="token keyword">return</span> count
+<span class="token punctuation">}</span><span class="token punctuation">;</span></code></pre>
 <p></li>
 </ul></p>
 </div>
 <h3 id="oczenka-slozhnosti" tabindex="-1">Оценка сложности <a class="header-anchor" href="#oczenka-slozhnosti">#</a></h3>
-<p><code>n</code> - количество элементов в массиве</p>
 <p><strong>По времени</strong></p>
-<p>Сложность по времени линейная — <code>O(n)</code>, так как мы итерируемся по всем элементам массива.</p>
+<p>Так как мы знаем, что число <code>n</code> занимает максимум 32 бита, нам необходимо сделать 32 проверки в цикле.
+Из-за фиксированного количество итераций можно считать сложность константной, то есть — <code>O(1)</code>.</p>
 <p><strong>По памяти</strong></p>
-<p>Сложность по памяти константная — <code>O(1)</code>, так как мы не создаем дополнительных переменных.</p>
-<hr>
-<h2 id="reshenie-cherez-voshodyashhie-trendy" tabindex="-1">Решение через восходящие тренды <a class="header-anchor" href="#reshenie-cherez-voshodyashhie-trendy">#</a></h2>
-<p>Если внимательно посмотреть на график, то можно заметить, что максимальная возможная прибыль складывается из сумм
-разниц стоимости акции между днями на восходящих трендах.</p>
-<p><img src="/images/resources/chart2.jpg" alt="График цен"></p>
-<p>Это значит, что мы можем сильно упростить решение и не запоминать локальные минимумы и максимумы.
-Нам достаточно найти все возрастающие отрезки на графике и просуммировать разницу между ценой акции в эти дни.</p>
+<p><code>O(1)</code> — дополнительная память константна.</p>
+<h2 id="reshenie-cherez-smenu-mladshego-ustanovlennogo-bita" tabindex="-1">Решение через смену младшего установленного бита <a class="header-anchor" href="#reshenie-cherez-smenu-mladshego-ustanovlennogo-bita">#</a></h2>
+<p>Мы можем сделать предыдущий алгоритм проще и немного быстрее.</p>
+<p>Ключевая идея этого решения заключается в том, что при побитовом умножении чисел <code>n</code> и <code>n - 1</code> младший установленный бит
+числа <code>n</code> всегда сменяется на <code>0</code>.
+При этом все остальные биты остаются неизменными.</p>
+<p>Посмотрим на наглядном примере.</p>
+<p><img src="/images/resources/number_of_1_bits.jpg" alt="Пример смены младшего установленного бита"></p>
+<p>Вместо проверки каждого бита числа мы неоднократно обращаем наименее значимый единичный бит числа на <code>0</code> и добавляем <code>1</code> к
+нашему счетчику.
+При этом число <code>n</code> мы заменяем на полученный результат побитового умножения.</p>
+<p>Как только число <code>n</code> становится равным <code>0</code>, мы знаем, что в нем больше не осталось единиц.
+Это означает, что в нашем счетчике <code>count</code> содержится правильное количество единиц, которые были в битовом представлении числа <code>n</code>.</p>
+<h3 id="realizacziya-1" tabindex="-1">Реализация <a class="header-anchor" href="#realizacziya-1">#</a></h3>
 <div class="code-sample">
-	<ul " class="tab" data-tab="solution-tabs_507" data-name="solution-tabs_507">
+	<ul " class="tab" data-tab="solution-tabs_407" data-name="solution-tabs_407">
 		<li class="active" id="go">
 			<a href="#">go</a>
 		</li>
@@ -1533,59 +1548,57 @@ pre[class*="language-"] {
 			<a href="#">type script</a>
 		</li>
 	</ul>
-<p><ul class="tab-content" id="solution-tabs_507" data-name="solution-tabs_507">
+<p><ul class="tab-content" id="solution-tabs_407" data-name="solution-tabs_407">
 <li class="active"></p>
-<pre class="language-go" tabindex="0"><code class="language-go"><span class="token keyword">package</span> main
+<pre class="language-go" tabindex="0"><code class="language-go"><span class="token keyword">package</span> number_of_1_bits
 
-<span class="token keyword">func</span> <span class="token function">maxProfitTrends</span><span class="token punctuation">(</span>prices <span class="token punctuation">[</span><span class="token punctuation">]</span><span class="token builtin">int</span><span class="token punctuation">)</span> <span class="token builtin">int</span> <span class="token punctuation">{</span>
-	res <span class="token operator">:=</span> <span class="token number">0</span>
+<span class="token keyword">func</span> <span class="token function">hammingWeight</span><span class="token punctuation">(</span>n <span class="token builtin">int</span><span class="token punctuation">)</span> <span class="token builtin">int</span> <span class="token punctuation">{</span>
+	count <span class="token operator">:=</span> <span class="token number">0</span>
 
-	<span class="token keyword">for</span> i <span class="token operator">:=</span> <span class="token number">0</span><span class="token punctuation">;</span> i <span class="token operator">&lt;</span> <span class="token function">len</span><span class="token punctuation">(</span>prices<span class="token punctuation">)</span><span class="token operator">-</span><span class="token number">1</span><span class="token punctuation">;</span> i<span class="token operator">++</span> <span class="token punctuation">{</span>
-		<span class="token keyword">if</span> prices<span class="token punctuation">[</span>i<span class="token punctuation">]</span> <span class="token operator">&lt;</span> prices<span class="token punctuation">[</span>i<span class="token operator">+</span><span class="token number">1</span><span class="token punctuation">]</span> <span class="token punctuation">{</span>
-			res <span class="token operator">+=</span> prices<span class="token punctuation">[</span>i<span class="token operator">+</span><span class="token number">1</span><span class="token punctuation">]</span> <span class="token operator">-</span> prices<span class="token punctuation">[</span>i<span class="token punctuation">]</span>
-		<span class="token punctuation">}</span>
+	<span class="token keyword">for</span> n <span class="token operator">!=</span> <span class="token number">0</span> <span class="token punctuation">{</span>
+		count<span class="token operator">++</span>
+		n <span class="token operator">&amp;=</span> n <span class="token operator">-</span> <span class="token number">1</span>
 	<span class="token punctuation">}</span>
 
-	<span class="token keyword">return</span> res
+	<span class="token keyword">return</span> count
 <span class="token punctuation">}</span></code></pre>
 <p></li></p>
 <p><li class=""></p>
-<pre class="language-typescript" tabindex="0"><code class="language-typescript"><span class="token keyword">export</span> <span class="token keyword">const</span> maxProfitTrends <span class="token operator">=</span> <span class="token punctuation">(</span>prices<span class="token operator">:</span> <span class="token builtin">number</span><span class="token punctuation">[</span><span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token operator">:</span> <span class="token builtin">number</span> <span class="token operator">=></span> <span class="token punctuation">{</span>
-    <span class="token keyword">let</span> res <span class="token operator">=</span> <span class="token number">0</span>
+<pre class="language-typescript" tabindex="0"><code class="language-typescript"><span class="token keyword">export</span> <span class="token keyword">const</span> hammingWeight <span class="token operator">=</span> <span class="token punctuation">(</span>n<span class="token operator">:</span> <span class="token builtin">number</span><span class="token punctuation">)</span><span class="token operator">:</span> <span class="token builtin">number</span> <span class="token operator">=></span> <span class="token punctuation">{</span>
+    <span class="token keyword">let</span> count <span class="token operator">=</span> <span class="token number">0</span>
 
-    <span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token keyword">let</span> i <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span> i <span class="token operator">&lt;</span> prices<span class="token punctuation">.</span>length <span class="token operator">-</span> <span class="token number">1</span><span class="token punctuation">;</span> i<span class="token operator">++</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
-        <span class="token keyword">if</span> <span class="token punctuation">(</span>prices<span class="token punctuation">[</span>i<span class="token punctuation">]</span> <span class="token operator">&lt;</span> prices<span class="token punctuation">[</span>i <span class="token operator">+</span> <span class="token number">1</span><span class="token punctuation">]</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
-            res <span class="token operator">+=</span> prices<span class="token punctuation">[</span>i <span class="token operator">+</span> <span class="token number">1</span><span class="token punctuation">]</span> <span class="token operator">-</span> prices<span class="token punctuation">[</span>i<span class="token punctuation">]</span>
-        <span class="token punctuation">}</span>
+    <span class="token keyword">while</span> <span class="token punctuation">(</span>n <span class="token operator">!=</span> <span class="token number">0</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        count<span class="token operator">++</span>
+        n <span class="token operator">&amp;=</span> n <span class="token operator">-</span> <span class="token number">1</span>
     <span class="token punctuation">}</span>
 
-    <span class="token keyword">return</span> res
-<span class="token punctuation">}</span></code></pre>
+    <span class="token keyword">return</span> count
+<span class="token punctuation">}</span><span class="token punctuation">;</span></code></pre>
 <p></li>
 </ul></p>
 </div>
 <h3 id="oczenka-slozhnosti-1" tabindex="-1">Оценка сложности <a class="header-anchor" href="#oczenka-slozhnosti-1">#</a></h3>
-<p><code>n</code> - количество элементов в массиве</p>
 <p><strong>По времени</strong></p>
-<p>Сложность по времени линейная — <code>O(n)</code>, так как мы итерируемся по всем элементам массива.</p>
+<p>Время выполнения зависит от количества единичных битов в числе <code>n</code>.</p>
+<p>В худшем случае все биты <code>n</code> являются единичными.
+Так как мы знаем, что число <code>n</code> занимает максимум 32 бита, нам необходимо сделать 32 итерации цикла в худшем случае.
+Из-за фиксированного количество итераций можно считать сложность константной, то есть — <code>O(1)</code>.</p>
 <p><strong>По памяти</strong></p>
-<p>Сложность по памяти константная — <code>O(1)</code>, так как мы не создаем дополнительных переменных.</p>
+<p><code>O(1)</code> — дополнительная память константна.</p>
 
     </div>
 
     
         <div class="post-original-url">
-            <a href="https://leetcode.com/problems/best-time-to-buy-and-sell-stock-ii/" target="_blank">Оригинал задачи на Leetcode</a>
+            <a href="https://leetcode.com/problems/number-of-1-bits/description/" target="_blank">Оригинал задачи на Leetcode</a>
         </div>
     
             <div class="post-navigation">
                 <div>
-                        <a class="btn" href="/blog/remove_duplicates_from_sorted_array/">< Предыдущая задача</a>
+                        <a class="btn" href="/blog/atoi/">< Предыдущая задача</a>
                     
                 </div>
                 <div>
-                        <a class="btn" href="/blog/two_sum/">Следующая задача ></a>
-                    
                 </div>
             </div>
 </section>
