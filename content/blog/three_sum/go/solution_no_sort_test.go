@@ -2,6 +2,7 @@ package main
 
 import (
 	"github.com/stretchr/testify/assert"
+	"sort"
 	"testing"
 )
 
@@ -21,7 +22,7 @@ func Test_threeSumNoSort(t *testing.T) {
 		{
 			name:   "[-1, 0, 1, 2, -1, -4]",
 			nums:   []int{-1, 0, 1, 2, -1, -4},
-			expRes: [][]int{{-1, 0, 1}, {-1, -1, 2}},
+			expRes: [][]int{{-1, -1, 2}, {-1, 0, 1}},
 		},
 		{
 			name:   "[0, 1, 1]",
@@ -38,6 +39,16 @@ func Test_threeSumNoSort(t *testing.T) {
 	for _, suit := range suits {
 		t.Run(suit.name, func(t *testing.T) {
 			res := threeSumNoSort(suit.nums)
+
+			sort.Slice(res, func(i, j int) bool {
+				for k := range res[i] {
+					if res[i][k] < res[j][k] {
+						return true
+					}
+				}
+
+				return false
+			})
 			assert.Equal(t, suit.expRes, res)
 		})
 	}
