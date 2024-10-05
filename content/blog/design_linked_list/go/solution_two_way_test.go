@@ -5,20 +5,25 @@ import (
 	"testing"
 )
 
-func buildOneWayValues(list OneWayLinkedList) []int {
+func buildTwoWayValues(list TwoWayLinkedList) []int {
 	current := list.head
 	values := make([]int, 0)
+	i := 0
+
 	for current != nil {
-		values = append(values, current.Val)
+		if i != 0 && i != list.size+1 {
+			values = append(values, current.Val)
+		}
 		current = current.Next
+		i++
 	}
 
 	return values
 }
 
-func Test_OneWayLinkedList(t *testing.T) {
+func Test_TwoWayLinkedList(t *testing.T) {
 	t.Run("scenario 1", func(t *testing.T) {
-		list := NewOneWayLinkedList()
+		list := NewTwoWayLinkedList()
 
 		list.AddAtHead(7)
 		list.AddAtHead(2)
@@ -31,28 +36,28 @@ func Test_OneWayLinkedList(t *testing.T) {
 		list.AddAtIndex(5, 0)
 		list.AddAtHead(6)
 
-		values := buildOneWayValues(list)
+		values := buildTwoWayValues(list)
 
 		assert.Equal(t, []int{6, 4, 6, 1, 2, 0, 0, 4}, values)
 		assert.Equal(t, 8, list.size)
 	})
 
 	t.Run("scenario 2", func(t *testing.T) {
-		list := NewOneWayLinkedList()
+		list := NewTwoWayLinkedList()
 
 		list.AddAtHead(1)
 		list.AddAtTail(3)
 		list.AddAtIndex(1, 2)
 		list.DeleteAtIndex(0)
 
-		values := buildOneWayValues(list)
+		values := buildTwoWayValues(list)
 
 		assert.Equal(t, []int{2, 3}, values)
 		assert.Equal(t, 2, list.size)
 	})
 
 	t.Run("scenario 3", func(t *testing.T) {
-		list := NewOneWayLinkedList()
+		list := NewTwoWayLinkedList()
 
 		list.AddAtHead(1)
 		list.AddAtTail(3)
@@ -74,7 +79,7 @@ func Test_OneWayLinkedList(t *testing.T) {
 
 		assert.Equal(t, -1, list.Get(0))
 
-		values := buildOneWayValues(list)
+		values := buildTwoWayValues(list)
 
 		assert.Equal(t, []int{}, values)
 		assert.Equal(t, 0, list.size)
