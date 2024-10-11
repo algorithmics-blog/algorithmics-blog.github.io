@@ -1434,7 +1434,7 @@ pre[class*="language-"] {
 </ul>
 <hr>
 <h2 id="primery" tabindex="-1">Примеры <a class="header-anchor" href="#primery">#</a></h2>
-<div data-role="tabs"><ul class="tab-content" id="tabs_476608" data-name="tabs_476608">
+<div data-role="tabs"><ul class="tab-content" id="tabs_33353" data-name="tabs_33353">
 <li data-role="tabs-content" data-tab-name="Пример">
 <pre class="language-javascript" tabindex="0"><code class="language-javascript"><span class="token comment">// псевдокод</span>
 myLinkedList <span class="token operator">=</span> <span class="token function">MyLinkedList</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
@@ -1521,7 +1521,7 @@ myLinkedList<span class="token punctuation">.</span><span class="token function"
 Затем нужно проставить ссылку с предыдущего на следующий элемент <code>prev.next = prev.next.next</code>.</p>
 <h3 id="realizacziya" tabindex="-1">Реализация <a class="header-anchor" href="#realizacziya">#</a></h3>
 <div class="code-sample">
-	<ul " class="tab" data-tab="solution-tabs_333" data-name="solution-tabs_333">
+	<ul " class="tab" data-tab="solution-tabs_441" data-name="solution-tabs_441">
 		<li class="active" id="go">
 			<a href="#">go</a>
 		</li>
@@ -1529,27 +1529,27 @@ myLinkedList<span class="token punctuation">.</span><span class="token function"
 			<a href="#">type script</a>
 		</li>
 	</ul>
-<p><ul class="tab-content" id="solution-tabs_333" data-name="solution-tabs_333">
+<p><ul class="tab-content" id="solution-tabs_441" data-name="solution-tabs_441">
 <li class="active"></p>
 <pre class="language-go" tabindex="0"><code class="language-go"><span class="token keyword">package</span> design_linked_list
 
-<span class="token keyword">type</span> MyLinkedListNode <span class="token keyword">struct</span> <span class="token punctuation">{</span>
+<span class="token keyword">type</span> OneWayLinkedListNode <span class="token keyword">struct</span> <span class="token punctuation">{</span>
 	Val  <span class="token builtin">int</span>
-	Next <span class="token operator">*</span>MyLinkedListNode
+	Next <span class="token operator">*</span>OneWayLinkedListNode
 <span class="token punctuation">}</span>
 
-<span class="token keyword">type</span> MyLinkedList <span class="token keyword">struct</span> <span class="token punctuation">{</span>
-	head <span class="token operator">*</span>MyLinkedListNode
+<span class="token keyword">type</span> OneWayLinkedList <span class="token keyword">struct</span> <span class="token punctuation">{</span>
+	head <span class="token operator">*</span>OneWayLinkedListNode
 	size <span class="token builtin">int</span>
 <span class="token punctuation">}</span>
 
-<span class="token keyword">func</span> <span class="token function">Constructor</span><span class="token punctuation">(</span><span class="token punctuation">)</span> MyLinkedList <span class="token punctuation">{</span>
-	<span class="token keyword">return</span> MyLinkedList<span class="token punctuation">{</span>
+<span class="token keyword">func</span> <span class="token function">NewOneWayLinkedList</span><span class="token punctuation">(</span><span class="token punctuation">)</span> OneWayLinkedList <span class="token punctuation">{</span>
+	<span class="token keyword">return</span> OneWayLinkedList<span class="token punctuation">{</span>
 		size<span class="token punctuation">:</span> <span class="token number">0</span><span class="token punctuation">,</span>
 	<span class="token punctuation">}</span>
 <span class="token punctuation">}</span>
 
-<span class="token keyword">func</span> <span class="token punctuation">(</span>l <span class="token operator">*</span>MyLinkedList<span class="token punctuation">)</span> <span class="token function">Get</span><span class="token punctuation">(</span>index <span class="token builtin">int</span><span class="token punctuation">)</span> <span class="token builtin">int</span> <span class="token punctuation">{</span>
+<span class="token keyword">func</span> <span class="token punctuation">(</span>l <span class="token operator">*</span>OneWayLinkedList<span class="token punctuation">)</span> <span class="token function">Get</span><span class="token punctuation">(</span>index <span class="token builtin">int</span><span class="token punctuation">)</span> <span class="token builtin">int</span> <span class="token punctuation">{</span>
 	<span class="token keyword">if</span> index <span class="token operator">>=</span> l<span class="token punctuation">.</span>size <span class="token operator">||</span> index <span class="token operator">&lt;</span> <span class="token number">0</span> <span class="token punctuation">{</span>
 		<span class="token keyword">return</span> <span class="token operator">-</span><span class="token number">1</span>
 	<span class="token punctuation">}</span>
@@ -1562,7 +1562,7 @@ myLinkedList<span class="token punctuation">.</span><span class="token function"
 	<span class="token keyword">return</span> curr<span class="token punctuation">.</span>Val
 <span class="token punctuation">}</span>
 
-<span class="token keyword">func</span> <span class="token punctuation">(</span>l <span class="token operator">*</span>MyLinkedList<span class="token punctuation">)</span> <span class="token function">findPrevNode</span><span class="token punctuation">(</span>index <span class="token builtin">int</span><span class="token punctuation">)</span> <span class="token operator">*</span>MyLinkedListNode <span class="token punctuation">{</span>
+<span class="token keyword">func</span> <span class="token punctuation">(</span>l <span class="token operator">*</span>OneWayLinkedList<span class="token punctuation">)</span> <span class="token function">findPrevNode</span><span class="token punctuation">(</span>index <span class="token builtin">int</span><span class="token punctuation">)</span> <span class="token operator">*</span>OneWayLinkedListNode <span class="token punctuation">{</span>
 	curr <span class="token operator">:=</span> l<span class="token punctuation">.</span>head
 
 	<span class="token keyword">for</span> i <span class="token operator">:=</span> <span class="token number">0</span><span class="token punctuation">;</span> i <span class="token operator">&lt;</span> index<span class="token operator">-</span><span class="token number">1</span><span class="token punctuation">;</span> i<span class="token operator">++</span> <span class="token punctuation">{</span>
@@ -1574,15 +1574,15 @@ myLinkedList<span class="token punctuation">.</span><span class="token function"
 	<span class="token keyword">return</span> curr
 <span class="token punctuation">}</span>
 
-<span class="token keyword">func</span> <span class="token punctuation">(</span>l <span class="token operator">*</span>MyLinkedList<span class="token punctuation">)</span> <span class="token function">AddAtHead</span><span class="token punctuation">(</span>val <span class="token builtin">int</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+<span class="token keyword">func</span> <span class="token punctuation">(</span>l <span class="token operator">*</span>OneWayLinkedList<span class="token punctuation">)</span> <span class="token function">AddAtHead</span><span class="token punctuation">(</span>val <span class="token builtin">int</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
 	l<span class="token punctuation">.</span><span class="token function">AddAtIndex</span><span class="token punctuation">(</span><span class="token number">0</span><span class="token punctuation">,</span> val<span class="token punctuation">)</span>
 <span class="token punctuation">}</span>
 
-<span class="token keyword">func</span> <span class="token punctuation">(</span>l <span class="token operator">*</span>MyLinkedList<span class="token punctuation">)</span> <span class="token function">AddAtTail</span><span class="token punctuation">(</span>val <span class="token builtin">int</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+<span class="token keyword">func</span> <span class="token punctuation">(</span>l <span class="token operator">*</span>OneWayLinkedList<span class="token punctuation">)</span> <span class="token function">AddAtTail</span><span class="token punctuation">(</span>val <span class="token builtin">int</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
 	l<span class="token punctuation">.</span><span class="token function">AddAtIndex</span><span class="token punctuation">(</span>l<span class="token punctuation">.</span>size<span class="token punctuation">,</span> val<span class="token punctuation">)</span>
 <span class="token punctuation">}</span>
 
-<span class="token keyword">func</span> <span class="token punctuation">(</span>l <span class="token operator">*</span>MyLinkedList<span class="token punctuation">)</span> <span class="token function">AddAtIndex</span><span class="token punctuation">(</span>index <span class="token builtin">int</span><span class="token punctuation">,</span> val <span class="token builtin">int</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+<span class="token keyword">func</span> <span class="token punctuation">(</span>l <span class="token operator">*</span>OneWayLinkedList<span class="token punctuation">)</span> <span class="token function">AddAtIndex</span><span class="token punctuation">(</span>index <span class="token builtin">int</span><span class="token punctuation">,</span> val <span class="token builtin">int</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
 	<span class="token keyword">if</span> index <span class="token operator">></span> l<span class="token punctuation">.</span>size <span class="token operator">||</span> index <span class="token operator">&lt;</span> <span class="token number">0</span> <span class="token punctuation">{</span>
 		<span class="token keyword">return</span>
 	<span class="token punctuation">}</span>
@@ -1591,7 +1591,7 @@ myLinkedList<span class="token punctuation">.</span><span class="token function"
 
 	<span class="token comment">// Если нужно добавить элемент в голову</span>
 	<span class="token keyword">if</span> index <span class="token operator">==</span> <span class="token number">0</span> <span class="token punctuation">{</span>
-		l<span class="token punctuation">.</span>head <span class="token operator">=</span> <span class="token operator">&amp;</span>MyLinkedListNode<span class="token punctuation">{</span>
+		l<span class="token punctuation">.</span>head <span class="token operator">=</span> <span class="token operator">&amp;</span>OneWayLinkedListNode<span class="token punctuation">{</span>
 			Val<span class="token punctuation">:</span>  val<span class="token punctuation">,</span>
 			Next<span class="token punctuation">:</span> l<span class="token punctuation">.</span>head<span class="token punctuation">,</span>
 		<span class="token punctuation">}</span>
@@ -1601,13 +1601,13 @@ myLinkedList<span class="token punctuation">.</span><span class="token function"
 	prev <span class="token operator">:=</span> l<span class="token punctuation">.</span><span class="token function">findPrevNode</span><span class="token punctuation">(</span>index<span class="token punctuation">)</span>
 
 	<span class="token comment">// Создаем новый узел и обновляем связи</span>
-	prev<span class="token punctuation">.</span>Next <span class="token operator">=</span> <span class="token operator">&amp;</span>MyLinkedListNode<span class="token punctuation">{</span>
+	prev<span class="token punctuation">.</span>Next <span class="token operator">=</span> <span class="token operator">&amp;</span>OneWayLinkedListNode<span class="token punctuation">{</span>
 		Val<span class="token punctuation">:</span>  val<span class="token punctuation">,</span>
 		Next<span class="token punctuation">:</span> prev<span class="token punctuation">.</span>Next<span class="token punctuation">,</span>
 	<span class="token punctuation">}</span>
 <span class="token punctuation">}</span>
 
-<span class="token keyword">func</span> <span class="token punctuation">(</span>l <span class="token operator">*</span>MyLinkedList<span class="token punctuation">)</span> <span class="token function">DeleteAtIndex</span><span class="token punctuation">(</span>index <span class="token builtin">int</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+<span class="token keyword">func</span> <span class="token punctuation">(</span>l <span class="token operator">*</span>OneWayLinkedList<span class="token punctuation">)</span> <span class="token function">DeleteAtIndex</span><span class="token punctuation">(</span>index <span class="token builtin">int</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
 	<span class="token keyword">if</span> index <span class="token operator">&lt;</span> <span class="token number">0</span> <span class="token operator">||</span> index <span class="token operator">></span> l<span class="token punctuation">.</span>size<span class="token operator">-</span><span class="token number">1</span> <span class="token punctuation">{</span>
 		<span class="token keyword">return</span>
 	<span class="token punctuation">}</span>
@@ -1741,6 +1741,8 @@ myLinkedList<span class="token punctuation">.</span><span class="token function"
                     
                 </div>
                 <div>
+                        <a class="btn" href="/blog/maximum_twin_sum_of_a_linked_list/">Следующая задача ></a>
+                    
                 </div>
             </div>
 </section>
