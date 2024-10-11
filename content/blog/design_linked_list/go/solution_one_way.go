@@ -1,22 +1,22 @@
 package design_linked_list
 
-type MyLinkedListNode struct {
+type OneWayLinkedListNode struct {
 	Val  int
-	Next *MyLinkedListNode
+	Next *OneWayLinkedListNode
 }
 
-type MyLinkedList struct {
-	head *MyLinkedListNode
+type OneWayLinkedList struct {
+	head *OneWayLinkedListNode
 	size int
 }
 
-func Constructor() MyLinkedList {
-	return MyLinkedList{
+func NewOneWayLinkedList() OneWayLinkedList {
+	return OneWayLinkedList{
 		size: 0,
 	}
 }
 
-func (l *MyLinkedList) Get(index int) int {
+func (l *OneWayLinkedList) Get(index int) int {
 	if index >= l.size || index < 0 {
 		return -1
 	}
@@ -29,7 +29,7 @@ func (l *MyLinkedList) Get(index int) int {
 	return curr.Val
 }
 
-func (l *MyLinkedList) findPrevNode(index int) *MyLinkedListNode {
+func (l *OneWayLinkedList) findPrevNode(index int) *OneWayLinkedListNode {
 	curr := l.head
 
 	for i := 0; i < index-1; i++ {
@@ -41,15 +41,15 @@ func (l *MyLinkedList) findPrevNode(index int) *MyLinkedListNode {
 	return curr
 }
 
-func (l *MyLinkedList) AddAtHead(val int) {
+func (l *OneWayLinkedList) AddAtHead(val int) {
 	l.AddAtIndex(0, val)
 }
 
-func (l *MyLinkedList) AddAtTail(val int) {
+func (l *OneWayLinkedList) AddAtTail(val int) {
 	l.AddAtIndex(l.size, val)
 }
 
-func (l *MyLinkedList) AddAtIndex(index int, val int) {
+func (l *OneWayLinkedList) AddAtIndex(index int, val int) {
 	if index > l.size || index < 0 {
 		return
 	}
@@ -58,7 +58,7 @@ func (l *MyLinkedList) AddAtIndex(index int, val int) {
 
 	// Если нужно добавить элемент в голову
 	if index == 0 {
-		l.head = &MyLinkedListNode{
+		l.head = &OneWayLinkedListNode{
 			Val:  val,
 			Next: l.head,
 		}
@@ -68,13 +68,13 @@ func (l *MyLinkedList) AddAtIndex(index int, val int) {
 	prev := l.findPrevNode(index)
 
 	// Создаем новый узел и обновляем связи
-	prev.Next = &MyLinkedListNode{
+	prev.Next = &OneWayLinkedListNode{
 		Val:  val,
 		Next: prev.Next,
 	}
 }
 
-func (l *MyLinkedList) DeleteAtIndex(index int) {
+func (l *OneWayLinkedList) DeleteAtIndex(index int) {
 	if index < 0 || index > l.size-1 {
 		return
 	}

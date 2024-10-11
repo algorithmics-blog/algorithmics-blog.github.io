@@ -5,7 +5,7 @@ import (
 	"testing"
 )
 
-func buildValues(list MyLinkedList) []int {
+func buildOneWayValues(list OneWayLinkedList) []int {
 	current := list.head
 	values := make([]int, 0)
 	for current != nil {
@@ -16,9 +16,9 @@ func buildValues(list MyLinkedList) []int {
 	return values
 }
 
-func Test_MyLinkedList(t *testing.T) {
+func Test_OneWayLinkedList(t *testing.T) {
 	t.Run("scenario 1", func(t *testing.T) {
-		list := Constructor()
+		list := NewOneWayLinkedList()
 
 		list.AddAtHead(7)
 		list.AddAtHead(2)
@@ -31,28 +31,28 @@ func Test_MyLinkedList(t *testing.T) {
 		list.AddAtIndex(5, 0)
 		list.AddAtHead(6)
 
-		values := buildValues(list)
+		values := buildOneWayValues(list)
 
 		assert.Equal(t, []int{6, 4, 6, 1, 2, 0, 0, 4}, values)
 		assert.Equal(t, 8, list.size)
 	})
 
 	t.Run("scenario 2", func(t *testing.T) {
-		list := Constructor()
+		list := NewOneWayLinkedList()
 
 		list.AddAtHead(1)
 		list.AddAtTail(3)
 		list.AddAtIndex(1, 2)
 		list.DeleteAtIndex(0)
 
-		values := buildValues(list)
+		values := buildOneWayValues(list)
 
 		assert.Equal(t, []int{2, 3}, values)
 		assert.Equal(t, 2, list.size)
 	})
 
 	t.Run("scenario 3", func(t *testing.T) {
-		list := Constructor()
+		list := NewOneWayLinkedList()
 
 		list.AddAtHead(1)
 		list.AddAtTail(3)
@@ -74,7 +74,7 @@ func Test_MyLinkedList(t *testing.T) {
 
 		assert.Equal(t, -1, list.Get(0))
 
-		values := buildValues(list)
+		values := buildOneWayValues(list)
 
 		assert.Equal(t, []int{}, values)
 		assert.Equal(t, 0, list.size)
