@@ -81,7 +81,6 @@ func findFirstProductWithPrefix(products []string, prefix string) int {
 
 			break
 		}
-
 	}
 
 	res := -1
