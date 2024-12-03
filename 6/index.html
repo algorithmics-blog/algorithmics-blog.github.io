@@ -1,34 +1,30 @@
 <!doctype html>
 <html lang="ru">
 <head>
-    <title>Сумма двух чисел в отсортированном массиве</title>
+	<title>Algorithmics</title>
 
-    
-
-<meta charset="UTF-8">
+	<meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta name="theme-color" content="#157878">
-<meta name="description" content="Подробный разбор решения задачи с примерами на языках TypeScript и GO">
+<meta name="description" content="Научитесь успешно проходить алгоритмические секции на интервью! Опытные разработчики предлагают вам разбор задач, основы алгоритмов и помощь в подготовке к техническим интервью.">
 
 <!-- Facebook Meta Tags -->
 <meta property="og:url" content="https://algorithmics-blog.github.io">
 <meta property="og:type" content="website">
-<meta property="og:title" content="Сумма двух чисел в отсортированном массиве">
-<meta property="og:description" content="Подробный разбор решения задачи с примерами на языках TypeScript и GO">
-<meta property="og:image" content="https://algorithmics-blog.github.io/images/previews/two_sum_sorted_array.webp">
+<meta property="og:title" content="Algorithmics">
+<meta property="og:description" content="Научитесь успешно проходить алгоритмические секции на интервью! Опытные разработчики предлагают вам разбор задач, основы алгоритмов и помощь в подготовке к техническим интервью.">
+<meta property="og:image" content="https://algorithmics-blog.github.io/images/promo_big.jpg">
 
 <!-- Twitter Meta Tags -->
 <meta property="twitter:domain" content="algorithmics-blog.github.io">
 <meta property="twitter:url" content="https://algorithmics-blog.github.io">
-<meta name="twitter:title" content="Сумма двух чисел в отсортированном массиве">
-<meta name="twitter:description" content="Подробный разбор решения задачи с примерами на языках TypeScript и GO">
-<meta name="twitter:image" content="https://algorithmics-blog.github.io/images/previews/two_sum_sorted_array.webp">
+<meta name="twitter:title" content="Algorithmics">
+<meta name="twitter:description" content="Научитесь успешно проходить алгоритмические секции на интервью! Опытные разработчики предлагают вам разбор задач, основы алгоритмов и помощь в подготовке к техническим интервью.">
+<meta name="twitter:image" content="https://algorithmics-blog.github.io/images/promo_big.jpg">
 
-    <link rel="icon" type="image/x-icon" href="/favicon.ico">
+	<link rel="icon" type="image/x-icon" href="/favicon.ico">
 
-    <script src="/js/tabs.js"></script>
-
-    <style>/*! normalize.css v3.0.2 | MIT License | git.io/normalize */
+	<style>/*! normalize.css v3.0.2 | MIT License | git.io/normalize */
 
 /**
  * 1. Set default font family to sans-serif.
@@ -982,332 +978,35 @@ code {
     background: #fff1f0;
     border-color: #ffa39e;
 }
-.tab {
+.pagination {
     display: flex;
-    flex-wrap: wrap;
-    margin-left: -20px;
-    padding: 0;
-    list-style: none;
-    position: relative;
+    margin-top: 20px;
 }
 
-.tab > * {
-    flex: none;
-    padding-left: 20px;
-    position: relative;
-}
-
-.tab > * > a {
-    display: block;
-    text-align: center;
-    padding: 9px 20px;
-    color: #999;
-    border-bottom: 2px solid transparent;
-    font-size: 12px;
-    text-transform: uppercase;
-    transition: color .1s ease-in-out;
-    line-height: 20px;
-}
-
-.tab > .active > a {
-    color:#222;
-    border-color: #1e87f0;
-}
-
-.tab > li > a {
+.pagination .element {
+    border-radius: 8px;
     text-decoration: none;
-    cursor: pointer;
+    height: 40px;
+    width: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
-.tab-content {
-    padding: 0;
+.pagination .element.active {
+    background-color: #1e6bb8;
+    color: white;
 }
 
-.tab-content > li {
-    display: none;
-}
-.tab-content > li.active {
-    display: initial;
-}
-.post-navigation {
-	display: flex;
-	justify-content: space-between;
-	gap: 16px;
-	margin: 20px 0;
+.pagination .element:hover:not(.active, .disabled) {
+    background-color: #ddd;
 }
 
-@media screen and (max-width: 42em) {
-	.post-navigation {
-		padding: 0 16px;
-		font-size: 14px;
-	}
-}
-
-.post-meta {
-	display: flex;
-	justify-content: space-between;
-	gap: 8px;
-	margin-bottom: 4px;
-	font-size: 14px;
-	padding: 0 14px;
-}
-
-.post-time {
-	display: flex;
-	align-items: center;
-	justify-content: center;
-	gap: 4px;
-	color: #606c71;
-}
-
-.post-complexity {
-	display: flex;
-	align-items: center;
-	justify-content: center;
-}
-
-.post-original-url {
-	display: flex;
-	justify-content: center;
-	margin-top: 10px;
-	font-size: 14px;
-}
-
-.header-anchor {
-	color: #00000050;
-	display: none;
-}
-
-.header-anchor:hover {
-	color: #00000085;
-	text-decoration: underline;
-}
-
-h1:hover .header-anchor,
-h2:hover .header-anchor,
-h3:hover .header-anchor,
-h4:hover .header-anchor,
-h5:hover .header-anchor,
-h6:hover .header-anchor {
-	display: inline-block;
-}
-
-.code-sample pre {
-	font-size: 0.85rem;
-}
-code[class*="language-"],
-pre[class*="language-"] {
-	text-align: left;
-	white-space: pre;
-	word-spacing: normal;
-	word-break: normal;
-	word-wrap: normal;
-	color: #c3cee3;
-	background: #263238;
-	font-family: Roboto Mono, monospace;
-	font-size: 0.8rem;
-	line-height: 1.5em;
-
-	-moz-tab-size: 4;
-	-o-tab-size: 4;
-	tab-size: 4;
-
-	-webkit-hyphens: none;
-	-moz-hyphens: none;
-	-ms-hyphens: none;
-	hyphens: none;
-}
-
-code[class*="language-"]::-moz-selection,
-pre[class*="language-"]::-moz-selection,
-code[class*="language-"] ::-moz-selection,
-pre[class*="language-"] ::-moz-selection {
-	background: #363636;
-}
-
-code[class*="language-"]::selection,
-pre[class*="language-"]::selection,
-code[class*="language-"] ::selection,
-pre[class*="language-"] ::selection {
-	background: #363636;
-}
-
-:not(pre) > code[class*="language-"] {
-	white-space: normal;
-	border-radius: 0.2em;
-	padding: 0.1em;
-}
-
-pre[class*="language-"] {
-	overflow: auto;
-	position: relative;
-	margin: 0.5em 0;
-	padding: 1.25em 1em;
-}
-
-.language-css > code,
-.language-sass > code,
-.language-scss > code {
-	color: #fd9170;
-}
-
-[class*="language-"] .namespace {
-	opacity: 0.7;
-}
-
-.token.atrule {
-	color: #c792ea;
-}
-
-.token.attr-name {
-	color: #ffcb6b;
-}
-
-.token.attr-value {
-	color: #c3e88d;
-}
-
-.token.attribute {
-	color: #c3e88d;
-}
-
-.token.boolean {
-	color: #c792ea;
-}
-
-.token.builtin {
-	color: #ffcb6b;
-}
-
-.token.cdata {
-	color: #80cbc4;
-}
-
-.token.char {
-	color: #80cbc4;
-}
-
-.token.class {
-	color: #ffcb6b;
-}
-
-.token.class-name {
-	color: #f2ff00;
-}
-
-.token.color {
-	color: #f2ff00;
-}
-
-.token.comment {
-	color: #546e7a;
-}
-
-.token.constant {
-	color: #c792ea;
-}
-
-.token.deleted {
-	color: #f07178;
-}
-
-.token.doctype {
-	color: #546e7a;
-}
-
-.token.entity {
-	color: #f07178;
-}
-
-.token.function {
-	color: #c792ea;
-}
-
-.token.hexcode {
-	color: #f2ff00;
-}
-
-.token.id {
-	color: #c792ea;
-	font-weight: bold;
-}
-
-.token.important {
-	color: #c792ea;
-	font-weight: bold;
-}
-
-.token.inserted {
-	color: #80cbc4;
-}
-
-.token.keyword {
-	color: #c792ea;
-	font-style: italic;
-}
-
-.token.number {
-	color: #fd9170;
-}
-
-.token.operator {
-	color: #89ddff;
-}
-
-.token.prolog {
-	color: #546e7a;
-}
-
-.token.property {
-	color: #80cbc4;
-}
-
-.token.pseudo-class {
-	color: #c3e88d;
-}
-
-.token.pseudo-element {
-	color: #c3e88d;
-}
-
-.token.punctuation {
-	color: #89ddff;
-}
-
-.token.regex {
-	color: #f2ff00;
-}
-
-.token.selector {
-	color: #f07178;
-}
-
-.token.string {
-	color: #c3e88d;
-}
-
-.token.symbol {
-	color: #c792ea;
-}
-
-.token.tag {
-	color: #f07178;
-}
-
-.token.unit {
-	color: #f07178;
-}
-
-.token.url {
-	color: #fd9170;
-}
-
-.token.variable {
-	color: #f07178;
+.pagination .element.disabled{
+    color: #bebebe;
 }</style>
-    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
 
-    <!-- Google tag (gtag.js) -->
+	<!-- Google tag (gtag.js) -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-K9Z6HSGW4P"></script>
 <script>
     window.dataLayer = window.dataLayer || [];
@@ -1350,15 +1049,19 @@ pre[class*="language-"] {
 </section>
 
 
-<section class="post-content">
-    <div class="post-header">
-        <h1>Сумма двух чисел в отсортированном массиве</h1>
+<section class="main-content">
+	
+<div class="main-page">
+    <div class="all-cards">
+        
+            <a href="/blog/remove_duplicates_from_sorted_array/" class="post-card">
+    <div class="post-card_image-container" style="background-image: url('/images/previews/remove_duplicates_from_sorted_array.webp');">
 
-        <div class="post-complexity">
+        <div class="post-card_complexity">
             
+    <span class="complexity complexity_easy">Легкая</span>
 
 
-    <span class="complexity complexity_medium">Средняя</span>
 
 
 
@@ -1366,8 +1069,12 @@ pre[class*="language-"] {
         </div>
     </div>
 
-    <div class="post-meta">
-        <div class="post-tags">
+    <div class="post-card_content">
+        <div class="post-card_title">Удаление дубликатов из отсортированного массива</div>
+
+        <div class="post-card_meta">
+            <div class="post-date">
+                <div class="post-tags">
     
         <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24">
             <g fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2">
@@ -1381,182 +1088,190 @@ pre[class*="language-"] {
     <div>
 
             
-                <a href="/tags/medium/" class="post-tag">medium</a>
+                <span class="post-tag">easy</span>
             , 
 
             
-                <a href="/tags/two-pointers/" class="post-tag">two pointers</a>
+                <span class="post-tag">array</span>
+            , 
+
+            
+                <span class="post-tag">two pointers</span>
             
     </div>
 </div>
 
+            </div>
 
-        
-        <div class="post-date">
+            <div class="post-card_tags">
+                <div class="post-date">
 	<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24">
 		<path fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
 					d="M4 7a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v12a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2zm12-4v4M8 3v4m-4 4h16M7 14h.013m2.997 0h.005m2.995 0h.005m3 0h.005m-3.005 3h.005m-6.01 0h.005m2.995 0h.005"/>
 	</svg>
 
-	<span>02 September 2023</span>
+	<span>18 August 2023</span>
 </div>
 
-    </div>
-
-    <div class="post-card task-card"
-    <hr>
-<h2 id="opisanie-zadachi" tabindex="-1">Описание задачи <a class="header-anchor" href="#opisanie-zadachi">#</a></h2>
-<p>Дан массив целых чисел <code>nums</code>, отсортированный в возрастающем порядке.
-Напишите функцию <code>twoSum</code> для поиска в массиве двух чисел, сумма которых равна целевому числу <code>target</code>.
-В качестве результата функция должна возвращать массив с индексами элементов удовлетворяющих условию.
-Отсчет индексов начинается с единицы.</p>
-<hr>
-<h2 id="ogranicheniya" tabindex="-1">Ограничения <a class="header-anchor" href="#ogranicheniya">#</a></h2>
-<ul>
-<li>В массиве может быть от 2 до 3 * 10<sup>4</sup> уникальных значений</li>
-<li>В качестве значений могут быть числа в диапазоне от -1000 до 1000</li>
-<li>Массив отсортирован в возрастающем порядке</li>
-<li>Значение <code>target</code> может быть в диапазоне от -1000 до 1000</li>
-<li>Для массива всегда есть только одно решение</li>
-</ul>
-<hr>
-<h2 id="primery" tabindex="-1">Примеры <a class="header-anchor" href="#primery">#</a></h2>
-<div data-role="tabs"><ul class="tab-content" id="tabs_643280" data-name="tabs_643280">
-<li data-role="tabs-content" data-tab-name="Пример №1">
-<p><strong>Входные данные</strong></p>
-<pre><code>nums = [2, 5, 7, 15]
-target = 9
-</code></pre>
-<p><strong>Ответ</strong>: <code>[1, 3]</code></p>
-<p>Сумма 2 и 7 равна 9. Следовательно, <code>index1</code> = 1, <code>index2</code> = 3.<br>
-Возвращаем <code>[1, 3]</code>.</p>
-</li>
-<li data-role="tabs-content" data-tab-name="Пример №2">
-<p><strong>Входные данные</strong></p>
-<pre><code>nums = [-1, 0]
-target = -1
-</code></pre>
-<p><strong>Ответ</strong>: <code>[1, 2]]</code></p>
-<p>Сумма -1 и 0 равна -1. Следовательно, <code>index1</code> = 1, <code>index2</code> = 2.<br>
-Возвращаем <code>[1, 2]</code>.</p>
-</li>
-</ul></div>
-<h2 id="reshenie" tabindex="-1">Решение <a class="header-anchor" href="#reshenie">#</a></h2>
-<p>Решение этой задачи сильно упрощается дополнительными условиями:</p>
-<ul>
-<li>массив отсортирован в возрастающем порядке;</li>
-<li>в массиве нет повторяющихся значений.</li>
-</ul>
-<p>Благодаря этим условиям задачу можно решить простым перебором при помощи двух указателей, используя следующий алгоритм.</p>
-<ol>
-<li>Заводим два указателя, которые будут хранить индексы. Значение <code>left</code> делаем равным 0, значение <code>right</code> равным
-индексу последнего элемента.</li>
-<li>Запускаем цикл, который прервется, если <code>left</code> станет больше или равен <code>right</code>, то есть когда индексы сойдутся.</li>
-<li>На каждой итерации высчитываем сумму элементов под индексами <code>left</code> и <code>right</code> и проверяем ее на равенство с <code>target</code>.</li>
-</ol>
-<ul>
-<li>Если сумма равна <code>target</code>, значит мы нашли искомые числа. В таком случае возвращаем в ответе их индексы, добавив к ним
-единицу.</li>
-<li>Если сумма больше <code>target</code>, значит мы сложили слишком большие числа и нам надо взять более маленькие.
-Уменьшить сумму мы можем взяв число, которое стоит левее от текущего под индексом <code>right</code>.
-Так как массив отсортирован в возрастающем порядке и в нем нет дубликатов, мы точно знаем, что число левее <code>right</code>
-будет гарантировано меньше.
-Уменьшаем <code>right</code> на 1.</li>
-<li>Если сумма меньше <code>target</code>, значит мы сложили слишком маленькие числа и нам надо взять более большие.
-Увеличить сумму мы можем взяв число, которое стоит правее от текущего под индексом <code>left</code>.
-Так как массив отсортирован в возрастающем порядке и в нем нет дубликатов, мы точно знаем, что число правее <code>left</code>
-будет гарантировано больше.
-Увеличиваем <code>left</code> на 1.</li>
-</ul>
-<p>Таким образом мы перебираем все возможные комбинации и находим конечный ответ.</p>
-<div class="code-sample">
-	<ul " class="tab" data-tab="solution-tabs_589" data-name="solution-tabs_589">
-		<li class="active" id="go">
-			<a href="#">go</a>
-		</li>
-		<li id="type-script" class="">
-			<a href="#">type script</a>
-		</li>
-	</ul>
-<p><ul class="tab-content" id="solution-tabs_589" data-name="solution-tabs_589">
-<li class="active"></p>
-<pre class="language-go" tabindex="0"><code class="language-go"><span class="token keyword">package</span> main
-
-<span class="token keyword">func</span> <span class="token function">twoSum</span><span class="token punctuation">(</span>nums <span class="token punctuation">[</span><span class="token punctuation">]</span><span class="token builtin">int</span><span class="token punctuation">,</span> target <span class="token builtin">int</span><span class="token punctuation">)</span> <span class="token punctuation">[</span><span class="token punctuation">]</span><span class="token builtin">int</span> <span class="token punctuation">{</span>
-	<span class="token comment">// Устанавливаем левый указатель в нулевой индекс</span>
-	left <span class="token operator">:=</span> <span class="token number">0</span>
-
-	<span class="token comment">// Устанавливаем правый указатель в индекс последнего элемента в слайсе</span>
-	right <span class="token operator">:=</span> <span class="token function">len</span><span class="token punctuation">(</span>nums<span class="token punctuation">)</span> <span class="token operator">-</span> <span class="token number">1</span>
-
-	<span class="token comment">// Запускаем цикл, который прервется, если `left` и `right` сойдутся</span>
-	<span class="token keyword">for</span> left <span class="token operator">&lt;</span> right <span class="token punctuation">{</span>
-		sum <span class="token operator">:=</span> nums<span class="token punctuation">[</span>left<span class="token punctuation">]</span> <span class="token operator">+</span> nums<span class="token punctuation">[</span>right<span class="token punctuation">]</span>
-
-		<span class="token keyword">if</span> sum <span class="token operator">==</span> target <span class="token punctuation">{</span>
-			<span class="token keyword">return</span> <span class="token punctuation">[</span><span class="token punctuation">]</span><span class="token builtin">int</span><span class="token punctuation">{</span>left <span class="token operator">+</span> <span class="token number">1</span><span class="token punctuation">,</span> right <span class="token operator">+</span> <span class="token number">1</span><span class="token punctuation">}</span>
-		<span class="token punctuation">}</span> <span class="token keyword">else</span> <span class="token keyword">if</span> sum <span class="token operator">></span> target <span class="token punctuation">{</span>
-			right<span class="token operator">--</span>
-		<span class="token punctuation">}</span> <span class="token keyword">else</span> <span class="token punctuation">{</span>
-			left<span class="token operator">++</span>
-		<span class="token punctuation">}</span>
-	<span class="token punctuation">}</span>
-
-	<span class="token comment">// Если ничего не нашли возвращаем [-1, -1]</span>
-	<span class="token keyword">return</span> <span class="token punctuation">[</span><span class="token punctuation">]</span><span class="token builtin">int</span><span class="token punctuation">{</span><span class="token operator">-</span><span class="token number">1</span><span class="token punctuation">,</span> <span class="token operator">-</span><span class="token number">1</span><span class="token punctuation">}</span>
-<span class="token punctuation">}</span></code></pre>
-<p></li></p>
-<p><li class=""></p>
-<pre class="language-typescript" tabindex="0"><code class="language-typescript"><span class="token keyword">export</span> <span class="token keyword">const</span> twoSum <span class="token operator">=</span> <span class="token punctuation">(</span>nums<span class="token operator">:</span> <span class="token builtin">number</span><span class="token punctuation">[</span><span class="token punctuation">]</span><span class="token punctuation">,</span> target<span class="token operator">:</span> <span class="token builtin">number</span><span class="token punctuation">)</span><span class="token operator">:</span> <span class="token builtin">number</span><span class="token punctuation">[</span><span class="token punctuation">]</span> <span class="token operator">=></span> <span class="token punctuation">{</span>
-    <span class="token comment">// Устанавливаем левый указатель в нулевой индекс</span>
-    <span class="token keyword">let</span> left <span class="token operator">=</span> <span class="token number">0</span>
-
-    <span class="token comment">// Устанавливаем правый указатель в индекс последнего элемента в массиве</span>
-    <span class="token keyword">let</span> right <span class="token operator">=</span> nums<span class="token punctuation">.</span>length <span class="token operator">-</span> <span class="token number">1</span>
-
-    <span class="token comment">// Запускаем цикл, который прервется, если `left` и `right` сойдутся</span>
-    <span class="token keyword">while</span> <span class="token punctuation">(</span>left <span class="token operator">&lt;</span> right<span class="token punctuation">)</span> <span class="token punctuation">{</span>
-        <span class="token keyword">const</span> sum <span class="token operator">=</span> nums<span class="token punctuation">[</span>left<span class="token punctuation">]</span> <span class="token operator">+</span> nums<span class="token punctuation">[</span>right<span class="token punctuation">]</span>
-
-        <span class="token keyword">if</span> <span class="token punctuation">(</span>sum <span class="token operator">===</span> target<span class="token punctuation">)</span> <span class="token punctuation">{</span>
-            <span class="token keyword">return</span> <span class="token punctuation">[</span>left <span class="token operator">+</span> <span class="token number">1</span><span class="token punctuation">,</span> right <span class="token operator">+</span> <span class="token number">1</span><span class="token punctuation">]</span>
-        <span class="token punctuation">}</span> <span class="token keyword">else</span> <span class="token keyword">if</span> <span class="token punctuation">(</span>sum <span class="token operator">></span> target<span class="token punctuation">)</span> <span class="token punctuation">{</span>
-            right<span class="token operator">--</span>
-        <span class="token punctuation">}</span> <span class="token keyword">else</span> <span class="token punctuation">{</span>
-            left<span class="token operator">++</span>
-        <span class="token punctuation">}</span>
-    <span class="token punctuation">}</span>
-
-    <span class="token comment">// Если ничего не нашли возвращаем [-1, -1]</span>
-    <span class="token keyword">return</span> <span class="token punctuation">[</span><span class="token operator">-</span><span class="token number">1</span><span class="token punctuation">,</span> <span class="token operator">-</span><span class="token number">1</span><span class="token punctuation">]</span>
-<span class="token punctuation">}</span></code></pre>
-<p></li>
-</ul></p>
-</div>
-<h3 id="oczenka-slozhnosti" tabindex="-1">Оценка сложности <a class="header-anchor" href="#oczenka-slozhnosti">#</a></h3>
-<p><code>n</code> - количество элементов в массиве.</p>
-<p><strong>По времени</strong></p>
-<p>Сложность по времени <code>O(n)</code>, так как мы итерируемся по всем элементам массива.</p>
-<p><strong>По памяти</strong></p>
-<p>Сложность по памяти <code>O(1)</code>, так как мы используем только три переменных для хранения индексов и суммы.</p>
-
-    </div>
-
-    
-        <div class="post-original-url">
-            <a href="https://leetcode.com/problems/two-sum-ii-input-array-is-sorted/description/" target="_blank">Оригинал задачи на Leetcode</a>
-        </div>
-    
-            <div class="post-navigation">
-                <div>
-                        <a class="btn" href="/blog/two_sum/">< Предыдущая задача</a>
-                    
-                </div>
-                <div>
-                        <a class="btn" href="/blog/three_sum/">Следующая задача ></a>
-                    
-                </div>
             </div>
+        </div>
+    </div>
+</a>
+
+        
+    </div>
+</div>
+
+<div class="pagination">
+    
+        <a class="element" href="/5/index.html">&laquo;</a>
+    
+
+    
+        
+            <a class="element" href="/">1</a>
+        
+    
+        
+            <a class="element" href="/1/">2</a>
+        
+    
+        
+            <a class="element" href="/2/">3</a>
+        
+    
+        
+            <a class="element" href="/3/">4</a>
+        
+    
+        
+            <a class="element" href="/4/">5</a>
+        
+    
+        
+            <a class="element" href="/5/">6</a>
+        
+    
+        
+            <span class="element active">7</span>
+        
+    
+
+    
+        <span class="element disabled">&raquo;</span>
+    
+</div>
+
+
+<h2>Все теги</h2>
+<div class="post-tags centered">
+    
+
+    <div>
+
+            
+                <a href="/tags/easy/" class="post-tag">easy</a>
+            , 
+
+            
+                <a href="/tags/array/" class="post-tag">array</a>
+            , 
+
+            
+                <a href="/tags/two-pointers/" class="post-tag">two pointers</a>
+            , 
+
+            
+                <a href="/tags/medium/" class="post-tag">medium</a>
+            , 
+
+            
+                <a href="/tags/dynamic-programming/" class="post-tag">dynamic programming</a>
+            , 
+
+            
+                <a href="/tags/hash-table/" class="post-tag">hash table</a>
+            , 
+
+            
+                <a href="/tags/string/" class="post-tag">string</a>
+            , 
+
+            
+                <a href="/tags/stack/" class="post-tag">stack</a>
+            , 
+
+            
+                <a href="/tags/backtracking/" class="post-tag">backtracking</a>
+            , 
+
+            
+                <a href="/tags/math/" class="post-tag">math</a>
+            , 
+
+            
+                <a href="/tags/recursion/" class="post-tag">recursion</a>
+            , 
+
+            
+                <a href="/tags/matrix/" class="post-tag">matrix</a>
+            , 
+
+            
+                <a href="/tags/simulation/" class="post-tag">simulation</a>
+            , 
+
+            
+                <a href="/tags/tree/" class="post-tag">tree</a>
+            , 
+
+            
+                <a href="/tags/prefix-sum/" class="post-tag">prefix sum</a>
+            , 
+
+            
+                <a href="/tags/integers/" class="post-tag">integers</a>
+            , 
+
+            
+                <a href="/tags/linked-list/" class="post-tag">linked list</a>
+            , 
+
+            
+                <a href="/tags/bit-manipulation/" class="post-tag">bit manipulation</a>
+            , 
+
+            
+                <a href="/tags/binary-tree/" class="post-tag">binary tree</a>
+            , 
+
+            
+                <a href="/tags/binary-search/" class="post-tag">binary search</a>
+            , 
+
+            
+                <a href="/tags/queue/" class="post-tag">queue</a>
+            , 
+
+            
+                <a href="/tags/sliding-window/" class="post-tag">sliding window</a>
+            , 
+
+            
+                <a href="/tags/hard/" class="post-tag">hard</a>
+            , 
+
+            
+                <a href="/tags/heap/" class="post-tag">heap</a>
+            , 
+
+            
+                <a href="/tags/trie/" class="post-tag">trie</a>
+            
+    </div>
+</div>
+
+
 </section>
 
 <footer class="site-footer">
