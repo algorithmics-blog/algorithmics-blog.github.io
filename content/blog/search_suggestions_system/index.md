@@ -1,7 +1,7 @@
 ---
 layout: layouts/post.njk
 title: Система поиска подсказок
-date: 2024-11-29
+date: 2024-12-03
 complexity: medium
 original_url: https://leetcode.com/problems/search-suggestions-system/description/
 preview_image: /images/previews/search_suggestions_system.webp
