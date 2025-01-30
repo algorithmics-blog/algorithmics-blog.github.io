@@ -2,7 +2,7 @@
 layout: layouts/post.njk
 title: Disjoint Set
 date: 2025-02-03
-preview_image: /images/previews/dota2_senate.webp
+preview_image: /images/previews/disjoint_set.webp
 tags:
   - data_structure
   - graph
