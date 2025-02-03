@@ -1,34 +1,30 @@
 <!doctype html>
 <html lang="ru">
 <head>
-    <title>Максимальный средний подмассив</title>
+	<title>Algorithmics</title>
 
-    
-
-<meta charset="UTF-8">
+	<meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta name="theme-color" content="#157878">
-<meta name="description" content="Подробный разбор решения задачи с примерами на языках TypeScript и GO">
+<meta name="description" content="Научитесь успешно проходить алгоритмические секции на интервью! Опытные разработчики предлагают вам разбор задач, основы алгоритмов и помощь в подготовке к техническим интервью.">
 
 <!-- Facebook Meta Tags -->
 <meta property="og:url" content="https://algorithmics-blog.github.io">
 <meta property="og:type" content="website">
-<meta property="og:title" content="Максимальный средний подмассив">
-<meta property="og:description" content="Подробный разбор решения задачи с примерами на языках TypeScript и GO">
-<meta property="og:image" content="https://algorithmics-blog.github.io/images/previews/maximum_average_subarray_i.webp">
+<meta property="og:title" content="Algorithmics">
+<meta property="og:description" content="Научитесь успешно проходить алгоритмические секции на интервью! Опытные разработчики предлагают вам разбор задач, основы алгоритмов и помощь в подготовке к техническим интервью.">
+<meta property="og:image" content="https://algorithmics-blog.github.io/images/promo_big.jpg">
 
 <!-- Twitter Meta Tags -->
 <meta property="twitter:domain" content="algorithmics-blog.github.io">
 <meta property="twitter:url" content="https://algorithmics-blog.github.io">
-<meta name="twitter:title" content="Максимальный средний подмассив">
-<meta name="twitter:description" content="Подробный разбор решения задачи с примерами на языках TypeScript и GO">
-<meta name="twitter:image" content="https://algorithmics-blog.github.io/images/previews/maximum_average_subarray_i.webp">
+<meta name="twitter:title" content="Algorithmics">
+<meta name="twitter:description" content="Научитесь успешно проходить алгоритмические секции на интервью! Опытные разработчики предлагают вам разбор задач, основы алгоритмов и помощь в подготовке к техническим интервью.">
+<meta name="twitter:image" content="https://algorithmics-blog.github.io/images/promo_big.jpg">
 
-    <link rel="icon" type="image/x-icon" href="/favicon.ico">
+	<link rel="icon" type="image/x-icon" href="/favicon.ico">
 
-    <script src="/js/tabs.js"></script>
-
-    <style>/*! normalize.css v3.0.2 | MIT License | git.io/normalize */
+	<style>/*! normalize.css v3.0.2 | MIT License | git.io/normalize */
 
 /**
  * 1. Set default font family to sans-serif.
@@ -982,332 +978,35 @@ code {
     background: #fff1f0;
     border-color: #ffa39e;
 }
-.tab {
+.pagination {
     display: flex;
-    flex-wrap: wrap;
-    margin-left: -20px;
-    padding: 0;
-    list-style: none;
-    position: relative;
+    margin-top: 20px;
 }
 
-.tab > * {
-    flex: none;
-    padding-left: 20px;
-    position: relative;
-}
-
-.tab > * > a {
-    display: block;
-    text-align: center;
-    padding: 9px 20px;
-    color: #999;
-    border-bottom: 2px solid transparent;
-    font-size: 12px;
-    text-transform: uppercase;
-    transition: color .1s ease-in-out;
-    line-height: 20px;
-}
-
-.tab > .active > a {
-    color:#222;
-    border-color: #1e87f0;
-}
-
-.tab > li > a {
+.pagination .element {
+    border-radius: 8px;
     text-decoration: none;
-    cursor: pointer;
+    height: 40px;
+    width: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
-.tab-content {
-    padding: 0;
+.pagination .element.active {
+    background-color: #1e6bb8;
+    color: white;
 }
 
-.tab-content > li {
-    display: none;
-}
-.tab-content > li.active {
-    display: initial;
-}
-.post-navigation {
-	display: flex;
-	justify-content: space-between;
-	gap: 16px;
-	margin: 20px 0;
+.pagination .element:hover:not(.active, .disabled) {
+    background-color: #ddd;
 }
 
-@media screen and (max-width: 42em) {
-	.post-navigation {
-		padding: 0 16px;
-		font-size: 14px;
-	}
-}
-
-.post-meta {
-	display: flex;
-	justify-content: space-between;
-	gap: 8px;
-	margin-bottom: 4px;
-	font-size: 14px;
-	padding: 0 14px;
-}
-
-.post-time {
-	display: flex;
-	align-items: center;
-	justify-content: center;
-	gap: 4px;
-	color: #606c71;
-}
-
-.post-complexity {
-	display: flex;
-	align-items: center;
-	justify-content: center;
-}
-
-.post-original-url {
-	display: flex;
-	justify-content: center;
-	margin-top: 10px;
-	font-size: 14px;
-}
-
-.header-anchor {
-	color: #00000050;
-	display: none;
-}
-
-.header-anchor:hover {
-	color: #00000085;
-	text-decoration: underline;
-}
-
-h1:hover .header-anchor,
-h2:hover .header-anchor,
-h3:hover .header-anchor,
-h4:hover .header-anchor,
-h5:hover .header-anchor,
-h6:hover .header-anchor {
-	display: inline-block;
-}
-
-.code-sample pre {
-	font-size: 0.85rem;
-}
-code[class*="language-"],
-pre[class*="language-"] {
-	text-align: left;
-	white-space: pre;
-	word-spacing: normal;
-	word-break: normal;
-	word-wrap: normal;
-	color: #c3cee3;
-	background: #263238;
-	font-family: Roboto Mono, monospace;
-	font-size: 0.8rem;
-	line-height: 1.5em;
-
-	-moz-tab-size: 4;
-	-o-tab-size: 4;
-	tab-size: 4;
-
-	-webkit-hyphens: none;
-	-moz-hyphens: none;
-	-ms-hyphens: none;
-	hyphens: none;
-}
-
-code[class*="language-"]::-moz-selection,
-pre[class*="language-"]::-moz-selection,
-code[class*="language-"] ::-moz-selection,
-pre[class*="language-"] ::-moz-selection {
-	background: #363636;
-}
-
-code[class*="language-"]::selection,
-pre[class*="language-"]::selection,
-code[class*="language-"] ::selection,
-pre[class*="language-"] ::selection {
-	background: #363636;
-}
-
-:not(pre) > code[class*="language-"] {
-	white-space: normal;
-	border-radius: 0.2em;
-	padding: 0.1em;
-}
-
-pre[class*="language-"] {
-	overflow: auto;
-	position: relative;
-	margin: 0.5em 0;
-	padding: 1.25em 1em;
-}
-
-.language-css > code,
-.language-sass > code,
-.language-scss > code {
-	color: #fd9170;
-}
-
-[class*="language-"] .namespace {
-	opacity: 0.7;
-}
-
-.token.atrule {
-	color: #c792ea;
-}
-
-.token.attr-name {
-	color: #ffcb6b;
-}
-
-.token.attr-value {
-	color: #c3e88d;
-}
-
-.token.attribute {
-	color: #c3e88d;
-}
-
-.token.boolean {
-	color: #c792ea;
-}
-
-.token.builtin {
-	color: #ffcb6b;
-}
-
-.token.cdata {
-	color: #80cbc4;
-}
-
-.token.char {
-	color: #80cbc4;
-}
-
-.token.class {
-	color: #ffcb6b;
-}
-
-.token.class-name {
-	color: #f2ff00;
-}
-
-.token.color {
-	color: #f2ff00;
-}
-
-.token.comment {
-	color: #546e7a;
-}
-
-.token.constant {
-	color: #c792ea;
-}
-
-.token.deleted {
-	color: #f07178;
-}
-
-.token.doctype {
-	color: #546e7a;
-}
-
-.token.entity {
-	color: #f07178;
-}
-
-.token.function {
-	color: #c792ea;
-}
-
-.token.hexcode {
-	color: #f2ff00;
-}
-
-.token.id {
-	color: #c792ea;
-	font-weight: bold;
-}
-
-.token.important {
-	color: #c792ea;
-	font-weight: bold;
-}
-
-.token.inserted {
-	color: #80cbc4;
-}
-
-.token.keyword {
-	color: #c792ea;
-	font-style: italic;
-}
-
-.token.number {
-	color: #fd9170;
-}
-
-.token.operator {
-	color: #89ddff;
-}
-
-.token.prolog {
-	color: #546e7a;
-}
-
-.token.property {
-	color: #80cbc4;
-}
-
-.token.pseudo-class {
-	color: #c3e88d;
-}
-
-.token.pseudo-element {
-	color: #c3e88d;
-}
-
-.token.punctuation {
-	color: #89ddff;
-}
-
-.token.regex {
-	color: #f2ff00;
-}
-
-.token.selector {
-	color: #f07178;
-}
-
-.token.string {
-	color: #c3e88d;
-}
-
-.token.symbol {
-	color: #c792ea;
-}
-
-.token.tag {
-	color: #f07178;
-}
-
-.token.unit {
-	color: #f07178;
-}
-
-.token.url {
-	color: #fd9170;
-}
-
-.token.variable {
-	color: #f07178;
+.pagination .element.disabled{
+    color: #bebebe;
 }</style>
-    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
 
-    <!-- Google tag (gtag.js) -->
+	<!-- Google tag (gtag.js) -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-K9Z6HSGW4P"></script>
 <script>
     window.dataLayer = window.dataLayer || [];
@@ -1350,14 +1049,17 @@ pre[class*="language-"] {
 </section>
 
 
-<section class="post-content">
-    <div class="post-header">
-        <h1>Максимальный средний подмассив</h1>
+<section class="main-content">
+	
+<h1 style="text-align: center">Все задачи с тегом «data_structure»</h1>
 
-        <div class="post-complexity">
+<div class="all-cards">
+  
+    <a href="/blog/disjoint_set/" class="post-card">
+    <div class="post-card_image-container" style="background-image: url('/images/previews/disjoint_set.webp');">
+
+        <div class="post-card_complexity">
             
-    <span class="complexity complexity_easy">Легкая</span>
-
 
 
 
@@ -1366,8 +1068,12 @@ pre[class*="language-"] {
         </div>
     </div>
 
-    <div class="post-meta">
-        <div class="post-tags">
+    <div class="post-card_content">
+        <div class="post-card_title">Disjoint Set</div>
+
+        <div class="post-card_meta">
+            <div class="post-date">
+                <div class="post-tags">
     
         <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24">
             <g fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2">
@@ -1381,145 +1087,36 @@ pre[class*="language-"] {
     <div>
 
             
-                <a href="/tags/array/" class="post-tag">array</a>
+                <span class="post-tag">data_structure</span>
             , 
 
             
-                <a href="/tags/sliding-window/" class="post-tag">sliding window</a>
-            , 
-
-            
-                <a href="/tags/easy/" class="post-tag">easy</a>
+                <span class="post-tag">graph</span>
             
     </div>
 </div>
 
+            </div>
 
-        
-        <div class="post-date">
+            <div class="post-card_tags">
+                <div class="post-date">
 	<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24">
 		<path fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
 					d="M4 7a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v12a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2zm12-4v4M8 3v4m-4 4h16M7 14h.013m2.997 0h.005m2.995 0h.005m3 0h.005m-3.005 3h.005m-6.01 0h.005m2.995 0h.005"/>
 	</svg>
 
-	<span>10 May 2024</span>
+	<span>03 February 2025</span>
 </div>
 
-    </div>
-
-    <div class="post-card task-card"
-    <hr>
-<h2 id="opisanie-zadachi" tabindex="-1">Описание задачи <a class="header-anchor" href="#opisanie-zadachi">#</a></h2>
-<p>Вам дан целочисленный массив <code>nums</code>, состоящий из <code>n</code> элементов, и целое число <code>k</code>.
-Найдите непрерывный подмассив длиной <code>k</code>, имеющий максимальное среднее значение, и верните это значение.</p>
-<p>Принимается любой ответ с ошибкой расчета менее 10<sup>-5</sup>.</p>
-<hr>
-<h2 id="ogranicheniya" tabindex="-1">Ограничения <a class="header-anchor" href="#ogranicheniya">#</a></h2>
-<ul>
-<li><code>k</code> гарантированно меньше или равно длине массива <code>nums</code></li>
-<li>Количество элементов в массиве может быть в диапазоне от 1 до 10<sup>5</sup></li>
-<li>Каждый элемент массива может принимать значение в диапазоне от -10<sup>4</sup> до 10<sup>4</sup></li>
-</ul>
-<hr>
-<h2 id="primery" tabindex="-1">Примеры <a class="header-anchor" href="#primery">#</a></h2>
-<div data-role="tabs"><ul class="tab-content" id="tabs_269240" data-name="tabs_269240">
-<li data-role="tabs-content" data-tab-name="Пример №1">
-<p><strong>Входные данные</strong>: <code>nums = [1,12,-5,-6,50,3], k = 4</code></p>
-<p><strong>Ответ</strong>: <code>12.75</code></p>
-</li>
-<li data-role="tabs-content" data-tab-name="Пример №2">
-<p><strong>Входные данные</strong>: <code>nums = [5], k = 1</code></p>
-<p><strong>Ответ</strong>: <code>5</code></p>
-</li>
-</ul></div>
-<hr>
-<h2 id="reshenie" tabindex="-1">Решение <a class="header-anchor" href="#reshenie">#</a></h2>
-<p>Для решения задачи мы будем использовать метод скользящего окна.</p>
-<p>Начнем мы с того, что посчитаем сумму первых <code>k</code> элементов массива таким образом, как бы предзаполнив значение скользящего окна длиною <code>k</code>.
-После этого создадим переменную <code>maxSum</code>, которая будет хранить максимальное значение суммы подмассива и присвоим ей значение суммы первых <code>k</code> элементов.</p>
-<p>Далее мы будем итерироваться по массиву, начиная с элемента <code>k</code> и до конца массива.
-На каждой итерации мы будем вычитать из суммы текущего окна значение элемента, который выходит за пределы окна слева, и прибавлять значение элемента, который входит в окно справа.
-После этого мы будем сравнивать текущее значение суммы окна с максимальным значением и обновлять <code>maxSum</code>, если текущее значение больше.</p>
-<p>Таким образом, после завершения всех итераций по массиву, в переменной <code>maxSum</code> будет храниться максимальное значение суммы подмассива длиною <code>k</code>.
-В самом конце только остается поделить эту сумму на <code>k</code> таким образом получив среднее значение подмассива.</p>
-<h3 id="realizacziya" tabindex="-1">Реализация <a class="header-anchor" href="#realizacziya">#</a></h3>
-<div class="code-sample">
-	<ul " class="tab" data-tab="solution-tabs_712" data-name="solution-tabs_712">
-		<li class="active" id="go">
-			<a href="#">go</a>
-		</li>
-		<li id="type-script" class="">
-			<a href="#">type script</a>
-		</li>
-	</ul>
-<p><ul class="tab-content" id="solution-tabs_712" data-name="solution-tabs_712">
-<li class="active"></p>
-<pre class="language-go" tabindex="0"><code class="language-go"><span class="token keyword">package</span> maximum_average_subarray_i
-
-<span class="token keyword">func</span> <span class="token function">findMaxAverage</span><span class="token punctuation">(</span>nums <span class="token punctuation">[</span><span class="token punctuation">]</span><span class="token builtin">int</span><span class="token punctuation">,</span> k <span class="token builtin">int</span><span class="token punctuation">)</span> <span class="token builtin">float64</span> <span class="token punctuation">{</span>
-	sum <span class="token operator">:=</span> <span class="token number">0</span>
-
-	<span class="token keyword">for</span> i <span class="token operator">:=</span> <span class="token number">0</span><span class="token punctuation">;</span> i <span class="token operator">&lt;</span> k<span class="token punctuation">;</span> i<span class="token operator">++</span> <span class="token punctuation">{</span>
-		sum <span class="token operator">+=</span> nums<span class="token punctuation">[</span>i<span class="token punctuation">]</span>
-	<span class="token punctuation">}</span>
-
-	maxSum <span class="token operator">:=</span> sum
-
-	<span class="token keyword">for</span> i <span class="token operator">:=</span> k<span class="token punctuation">;</span> i <span class="token operator">&lt;</span> <span class="token function">len</span><span class="token punctuation">(</span>nums<span class="token punctuation">)</span><span class="token punctuation">;</span> i<span class="token operator">++</span> <span class="token punctuation">{</span>
-		sum <span class="token operator">=</span> sum <span class="token operator">+</span> nums<span class="token punctuation">[</span>i<span class="token punctuation">]</span> <span class="token operator">-</span> nums<span class="token punctuation">[</span>i<span class="token operator">-</span>k<span class="token punctuation">]</span>
-		<span class="token keyword">if</span> sum <span class="token operator">></span> maxSum <span class="token punctuation">{</span>
-			maxSum <span class="token operator">=</span> sum
-		<span class="token punctuation">}</span>
-	<span class="token punctuation">}</span>
-
-	<span class="token keyword">return</span> <span class="token function">float64</span><span class="token punctuation">(</span>maxSum<span class="token punctuation">)</span> <span class="token operator">/</span> <span class="token function">float64</span><span class="token punctuation">(</span>k<span class="token punctuation">)</span>
-<span class="token punctuation">}</span></code></pre>
-<p></li></p>
-<p><li class=""></p>
-<pre class="language-typescript" tabindex="0"><code class="language-typescript"><span class="token keyword">export</span> <span class="token keyword">const</span> findMaxAverage <span class="token operator">=</span> <span class="token punctuation">(</span>nums<span class="token operator">:</span> <span class="token builtin">number</span><span class="token punctuation">[</span><span class="token punctuation">]</span><span class="token punctuation">,</span> k<span class="token operator">:</span> <span class="token builtin">number</span><span class="token punctuation">)</span><span class="token operator">:</span> <span class="token builtin">number</span> <span class="token operator">=></span> <span class="token punctuation">{</span>
-	<span class="token keyword">let</span> sum <span class="token operator">=</span> <span class="token number">0</span>
-
-	<span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token keyword">let</span> i <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span> i <span class="token operator">&lt;</span> k<span class="token punctuation">;</span> i<span class="token operator">++</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
-		sum <span class="token operator">+=</span> nums<span class="token punctuation">[</span>i<span class="token punctuation">]</span>
-	<span class="token punctuation">}</span>
-
-	<span class="token keyword">let</span> maxSum <span class="token operator">=</span> sum
-
-	<span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token keyword">let</span> i <span class="token operator">=</span> k<span class="token punctuation">;</span> i <span class="token operator">&lt;</span> nums<span class="token punctuation">.</span>length<span class="token punctuation">;</span> i<span class="token operator">++</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
-		sum <span class="token operator">=</span> sum <span class="token operator">+</span> nums<span class="token punctuation">[</span>i<span class="token punctuation">]</span> <span class="token operator">-</span> nums<span class="token punctuation">[</span>i<span class="token operator">-</span>k<span class="token punctuation">]</span>
-		<span class="token keyword">if</span> <span class="token punctuation">(</span>sum <span class="token operator">></span> maxSum<span class="token punctuation">)</span> <span class="token punctuation">{</span>
-			maxSum <span class="token operator">=</span> sum
-		<span class="token punctuation">}</span>
-	<span class="token punctuation">}</span>
-
-	<span class="token keyword">return</span> maxSum <span class="token operator">/</span> k
-<span class="token punctuation">}</span></code></pre>
-<p></li>
-</ul></p>
-</div>
-<h3 id="oczenka-slozhnosti" tabindex="-1">Оценка сложности <a class="header-anchor" href="#oczenka-slozhnosti">#</a></h3>
-<p><strong>По времени</strong></p>
-<p>Сложность <code>O(n)</code>, так как мы итерируемся по всем элементам массива.</p>
-<p><strong>По памяти</strong></p>
-<p>Сложность <code>O(1)</code>, так как мы не выделяем дополнительную память, зависящую от длины массива.</p>
-
-    </div>
-
-    
-        <div class="post-original-url">
-            <a href="https://leetcode.com/problems/maximum-average-subarray-i/" target="_blank">Оригинал задачи на Leetcode</a>
-        </div>
-    
-            <div class="post-navigation">
-                <div>
-                        <a class="btn" href="/blog/maximum_number_of_vowels_in_a_substring_of_given_length/">< Предыдущая задача</a>
-                    
-                </div>
-                <div>
-                        <a class="btn" href="/blog/minimum_number_of_arrows_to_burst_balloons/">Следующая задача ></a>
-                    
-                </div>
             </div>
+        </div>
+    </div>
+</a>
+
+  
+</div>
+
+
 </section>
 
 <footer class="site-footer">
