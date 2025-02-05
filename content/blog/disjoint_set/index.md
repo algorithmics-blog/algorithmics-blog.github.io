@@ -6,6 +6,7 @@ preview_image: /images/previews/disjoint_set.webp
 tags:
   - data_structure
   - graph
+  - disjoint_set
 ---
 
 ---
