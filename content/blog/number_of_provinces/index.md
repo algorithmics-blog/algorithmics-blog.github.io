@@ -92,6 +92,10 @@ isConnected = [[1,0,0],[0,1,0],[0,0,1]]
 В итоге после перебора элементов матрицы переменная `numberOfProvinces` будет показывать количество получившихся
 провинций.
 
+### Реализация
+
+{% renderFile "_includes/components/solution.njk", taskName = "number_of_provinces" %}
+
 ### Оценка сложности
 
 **По времени**
