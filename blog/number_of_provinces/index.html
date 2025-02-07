@@ -1426,7 +1426,7 @@ pre[class*="language-"] {
 </ul>
 <hr>
 <h2 id="primery" tabindex="-1">Примеры <a class="header-anchor" href="#primery">#</a></h2>
-<div data-role="tabs"><ul class="tab-content" id="tabs_675736" data-name="tabs_675736">
+<div data-role="tabs"><ul class="tab-content" id="tabs_498749" data-name="tabs_498749">
 <li data-role="tabs-content" data-tab-name="Пример №1">
 <p><strong>Входные данные</strong></p>
 <pre><code>isConnected = [[1,1,0],[1,1,0],[0,0,1]]
@@ -1448,7 +1448,7 @@ pre[class*="language-"] {
 <p>Как только мы имеем реализованную структуру данных, задача становится крайне легкой.</p>
 <p>Алгоритм решения:</p>
 <ul>
-<li>Создать инстанс структуру данных <code>DisjointSet</code>.</li>
+<li>Создать инстанс структуры данных <code>DisjointSet</code>.</li>
 <li>Определить переменную <code>numberOfProvinces</code> равную <code>n</code> в начале состояния. Далее мы будем уменьшать ее значение при
 объединении городов в провинцию.</li>
 <li>Так как главная диагональ матрицы <code>isConnected</code> отображает соединение каждого города с самим собой, то мы можем ее не
@@ -1460,6 +1460,121 @@ pre[class*="language-"] {
 </ul>
 <p>В итоге после перебора элементов матрицы переменная <code>numberOfProvinces</code> будет показывать количество получившихся
 провинций.</p>
+<h3 id="realizacziya" tabindex="-1">Реализация <a class="header-anchor" href="#realizacziya">#</a></h3>
+<div class="code-sample">
+	<ul " class="tab" data-tab="solution-tabs_673" data-name="solution-tabs_673">
+		<li class="active" id="go">
+			<a href="#">go</a>
+		</li>
+		<li id="type-script" class="">
+			<a href="#">type script</a>
+		</li>
+	</ul>
+<p><ul class="tab-content" id="solution-tabs_673" data-name="solution-tabs_673">
+<li class="active"></p>
+<pre class="language-go" tabindex="0"><code class="language-go"><span class="token keyword">package</span> number_of_provinces
+
+<span class="token keyword">type</span> DisjointSet <span class="token keyword">struct</span> <span class="token punctuation">{</span>
+	nodes <span class="token punctuation">[</span><span class="token punctuation">]</span><span class="token builtin">int</span>
+<span class="token punctuation">}</span>
+
+<span class="token keyword">func</span> <span class="token function">NewDisjointSet</span><span class="token punctuation">(</span>size <span class="token builtin">int</span><span class="token punctuation">)</span> DisjointSet <span class="token punctuation">{</span>
+	nodes <span class="token operator">:=</span> <span class="token function">make</span><span class="token punctuation">(</span><span class="token punctuation">[</span><span class="token punctuation">]</span><span class="token builtin">int</span><span class="token punctuation">,</span> size<span class="token punctuation">)</span>
+
+	<span class="token keyword">for</span> i <span class="token operator">:=</span> <span class="token number">0</span><span class="token punctuation">;</span> i <span class="token operator">&lt;</span> size<span class="token punctuation">;</span> i<span class="token operator">++</span> <span class="token punctuation">{</span>
+		nodes<span class="token punctuation">[</span>i<span class="token punctuation">]</span> <span class="token operator">=</span> i
+	<span class="token punctuation">}</span>
+
+	<span class="token keyword">return</span> DisjointSet<span class="token punctuation">{</span>
+		nodes<span class="token punctuation">:</span> nodes<span class="token punctuation">,</span>
+	<span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+
+<span class="token keyword">func</span> <span class="token punctuation">(</span>uf <span class="token operator">*</span>DisjointSet<span class="token punctuation">)</span> <span class="token function">find</span><span class="token punctuation">(</span>node <span class="token builtin">int</span><span class="token punctuation">)</span> <span class="token builtin">int</span> <span class="token punctuation">{</span>
+	<span class="token keyword">return</span> uf<span class="token punctuation">.</span>nodes<span class="token punctuation">[</span>node<span class="token punctuation">]</span>
+<span class="token punctuation">}</span>
+
+<span class="token keyword">func</span> <span class="token punctuation">(</span>uf <span class="token operator">*</span>DisjointSet<span class="token punctuation">)</span> <span class="token function">union</span><span class="token punctuation">(</span>x <span class="token builtin">int</span><span class="token punctuation">,</span> y <span class="token builtin">int</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+	rootX <span class="token operator">:=</span> uf<span class="token punctuation">.</span><span class="token function">find</span><span class="token punctuation">(</span>x<span class="token punctuation">)</span>
+	rootY <span class="token operator">:=</span> uf<span class="token punctuation">.</span><span class="token function">find</span><span class="token punctuation">(</span>y<span class="token punctuation">)</span>
+
+	<span class="token keyword">if</span> rootY <span class="token operator">!=</span> rootX <span class="token punctuation">{</span>
+		<span class="token keyword">for</span> i <span class="token operator">:=</span> <span class="token keyword">range</span> uf<span class="token punctuation">.</span>nodes <span class="token punctuation">{</span>
+			<span class="token keyword">if</span> uf<span class="token punctuation">.</span>nodes<span class="token punctuation">[</span>i<span class="token punctuation">]</span> <span class="token operator">==</span> rootY <span class="token punctuation">{</span>
+				uf<span class="token punctuation">.</span>nodes<span class="token punctuation">[</span>i<span class="token punctuation">]</span> <span class="token operator">=</span> rootX
+			<span class="token punctuation">}</span>
+		<span class="token punctuation">}</span>
+	<span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+
+<span class="token keyword">func</span> <span class="token function">findCircleNum</span><span class="token punctuation">(</span>isConnected <span class="token punctuation">[</span><span class="token punctuation">]</span><span class="token punctuation">[</span><span class="token punctuation">]</span><span class="token builtin">int</span><span class="token punctuation">)</span> <span class="token builtin">int</span> <span class="token punctuation">{</span>
+	n <span class="token operator">:=</span> <span class="token function">len</span><span class="token punctuation">(</span>isConnected<span class="token punctuation">)</span>
+	disjointSet <span class="token operator">:=</span> <span class="token function">NewDisjointSet</span><span class="token punctuation">(</span>n<span class="token punctuation">)</span>
+
+	numberOfProvinces <span class="token operator">:=</span> n
+
+	<span class="token keyword">for</span> i <span class="token operator">:=</span> <span class="token number">0</span><span class="token punctuation">;</span> i <span class="token operator">&lt;</span> n<span class="token punctuation">;</span> i<span class="token operator">++</span> <span class="token punctuation">{</span>
+		<span class="token keyword">for</span> j <span class="token operator">:=</span> i <span class="token operator">+</span> <span class="token number">1</span><span class="token punctuation">;</span> j <span class="token operator">&lt;</span> n<span class="token punctuation">;</span> j<span class="token operator">++</span> <span class="token punctuation">{</span>
+			<span class="token keyword">if</span> isConnected<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">[</span>j<span class="token punctuation">]</span> <span class="token operator">==</span> <span class="token number">1</span> <span class="token operator">&amp;&amp;</span> disjointSet<span class="token punctuation">.</span><span class="token function">find</span><span class="token punctuation">(</span>i<span class="token punctuation">)</span> <span class="token operator">!=</span> disjointSet<span class="token punctuation">.</span><span class="token function">find</span><span class="token punctuation">(</span>j<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+				numberOfProvinces <span class="token operator">-=</span> <span class="token number">1</span>
+				disjointSet<span class="token punctuation">.</span><span class="token function">union</span><span class="token punctuation">(</span>i<span class="token punctuation">,</span> j<span class="token punctuation">)</span>
+			<span class="token punctuation">}</span>
+		<span class="token punctuation">}</span>
+	<span class="token punctuation">}</span>
+
+	<span class="token keyword">return</span> numberOfProvinces
+<span class="token punctuation">}</span></code></pre>
+<p></li></p>
+<p><li class=""></p>
+<pre class="language-typescript" tabindex="0"><code class="language-typescript"><span class="token keyword">class</span> <span class="token class-name">DisjointSet</span> <span class="token punctuation">{</span>
+    <span class="token keyword">readonly</span> nodes<span class="token operator">:</span> <span class="token builtin">number</span><span class="token punctuation">[</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
+
+    <span class="token function">constructor</span><span class="token punctuation">(</span>size<span class="token operator">:</span> <span class="token builtin">number</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token keyword">this</span><span class="token punctuation">.</span>nodes <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name"><span class="token builtin">Array</span></span><span class="token punctuation">(</span>size<span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+        <span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token keyword">let</span> i <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span> i <span class="token operator">&lt;</span> size<span class="token punctuation">;</span> i<span class="token operator">++</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+            <span class="token keyword">this</span><span class="token punctuation">.</span>nodes<span class="token punctuation">[</span>i<span class="token punctuation">]</span> <span class="token operator">=</span> i<span class="token punctuation">;</span>
+        <span class="token punctuation">}</span>
+    <span class="token punctuation">}</span>
+
+    <span class="token function">find</span><span class="token punctuation">(</span>node<span class="token operator">:</span> <span class="token builtin">number</span><span class="token punctuation">)</span><span class="token operator">:</span> <span class="token builtin">number</span> <span class="token punctuation">{</span>
+        <span class="token keyword">return</span> <span class="token keyword">this</span><span class="token punctuation">.</span>nodes<span class="token punctuation">[</span>node<span class="token punctuation">]</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+
+    <span class="token function">union</span><span class="token punctuation">(</span>x<span class="token operator">:</span> <span class="token builtin">number</span><span class="token punctuation">,</span> y<span class="token operator">:</span> <span class="token builtin">number</span><span class="token punctuation">)</span><span class="token operator">:</span> <span class="token keyword">void</span> <span class="token punctuation">{</span>
+        <span class="token keyword">const</span> rootX <span class="token operator">=</span> <span class="token keyword">this</span><span class="token punctuation">.</span><span class="token function">find</span><span class="token punctuation">(</span>x<span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token keyword">const</span> rootY <span class="token operator">=</span> <span class="token keyword">this</span><span class="token punctuation">.</span><span class="token function">find</span><span class="token punctuation">(</span>y<span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+        <span class="token keyword">if</span> <span class="token punctuation">(</span>rootX <span class="token operator">!==</span> rootY<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+            <span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token keyword">let</span> i <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span> i <span class="token operator">&lt;</span> <span class="token keyword">this</span><span class="token punctuation">.</span>nodes<span class="token punctuation">.</span>length<span class="token punctuation">;</span> i<span class="token operator">++</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+                <span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token keyword">this</span><span class="token punctuation">.</span>nodes<span class="token punctuation">[</span>i<span class="token punctuation">]</span> <span class="token operator">===</span> rootY<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+                    <span class="token keyword">this</span><span class="token punctuation">.</span>nodes<span class="token punctuation">[</span>i<span class="token punctuation">]</span> <span class="token operator">=</span> rootX<span class="token punctuation">;</span>
+                <span class="token punctuation">}</span>
+            <span class="token punctuation">}</span>
+        <span class="token punctuation">}</span>
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+
+<span class="token keyword">export</span> <span class="token keyword">const</span> findCircleNum <span class="token operator">=</span> <span class="token punctuation">(</span>isConnected<span class="token operator">:</span> <span class="token builtin">number</span><span class="token punctuation">[</span><span class="token punctuation">]</span><span class="token punctuation">[</span><span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token operator">:</span> <span class="token builtin">number</span> <span class="token operator">=></span> <span class="token punctuation">{</span>
+    <span class="token keyword">const</span> n <span class="token operator">=</span> isConnected<span class="token punctuation">.</span>length<span class="token punctuation">;</span>
+    <span class="token keyword">const</span> disjointSet <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">DisjointSet</span><span class="token punctuation">(</span>n<span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+    <span class="token keyword">let</span> numberOfProvinces <span class="token operator">=</span> n<span class="token punctuation">;</span>
+
+    <span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token keyword">let</span> i <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span> i <span class="token operator">&lt;</span> n<span class="token punctuation">;</span> i<span class="token operator">++</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token keyword">let</span> j <span class="token operator">=</span> i <span class="token operator">+</span> <span class="token number">1</span><span class="token punctuation">;</span> j <span class="token operator">&lt;</span> n<span class="token punctuation">;</span> j<span class="token operator">++</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+            <span class="token keyword">if</span> <span class="token punctuation">(</span>isConnected<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">[</span>j<span class="token punctuation">]</span> <span class="token operator">==</span> <span class="token number">1</span> <span class="token operator">&amp;&amp;</span> disjointSet<span class="token punctuation">.</span><span class="token function">find</span><span class="token punctuation">(</span>i<span class="token punctuation">)</span> <span class="token operator">!=</span> disjointSet<span class="token punctuation">.</span><span class="token function">find</span><span class="token punctuation">(</span>j<span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+                numberOfProvinces <span class="token operator">-=</span> <span class="token number">1</span><span class="token punctuation">;</span>
+                disjointSet<span class="token punctuation">.</span><span class="token function">union</span><span class="token punctuation">(</span>i<span class="token punctuation">,</span> j<span class="token punctuation">)</span><span class="token punctuation">;</span>
+            <span class="token punctuation">}</span>
+        <span class="token punctuation">}</span>
+    <span class="token punctuation">}</span>
+
+    <span class="token keyword">return</span> numberOfProvinces
+<span class="token punctuation">}</span></code></pre>
+<p></li>
+</ul></p>
+</div>
 <h3 id="oczenka-slozhnosti" tabindex="-1">Оценка сложности <a class="header-anchor" href="#oczenka-slozhnosti">#</a></h3>
 <p><strong>По времени</strong></p>
 <ul>
