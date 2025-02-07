@@ -1,7 +1,7 @@
 <!doctype html>
 <html lang="ru">
 <head>
-    <title>Число после двойного переворота</title>
+    <title>Количество провинций</title>
 
     
 
@@ -13,16 +13,16 @@
 <!-- Facebook Meta Tags -->
 <meta property="og:url" content="https://algorithmics-blog.github.io">
 <meta property="og:type" content="website">
-<meta property="og:title" content="Число после двойного переворота">
+<meta property="og:title" content="Количество провинций">
 <meta property="og:description" content="Подробный разбор решения задачи с примерами на языках TypeScript и GO">
-<meta property="og:image" content="https://algorithmics-blog.github.io/images/previews/number_double_reversion.webp">
+<meta property="og:image" content="https://algorithmics-blog.github.io/images/previews/number_of_provinces.webp">
 
 <!-- Twitter Meta Tags -->
 <meta property="twitter:domain" content="algorithmics-blog.github.io">
 <meta property="twitter:url" content="https://algorithmics-blog.github.io">
-<meta name="twitter:title" content="Число после двойного переворота">
+<meta name="twitter:title" content="Количество провинций">
 <meta name="twitter:description" content="Подробный разбор решения задачи с примерами на языках TypeScript и GO">
-<meta name="twitter:image" content="https://algorithmics-blog.github.io/images/previews/number_double_reversion.webp">
+<meta name="twitter:image" content="https://algorithmics-blog.github.io/images/previews/number_of_provinces.webp">
 
     <link rel="icon" type="image/x-icon" href="/favicon.ico">
 
@@ -1352,13 +1352,13 @@ pre[class*="language-"] {
 
 <section class="post-content">
     <div class="post-header">
-        <h1>Число после двойного переворота</h1>
+        <h1>Количество провинций</h1>
 
         <div class="post-complexity">
             
-    <span class="complexity complexity_easy">Легкая</span>
 
 
+    <span class="complexity complexity_medium">Средняя</span>
 
 
 
@@ -1381,15 +1381,15 @@ pre[class*="language-"] {
     <div>
 
             
-                <a href="/tags/easy/" class="post-tag">easy</a>
+                <a href="/tags/medium/" class="post-tag">medium</a>
             , 
 
             
-                <a href="/tags/math/" class="post-tag">math</a>
+                <a href="/tags/graph/" class="post-tag">graph</a>
             , 
 
             
-                <a href="/tags/integers/" class="post-tag">integers</a>
+                <a href="/tags/disjoint-set/" class="post-tag">disjoint_set</a>
             
     </div>
 </div>
@@ -1402,7 +1402,7 @@ pre[class*="language-"] {
 					d="M4 7a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v12a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2zm12-4v4M8 3v4m-4 4h16M7 14h.013m2.997 0h.005m2.995 0h.005m3 0h.005m-3.005 3h.005m-6.01 0h.005m2.995 0h.005"/>
 	</svg>
 
-	<span>04 December 2023</span>
+	<span>05 February 2025</span>
 </div>
 
     </div>
@@ -1410,177 +1410,80 @@ pre[class*="language-"] {
     <div class="post-card task-card"
     <hr>
 <h2 id="opisanie-zadachi" tabindex="-1">Описание задачи <a class="header-anchor" href="#opisanie-zadachi">#</a></h2>
-<p>Дано целое число <code>num</code>.
-Переверните число, чтобы получить <code>reversed1</code>, затем переверните <code>reversed1</code>, чтобы получить <code>reversed2</code>.
-Верните <code>true</code>, если перевернутое значение <code>reversed2</code> равно исходному числу <code>num</code>.
-В противном случае верните <code>false</code>.</p>
-<p>Перевернуть целое число означает, что вам необходимо перевернуть все его цифры.
-Например, переворот числа <code>2021</code> дает число <code>1202</code>.
-Переворот числа <code>12300</code> дает <code>321</code>, поскольку ведущие нули не сохраняются.</p>
+<p>Есть <code>n</code> городов, некоторые из которых соединены между собой.</p>
+<p>Если город <code>a</code> напрямую соединен c городом <code>b</code>, а город <code>b</code> напрямую соединен с городом <code>c</code>, тогда города <code>a</code> и <code>c</code>
+косвенно соединены между собой.</p>
+<p>Провинция — это группа напрямую или косвенно связанных между собой городов.</p>
+<p>Вам дана матрица <code>isConnected</code> размером <code>n</code> x <code>n</code>, где <code>isConnected[i][j] = 1</code>, если <code>i</code>-й город и <code>j</code>-й город напрямую
+соединены, и <code>isConnected[i][j] = 0</code> в противном случае.</p>
+<p>Верните общее количество провинций.</p>
 <hr>
 <h2 id="ogranicheniya" tabindex="-1">Ограничения <a class="header-anchor" href="#ogranicheniya">#</a></h2>
 <ul>
-<li>Значение <code>num</code> находится в диапазоне от 0 до 10<sup>6</sup></li>
+<li>Размер матрицы <code>n</code> — это целое число в диапазоне от <code>1</code> до <code>200</code></li>
+<li>В качестве значений в матрице используются только <code>1</code> b <code>0</code></li>
+<li><code>isConnected[i][j] == isConnected[j][i]</code></li>
 </ul>
 <hr>
 <h2 id="primery" tabindex="-1">Примеры <a class="header-anchor" href="#primery">#</a></h2>
-<div data-role="tabs"><ul class="tab-content" id="tabs_763479" data-name="tabs_763479">
+<div data-role="tabs"><ul class="tab-content" id="tabs_675736" data-name="tabs_675736">
 <li data-role="tabs-content" data-tab-name="Пример №1">
-<p><strong>Входные данные</strong>: <code>num = 526</code></p>
-<p><strong>Ответ</strong>: <code>true</code></p>
+<p><strong>Входные данные</strong></p>
+<pre><code>isConnected = [[1,1,0],[1,1,0],[0,0,1]]
+</code></pre>
+<p><strong>Ответ</strong>: <code>2</code></p>
 </li>
 <li data-role="tabs-content" data-tab-name="Пример №2">
-<p><strong>Входные данные</strong>: <code>num = 1800</code></p>
-<p><strong>Ответ</strong>: <code>false</code></p>
-</li>
-<li data-role="tabs-content" data-tab-name="Пример №3">
-<p><strong>Входные данные</strong>: <code>num = 0</code></p>
-<p><strong>Ответ</strong>: <code>true</code></p>
+<p><strong>Входные данные</strong></p>
+<pre><code>isConnected = [[1,0,0],[0,1,0],[0,0,1]]
+</code></pre>
+<p><strong>Ответ</strong>: <code>3</code></p>
 </li>
 </ul></div>
 <hr>
 <h2 id="reshenie" tabindex="-1">Решение <a class="header-anchor" href="#reshenie">#</a></h2>
-<p>Для начала создадим вспомогательную функцию <code>reverse</code>, которая будет переворачивать переданное ей число.</p>
-<p>Интуитивно понятно, что для того, чтобы перевернуть число, нам нужно взять последнюю цифру в нем и поставить ее на первое место.
-Такой трюк надо провернуть столько раз, чтобы все число полностью перевернулось.</p>
-<p>Получить последнюю цифру от числа крайне просто, так как это остаток от деления числа на десять.
-Получить же «левую» часть можно оставив лишь целую часть от деления числа на 10.</p>
-<pre class="language-typescript" tabindex="0"><code class="language-typescript">right <span class="token operator">=</span> x <span class="token operator">%</span> <span class="token number">10</span>
-left <span class="token operator">=</span> x <span class="token operator">/</span> <span class="token number">10</span></code></pre>
-<p>То есть мы получим следующие значения.</p>
-<pre class="language-typescript" tabindex="0"><code class="language-typescript">right <span class="token operator">=</span> <span class="token number">3</span>
-left <span class="token operator">=</span> <span class="token number">12</span></code></pre>
-<p>А вот из последне цифры сделать первую уже немного сложнее.</p>
-<p>Для начала создадим переменную <code>res</code>, которая на старте будет равна <code>0</code> и в которой мы будем хранить итоговое число.
-Чтобы в нашем результате последняя цифра стала первой, достаточно к <code>res</code> прибавить <code>right</code>.</p>
-<pre class="language-typescript" tabindex="0"><code class="language-typescript">res <span class="token operator">=</span> res <span class="token operator">+</span> right</code></pre>
-<p>Таким образом после первой итерации мы имеем следующие значения.</p>
-<pre class="language-typescript" tabindex="0"><code class="language-typescript">left <span class="token operator">=</span> <span class="token number">12</span>
-right <span class="token operator">=</span> <span class="token number">3</span>
-res <span class="token operator">=</span> <span class="token number">3</span></code></pre>
-<p>Теперь надо повторить вычисления. Выделяем новую левую часть и последнюю цифру.</p>
-<pre class="language-typescript" tabindex="0"><code class="language-typescript">left <span class="token operator">=</span> <span class="token number">1</span>
-right <span class="token operator">=</span> <span class="token number">2</span>
-res <span class="token operator">=</span> <span class="token number">3</span></code></pre>
-<p>Теперь, если мы попробуем прибавить к <code>res</code> правую цифру, то получим <code>2 + 3 = 5</code>, что будет неверным ответом.
-Нам надо сделать так, чтобы добавленная цифра занимала следующий разряд.
-Для этого нам сначала нужно <code>res</code> умножить на <code>10</code>.
-Таким образом мы получим <code>30</code> вместо <code>3</code>, а добавив к числу <code>2</code>, получим <code>32</code>, что уже является корректной последовательностью.</p>
-<p>Исходя из этого правильная формула для вычисления <code>res</code> будет выглядеть так.</p>
-<pre class="language-typescript" tabindex="0"><code class="language-typescript">res <span class="token operator">=</span> res <span class="token operator">*</span> <span class="token number">10</span> <span class="token operator">+</span> right</code></pre>
-<p>Проделываем итерацию еще раз и получаем итоговые значения.</p>
-<pre class="language-typescript" tabindex="0"><code class="language-typescript">left <span class="token operator">=</span> <span class="token number">0</span>
-right <span class="token operator">=</span> <span class="token number">1</span>
-res <span class="token operator">=</span> <span class="token number">321</span></code></pre>
-<p>Как мы видим, после обработки последней цифры <code>left</code> всегда будет равен <code>0</code>, поэтому цикл мы будем выполнять до тех пор, пока <code>left != 0</code>.</p>
-<div data-role="tabs"><ul class="tab-content" id="tabs_254471" data-name="tabs_254471">
-<li data-role="tabs-content" data-tab-name="GO">
-<pre class="language-go" tabindex="0"><code class="language-go"><span class="token keyword">func</span> <span class="token function">reverse</span><span class="token punctuation">(</span>num <span class="token builtin">int</span><span class="token punctuation">)</span> <span class="token builtin">int</span> <span class="token punctuation">{</span>
-	res <span class="token operator">:=</span> <span class="token number">0</span>
-
-	<span class="token keyword">for</span> num <span class="token operator">!=</span> <span class="token number">0</span> <span class="token punctuation">{</span>
-		right <span class="token operator">:=</span> num <span class="token operator">%</span> <span class="token number">10</span>
-		num <span class="token operator">=</span> num <span class="token operator">/</span> <span class="token number">10</span>
-
-		res <span class="token operator">=</span> res <span class="token operator">*</span> <span class="token number">10</span> <span class="token operator">+</span> right
-	<span class="token punctuation">}</span>
-
-	<span class="token keyword">return</span> res
-<span class="token punctuation">}</span></code></pre>
-</li>
-<li data-role="tabs-content" data-tab-name="Type Script">
-<pre class="language-typescript" tabindex="0"><code class="language-typescript"><span class="token keyword">const</span> reverse <span class="token operator">=</span> <span class="token punctuation">(</span>num<span class="token operator">:</span> <span class="token builtin">number</span><span class="token punctuation">)</span><span class="token operator">:</span> <span class="token builtin">number</span> <span class="token operator">=></span> <span class="token punctuation">{</span>
-    <span class="token keyword">let</span> res <span class="token operator">=</span> <span class="token number">0</span>
-
-    <span class="token keyword">while</span> <span class="token punctuation">(</span>num <span class="token operator">!=</span> <span class="token number">0</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
-        <span class="token keyword">const</span> right <span class="token operator">=</span> num <span class="token operator">%</span> <span class="token number">10</span>
-        num <span class="token operator">=</span> Math<span class="token punctuation">.</span><span class="token function">floor</span><span class="token punctuation">(</span>num <span class="token operator">/</span> <span class="token number">10</span><span class="token punctuation">)</span>
-        res <span class="token operator">=</span> res <span class="token operator">*</span> <span class="token number">10</span> <span class="token operator">+</span> right
-    <span class="token punctuation">}</span>
-
-    <span class="token keyword">return</span> res
-<span class="token punctuation">}</span></code></pre>
-</li>
-</ul></div>
-<p>Теперь, имея готовую функцию нам достаточно перевернуть исходное число дважды и сравнить результаыт.</p>
-<h3 id="realizacziya" tabindex="-1">Реализация <a class="header-anchor" href="#realizacziya">#</a></h3>
-<div class="code-sample">
-	<ul " class="tab" data-tab="solution-tabs_65" data-name="solution-tabs_65">
-		<li class="active" id="go">
-			<a href="#">go</a>
-		</li>
-		<li id="type-script" class="">
-			<a href="#">type script</a>
-		</li>
-	</ul>
-<p><ul class="tab-content" id="solution-tabs_65" data-name="solution-tabs_65">
-<li class="active"></p>
-<pre class="language-go" tabindex="0"><code class="language-go"><span class="token keyword">package</span> main
-
-<span class="token keyword">func</span> <span class="token function">reverse</span><span class="token punctuation">(</span>num <span class="token builtin">int</span><span class="token punctuation">)</span> <span class="token builtin">int</span> <span class="token punctuation">{</span>
-	res <span class="token operator">:=</span> <span class="token number">0</span>
-
-	<span class="token keyword">for</span> num <span class="token operator">!=</span> <span class="token number">0</span> <span class="token punctuation">{</span>
-		right <span class="token operator">:=</span> num <span class="token operator">%</span> <span class="token number">10</span>
-		num <span class="token operator">=</span> num <span class="token operator">/</span> <span class="token number">10</span>
-
-		res <span class="token operator">=</span> res<span class="token operator">*</span><span class="token number">10</span> <span class="token operator">+</span> right
-	<span class="token punctuation">}</span>
-
-	<span class="token keyword">return</span> res
-<span class="token punctuation">}</span>
-
-<span class="token keyword">func</span> <span class="token function">isSameAfterReversals</span><span class="token punctuation">(</span>num <span class="token builtin">int</span><span class="token punctuation">)</span> <span class="token builtin">bool</span> <span class="token punctuation">{</span>
-	reversed1 <span class="token operator">:=</span> <span class="token function">reverse</span><span class="token punctuation">(</span>num<span class="token punctuation">)</span>
-	reversed2 <span class="token operator">:=</span> <span class="token function">reverse</span><span class="token punctuation">(</span>reversed1<span class="token punctuation">)</span>
-
-	<span class="token keyword">return</span> num <span class="token operator">==</span> reversed2
-<span class="token punctuation">}</span></code></pre>
-<p></li></p>
-<p><li class=""></p>
-<pre class="language-typescript" tabindex="0"><code class="language-typescript"><span class="token keyword">const</span> reverse <span class="token operator">=</span> <span class="token punctuation">(</span>num<span class="token operator">:</span> <span class="token builtin">number</span><span class="token punctuation">)</span><span class="token operator">:</span> <span class="token builtin">number</span> <span class="token operator">=></span> <span class="token punctuation">{</span>
-    <span class="token keyword">let</span> res <span class="token operator">=</span> <span class="token number">0</span>
-
-    <span class="token keyword">while</span> <span class="token punctuation">(</span>num <span class="token operator">!=</span> <span class="token number">0</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
-        <span class="token keyword">const</span> right <span class="token operator">=</span> num <span class="token operator">%</span> <span class="token number">10</span>
-        num <span class="token operator">=</span> Math<span class="token punctuation">.</span><span class="token function">floor</span><span class="token punctuation">(</span>num <span class="token operator">/</span> <span class="token number">10</span><span class="token punctuation">)</span>
-        res <span class="token operator">=</span> res <span class="token operator">*</span> <span class="token number">10</span> <span class="token operator">+</span> right
-    <span class="token punctuation">}</span>
-
-    <span class="token keyword">return</span> res
-<span class="token punctuation">}</span>
-
-<span class="token keyword">export</span> <span class="token keyword">const</span> isSameAfterReversals <span class="token operator">=</span> <span class="token punctuation">(</span>num<span class="token operator">:</span> <span class="token builtin">number</span><span class="token punctuation">)</span><span class="token operator">:</span> <span class="token builtin">boolean</span> <span class="token operator">=></span> <span class="token punctuation">{</span>
-    <span class="token keyword">const</span> reversed1 <span class="token operator">=</span> <span class="token function">reverse</span><span class="token punctuation">(</span>num<span class="token punctuation">)</span>
-    <span class="token keyword">const</span> reversed2 <span class="token operator">=</span> <span class="token function">reverse</span><span class="token punctuation">(</span>reversed1<span class="token punctuation">)</span>
-
-    <span class="token keyword">return</span> num <span class="token operator">==</span> reversed2
-<span class="token punctuation">}</span></code></pre>
-<p></li>
-</ul></p>
-</div>
+<p>У этой задачи достаточно много решений и все они достаточно сложные. Но мы можем легко решить задачу, если знать как
+работает структура данных <code>DisjointSet</code> (также известная как <code>UnionFind</code>).</p>
+<p>Подробно про реализацию структуры данных <code>DisjointSet</code> можно посмотреть <a href="../disjoint_set">в этом посте</a>.</p>
+<p>Как только мы имеем реализованную структуру данных, задача становится крайне легкой.</p>
+<p>Алгоритм решения:</p>
+<ul>
+<li>Создать инстанс структуру данных <code>DisjointSet</code>.</li>
+<li>Определить переменную <code>numberOfProvinces</code> равную <code>n</code> в начале состояния. Далее мы будем уменьшать ее значение при
+объединении городов в провинцию.</li>
+<li>Так как главная диагональ матрицы <code>isConnected</code> отображает соединение каждого города с самим собой, то мы можем ее не
+рассматривать. Также нам не требуется проверять всю матрицу так как <code>isConnected[i][j] == isConnected[j][i]</code>, поэтому
+будем перебирать элементы над главной диагональю. Для этого запустим цикл в цикле по <code>i</code> и <code>j</code> от <code>i = 0</code> и
+<code>j = i + 1</code>.</li>
+<li>Если два города соединены (<code>isConnected[i][j] == 1</code>) и они уже не находятся в одном множестве, то мы объединяем эти
+города в множество при помощи метода — то мы объединяем города <code>i</code> и <code>j</code> в одну провинцию.</li>
+</ul>
+<p>В итоге после перебора элементов матрицы переменная <code>numberOfProvinces</code> будет показывать количество получившихся
+провинций.</p>
 <h3 id="oczenka-slozhnosti" tabindex="-1">Оценка сложности <a class="header-anchor" href="#oczenka-slozhnosti">#</a></h3>
 <p><strong>По времени</strong></p>
-<p>Для разворота числа нам нужно произвести <code>k</code> итераций, где <code>k</code> — количество цифр в числе, что примерно равно<code>log(x)</code>.
-Разворот мы производим дважды, но множитель <code>2</code> опускается, поэтому сложность равна <code>O(log(x))</code>.</p>
+<ul>
+<li>Перебор матрицы занимает <code>O(n<sup>2</sup>)</code></li>
+<li>Поиск методом find занимает <code>O(n)</code></li>
+<li>Объединение методом union занимает <code>O(n)</code></li>
+</ul>
+<p>Общая сложность по памяти <code>O(n<sup>2</sup>)</code>.</p>
 <p><strong>По памяти</strong></p>
-<p><code>O(1)</code> — дополнительная память константна.</p>
+<p>Сложность <code>O(n)</code> для хранения состояния структуры <code>DisjointSet</code>.</p>
 
     </div>
 
     
         <div class="post-original-url">
-            <a href="https://leetcode.com/problems/a-number-after-a-double-reversal/description/" target="_blank">Оригинал задачи на Leetcode</a>
+            <a href="https://leetcode.com/problems/number-of-provinces/description/" target="_blank">Оригинал задачи на Leetcode</a>
         </div>
     
             <div class="post-navigation">
                 <div>
-                        <a class="btn" href="/blog/fizz_buzz/">< Предыдущая задача</a>
+                        <a class="btn" href="/blog/disjoint_set/">< Предыдущая задача</a>
                     
                 </div>
                 <div>
-                        <a class="btn" href="/blog/reverse_linked_list/">Следующая задача ></a>
-                    
                 </div>
             </div>
 </section>
