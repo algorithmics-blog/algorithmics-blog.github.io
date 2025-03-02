@@ -1456,7 +1456,7 @@ pre[class*="language-"] {
 <h2 id="realizacziya" tabindex="-1">Реализация <a class="header-anchor" href="#realizacziya">#</a></h2>
 <p>Теперь осталось имплементировать структуру данных по описанной логике.</p>
 <div class="code-sample">
-	<ul " class="tab" data-tab="solution-tabs_690" data-name="solution-tabs_690">
+	<ul " class="tab" data-tab="solution-tabs_11" data-name="solution-tabs_11">
 		<li class="active" id="go">
 			<a href="#">go</a>
 		</li>
@@ -1464,7 +1464,7 @@ pre[class*="language-"] {
 			<a href="#">type script</a>
 		</li>
 	</ul>
-<p><ul class="tab-content" id="solution-tabs_690" data-name="solution-tabs_690">
+<p><ul class="tab-content" id="solution-tabs_11" data-name="solution-tabs_11">
 <li class="active"></p>
 <pre class="language-go" tabindex="0"><code class="language-go"><span class="token keyword">package</span> disjoint_set
 
@@ -1473,11 +1473,11 @@ pre[class*="language-"] {
 	nodes <span class="token punctuation">[</span><span class="token punctuation">]</span><span class="token builtin">int</span>
 <span class="token punctuation">}</span>
 
-<span class="token keyword">func</span> <span class="token function">NewDisjointSet</span><span class="token punctuation">(</span>size <span class="token builtin">int</span><span class="token punctuation">)</span> DisjointSet <span class="token punctuation">{</span>
+<span class="token keyword">func</span> <span class="token function">NewDisjointSet</span><span class="token punctuation">(</span>n <span class="token builtin">int</span><span class="token punctuation">)</span> DisjointSet <span class="token punctuation">{</span>
 	<span class="token comment">// Создаем слайс заданного размера по количеству элементов</span>
-	nodes <span class="token operator">:=</span> <span class="token function">make</span><span class="token punctuation">(</span><span class="token punctuation">[</span><span class="token punctuation">]</span><span class="token builtin">int</span><span class="token punctuation">,</span> size<span class="token punctuation">)</span>
+	nodes <span class="token operator">:=</span> <span class="token function">make</span><span class="token punctuation">(</span><span class="token punctuation">[</span><span class="token punctuation">]</span><span class="token builtin">int</span><span class="token punctuation">,</span> n<span class="token punctuation">)</span>
 
-	<span class="token keyword">for</span> i <span class="token operator">:=</span> <span class="token number">0</span><span class="token punctuation">;</span> i <span class="token operator">&lt;</span> size<span class="token punctuation">;</span> i<span class="token operator">++</span> <span class="token punctuation">{</span>
+	<span class="token keyword">for</span> i <span class="token operator">:=</span> <span class="token number">0</span><span class="token punctuation">;</span> i <span class="token operator">&lt;</span> n<span class="token punctuation">;</span> i<span class="token operator">++</span> <span class="token punctuation">{</span>
 		<span class="token comment">// При инициализации считаем что каждый элемент обособлен и не соединен с другими.</span>
 		<span class="token comment">// В таком случае каждый элемент является рутовым сам для себя</span>
 		nodes<span class="token punctuation">[</span>i<span class="token punctuation">]</span> <span class="token operator">=</span> i
@@ -1551,7 +1551,7 @@ pre[class*="language-"] {
 </ul></p>
 </div>
 <p>А в качестве проверки нашей реализации напишем несколько простых тестов.</p>
-<div data-role="tabs"><ul class="tab-content" id="tabs_309675" data-name="tabs_309675">
+<div data-role="tabs"><ul class="tab-content" id="tabs_443943" data-name="tabs_443943">
 <li data-role="tabs-content" data-tab-name="GO">
 <pre class="language-go" tabindex="0"><code class="language-go"><span class="token keyword">func</span> <span class="token function">Test_DisjointSet</span><span class="token punctuation">(</span>t <span class="token operator">*</span>testing<span class="token punctuation">.</span>T<span class="token punctuation">)</span> <span class="token punctuation">{</span>
 	set <span class="token operator">:=</span> <span class="token function">NewDisjointSet</span><span class="token punctuation">(</span><span class="token number">8</span><span class="token punctuation">)</span>
@@ -1607,7 +1607,6 @@ pre[class*="language-"] {
 </ul></div>
 <h2 id="oczenka-slozhnosti" tabindex="-1">Оценка сложности <a class="header-anchor" href="#oczenka-slozhnosti">#</a></h2>
 <p>Теперь оценим сложность каждого метода созданной нами структуры данных.</p>
-<h3 id="find" tabindex="-1">find <a class="header-anchor" href="#find">#</a></h3>
 <p><strong>По времени</strong></p>
 <ul>
 <li><code>find</code> — сложность <code>O(1)</code>, так как мы получаем значение по индексу в массиве.</li>
