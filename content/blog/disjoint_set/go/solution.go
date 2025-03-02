@@ -5,11 +5,11 @@ type DisjointSet struct {
 	nodes []int
 }
 
-func NewDisjointSet(size int) DisjointSet {
+func NewDisjointSet(n int) DisjointSet {
 	// Создаем слайс заданного размера по количеству элементов
-	nodes := make([]int, size)
+	nodes := make([]int, n)
 
-	for i := 0; i < size; i++ {
+	for i := 0; i < n; i++ {
 		// При инициализации считаем что каждый элемент обособлен и не соединен с другими.
 		// В таком случае каждый элемент является рутовым сам для себя
 		nodes[i] = i

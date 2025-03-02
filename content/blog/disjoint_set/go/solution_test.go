@@ -8,16 +8,16 @@ import (
 func Test_DisjointSet(t *testing.T) {
 	set := NewDisjointSet(8)
 
-	set.union(0, 2)
-	set.union(0, 1)
-	set.union(2, 3)
-	set.union(1, 3)
-
-	set.union(4, 5)
-	set.union(4, 6)
-	set.union(5, 6)
-
 	t.Run("Create disjoint set", func(t *testing.T) {
+		set.union(0, 2)
+		set.union(0, 1)
+		set.union(2, 3)
+		set.union(1, 3)
+
+		set.union(4, 5)
+		set.union(4, 6)
+		set.union(5, 6)
+
 		assert.Equal(t, []int{0, 0, 0, 0, 4, 4, 4, 7}, set.nodes)
 	})
 
